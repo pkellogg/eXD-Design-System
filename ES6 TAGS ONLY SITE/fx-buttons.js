@@ -111,8 +111,8 @@
         }
         
         updateTheme(theme) {
-            var val = "green"; //defaults to green if no theme defined on drop
-            if (["green", "red", "blue", "gold"].indexOf(theme) > -1) {
+            var val = "white"; //defaults to green if no theme defined on drop
+            if (["white","green", "red", "blue", "gold"].indexOf(theme) > -1) {
                 val = theme;
             }
         this.$container.className = "container " + val;

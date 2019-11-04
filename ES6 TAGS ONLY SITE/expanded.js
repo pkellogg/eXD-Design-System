@@ -2,7 +2,7 @@ class MyWebComponent extends HTMLElement {
   
   constructor() {
     super();
-    this.attachShadow({
+    body.attachShadow({
       mode: "open"
     });
   }
