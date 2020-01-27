@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01-Search Results</title>
+<script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
+<script src="https://bossanova.uk/jsuites/v2/jsuites.webcomponents.js"></script>
+<link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css" />
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-tableFilter.js"></script>
+<script src="fx-markup.js"></script>
+</head>
+
+<body>
+
+<fx-dropdownmenu 
+width = 1260 
+height = 71 
+orientation = left 
+textcolor = "silver" 
+c = #4D148C 
+size = 22 
+style="margin-bottom:200px;font-family:roboto;">
+</fx-dropdownmenu>
+
+<fx-markup style="position:absolute;left:60px;top:100px;" textcolor = "black" size = 35 family = "roboto"><span slot = "element-name"><span style= "font-weight:bold;">Calabrese, Christopher</span></fx-markup>
+
+<fx-markup style="position:absolute;left:450px;top:115px;" textcolor = "black" size = 18 family = "roboto"><span slot = "element-name">(edit)</span></fx-markup>
+
+<fx-markup style="position:absolute;left:60px;top:160px;" textcolor = "black" size = 25 family = "roboto"><span slot = "element-name"><span style= "font-weight:bold;">Location<br /><span style= "font-weight:normal;font-size:20px;">JFK USA</span></span></fx-markup>
+
+<fx-markup style="position:absolute;left:250px;top:160px;" textcolor = "black" size = 25 family = "roboto"><span slot = "element-name"><span style= "font-weight:bold;">Actual role<br /><span style= "font-weight:normal;font-size:20px;">Ramp Coordinator</span></span></fx-markup>
+
+<fx-markup style="position:absolute;left:490px;top:160px;" textcolor = "black" size = 25 family = "roboto"><span slot = "element-name"><span style= "font-weight:bold;">Manager<br /><span style= "font-weight:normal;font-size:20px;">Jimenez, Albe</span></span></fx-markup>
+
+<fx-markup style="position:absolute;left:60px;top:350px;" textcolor = "black" size = 35 family = "roboto"><span slot = "element-name">Employee activity</span></fx-markup>
+
+<fx-markup style="position:absolute;left:850px;top:350px;" textcolor = "black" size = 18 family = "roboto"><span slot = "element-name">Filter by Date</span></fx-markup>
+
+<jsuites-calendar value="2020-01-20" style="position:absolute;left:1000px;top:350px;"></jsuites-calendar>
+
+<fx-markup style="position:absolute;left:1090px;top:375px;font-weight:italic;" textcolor = "black" size = 14 family = "roboto"><span slot = "element-name">02 results found</span></fx-markup>
+
+<fx-tableFilter xpos = 50 ypos = 400 width = 1150 ></fx-tableFilter>
+<!--<fx-listbox xpos = 0 ypos = 1000 c = "white" dataSource = "A"></fx-listbox>--> 
+
+</body>
+</html>

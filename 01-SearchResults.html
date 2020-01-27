@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01-Search Results</title>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+</head>
+
+<body>
+
+<fx-dropdownmenu 
+width = 1260 
+height = 71 
+orientation = left 
+textcolor = "silver" 
+c = #4D148C 
+size = 22 
+style="margin-bottom:200px;font-family:roboto;">
+</fx-dropdownmenu>
+
+<fx-markup style="position:absolute;left:60px;top:140px;font-weight:bold;" textcolor = "black" size = 35 family = "roboto">
+<span slot = "element-name">Find Locations</span></fx-markup>
+
+<fx-listbox xpos = 50 ypos = 100 c = "white" dataSource = "A"></fx-listbox> 
+
+</body>
+</html>
