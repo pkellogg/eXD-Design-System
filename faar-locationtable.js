@@ -11,6 +11,7 @@ template.innerHTML = `
 }
 
 .fxtableclass {font-family: roboto;}
+
 .bg{
 background-color:#ff0000 !important;
 }
@@ -32,48 +33,36 @@ th {
 	 
 	 <p id="demo">This is demo</p>` 
 	 
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
-/*xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
+var jasonRequest, xhttp, myObj, x, txt = "";
+xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 myObj = JSON.parse(this.responseText);
-obj = { table: "customers", limit: 20 };*/
-
-//this is the json array
+   }
+};
+xhttp.open("GET", " + jasonRequest + ", true);
+xhttp.send();
 	 
-myObj = [{Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Kellogg, Pat", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"}];
+myObj = [{alphaid: "OLVK", numericid: "N/A" , address: "1790 Kirby Parkway<br />Memphis, TN 38138", director: "Patrick Elam<br />(901)224-3974"}];
 
 var txt = "";
-txt += "<table class='fxtableclass' style='text-align:center;border-collapse:collapse;font-family:roboto;margin-bottom:40px;position:absolute;'>"
+txt += "<table class='fxtableclass' style='text-align:center;border-collapse:collapse;font-family:roboto;position:absolute; top:300px;'>"
+
+ 
 	
-	txt += "<tr style='background-color:#4D148C;color:silver;height:50px;'>" + "<th>" + "Location" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Time period" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Location manager" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Email" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Phone #" + "</th>" + "</th>" + "</tr>";
+	txt += "<tr style='height:50px;'>" + "<th width = '100' align = 'left'>" + "Alpha ID" + "</th>" + "<th width = '100' align = 'left'>" + "Numeric ID" + "</th>" + "<th width = '180' align = 'left'>" + "Address" + "</th>" + "<th width = '180' align = 'left'>" + "Managing Director" + "</th>"  + "</tr>";
 	
 	for (x in myObj) {
-       txt += "<tr class='highlightRows' style='border-bottom:solid 1px silver;height:80px;'>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;'>" + myObj[x].Location + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Time + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Manager + "</td>" + 
-	   "<td  style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;'>" + myObj[x].Email + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Phone + "</td>"  + 
+       txt += "<tr class='highlightRows' style='height:80px;'>" + 
+	   "<td align = 'left'>" + myObj[x].alphaid + "</td>" + 
+	   "<td align = 'left'>" + myObj[x].numericid + "</td>" + 
+	   "<td align = 'left'>" + myObj[x].address + "</td>" + 
+	   "<td align = 'left'>" + myObj[x].director + "</td>"   + 
 	    "</tr>";}
    
     txt += "</table>" 
  
-class FxTable extends HTMLElement {
+class faarlocationtable extends HTMLElement {
 	
 	constructor() {
     super();
@@ -81,7 +70,7 @@ class FxTable extends HTMLElement {
 		//this.shadowRoot.appendChild(template.content.cloneNode(true));
 		//simplified...create the shadow and add content all in one:
 		
-		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));;
+		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));
 		
 		//Remember..attachShadow just creates an EMPTY shadow-root.  You must append the shadow tree content nodes. 
 		this.shadowRoot.querySelector('#demo').innerHTML = txt;;
@@ -97,7 +86,7 @@ class FxTable extends HTMLElement {
 	}
 	
 	connectedCallback() {
-		const whattodo = this.getAttribute('dosomething');
+		const jasonRequest = this.getAttribute('dbRequest'); //php db request
 		//this.shadowRoot.querySelector('#primarybutton').innerHTML = mycaption;
 		//alert(whattodo);
 	updateStylePrimaryButton(this);   
@@ -154,12 +143,6 @@ class FxTable extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('fx-table', FxTable);  //new standard
+	window.customElements.define('faar-locationtable', faarlocationtable);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
-
-
-
-
-
- 

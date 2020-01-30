@@ -1,56 +1,88 @@
 (function() {
 	
 const template = document.createElement('template');
-template.innerHTML = `
+template.innerHTML = `<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-<style>
  
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 250px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
-.highlightrows {
-	background-color:white;
-	color:black;
-	}
+ 
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 50%;
+  font-family:roboto;
+}
 
-.highlightrowsblue {
-	background-color:slateblue;
-	color:white;
-	}
+ 
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
 
- 
+<div id='myModal' class = 'modal'>
+<div class = 'modal-content'>
+    
+<p style="font-size:22px;font-weight:bold;">Add Senior Manager Reporting Group</p>
 
-<p id="demo">This is demo</p>` 
+<form action="/action_page.php">
+
+Title<br />  
+<input type="search" name="title" value="Type a title" style="height:40px;width:96%;border-radius:5px;font-size:14px;padding-left:20px;"><br><br />
+
+Senior Manager<br />
+<input type="search" name="title" value="Search people by name or employee ID..." style="height:40px;width:96%;border-radius:5px;font-size:14px;padding-left:20px;"><br><br />
+
+<input type="button" value="Save" style="float:right;height:35px;width:80px;">
+
+<input type="button" id= 'myClose'   value="Cancel" style="float:right;height:35px;margin-right:10px;width:80px;"><br /><br /><br /> 
+
+</form> 
+  
+<span id= 'myClose' class = "close">&times;</span>
+  
+  </div>
+</div>` 
 	 
 var obj, dbParam, xmlhttp, myObj, x, txt = "";
-/*xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
+var jasonRequest, xhttp, myObj, x, txt = "";
+xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 myObj = JSON.parse(this.responseText);
-obj = { table: "customers", limit: 20 };*/
-
-//this is the json array
+   }
+};
+xhttp.open("GET", " + jasonRequest + ", true);
+xhttp.send();
 	 
-myObj = [
- 
- {pic: " 'manager.jpg' " , lastname: "Calabrese,", firstname: "Christopher" , city: "Cambridge", state: "MA", startdate: "Aug 2017"},
- 
- {pic: " 'manager.jpg' ", lastname: "Calabrese", firstname: "Micheal" , city: "Jamaica,", state: "NY", startdate: "Nov 2009"},
- 
- {pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.", startdate:"Phong"},
- 
- {pic: " 'manager.jpg' ", lastname: "Castalano", firstname: "Jose" , city: "Indianapolis,", state: "IN", startdate: "May 2011"}
- ];
-
-var txt = "";
-txt += "<UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:800px;border: 3px #4D148C solid;border-radius: 5px;'><li style='text-decoration: none;border:none;cursor:pointer;'><input type='search' name='q' style = 'height:50px;width:800px;background-color:white;border-bottom:1px #4D148C solid;border-top:none;border-left:none;border-right:none;padding-left:10px;font-size:18px;font-family:roboto;'></input><img src='magnify.png' style='position:absolute;right: 0px;top: 0px;height:48px;'/></li>"
-	
-	 for (x in myObj) {
-       txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;margin-bottom:30px;margin-top:20px;cursor:pointer;margin-left:30px;'>" + "<image src=" + myObj[x].pic + "style = 'height:70px;width:60px;' />"  + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" + "<span style = 'margin-left:5px;font-weight:bold;'>" +myObj[x].firstname + "</span>"  + "</br>" + "<span >" + myObj[x].city + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].startdate + "</span>" + "</span>" + "</li>" ;
-    }
-   
-    txt += "</UL>" 
- 
-class Fxlistbox extends HTMLElement {
+class faaraddseniormanager extends HTMLElement {
 	
 	constructor() {
     super();
@@ -61,7 +93,7 @@ class Fxlistbox extends HTMLElement {
 		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));;
 		
 		//Remember..attachShadow just creates an EMPTY shadow-root.  You must append the shadow tree content nodes. 
-		this.shadowRoot.querySelector('#demo').innerHTML = txt;;
+		 
 		
 		var items = this.shadowRoot.querySelectorAll('.highlightrows');
 			for (var i = 0; i < items.length; i++) {
@@ -76,9 +108,35 @@ class Fxlistbox extends HTMLElement {
 	}
 	
 	connectedCallback() {
-		const whattodo = this.getAttribute('dosomething');
+		const jasonRequest = this.getAttribute('dbRequest');
 		//this.shadowRoot.querySelector('#primarybutton').innerHTML = mycaption;
 		//alert(whattodo);
+		
+		// Get the modal
+var modal = this.shadowRoot.querySelector("#myModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector("#myBtn"); //the button is in light dom all the rest are shadow
+
+// Get the <span> element that closes the modal
+var span = this.shadowRoot.querySelector("#myClose");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() { 
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 	updateStylePrimaryButton(this);   
 	}   
 	
@@ -127,12 +185,6 @@ class Fxlistbox extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('fx-listbox', Fxlistbox);  //new standard
+	window.customElements.define('faar-addseniormanager', faaraddseniormanager);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
-
-
-
-
-
- 

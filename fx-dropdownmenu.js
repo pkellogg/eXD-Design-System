@@ -9,7 +9,7 @@
 	 
 	 
     <ul id="dropuiid" class="fxdropdownmenuclass" >
-	<li style="display:block;font-size:26px;font-weight:bold;padding-right:50px;"><span style="color:white;">Fed</span><span style="color:orange;">Ex</span></li>
+	<!--<li style="display:block;font-size:26px;font-weight:bold;padding-right:50px;"><span style="color:white;">Fed</span><span style="color:orange;">Ex</span></li>-->
 
 	<li id="item1" style="display:block;" class="dropdown"><a id="linkone" href="" class="dropbtn"><slot name="drop-text1"></slot></a> 
 	<div class="dropdown-content">
@@ -194,7 +194,7 @@
 	  
 	  'li {padding-left:10px;padding-right:10px;line-height:70px;cursor:p;}' +  //important-for verticasl center height = line-height
 	  
-	  'li a, .dropbtn {display: inline-block;color: silver;text-align: center;text-decoration: none;}' +    
+	  'li a, .dropbtn {display: inline-block;color: white;text-align: center;text-decoration: none;font-family: roboto;}' +    
 	  
 	  'li a:hover, .dropdown:hover .dropbtn {text-decoration: underline;cursor:pointer;}' +
 	  
@@ -213,6 +213,7 @@
                           ' height: ' + elem.getAttribute('height') + 'px;' +
                           ' background-color: ' + elem.getAttribute('c') + ';' +  
 						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' color: ' + elem.getAttribute('textcolor') + ';' +
 						  ' opacity: ' + elem.getAttribute('trans') + ';' + '}' + 
 			'.fxdropdownmenuclass li {' + ' float: ' + elem.getAttribute('orientation') + ';' + '}' + 
 			'.fxdropdownmenuclass li {' + 'color: ' + elem.getAttribute('textcolor') + ';' + 

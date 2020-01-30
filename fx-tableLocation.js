@@ -41,7 +41,7 @@ obj = { table: "customers", limit: 20 };*/
 
 //this is the json array
 	 
-myObj = [{Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Kellogg, Pat", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
+myObj = [{Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
 
   {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
   
@@ -73,7 +73,7 @@ txt += "<table class='fxtableclass' style='text-align:center;border-collapse:col
    
     txt += "</table>" 
  
-class FxTable extends HTMLElement {
+class fxtablelocation extends HTMLElement {
 	
 	constructor() {
     super();
@@ -154,7 +154,7 @@ class FxTable extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('fx-table', FxTable);  //new standard
+	window.customElements.define('fx-tablelocation', fxtablelocation);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
 
