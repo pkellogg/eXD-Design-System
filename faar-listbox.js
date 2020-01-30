@@ -19,40 +19,38 @@ template.innerHTML = `
 
  
 
-<p id="demo">This is demo</p>
-<p id="demo2" style="position:absolute;left:270px;top:65px;">This is demo2</p>
-` 
-
-var jasonRequest, xhttp, myObj, x, txt = "";
-xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
+<p id="demo">This is demo</p>` 
+	 
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+/*xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 myObj = JSON.parse(this.responseText);
-   }
-};
-xhttp.open("GET", " + jasonRequest + ", true);
-xhttp.send();
- 
+obj = { table: "customers", limit: 20 };*/
+
+//this is the json array
+	 
 myObj = [
-        {pic: "faar-region.html", xxx: "OLVVK - Southeast"},
-		{pic: "faar-district.html", xxx: "OLVWK - Delta"},
-		{pic: "faar-stationaddmanager.html", xxx: "OLVA"},
-		{pic: "faar-region.html", xxx: "WESVK-AGFS Western"},
-		{pic: "faar-region.html", xxx: "RECVK - Brazil"},
-		{pic: "faar-region.html", xxx: "CANVK - Canada"},
-		{pic: "faar-region.html", xxx: "EURVK - France"},
-		{pic: "faar-region.html", xxx: "EWRVK - Northeast"},
-		{pic: "faar-region.html", xxx: "PACVK - South Pacific"},
-		];
+ 
+ {lastname: "Senior Manager Group 1", firstname: "Ryan Adams" , city: "ryan.adams@fedex.com", state: "(555)123-4567"}
+ 
+ /*{pic: " 'manager.jpg' ", lastname: "Calabrese", firstname: "Micheal" , city: "Jamaica,", state: "NY", startdate: "Nov 2009"},
+ 
+ {pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.", startdate:"Phong"},
+ 
+ {pic: " 'manager.jpg' ", lastname: "Castalano", firstname: "Jose" , city: "Indianapolis,", state: "IN", startdate: "May 2011"}*/
+ ];
 
 var txt = "";
-txt += "<UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:800px;'>"
+txt += "<UL class='fxlistclass' style='list-style: none;height:300px;position:relative;padding:0px;font-family:roboto;border-left:solid 1px silver;border-right:solid 1px silver;box-shadow: 5px 0px   11px 0px   silver;'>" 
 	
 	 for (x in myObj) {
-       txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;cursor:pointer;'>" + "<a href = " + myObj[x].pic + ">" + myObj[x].xxx + "</a>"   + "</li>"}
-       txt += "</UL>" 
+       txt += "<li class = 'highlightrows' style='height:100px;text-decoration: none;list-style: none;border-top:solid 1px silver;border-bottom:solid 1px silver;position:relative;cursor:pointer;'>" + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" + "<br /><span style = 'margin-left:5px;'>" +myObj[x].firstname + "</span>"  + "</br>" + "<span >" + myObj[x].city + "</span>" + "<br /><span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>"   + "</li>" ;
+    }
+   
+    txt += "</UL>" 
  
-class faarsimplelistbox extends HTMLElement {
+class faarlistbox extends HTMLElement {
 	
 	constructor() {
     super();
@@ -63,8 +61,7 @@ class faarsimplelistbox extends HTMLElement {
 		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));;
 		
 		//Remember..attachShadow just creates an EMPTY shadow-root.  You must append the shadow tree content nodes. 
-		this.shadowRoot.querySelector('#demo').innerHTML = txt; 
-		this.shadowRoot.querySelector('#demo2').innerHTML = txt;;
+		this.shadowRoot.querySelector('#demo').innerHTML = txt;;
 		
 		var items = this.shadowRoot.querySelectorAll('.highlightrows');
 			for (var i = 0; i < items.length; i++) {
@@ -72,14 +69,16 @@ class faarsimplelistbox extends HTMLElement {
 					 
 					//alert("Hello World!"); 
 					 //this .innerhtml = "hi pat";
-					 //window.location.assign("01-EmployeeDetails.html")
+					 window.location.assign("01-EmployeeDetails.html")
                      this .shadowRoot.classList.toggle('highlightrowsblue');
 				});	 					
 			};
 	}
 	
 	connectedCallback() {
-	const jasonRequest = this.getAttribute('dbRequest'); //the db php request
+		const whattodo = this.getAttribute('dosomething');
+		//this.shadowRoot.querySelector('#primarybutton').innerHTML = mycaption;
+		//alert(whattodo);
 	updateStylePrimaryButton(this);   
 	}   
 	
@@ -128,7 +127,7 @@ class faarsimplelistbox extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('faar-simplelistbox', faarsimplelistbox);  //new standard
+	window.customElements.define('faar-listbox', faarlistbox);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
 

@@ -4,24 +4,25 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
  
-.fxutilitybutton {
-  width:  70px;
-  height:35px;
+
+.fxsecondarybutton {
+  width: 244px;
+  height:60px;
   background-color: white;
   
-  color: black;
-  padding-left: 10px;
-  padding-right: 10px;
+  color: #FF6200;
+  padding-left: 30px;
+  padding-right: 30px;
   text-align: center;
-  font-size: 12px;
+  font-size: 19px;
   font-family: roboto;
   font-weight: bold;
   letter-spacing: 1.0px;
   cursor: pointer;
   zIndex:100;
-  border-radius: 5px;
 
 }
+
 
 .fxhover {
    
@@ -31,12 +32,12 @@ template.innerHTML = `
 }
 </style>
 
-<button class="fxutilitybutton">
-<span><slot name="primary-text"></slot></span> 
+<button class="fxsecondarybutton">
+<span><slot name="primary-text2"></slot></span> 
 </button>
 `;
 
-	class utilitybutton extends HTMLElement {
+	class secondarybutton extends HTMLElement {
 		
 	constructor() {
     super();
@@ -46,31 +47,31 @@ template.innerHTML = `
 	//let style = document.createElement('style'); 
 	//shadowRoot.appendChild(style);
 	
-	var selButton5 =  shadowRoot.querySelector('.fxutilitybutton');
-	 selButton5.addEventListener("mouseover", expand);
-	 selButton5.addEventListener("mouseout", defaultstate);	 
+	var selButton2 =  shadowRoot.querySelector('.fxsecondarybutton');
+	 selButton2.addEventListener("mouseover", expand);
+	 selButton2.addEventListener("mouseout", defaultstate);	 
 	
 	function expand(){
-	 selButton5.classList.add("fxhover")
+	 selButton2.classList.add("fxhover")
 	}
 	
 	function defaultstate(){
-	selButton5.classList.remove("fxhover")
+	selButton2.classList.remove("fxhover")
 	}
 	
     }//constructor
 	
 	
 	connectedCallback() {
-	updateStyleUtilityButton(this);   
+	updateStyleSecondaryButton(this);   
 	}   
 	
 	attributeChangedCallback(name, oldValue, newValue) {
-	updateStyleUtilityButton(this);
+	updateStyleSecondaryButton(this);
 	}
 	}//extends
 	
 	
 
-	window.customElements.define('fx-utilitybutton', utilitybutton);
+	window.customElements.define('fx-secondarybutton', secondarybutton);
 })();
