@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RADAR</title>
+
+ 
+
+<!--fedex web components-->   
+<script src="faar-search.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="fx-markup.js"></script>
+<script src="fx-progress.js"></script>
+
+
+<style>
+
+body {
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 60% auto;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+  width:768px;
+  margin:auto;  //horizontal center the grid on screen
+}
+	
+.box {
+  //border:1px solid silver;
+  color: black;
+  padding: 0px;
+  font-size: 150%;
+  font-family: roboto;
+}
+
+.header {
+        grid-column:1/span 2 ;
+        grid-row:1;
+    }
+	
+.menu {
+        grid-column:1/span 2;
+        grid-row: 2;
+    }
+	
+.content1 {
+        grid-column : 1;
+        grid-row : 3;
+    }
+	
+.content2 {
+        grid-column: 2;
+        grid-row : 3;
+    }
+	
+.content3 {
+        grid-column : 1;
+        grid-row : 4;
+    }
+	
+.content4 {
+        grid-column: 2;
+        grid-row : 4;
+    }
+	
+.content5 {
+        grid-column : 1/span 2;
+        grid-row : 5;
+    }
+	
+.content7 {
+        grid-column : 1/span 2 ;
+        grid-row : 6;
+    }
+	
+.flights {
+        grid-column:1/span 2;
+        grid-row:7;
+    }
+	
+
+	
+</style>
+
+</head>
+
+<body>
+
+<div class = "wrapper">
+ 
+<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup></div>
+  
+<div class="box menu" style = "border-bottom: solid 3px silver;"><fx-dropdownmenu 
+width = 768 
+height = 50 
+orientation = left 
+c = "white";                       
+size = 22
+class = "menu" 
+style="margin-bottom:200px;font-family:roboto;">
+<span slot = "drop-text1" style = "color:silver;font-weight:bold;margin-left:20px;">PRE-SORT</span>
+<span slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;">SORT</span>
+<span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver">LIVE VIEWS</span>
+<span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;">MY NOTES</span>
+</fx-dropdownmenu></div>
+
+<div class="box content1" style = "padding-left:15px;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Volume To Process</span><br />16,423</div>
+</fx-markup></div>
+
+<div class="box content2"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Time Left</span><br />2:55:00<br /><span style = "display:block;font-size:18px;font-style:italic;">(h:mm:ss)</span></div>
+</fx-markup></div>
+
+<div class="box content3" style = "padding-left: 3%;"><fx-progress  style="font-weight:bold;"> 
+</fx-progress>
+
+<fx-markup><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "float:left;font-size:18px;color:black;font-weight:normal;text-align:left;">Completed<br />10,123</span>
+<span style = "font-size:18px;color:black;font-weight:normal;float:right;text-align:left;">Remaining<br />6,300</span>
+</div> 
+</fx-markup>
+
+
+
+</div>
+
+<div class="box content4"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span><br />14/<span style = "color:silver;">14 <img src = "pencil.png" /></span></div>
+</fx-markup></div>
+
+<div class="box content5" style = "text-align:center;padding-left:30%;padding-right:30%;">
+<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+				<thead>
+				<tr> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight #</th>
+				<th style="background-color:#4D1486;color:white;">Origin</th>
+				<th style="background-color:#4D1486;color:white;">Arriving</th>
+				</tr> 
+				</thead>            
+				<tbody>
+				<!--data-hide="phone"-->
+				<tr >
+				<td  style="border-top:none;" name="id" >252</td>
+				<td style="border-top:none;">SJU</td>
+				<td style="border-top:none;">18:24</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >431</td>
+				<td style="border-top:none;">LAX</td>
+				<td style="border-top:none;">17:44</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >849</td>
+				<td style="border-top:none;">LAX</td>
+				<td style="border-top:none;">17:39</td>
+				</tr>
+				</table></div>
+
+<div class="box content7" style = "text-align:center;padding-left:30%;padding-right:30%;">
+<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+				<thead>
+				<tr> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Route</th>
+				<th style="background-color:#4D1486;color:white;">Origin</th>
+				<th style="background-color:#4D1486;color:white;">Type</th>
+				<th style="background-color:#4D1486;color:white;">Arriving</th>
+				</tr> 
+				</thead>            
+				<tbody>
+				<!--data-hide="phone"-->
+				<tr >
+				<td  style="border-top:none;" name="id" >HSV 13</td>
+				<td style="border-top:none;">HSV</td>
+				<td style="border-top:none;">Bulk</td>
+				<td style="border-top:none;">12:15</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >MC709</td>
+				<td style="border-top:none;">MCI</td>
+				<td style="border-top:none;">CVT</td>
+				<td style="border-top:none;">12:30</td>
+				</tr>
+				</table></div>
+ 
+
+ 
+
+<div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" />			
+				<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+				<thead>
+				<tr> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight #</th>
+				<th style="background-color:#4D1486;color:white;">Tail</th>
+				<th style="background-color:#4D1486;color:white;">Gate</th>
+				<th style="background-color:#4D1486;color:white;" >Arrive</th>
+				<th style="background-color:#4D1486;color:white;" >Depart</th>
+				<th style="background-color:#4D1486;color:white;" >Model</th>
+				<th style="background-color:#4D1486;color:white;" >Cage</th>
+				<th style="background-color:#4D1486;color:white;" >Guards</th>
+				<th style="background-color:#4D1486;color:white;" >Fly</th>
+				</tr> 
+				</thead>            
+				<tbody>
+				<!--data-hide="phone"-->
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				</table></div>
+</div><!--flights-->
+
+</div><!--wrapper-->
+
+ 
+
+ 
+
+<!--<fx-markup style="position:absolute;left:60px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Recent Searches</span></fx-markup>
+
+<fx-markup style="position:absolute;left:360px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Frequent Searches</span></fx-markup>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Chrisropher Calabrese</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Maureen Bendernagle</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Larry David</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Jerry Seinfeld</span></a>--> 
+
+ 
+</body>
+</html>
