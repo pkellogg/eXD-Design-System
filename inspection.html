@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RADAR</title>
+
+ 
+
+<!--fedex web components-->   
+<script src="faar-search.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="radar-scales.js"></script>
+
+<style>
+
+body {
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+  width:768px;
+  margin:auto;  //horizontal center the grid on screen
+}
+	
+.box {
+  //border:1px solid silver;
+  color: black;
+  padding: 0px;
+  font-size: 150%;
+  font-family: roboto;
+}
+
+.header {
+        grid-column:1/span 2 ;
+        grid-row:1;
+    }
+	
+.menu {
+        grid-column:1/span 2;
+        grid-row: 2;
+    }
+	
+.content1 {
+        grid-column : 1 / span 2;
+        grid-row : 3;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class = "wrapper">
+ 
+<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup></div>
+  
+<div class="box menu"><fx-dropdownmenu 
+width = 768 
+height = 50 
+orientation = left 
+c = "white";                       
+size = 22
+class = "menu"
+ 
+link1 = "preSort.html"
+link2 = ""
+link3 = "sort.html"
+style="font-family:roboto;">
+<span slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;">PRE-SORT</span>
+<span slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;">SORT</span>
+<span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver">LIVE VIEWS</span>
+<span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;">MY NOTES</span>
+</fx-dropdownmenu></div>
+
+<div class="box content1"><radar-scales></radar-scales></div>
+  
+
+</div><!--wrapper-->
+
+ 
+
+ 
+
+<!--<fx-markup style="position:absolute;left:60px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Recent Searches</span></fx-markup>
+
+<fx-markup style="position:absolute;left:360px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Frequent Searches</span></fx-markup>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Chrisropher Calabrese</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Maureen Bendernagle</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Larry David</span></a>
+
+<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Jerry Seinfeld</span></a>--> 
+
+ 
+</body>
+</html>

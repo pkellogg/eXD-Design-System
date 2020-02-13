@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RADAR</title>
 
- 
-
 <!--fedex web components-->   
 <script src="faar-search.js"></script>
 <script src="fx-dropdownmenu.js"></script>
@@ -14,7 +12,9 @@
 <script src="fx-markup.js"></script>
 <script src="fx-markup.js"></script>
 <script src="fx-progress.js"></script>
-
+<script src="fx-select.js"></script>
+<script src="fx-primarybutton.js"></script>
+<script src="fx-button.js"></script>
 
 <style>
 
@@ -30,6 +30,7 @@ body {
   color: #444;
   width:768px;
   margin:auto;  //horizontal center the grid on screen
+   
 }
 	
 .box {
@@ -75,7 +76,7 @@ body {
         grid-row : 5;
     }
 	
-.content7 {
+.content6 {
         grid-column : 1/span 2 ;
         grid-row : 6;
     }
@@ -85,8 +86,69 @@ body {
         grid-row:7;
     }
 	
-
+.flight  {
+        grid-column:1 / span 2;
+        grid-row:8;
+		display:grid;
+		grid-gap:0px;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr   ;
+		margin-bottom: 200px;
+		 
+		
+.flight1 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:5px;
+			
+    }
 	
+	.flight2 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight3 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight4 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight5 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight6 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight7 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight8 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
+	
+	.flight9 {
+			grid-column:1
+			grid-row:1;
+			grid-gap:0px;
+    }
 </style>
 
 </head>
@@ -104,8 +166,13 @@ height = 50
 orientation = left 
 c = "white";                       
 size = 22
-class = "menu" 
+class = "menu"
+ 
+link1 = "preSort.html"
+link2 = ""
+link3 = "sort.html"
 style="margin-bottom:200px;font-family:roboto;">
+
 <span slot = "drop-text1" style = "color:silver;font-weight:bold;margin-left:20px;">PRE-SORT</span>
 <span slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;">SORT</span>
 <span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver">LIVE VIEWS</span>
@@ -125,25 +192,26 @@ style="margin-bottom:200px;font-family:roboto;">
 <span style = "font-size:18px;color:black;font-weight:normal;float:right;text-align:left;">Remaining<br />6,300</span>
 </div> 
 </fx-markup>
-
-
-
 </div>
 
 <div class="box content4"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span><br />14/<span style = "color:silver;">14 <img src = "pencil.png" /></span></div>
 </fx-markup></div>
 
 <div class="box content5" style = "text-align:center;padding-left:30%;padding-right:30%;">
+
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "padding-left:14px;font-size:22px;color:black;font-weight:bold;">Last Arriving Flights/Trucks</span></div>
+</fx-markup>
+
 <table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
 				<tr> 
-				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight #</th>
-				<th style="background-color:#4D1486;color:white;">Origin</th>
-				<th style="background-color:#4D1486;color:white;">Arriving</th>
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:white;color:black;">Flight #</th>
+				<th style="background-color:white;color:black;">Origin</th>
+				<th style="background-color:white;color:black;">Arriving</th>
 				</tr> 
 				</thead>            
-				<tbody>
-				<!--data-hide="phone"-->
+				 
+				 
 				<tr >
 				<td  style="border-top:none;" name="id" >252</td>
 				<td style="border-top:none;">SJU</td>
@@ -159,19 +227,20 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">LAX</td>
 				<td style="border-top:none;">17:39</td>
 				</tr>
-				</table></div>
+</table>
+</div>
 
-<div class="box content7" style = "text-align:center;padding-left:30%;padding-right:30%;">
+<div class="box content6" style = "text-align:center;padding-left:30%;padding-right:30%;">
 <table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
 				<tr> 
-				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Route</th>
-				<th style="background-color:#4D1486;color:white;">Origin</th>
-				<th style="background-color:#4D1486;color:white;">Type</th>
-				<th style="background-color:#4D1486;color:white;">Arriving</th>
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="color:black;">Route</th>
+				<th style=" color:black;">Origin</th>
+				<th style=" color:black;">Type</th>
+				<th style=" color:black;">Arriving</th>
 				</tr> 
 				</thead>            
-				<tbody>
+				 
 				<!--data-hide="phone"-->
 				<tr >
 				<td  style="border-top:none;" name="id" >HSV 13</td>
@@ -185,93 +254,144 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">CVT</td>
 				<td style="border-top:none;">12:30</td>
 				</tr>
-				</table></div>
- 
+</table>
 
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><a href = "" style = "padding-left:48px;font-size:22px;color:#4D1486;font-weight:normal;">Last Arrival Details</a><img src = "search.png" /></div>
+</fx-markup>
+</div>
  
-
 <div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" />			
-				<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+
+<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
-				<tr> 
-				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight #</th>
-				<th style="background-color:#4D1486;color:white;">Tail</th>
-				<th style="background-color:#4D1486;color:white;">Gate</th>
-				<th style="background-color:#4D1486;color:white;" >Arrive</th>
-				<th style="background-color:#4D1486;color:white;" >Depart</th>
-				<th style="background-color:#4D1486;color:white;" >Model</th>
-				<th style="background-color:#4D1486;color:white;" >Cage</th>
-				<th style="background-color:#4D1486;color:white;" >Guards</th>
-				<th style="background-color:#4D1486;color:white;" >Fly</th>
+				<tr style = "text-align:left;"> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true">Flight</th>
+				<th>Tail #</th>
+				<th>Gate</th>
+				<th>Depart</th>
+				<th>Model</th>
+				<th>Cage</th>
+				<th>Guards</th>
+				<th>Fly</th>
+				<th>Status</th>
 				</tr> 
 				</thead>            
-				<tbody>
-				<!--data-hide="phone"-->
+				 
 				<tr >
 				<td  style="border-top:none;" name="id" >743</td>
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
 				<td style="border-top:none;">Y</td>
 				<td style="border-top:none;">Y</td>
 				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;color:green;font-size:18px;">ARD READY</td>
 				</tr>
 				<tr >
 				<td  style="border-top:none;" name="id" >743</td>
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
 				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;color:red;font-size:18px;">IN WORK</td>
 				</tr>
 				<tr >
 				<td  style="border-top:none;" name="id" >743</td>
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">-</td>
+				<td style="border-top:none;color:green;font-size:18px;">ARD READY</td>
 				</tr>
-				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
-				</table></div>
-</div><!--flights-->
+				 
+</table>
+
+</div>
+ 
+
+<div class="box flight">
+
+
+<div class = "box flight1">
+<span style = "font-size:18px;font-weight:bold;">Flight</span>
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "747">747</option>
+<option value = "747">747</option>
+<option value = "747">747</option>
+<option value = "747">747</option>
+<option value = "747">747</option>
+<option value = "747">747</option>	 
+</select>
+</div>
+
+<div class = "box flight2">
+<span style = "font-size:18px;font-weight:bold;">AYY</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "0">0</option>	 
+</select>
+</div>
+
+<div class = "box flight3">
+<span style = "font-size:18px;font-weight:bold;">SAA</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "1">1</option>	 
+</select>
+</div>
+
+<div class = "box flight4">
+<span style = "font-size:18px;font-weight:bold;">AAD</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "2">2</option>	 
+</select>
+</div>
+
+<div class = "box flight5">
+<span style = "font-size:18px;font-weight:bold;">AMJ</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "0">0</option>	 
+</select>
+</div>
+
+<div class = "box flight6">
+<span style = "font-size:18px;font-weight:bold;">AKE</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "0">0</option>	 
+</select>
+</div>
+
+<div class = "box flight7">
+<span style = "font-size:18px;font-weight:bold;">APE</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "5">5</option>	 
+</select>
+</div>
+
+<div class = "box flight8">
+<span style = "font-size:18px;font-weight:bold;">AQF</span><br />
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "0">0</option>	 
+</select>
+</div>
+
+<div class = "box flight9" style = "margin-top:21px;">
+<fx-button><span slot = "buttonpos">Request Cans</span></fx-button>	 
+</select>
+</div>
+
+
+
+
+
+</div>
 
 </div><!--wrapper-->
 
- 
-
- 
-
-<!--<fx-markup style="position:absolute;left:60px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Recent Searches</span></fx-markup>
-
-<fx-markup style="position:absolute;left:360px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Frequent Searches</span></fx-markup>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Chrisropher Calabrese</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Maureen Bendernagle</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Larry David</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Jerry Seinfeld</span></a>--> 
-
- 
 </body>
 </html>

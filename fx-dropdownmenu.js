@@ -12,60 +12,60 @@
 	<!--<li style="display:block;font-size:26px;font-weight:bold;padding-right:50px;"><span style="color:white;">Fed</span><span style="color:orange;">Ex</span></li>-->
 
 	<li id="item1" style="display:block;" class="dropdown"><a id="linkone" href="" class="dropbtn"><slot name="drop-text1"></slot></a> 
-	<div class="dropdown-content">
-		<a id="linkoneA" href=""><slot name="drop-drop-text1"></slot></a>
-		<a id="linkoneB" href=""><slot name="drop-drop-text2"></slot></a>
-		<a id="linkoneC" href=""><slot name="drop-drop-text3"></slot></a>
-	</div>
+	<!--<div class="dropdown-content">
+		 <a id="linkoneA" href=""><slot name="drop-drop-text1"></slot></a>
+		 <a id="linkoneB" href=""><slot name="drop-drop-text2"></slot></a>
+		 <a id="linkoneC" href=""><slot name="drop-drop-text3"></slot></a>
+	 </div>--> 
 	</li>
 	
 	<li id="item2" style="display:block;" class="dropdown"><a id="linktwo" href="" class="dropbtn"><slot name="drop-text2"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linktwoA"><slot name="drop-drop-text4"></slot></a>
 		<a id="linktwoB"><slot name="drop-drop-text5"></slot></a>
 		<a id="linktwoC"><slot name="drop-drop-text6"></slot></a>
-	</div>
+	</div>-->
 	</li>
 	
 	<li id="item3" style="display:block;" class="dropdown"><a id="linkthree" href="" class="dropbtn"><slot name="drop-text3"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linkthreeA"><slot name="drop-drop-text7"></slot></a>
 		<a id="linkthreeB"><slot name="drop-drop-text8"></slot></a>
 		<a id="linkthreeC"><slot name="drop-drop-text9"></slot></a>
-	</div>
+	</div>-->
 	</li>
 	
 	<li id="item4" style="display:block;" class="dropdown"><a id="linkfour" href="" class="dropbtn"><slot name="drop-text4"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linkfourA"><slot name="drop-drop-text10"></slot></a>
 		<a id="linkfourB"><slot name="drop-drop-text11"></slot></a>
 		<a id="linkfourC"><slot name="drop-drop-text12"></slot></a>
-	</div>
+	</div>-->
 	</li>
 	
 	<li id="item5" style="display:block;" class="dropdown"><a id="linkfive" href="" class="dropbtn"><slot name="drop-text5"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linkfiveA"><slot name="drop-drop-text13"></slot></a>
 		<a id="linkfiveB"><slot name="drop-drop-text14"></slot></a>
 		<a id="linkfiveC"><slot name="drop-drop-text15"></slot></a>
-	</div>
+	</div>-->
 	</li>
 	
 	<li id="item6" style="display:block;" class="dropdown"><a id="linksix" href="" class="dropbtn"><slot name="drop-text6"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linksixA"><slot name="drop-drop-text16"></slot></a>
 		<a id="linksixB"><slot name="drop-drop-text17"></slot></a>
 		<a id="linksixC"><slot name="drop-drop-text18"></slot></a>
-	</div>
+	</div>-->
 	</li>
 	
 	<li id="item7" style="display:block;" class="dropdown"><a id="linkseven" href="" class="dropbtn"><slot name="drop-text7"></slot></a> 
-	<div class="dropdown-content">
+	<!--<div class="dropdown-content">
 		<a id="linksevenA"><slot name="drop-drop-text19"></slot></a>
 		<a id="linksevenB"><slot name="drop-drop-text20"></slot></a>
 		<a id="linksevenC"><slot name="drop-drop-text21"></slot></a>
 	</div>
-	</li>
+	</li>-->
 	</ul>`;
 
 	class FxDropDownMenu extends HTMLElement {
