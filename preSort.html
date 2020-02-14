@@ -13,6 +13,20 @@
 <script src="fx-listbox.js"></script>
 <script src="fx-markup.js"></script>
 <script src="radar-scales.js"></script>
+<script src="radar-flights.js"></script>
+
+
+<!--from faar-stationaddworkgroup.html-->
+<script src="faar-headersearch.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="faar-simplelistbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="faar-stationtable.js"></script>
+<script src="fx-utilitybutton.js"></script>
+<script src="faar-addworkgroup.js"></script>
+<script src="fx-secondarybutton.js"></script>
+<script src="faar-listbox.js"></script>
+<script src="fx-accordion-item.js"></script>
 
 <style>
 
@@ -130,7 +144,6 @@ size = 22
 class = "menu"
  
 link1 = "preSort.html"
-link2 = ""
 link3 = "sort.html"
 style="margin-bottom:200px;font-family:roboto;">
 <span slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;">PRE-SORT</span>
@@ -171,7 +184,7 @@ style="margin-bottom:200px;font-family:roboto;">
 <div class="box content12"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.png" /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
 </fx-markup></div>
 
-<div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" />			
+<div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  id= "myBtn" style = "padding-left:10px;" />			
 				<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
 				<tr> 
@@ -233,7 +246,11 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">Y</td>
 				</tr>
 				</table></div>
+				
+ 
 </div><!--flights-->
+
+<radar-flights></radar-flights>
 
 </div><!--wrapper-->
 

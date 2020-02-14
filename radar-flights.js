@@ -1,27 +1,19 @@
 (function() {
 	
 const template = document.createElement('template');
-template.innerHTML = `
+template.innerHTML = ` 
+<form>
+<input type="button" value="Save" style="float:right;height:35px;width:80px;">
 
-<style>
- 
+<input type="button" id= 'myClose'   value="Cancel" style="float:right;height:35px;margin-right:10px;width:80px;"><br /><br /><br /> 
 
-.highlightrows {
-	background-color:white;
-	color:black;
-	}
-
-.highlightrowsblue {
-	background-color:slateblue;
-	color:white;
-	}
-</style>
+</form> 
 
  
 
-<p id="demo">This is demo</p>` 
+<p id="demo">This is demo</p>`  
 	 
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
+var obj, dbParam, xmlhttp, myObj, x, txt = "";  
 /*xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
@@ -50,8 +42,8 @@ txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:768px;heigh
     }
    
     txt += "</UL>" 
- 
-class radarscales extends HTMLElement {
+	 
+class radarflights extends HTMLElement {
 	
 	constructor() {
     super();
@@ -59,10 +51,12 @@ class radarscales extends HTMLElement {
 		//this.shadowRoot.appendChild(template.content.cloneNode(true));
 		//simplified...create the shadow and add content all in one:
 		
-		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));;
+		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(template.content.cloneNode(true));
+		
+		this.shadowRoot.querySelector('#demo').innerHTML = txt;;
 		
 		//Remember..attachShadow just creates an EMPTY shadow-root.  You must append the shadow tree content nodes. 
-		this.shadowRoot.querySelector('#demo').innerHTML = txt;;
+		 
 		
 		var items = this.shadowRoot.querySelectorAll('.highlightrows');
 			for (var i = 0; i < items.length; i++) {
@@ -77,9 +71,35 @@ class radarscales extends HTMLElement {
 	}
 	
 	connectedCallback() {
-		const whattodo = this.getAttribute('dosomething');
+		const jasonRequest = this.getAttribute('dbRequest');
 		//this.shadowRoot.querySelector('#primarybutton').innerHTML = mycaption;
 		//alert(whattodo);
+		
+		// Get the modal
+var modal = this.shadowRoot.querySelector("#myModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector("#myBtn"); //the button is in light dom all the rest are shadow
+
+// Get the <span> element that closes the modal
+var span = this.shadowRoot.querySelector("#myClose");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() { 
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 	updateStylePrimaryButton(this);   
 	}   
 	
@@ -128,12 +148,6 @@ class radarscales extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('radar-scales', radarscales);  //new standard
+	window.customElements.define('radar-flights', radarflights);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
-
-
-
-
-
- 
