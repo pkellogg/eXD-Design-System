@@ -17,11 +17,6 @@
 <script src="fx-secondarybutton.js"></script>
 <script src="faar-listbox.js"></script>
 <script src="fx-accordion-item.js"></script>
-
-
-
-
-
 </head>
 
 <body>
@@ -49,11 +44,18 @@ link1 = "http:\\fedex.com"  link1A = "http:\\fedex.com" link1B = "http:\\fedex.c
 
 <fx-markup style="position:absolute;left:50px;top:600px;" textcolor = "black" size = 16 family = "roboto"><span style = "font-weight:normal;" slot = "element-name">No workgroups have been created for this location</span></fx-markup>
 
+<fx-markup style="position:absolute;left:50px;top:640px;" textcolor = "black" size = 16 family = "roboto"><span style = "font-weight:bold;" slot = "element-name">Senior Managers</span></fx-markup>
+
 <fx-utilitybutton   id= "myBtn" style = "border:none;width:50px;position:absolute;left:333px;top:640px;"><span slot = "primary-text">+  Add</span></fx-utilitybutton>
 
 <faar-addworkgroup></faar-addworkgroup>
 
 <faar-listbox xpos = 50 ypos = 580 width = 350 ></faar-listbox>
+
+
+<fx-markup style="position:absolute;left:420px;top:640px;" textcolor = "black" size = 16 family = "roboto"><span style = "font-weight:bold;" slot = "element-name">Workgroups</span></fx-markup>
+
+<fx-utilitybutton   id= "myBtn" style = "border:none;width:50px;position:absolute;left:960px;top:640px;"><span slot = "primary-text">+  Add</span></fx-utilitybutton>
 
 <div style="position:absolute;left:408px;top:678px;margin-bottom:300px;">
 <fx-accordionitem 
@@ -67,7 +69,7 @@ c = white
 textcolor = "black" 
 textcolor2 = "black" 
 > 
-<span style = "cursor:pointer;font-weight:bold;" slot="header-text">AM Sort<br><span style = "font-weight:normal;">Manager, Anil Sora #42424</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
+<span style = "cursor:pointer;font-weight:bold;" slot="header-text">&#xfe65; AM Sort<br><span style = "font-weight:normal;margin-left:21px;">Manager, Anil Sora #42424</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
 
 <fx-accordionitem 
 width2 = 600 
@@ -80,7 +82,7 @@ c = white
 textcolor = "black" 
 textcolor2 = "black" 
 > 
-<span style = "cursor:pointer;font-weight:bold;" slot="header-text">PM Sort<br><span style = "font-weight:normal;">Manager, Annabel Burks #42424</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
+<span style = "cursor:pointer;font-weight:bold;" slot="header-text">&#xfe65; PM Sort<br><span style = "font-weight:normal;margin-left:21px;">Manager, Annabel Burks #42424</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
 
 <fx-accordionitem 
 width2 = 600 
@@ -93,7 +95,7 @@ c = white
 textcolor = "black" 
 textcolor2 = "black" 
 > 
-<span style = "cursor:pointer;font-weight:bold;" slot="header-text">Saturdays<br><span style = "font-weight:normal;">Manager, No manager assigned</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
+<span style = "cursor:pointer;font-weight:bold;" slot="header-text">&#xfe65; Saturdays<br><span style = "font-weight:normal;margin-left:21px;">Manager, No manager assigned</span></span><div slot="panel-text">Jony Ronson #55555<hr>Amiya Momahon #66666<hr>Bobbi Ronson #7777</div></fx-accordionitem>
 
  
 </div>

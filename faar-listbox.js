@@ -32,11 +32,11 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
- {lastname: "Senior Manager Group 1", firstname: "Ryan Adams" , city: "ryan.adams@fedex.com", state: "(555)123-4567"}
+ {lastname: "Senior Manager Group 1", firstname: "Ryan Adams" , greaterthansign: "&#xfe65;", city: "ryan.adams@fedex.com", state: "(555)123-4567", },
  
- /*{pic: " 'manager.jpg' ", lastname: "Calabrese", firstname: "Micheal" , city: "Jamaica,", state: "NY", startdate: "Nov 2009"},
+ {lastname: "Senior Manager Group 2", firstname: "Ryan Adams" , greaterthansign: "&#xfe65;", city: "name@fedex.com", state: "(555)123-4567" }
  
- {pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.", startdate:"Phong"},
+ /*{pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.", startdate:"Phong"},
  
  {pic: " 'manager.jpg' ", lastname: "Castalano", firstname: "Jose" , city: "Indianapolis,", state: "IN", startdate: "May 2011"}*/
  ];
@@ -45,7 +45,7 @@ var txt = "";
 txt += "<UL class='fxlistclass' style='list-style: none;height:300px;position:relative;padding:0px;font-family:roboto;border-left:solid 1px silver;border-right:solid 1px silver;box-shadow: 5px 0px   11px 0px   silver;'>" 
 	
 	 for (x in myObj) {
-       txt += "<li class = 'highlightrows' style='height:100px;text-decoration: none;list-style: none;border-top:solid 1px silver;border-bottom:solid 1px silver;position:relative;cursor:pointer;'>" + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" + "<br /><span style = 'margin-left:5px;'>" +myObj[x].firstname + "</span>"  + "</br>" + "<span >" + myObj[x].city + "</span>" + "<br /><span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>"   + "</li>" ;
+       txt += "<li class = 'highlightrows' style='height:100px;text-decoration: none;list-style: none;border-top:solid 1px silver;border-bottom:solid 1px silver;position:relative;cursor:pointer;'>" + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" +   "<br /><span style = 'margin-left:5px;'>" + myObj[x].firstname + "</span>"  + "<span style = 'margin-left:165px;font-weight:bold;'>" +  myObj[x].greaterthansign + "</span>" + "</br>" + "<span >" + myObj[x].city + "</span>" + "<br /><span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>"     + "</li>" ;
     }
    
     txt += "</UL>" 
