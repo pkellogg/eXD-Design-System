@@ -5,21 +5,20 @@ template.innerHTML = `
 <style>
  
 .fxutilitybutton {
-  width:  70px;
-  height:35px;
+  width: 165px;
+  height:40px;
   background-color: white;
-  
+  border: black solid 2px;
   color: black;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   font-family: roboto;
   font-weight: bold;
   letter-spacing: 1.0px;
   cursor: pointer;
   zIndex:100;
-  border-radius: 5px;
 
 }
 

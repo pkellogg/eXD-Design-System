@@ -2,16 +2,50 @@
 	
 const template = document.createElement('template');
 template.innerHTML = ` 
-<form>
-<input type="button" value="Save" style="float:right;height:35px;width:80px;">
 
-<input type="button" id= 'myClose'   value="Cancel" style="float:right;height:35px;margin-right:10px;width:80px;"><br /><br /><br /> 
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-</form> 
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 85%;
+  height:100%;
+  font-family:roboto;
+}
 
  
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-<p id="demo">This is demo</p>`  
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+
+<div id='myModal' class = 'modalx' ">
+	<div class = 'modal-content'>
+		<p id="demo">This is demo</p>
+		<input type="button" value="Save" style="float:right;height:35px;width:80px;">
+
+		<input type="button" id= 'myClose'   onclick = "document.getElementById('myflights').style.display = 'none';" value="Cancel" style="float:right;height:35px;margin-right:10px;width:80px;"><br /><br /><br /> 
+
+	</div>
+</div> 
+
+`  
 	 
 var obj, dbParam, xmlhttp, myObj, x, txt = "";  
 /*xmlhttp = new XMLHttpRequest();
@@ -24,24 +58,54 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
- {scaleid: "S18-R3-SD01"},
- {scaleid: "S18-R3-SD02"},
- {scaleid: "S18-R3-SD03"},
- {scaleid: "S18-R3-SD04"},
- {scaleid: "S18-R3-SD05"},
- {scaleid: "S18-R3-SD06"}
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  }, 
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ 
+ {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  }
+  
  ];
 
 var txt = "";
-txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:768px;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Daily Scale Inspection</div><UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:768px; '><li style='text-decoration: none;border:none;cursor:pointer;'>"
+txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Flights Shown</div><table   style='font-family:roboto;width:100%;text-align:center;'><tr><th>Show</th><th>Flight #</th><th>Market</th><th>Tail #</th><th>Gate #</th><th>Departure</th></tr>"
 	
 	 for (x in myObj) {
-       txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;margin-bottom:30px;margin-top:20px;margin-left:30px;'>" + "<span style = 'font-weight:bold;font-size:28px;'>" + myObj[x].scaleid + "<button style = 'margin-left:20px;width:120px;height:30px;background-color: #4D148C;color:white;border-radius:7px;font-size:16px;'>Add Remarks</button>" + "</span>" +"<br />" +
-	   
-	   "<label for = 'sticker'>Sticker</label><input type = 'checkbox' name = 'sticker' style= 'height:20px;width:20px;font-size:22px;'><span style= 'margin-left:10px;font-size:22px;'>ULD No. (or) Asset No. / Type</span><span style = 'margin-left:30px;font-size:22px;'>Known lbs</span><label for = 'limits' style = 'margin-left:10px;'>Within Limits?</label><input type = 'checkbox' name = 'limits' style= 'height:20px;width:20px;'>" + "</li>" ;
+       txt += "<tr>" + "<td>" + myObj[x].show + "</td>" + "<td>" + myObj[x].flight + "</td>" + "<td>" + myObj[x].market + "</td>" + "<td>" + myObj[x].tail + "</td>" + "<td>" + myObj[x].gate + "</td>" + "<td>" + myObj[x].depart + "</td>" + "</tr>";
     }
    
-    txt += "</UL>" 
+    txt += "</table>" 
 	 
 class radarflights extends HTMLElement {
 	
@@ -76,28 +140,33 @@ class radarflights extends HTMLElement {
 		//alert(whattodo);
 		
 		// Get the modal
-var modal = this.shadowRoot.querySelector("#myModal");
+var modal = this.shadowRoot.querySelector("#shown");
 
 // Get the button that opens the modal
-var btn = document.querySelector("#myBtn"); //the button is in light dom all the rest are shadow
-
+var btn = document.getElementById("myBtn");
+ 
+  
 // Get the <span> element that closes the modal
-var span = this.shadowRoot.querySelector("#myClose");
+var span = document.getElementById("myFlights");
+
+// When the user clicks on <span> (x), close the modal
+ span.onclick = function() {
+	 
+   modalx.style.display = "none";
+ }
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() { 
-  modal.style.display = "block";
+ alert("open");
+  modalx.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modalx.style.display = "none";
   }
 }
 	updateStylePrimaryButton(this);   

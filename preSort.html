@@ -27,6 +27,7 @@
 <script src="fx-secondarybutton.js"></script>
 <script src="faar-listbox.js"></script>
 <script src="fx-accordion-item.js"></script>
+ 
 
 <style>
 
@@ -34,14 +35,15 @@ body {
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  grid-gap: 10px;
+  display:   grid ;
+  grid-template-columns: fl fl;
+  grid-template-rows:  80px 60px 1px 0px 140px;
+  //grid-gap: 10px;
   background-color: #fff;
   color: #444;
   width:768px;
   margin:auto;  //horizontal center the grid on screen
+  //border:1px solid silver;
 }
 	
 .box {
@@ -50,6 +52,7 @@ body {
   padding: 0px;
   font-size: 150%;
   font-family: roboto;
+  margin: 0px;
 }
 
 .header {
@@ -64,77 +67,84 @@ body {
 	
 .content1 {
         grid-column : 1;
-        grid-row : 3;
+        grid-row : 5;
     }
 	
 .content2 {
         grid-column: 2;
-        grid-row : 3;
+        grid-row : 5;
     }
 	
 .content3 {
         grid-column : 1;
-        grid-row : 4;
+        grid-row : 6;
     }
 	
-.content4 {
+.inspect {
         grid-column: 2;
-        grid-row : 4;
+        grid-row : 6;
     }
 	
 .content5 {
         grid-column : 1;
-        grid-row : 5;
+        grid-row : 7;
     }
 	
 .content6 {
         grid-column: 2;
-        grid-row : 5/span 2;
+        grid-row : 7/span 2;
     }
 	
 .content7 {
-        grid-column : 1;
-        grid-row : 6;
+        grid-column : 1 /span 2;
+        grid-row : 8;
     }
 	
  
-	
 .content9 {
         grid-column : 1;
-        grid-row : 7;
+        grid-row : 9;
     }
 	
 .content10 {
         grid-column: 2;
-        grid-row : 7;
+        grid-row : 9;
     }
 	
 .content11 {
         grid-column : 1;
-        grid-row : 8;
+        grid-row : 10;
     }
 	
 .content12 {
         grid-column: 2;
-        grid-row : 8;
+        grid-row : 10;
     }
-	
-.flights {
+
+.outboundflights {
         grid-column:1/span 2;
-        grid-row:9;
+        grid-row:11;
     }
 	
+.flightsshown	{
+grid-column:1/span 2;
+        grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
+}
 </style>
 
 </head>
 
 <body>
 
-<div class = "wrapper">
- 
+<p id="demo"></p>
+
+<div class = "wrapper" style = "margin-bottom:150px;">
+
 <div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-</fx-markup></div>
-  
+</fx-markup>
+
+</div>
+
 <div class="box menu" style = "border-bottom: solid 3px silver;"><fx-dropdownmenu 
 width = 768 
 height = 50 
@@ -142,134 +152,131 @@ orientation = left
 c = "white";                       
 size = 22
 class = "menu"
- 
-link1 = "preSort.html"
-link3 = "sort.html"
 style="margin-bottom:200px;font-family:roboto;">
-<span slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;">PRE-SORT</span>
-<span slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;">SORT</span>
+<a slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html" >PRE-SORT  </a>
+
+<a slot = "drop-text3" href = "sort.html" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;">SORT</a>
+
 <span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver">LIVE VIEWS</span>
+
 <span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;">MY NOTES</span>
-</fx-dropdownmenu></div>
+</fx-dropdownmenu>
+
+</div>
 
 <div class="box content1"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Expected Volume</span><br />16,300</div>
-</fx-markup></div>
+</fx-markup>
+
+</div>
+
 <div class="box content2"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Starts At</span><br />18:05<br /><span style = "display:block;font-size:18px;font-style:italic;">(finalized)</span></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
 <div class="box content3" style = "padding-left: 30%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Bypass Cans</span><br />6<span style = "padding-left:10px;font-size:22px;color:silver;">4 Top / 2 Lower</span></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
-<div class="box content4"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span><br />14/<span style = "color:silver;">14</span></div>
-</fx-markup></div>
+<div class="box inspect">
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:60px;" ><a href = "inspection.html"> SCALE INSPECTION</a><img src = "scale.png" /></div>
+</fx-markup>
+ 
+</div>
 
 <div class="box content5" style = "padding-left: 30%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Haz Volume</span><br />22<img src = "search.png" style = "padding-left:15px;"/></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
-<div class="box content6" style = "padding-top:70px;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;padding-top:40px;"><a href = "inspection.html" style = "font-weight:normal;">SCALE INSPECTION</a><img src = "scale.png" /></div>
-</fx-markup></div>
+<div class="box content6" style = "padding-top:87px;padding-left:110px;"><span style = "font-size:22px;font-weight:bold;">Pallets Req'd</span><br />
+<select id = "pallets" is = "fx-select" style = "font-size:32px;height:50px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "5">5</option>	 
+</select>
+</div>
 
-<div class="box content7" style = "padding-left: 30%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Hwt Volume</span><br />30<img src = "search.png" style = "padding-left:15px;"/></div>
-</fx-markup></div>
+<div class="box content7" style = "padding-left: 15%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Hwt Volume</span><br />30<img src = "search.png" style = "padding-left:15px;"/></div>
+</fx-markup>
+</div>
  
 
 <div class="box content9"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Rollovers</span><br />AYYC037FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,001 Pcs.</span></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
 <div class="box content10"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">ULD Density</span><br />87.6%<span style = "display:block;font-size:18px;font-style:italic;color:silver;">(Previous Sort)</span></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
 <div class="box content11"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;">AYYC038FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,111 Pcs.</span></div>
-</fx-markup></div>
-<div class="box content12"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.png" /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
-</fx-markup></div>
+</fx-markup>
+</div>
 
-<div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  id= "myBtn" style = "padding-left:10px;" />			
-				<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
-				<thead>
-				<tr> 
-				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight</th>
-				<th style="background-color:#4D1486;color:white;">Tail</th>
-				<th style="background-color:#4D1486;color:white;">Gate</th>
-				<th style="background-color:#4D1486;color:white;" >Arrive</th>
-				<th style="background-color:#4D1486;color:white;" >Depart</th>
-				<th style="background-color:#4D1486;color:white;" >Model</th>
-				<th style="background-color:#4D1486;color:white;" >Cage</th>
-				<th style="background-color:#4D1486;color:white;" >Guards</th>
-				<th style="background-color:#4D1486;color:white;" >Fly</th>
-				</tr> 
-				</thead>            
-				<tbody>
-				<!--data-hide="phone"-->
-				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
-				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
-				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
-				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
-				</table></div>
+<div class="box content12"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.png"  /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
+</fx-markup>
+</div>
+
+<div class = "box  outboundflights ">
+<span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span>
+
+<img src = "pencil.png" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
+	
+<table    id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				
+				 
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+</table>
  
-</div><!--flights-->
-
-<radar-flights></radar-flights>
-
+</div>
+<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
+at the end here with a negaative setting in the grid definiation.  Go figure!-->
+<div class="box flightsshown" style = "z-index:1000;" > 
+<div id = "myflights" style = "display:none;">
+<radar-flights ></radar-flights>
+</div>
+</div>
 </div><!--wrapper-->
 
- 
-
- 
-
-<!--<fx-markup style="position:absolute;left:60px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Recent Searches</span></fx-markup>
-
-<fx-markup style="position:absolute;left:360px;top:300px;font-weight:bold;" textcolor = "black" size = 24 family = "roboto"><span slot = "element-name">Frequent Searches</span></fx-markup>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Chrisropher Calabrese</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:60px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Maureen Bendernagle</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:360px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Larry David</span></a>
-
-<a href = "01-SearchResults.html" style="position:absolute;left:360px;top:400px;font-size:20px;font-family:roboto;" ><span slot = "element-name">Jerry Seinfeld</span></a>--> 
-
- 
 </body>
 </html>
