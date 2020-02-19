@@ -10,11 +10,11 @@
 <script src="fx-dropdownmenu.js"></script>
 <script src="fx-listbox.js"></script>
 <script src="fx-markup.js"></script>
-<script src="fx-markup.js"></script>
-<script src="fx-progress.js"></script>
+ <script src="fx-progress.js"></script>
 <script src="fx-select.js"></script>
 <script src="fx-primarybutton.js"></script>
 <script src="fx-button.js"></script>
+<script src="radar-flights.js"></script>
 
 <style>
 
@@ -22,23 +22,21 @@ body {
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 60% auto;
-  grid-template-rows: auto;
-  grid-gap: 10px;
+  //grid-gap: 10px;
+  position:relative;
   background-color: #fff;
   color: #444;
   width:768px;
   margin:auto;  //horizontal center the grid on screen
-   
+  //border:1px solid silver; 
 }
 	
 .box {
-  //border:1px solid silver;
   color: black;
   padding: 0px;
   font-size: 150%;
   font-family: roboto;
+  //border:1px solid silver;
 }
 
 .header {
@@ -52,11 +50,15 @@ body {
     }
 	
 .content1 {
+ 
+width:50%;
         grid-column : 1;
         grid-row : 3;
     }
 	
 .content2 {
+ 
+width:50%;
         grid-column: 2;
         grid-row : 3;
     }
@@ -86,21 +88,24 @@ body {
         grid-row:7;
     }
 	
-.flight  {
+
+	
+
+	
+ .flight  {
         grid-column:1 / span 2;
         grid-row:8;
 		display:grid;
 		grid-gap:0px;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr   ;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		margin-bottom: 200px;
-		 
+		} 
 		
 .flight1 {
 			grid-column:1
 			grid-row:1;
 			grid-gap:5px;
-			
-    }
+	}
 	
 	.flight2 {
 			grid-column:1
@@ -148,7 +153,16 @@ body {
 			grid-column:1
 			grid-row:1;
 			grid-gap:0px;
-    }
+    } 
+	
+	.flightsshown	{
+			position:absolute;
+			top:150px;
+			left:-40px;
+			width:110%;
+			grid-column:1/span 2;
+			grid-row:3 /span 5; <!--negative 8 makes the anchor links in grid work-->
+	}
 </style>
 
 </head>
@@ -157,8 +171,9 @@ body {
 
 <div class = "wrapper">
  
-<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-</fx-markup></div>
+<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 100% height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup>
+</div>
   
 <div class="box menu" style = "border-bottom: solid 3px silver;"><fx-dropdownmenu 
 width = 768 
@@ -178,27 +193,27 @@ style="margin-bottom:200px;font-family:roboto;">
 <span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;">MY NOTES</span>
 </fx-dropdownmenu></div>
 
-<div class="box content1" style = "padding-left:15px;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Volume To Process</span><br />16,423</div>
+<div class="box content1" style = "position:relative;padding-left:30px;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Volume To Process</span><br />16,423</div>
+</fx-markup> 
+<fx-markup  style = "position:absolute;top:0px;left:100%;font-weight:bold;padding-left:120px; " textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Time Left</span><br />2:55:00<br /><span style = "display:block;font-size:18px;font-style:italic;">(h:mm:ss)</span></div>
 </fx-markup></div>
 
-<div class="box content2"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Time Left</span><br />2:55:00<br /><span style = "display:block;font-size:18px;font-style:italic;">(h:mm:ss)</span></div>
-</fx-markup></div>
 
-<div class="box content3" style = "padding-left: 3%;"><fx-progress  style="font-weight:bold;"> 
+
+<div class="box content3" style = "position:relative;width:50%;padding-left: 3%;"><fx-progress  style="font-weight:bold;"> 
 </fx-progress>
-
 <fx-markup><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "float:left;font-size:18px;color:black;font-weight:normal;text-align:left;">Completed<br />10,123</span>
 <span style = "font-size:18px;color:black;font-weight:normal;float:right;text-align:left;">Remaining<br />6,300</span>
 </div> 
 </fx-markup>
+ <fx-markup  style="width:50%;padding-left:120px;position:absolute;top:0px;left:100%;font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
+ <div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.png" /></span></div>
+</fx-markup>
 </div>
-
-<div class="box content4"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span><br />14/<span style = "color:silver;">14 <img src = "pencil.png" /></span></div>
-</fx-markup></div>
 
 <div class="box content5" style = "text-align:center;padding-left:30%;padding-right:30%;">
 
-<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "padding-left:14px;font-size:22px;color:black;font-weight:bold;">Last Arriving Flights/Trucks</span></div>
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "padding-top:80px;text-align:left;font-family:roboto;"><span style = "padding-left:14px;font-size:22px;color:black;font-weight:bold;">Last Arriving Flights/Trucks</span></div>
 </fx-markup>
 
 <table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
@@ -255,13 +270,13 @@ style="margin-bottom:200px;font-family:roboto;">
 				</tr>
 </table>
 
-<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><a href = "" style = "padding-left:48px;font-size:22px;color:#4D1486;font-weight:normal;">Last Arrival Details</a><img src = "search.png" /></div>
+<fx-markup   style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><a href = "" style = "padding-left:48px;font-size:22px;color:#4D1486;font-weight:normal;">Last Arrival Details</a><img src = "search.png" /></div>
 </fx-markup>
 </div>
  
-<div class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" />			
+<div  class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" />			
 
-<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+<table   id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
 				<tr style = "text-align:left;"> 
 				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true">Flight</th>
@@ -309,15 +324,12 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">-</td>
 				<td style="border-top:none;color:green;font-size:18px;">ARD READY</td>
 				</tr>
-				 
 </table>
+</div> <!--flights-->
 
-</div>
- 
+
 
 <div class="box flight">
-
-
 <div class = "box flight1">
 <span style = "font-size:18px;font-weight:bold;">Flight</span>
 <select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
@@ -332,65 +344,74 @@ style="margin-bottom:200px;font-family:roboto;">
 
 <div class = "box flight2">
 <span style = "font-size:18px;font-weight:bold;">AYY</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "0">0</option>	 
 </select>
 </div>
 
 <div class = "box flight3">
 <span style = "font-size:18px;font-weight:bold;">SAA</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "1">1</option>	 
 </select>
 </div>
 
 <div class = "box flight4">
 <span style = "font-size:18px;font-weight:bold;">AAD</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "2">2</option>	 
 </select>
 </div>
 
 <div class = "box flight5">
 <span style = "font-size:18px;font-weight:bold;">AMJ</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "0">0</option>	 
 </select>
 </div>
 
 <div class = "box flight6">
 <span style = "font-size:18px;font-weight:bold;">AKE</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "0">0</option>	 
 </select>
 </div>
 
 <div class = "box flight7">
 <span style = "font-size:18px;font-weight:bold;">APE</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "5">5</option>	 
 </select>
 </div>
 
 <div class = "box flight8">
 <span style = "font-size:18px;font-weight:bold;">AQF</span><br />
-<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:75px;background-color: #f7f7f7;" >
 <option value = "0">0</option>	 
 </select>
 </div>
 
 <div class = "box flight9" style = "margin-top:21px;">
-<fx-button><span slot = "buttonpos">Request Cans</span></fx-button>	 
+<fx-button onclick = "alert('hi');"><span slot = "buttonpos">Request Cans</span></fx-button>	 
 </select>
 </div>
 
 
 
-
-
-</div>
-
 </div><!--wrapper-->
+
+<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
+at the end here with a negaative setting in the grid definiation.  Go figure!-->
+<div class="box flightsshown" style = "z-index:1000;" > 
+<div id = "myflights" style = "display:none;">
+<radar-flights ></radar-flights>
+</div>
+</div>
 
 </body>
 </html>
+
+<!--Note: this screen does not use the grid.  Grid interfers with elements on the screen
+that fail to operate at expected ie. they dont's respond to clicks and anchor elements.
+As a result, I have implemented this screen with what amountst to my own grid and 
+all is good.-->
