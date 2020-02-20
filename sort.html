@@ -4,6 +4,27 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RADAR</title>
+  
+<!--IMPORTANT jQuery must come first before bootstrap-->
+
+<!--jquery-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
+
+ 
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<!--jquery ui-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+
+ <!--jquery datatables-->
+<!--<script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />-->
+
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
 <!--fedex web components-->   
 <script src="faar-search.js"></script>
@@ -227,7 +248,7 @@ style="margin-bottom:200px;font-family:roboto;">
 </div> 
 </fx-markup>
  <fx-markup  style="width:50%;padding-left:120px;position:absolute;top:0px;left:100%;font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
- <div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.png" onclick="ddd = document.getElementById('myjobs');ddd.style.display = 'block';" /></span></div>
+ <div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.png" onclick="ddd = document.getElementById('jobassignments');ddd.style.display = 'block';" /></span></div>
 </fx-markup>
 </div>
 
@@ -440,6 +461,315 @@ style="margin-bottom:200px;font-family:roboto;">
 </div>
 
 </body>
+
+<!--JOB ASSIGNMENTS MODAL-->
+						 
+<div id = "jobassignments" style ="width:100%;background-color:white;color:black; position:absolute;top:100px;overflow-y:scroll;overflow-x:none;display:none;">
+	<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Job Assignments</div>
+		<style>
+			#gallery { float: left; width: 50%; min-height: 12em; }
+			.gallery.custom-state-active { background: #eee; }
+						  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+						  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+						  .gallery li a { float: right; }
+						  .gallery li a.ui-icon-zoomin { float: left; }
+						  .gallery li img { width: 100%; cursor: move; }
+						 
+						  #load { float: right;   min-height: 12em; padding: 1%; }
+						  #load h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #load h4 .ui-icon { float: left; }
+						  #load .gallery h5 { display: none; }
+						  
+						  #gate { float: right;   min-height: 12em; padding: 1%; }
+						  #gate h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #gate h4 .ui-icon { float: left; }
+						  #gate .gallery h5 { display: none; }
+						  
+						  #slide { float: right;   min-height: 12em; padding: 1%; }
+						  #slide h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #slide h4 .ui-icon { float: left; }
+						  #slide .gallery h5 { display: none; }
+						  
+						  #drivers { float: right;   min-height: 12em; padding: 1%; }
+						  #drivers h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #drivers h4 .ui-icon { float: left; }
+						  #drivers .gallery h5 { display: none; }
+		</style>			  
+						  
+						  <script>
+						  $( function() {
+						 
+							// There's the gallery and the trash
+							var $gallery = $( "#gallery" ),
+							  $load = $( "#load" );
+							  $gate = $( "#gate" );
+							  $slide = $( "#slide" );
+							  $drivers = $( "#drivers" );
+							  
+							  
+						 
+						 
+							// Let the gallery items be draggable
+							$( "h3", $gallery ).draggable({
+							  cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+							  revert: "invalid", // when not dropped, the item will revert back to its initial position
+							  containment: "document",
+							  helper: "clone",
+							  cursor: "move"
+							});
+							
+							// Let load be droppable, accepting the gallery items
+							$load.droppable({
+							accept: "#gallery > h3",
+							drop: function( event, ui ) {
+							deleteImageLoad( ui.draggable );
+							  }
+							});
+						 
+							// Let gate be droppable, accepting the gallery items
+							$gate.droppable({
+							accept: "#gallery > h3",
+							drop: function( event, ui ) {
+							deleteImage( ui.draggable );
+							  }
+							});
+							
+							// Let slide be droppable, accepting the gallery items
+							$slide.droppable({
+							accept: "#gallery > h3",
+							drop: function( event, ui ) {
+							deleteImageSlide( ui.draggable );
+							  }
+							});
+							
+							// Let drivers be droppable, accepting the gallery items
+							$drivers.droppable({
+							accept: "#gallery > h3",
+							drop: function( event, ui ) {
+							deleteImageDrivers( ui.draggable );
+							  }
+							});
+							
+							// Let the gallery be droppable as well, accepting items from gate
+							$gallery.droppable({
+							  accept: ".droppableShape",
+							  drop: function( event, ui ) {
+							  recycleImage( ui.draggable );
+							  }
+							});
+							
+							
+						 
+							
+							// Image deletion function load
+							 var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle<br />image</a>";
+							function deleteImageLoad( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $load ).length ?
+								  $( "ul", $load ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $load );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}   
+							
+							// Image deletion function gate
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							function deleteImage( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $gate ).length ?
+								  $( "ul", $gate ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $gate );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+							// Image deletion function slide
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							function deleteImageSlide( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $slide ).length ?
+								  $( "ul", $slide ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $slide );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+							// Image deletion function drivers
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							function deleteImageDrivers( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $drivers ).length ?
+								  $( "ul", $drivers ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $drivers );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+						 
+							
+						 
+							// Image recycle function
+							var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete</a>";
+							function recycleImage( $item ) {
+							  $item.fadeOut(function() {
+								$item
+								  .find( "a.ui-icon-refresh" )
+									.remove()
+								  .end()
+								  .css( "width", "96px")
+								  
+								  .find( "img" )
+									.css( "height", "72px" )
+								  .end()
+								  .appendTo( $gallery )
+								  .fadeIn();
+							  });
+							}
+						 
+							// Image preview function, demonstrating the ui.dialog used as a modal window
+							function viewLargerImage( $link ) {
+							  var src = $link.attr( "href" ),
+								title = $link.siblings( "img" ).attr( "alt" ),
+								$modal = $( "img[src$='" + src + "']" );
+						 
+							  if ( $modal.length ) {
+								$modal.dialog( "open" );
+							  } else {
+								var img = $( "<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />" )
+								  .attr( "src", src ).appendTo( "body" );
+								setTimeout(function() {
+								  img.dialog({
+									title: title,
+									width: 400,
+									modal: true
+								  });
+								}, 1 );
+							  }
+							}
+						 
+							// Resolve the icons behavior with event delegation
+							$( "ul.gallery > li" ).on( "click", function( event ) {
+							  var $item = $( this ),
+								$target = $( event.target );
+						 
+							  if ( $target.is( "a.ui-icon-trash" ) ) {
+								deleteImage( $item );
+							  } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+								viewLargerImage( $target );
+							  } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+								recycleImage( $item );
+							  }
+						 
+							  return false;
+							});
+						  } );
+						  </script>
+						 
+						 
+	<div class="ui-widget ui-helper-clearfix" style = "font-family:roboto;font-size:22px;min-height:1200px;">
+						 
+					<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;width:100%;top:610px;"> 
+						
+						
+						<span  style = "margin-bottom:30px;padding-left:300px;  font-size:32px;width:400px;font-weight:bold;text-shadow:none;">Unassigned</span>
+						
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Anthony</h3>
+							
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Paula</h3>
+						
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Joe</h3>
+							
+						 
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Tom</h3>
+						
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Mary</h3>
+							
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Janet</h3>
+						
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Tracy</h3>
+						
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Paul</h3>
+							
+						 
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Cesar</h3>
+						
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Bob</h3>
+							
+						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Carol</h3>
+						
+						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Kathy</h3>
+					</div>
+						
+						 
+						
+						
+						
+						
+						 
+							  
+						  
+						  
+						   
+						  
+						  <!--<li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Tom</h5>
+							<img src="personD.png" alt="Tom" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>-->
+						  
+						  
+						</ul>
+
+
+						<div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
+						 <h4  >Load</h4>
+						</div>
+						 
+						<div    id = "gate"  style = "position:absolute;top:75px;right:-30px;width:50%;height:200px;text-shadow:none;"> 
+						 <h4>Gate</h4>
+						</div>
+
+						<div   id = "slide"  style = "position:absolute;top:325px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
+						 <h4  >Slide</h4>
+						</div>
+
+						<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:-30px;top:325px;width:50%;height:200px;text-shadow:none;"> 
+						 <h4   >Drivers</h4>
+						</div>
+
+		<input type="button" value="Save" style="position:absolute;right:50px;bottom:20px; height:35px;width:80px;">
+		
+		<input type="button" id= 'myClose'   onclick = "document.getElementById('jobassignments').style.display = 'none';" value="Cancel" style="position:absolute;bottom:20px; height:35px; right:150px;width:80px;"><br /><br /><br />
+						 
+						 
 </html>
 
 <!--Note: this screen does not use the grid.  Grid interfers with elements on the screen
