@@ -36,8 +36,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 <div id='myModal' class = 'modalx' ">
-	<div class = 'modal-content'>
-		<p id="demo">This is demo</p>
+	<div class = 'modal-content' style = 'padding-left:20px;padding-right:20px;'>
+		<p id="demo" >This is demo</p>
 		<input type="button" value="Save" style="float:right;height:35px;width:80px;">
 
 		<input type="button" id= 'myClose'   onclick = "document.getElementById('myarrivals').style.display = 'none';" value="Cancel" style="float:right;height:35px;margin-right:10px;width:80px;"><br /><br /><br /> 
@@ -58,22 +58,36 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+ { flight:"252", origin: "SJU", arrive: "18:24" , misc: "8FDX/16PML/-PBY/9FRT/- DOC"},
+ { flight:"431", origin: "LAX", arrive: "17:44" , misc: "3.5 FDX/ 19PML / 3.5 PBY / - FRT / - DOC"},
+ { flight:"849", origin: "LAX", arrive: "17:39" , misc: "1FDX/36PML/ 4.5 PBY/- FRT/ - DOC"},
+  ];
+  
+myObj2 = [
  
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  } 
- ];
+ { route:"HSV13", origin: "HSV", type: "Bulk" , arrive: "12:15",misc: "68FDX/- PML/- PBY/- FRT/- DOC"},
+ { route:"MC709", origin: "MCI", type: "CVT" , arrive: "12:30",misc: "5FDX/- PML/- PBY/- FRT/- DOC"}, 
+  ];
 
 var txt = "";
-txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Last Arrivals Details</div><table   style='font-family:roboto;width:100%;text-align:center;'><tr><th>Show</th><th>Flight #</th><th>Market</th><th>Tail #</th><th>Gate #</th><th>Departure</th></tr>"
+txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Last Arrivals Details</div><table   style='font-family:roboto;width:100%;text-align:left;padding-left:80px;padding-right:80px'><tr ><th style = 'color:gray;'>Flight #</th><th style = 'color:gray;'>Origin</th><th style = 'color:gray;'>Arriving</th></tr>"
 	
 	 for (x in myObj) {
-       txt += "<tr>" + "<td>" + myObj[x].show + "</td>" + "<td>" + myObj[x].flight + "</td>" + "<td>" + myObj[x].market + "</td>" + "<td>" + myObj[x].tail + "</td>" + "<td>" + myObj[x].gate + "</td>" + "<td>" + myObj[x].depart + "</td>" + "</tr>";
+       txt += "<tr style = 'font-weight:bold;'>" + "<td>" + myObj[x].flight + "<td>" + myObj[x].origin + "</td>" + "<td>" + myObj[x].arrive + "</td>" + "</tr>"  +
+	   
+	   "<tr style = 'font-size: 18px;'>" + "<td style = 'padding-left:30px;width:340px;'>" + myObj[x].misc + "</td>" + "</tr>";
+    }
+   
+    txt += "</table>" 
+	
+	
+	
+txt +=  "<table   style='font-family:roboto;width:100%;text-align:left;padding-left:80px;padding-right:80px'><tr ><th style = 'color:gray;padding-top:40px;'>Route</th><th style = 'color:gray;padding-top:40px;'>Origin</th><th style = 'color:gray;padding-top:40px;'>Type</th><th style = 'color:gray;padding-top:40px;'>Arriving</th></tr>"
+	
+	 for (x in myObj2) {
+       txt += "<tr style = 'font-weight:bold;'>" + "<td style = 'width:150px;'>" + myObj2[x].route + "<td>" + myObj2[x].origin + "</td>" + "<td>" + myObj2[x].type + "</td>" + "<td>" + myObj2[x].arrive + "</tr>"  +
+	   
+	   "<tr style = 'font-size: 18px;'>" + "<td style = 'padding-left:30px;width:300px;'>" + myObj2[x].misc + "</td>" + "</tr>";
     }
    
     txt += "</table>" 
