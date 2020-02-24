@@ -4,25 +4,22 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
 .fxbuttonclass {
-	background-color:#4D148C;
-	color: white;
-	height:60px;
-	width:75px;
-	//box-shadow: 0px 5px 5px #888888;
+	background-color:var(--fedexpurple);
+	color: var(--fedexwhite);
+	height:30px;
+	width:100px;
+	box-shadow: 0px 5px 5px #888888;
 	font-family:roboto;
-	font-size: 20px;
-	text-align: left;
+	font-size: 14px;
+	text-align: center;
 	line-height:30px;
 	z-index:100;
-	padding:5px;
-	cursor:pointer;
-	border-radius: 7%;
-	 
+	position:absolute;
 	}
 	
 .button {
     
-     
+    position: absolute;
     background-color: red;
     border: none;
     box-shadow: 5px 5px 10px rgb(170 170 170);
@@ -36,9 +33,8 @@ template.innerHTML = `
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 10%;
     outline: none; 
-	cursor: pointer;
 }
 
 
@@ -51,19 +47,51 @@ template.innerHTML = `
 }
 </style>
 
-<div class="fxbuttonclass"  >
+<div class="button fxbuttonclass" style="-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;text-align: center;border: none;box-shadow: 5px 5px 10px rgb(170 170 170);position:absolute;">
 <slot name="button-image"></slot>
 <slot name="buttonpos"></slot>
 </div>`;
 
 	class FxButton extends HTMLElement {
-		
+	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor', 'family', 'rad']; }	
 	constructor() {
     super();
-    this.attachShadow({mode: 'open'});
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    let shadowRoot = this.attachShadow({mode: 'open'});
+	this.shadowRoot.appendChild(template.content.cloneNode(true));
+	let style = document.createElement('style'); 
+	shadowRoot.appendChild(style);
     }
 	
+	
+	
+	attributeChangedCallback(name, oldValue, newValue) {
+	updateStyleDrop(this);
 	}
-	window.customElements.define('fx-button', FxButton);
+	
+}//extends
+
+function updateStyleDrop(elem) { 
+	 
+	var shadow = elem.shadowRoot;
+	var childNodes = shadow.childNodes;
+	
+	for(var i = 0; i < childNodes.length; i++) {
+    if(childNodes[i].nodeName === 'STYLE') {    
+      childNodes[i].textContent = '.button{' +
+						  ' width: ' + elem.getAttribute('width') + 'px;' +     
+                          ' height: ' + elem.getAttribute('height') + 'px;' +
+                          ' background-color: ' + elem.getAttribute('c') + ';' +  
+						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' opacity: ' + elem.getAttribute('trans') + ';' +
+						  ' font-size: ' + elem.getAttribute('size') + 'px;' +  
+						  ' color: ' + elem.getAttribute('textcolor') + ';' + 
+						  ' font-family: ' + elem.getAttribute('family') + ';' +
+						  ' border-radius: ' + elem.getAttribute('rad') + '%' + ';' + '}'  
+						  
+						  
+	}
+  }
+} 
+window.customElements.define('fx-button', FxButton);
 })();
