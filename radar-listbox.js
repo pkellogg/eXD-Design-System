@@ -32,15 +32,17 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
-{icon1: " <image src = 'volume_down-42px.svg' height = 42px width =  42px/> ", icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />", icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "18:50"},
 
-{icon1: " <image src = 'local_see-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: "<image src = 'volume_down-42px.svg' height = 42px width =  42px />" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "<image src = 'play_circle_outline-42px.svg' height = 82px width =  82px style = 'padding-top:20px;' /><span style = 'padding-left:40px;'>30 Second Audio Recording</span><input style = 'width:500px;margin-left:120px;'  type='range' id='vol' name='vol' min='0' max='50'></input>" , time : "18:55"},
 
-{icon1: " <image src = 'videocam-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: "<image src = 'local_see-42px.svg' 'height = 42px width =  42px />" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "<div style = 'float:left;margin-top:20px;width:150px;height:100px;background-color:#4D148C;'></div>" , time : "19:15"},
 
-{icon1: " <image src = 'description-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: "<image src = 'videocam-42px.svg' 'height = 42px width =  42px />" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/ > ", content: "<image src = 'play_circle_outline-42px.svg' height = 82px width =  82px style = 'padding-top:20px;float:left;' /><div style = 'float:left;margin-top:20px;width:150px;height:100px;background-color:#4D148C;'></div><div style = 'float:left;margin-left:5px;margin-top:20px;width:150px;height:100px;background-color:#4D148C;'></div><div style = 'float:left;margin-left:5px;margin-top:20px;width:150px;height:100px;background-color:#4D148C;'></div>" , time : "19:25"},
 
-{icon1: " <image src = 'description-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"}
+{icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />",  icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "20:00"},
+
+{icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />",  icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "20:20"}
 
  
 ]
