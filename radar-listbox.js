@@ -32,24 +32,24 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: " <image src = 'volume_down-42px.svg' height = 42px width =  42px/> ", icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
 
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered." , time : "18:50"}, 
+{icon1: " <image src = 'local_see-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
 
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: " <image src = 'videocam-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
 
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
+{icon1: " <image src = 'description-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"},
 
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered." , time : "18:50"}, 
+{icon1: " <image src = 'description-42px.svg' 'height = 42px width =  42px/>" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "This is where the note goes that the user has entrered.  This is where the note goes that the user has entrered. This is where the note goes that the user has entrered." , time : "18:50"}
 
-{icon1: " <image src = 'pencil.png' /> ", content: "This is where the note goes that the user has entrered." , time : "18:50"}  
+ 
 ]
 
  var txt = "";
 txt += "<div class = 'wrap' style = 'display:grid;grid-template-columns: fl fl fl;margin:auto;padding-top:20px;padding-bottom:20px;'>" 
 	
 	 for (x in myObj) {
-       txt += "<div class = 'listitemicons'  style = 'grid-column:1;border-bottom:solid 1px silver;'>" + myObj[x].icon1 + "<br />" + myObj[x].icon1 + "</div>" + "<div id = 'listitemcontent'  style = 'grid-column:2;border-bottom:solid 1px silver;padding-left:20px;padding-bottom:20px;padding-right:10px;'>" + myObj[x].content + "</div>" + "<div id = 'listitemtime'  style = 'grid-column:3;border-bottom:solid 1px silver;'>" +
+       txt += "<div class = 'listitemicons'  style = 'grid-column:1;border-bottom:solid 1px silver;'>" + myObj[x].icon1 + "<br />" + myObj[x].icon2 + "</div>" + "<div id = 'listitemcontent'  style = 'grid-column:2;border-bottom:solid 1px silver;padding-left:20px;padding-bottom:20px;padding-right:10px;'>" + myObj[x].content + "</div>" + "<div id = 'listitemtime'  style = 'grid-column:3;border-bottom:solid 1px silver;'>" +
 	   myObj[x].time + "</div>" ;    
     }
    
