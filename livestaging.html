@@ -73,24 +73,13 @@ body {
 	}
 	
 .gate1 	{
-        grid-column :1;
-        grid-row : 4;
+        grid-column :1 / span 2;
+        grid-row : 4 / span 2;
     }
 			
-.gate2 	{
-        grid-column: 2;
-        grid-row : 4;
-    }
+ 
 	
-.gate3 	{
-        grid-column :1;
-        grid-row : 5;
-    }
-			
-.gate4 	{
-        grid-column: 2;
-        grid-row : 5;
-    }
+ 
 </style>
 
 </head>
@@ -126,13 +115,13 @@ style="margin-bottom:200px;font-family:roboto;">
 </div>
 
 <div class="box viewselect"  style = "padding-top:10px;">
-<input type="radio" id="all" name="view" value="all" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;" >
+<input type="radio" id="all" name="view" value="all" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
 <label for="male" style = "padding-left:10px;">All</label> 
 
 <input type="radio" id="gates" name="view" value="gates" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;" onclick = "document.location.href =  'live.html'">
 <label for="female" style = "padding-left:10px;">Gates</label> 
 
-<input type="radio" id="slide" name="view" value="slide" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;" onclick = "document.location.href = 'liveslide.html'">
+<input type="radio" id="slide" name="view" value="slide" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;" onclick = "document.location.href =  'liveslide.html'">
 <label for="other" style = "padding-left:10px;">Slide</label>
 
 <input type="radio" id="staging" name="view" value="staging" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;" onclick = "document.location.href =  'livestaging.html'">
@@ -143,38 +132,13 @@ style="margin-bottom:200px;font-family:roboto;">
 </div>
 
 <div class="box gate1" style = "border:thin black solid;position:relative;">
-<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 132</div>
+<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Staging 1</div>
 
 <fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
 <span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
 </fx-button>
 </div>
 
-<div class="box gate2" style = "border:thin black solid;position:relative;">
-<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 261</div>
-
-<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
-<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
-</fx-button>
-</div>
-
-<div class="box gate3" style = "border:thin black solid;position:relative;">
-<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 301</div>
-
-<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
-<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
-</fx-button>
-</div>
-
-<div class="box gate4" style = "border:thin black solid;position:relative;">
-<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 383</div>
-
-<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
-<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
-</fx-button>
-</div>
-
- 
 </div><!--wrapper-->
 
 </body>
