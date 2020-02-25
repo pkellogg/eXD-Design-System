@@ -18,6 +18,7 @@
 <script src="radar-listbox.js"></script>
 <script src="fx-button.js"></script>
 <script src="fx-rangeslider.js"></script>
+<script src="radar-notesmenu.js"></script>
 
 
 
@@ -42,7 +43,7 @@ body {
 .wrapper {
   display:   grid ;
   grid-template-columns: fl fl;
-  grid-template-rows:  80px 60px 1px 0px 140px;
+  
   //grid-gap: 10px;
   background-color: #fff;
   color: #444;
@@ -76,6 +77,15 @@ body {
         grid-row : 3;
     }
 	
+.flightsshown	{
+			
+			
+			 
+			width:110%;
+			grid-column:1/span 2;
+			grid-row:2   <!--negative 8 makes the anchor links in grid work-->
+	}
+	
  
 </style>
 
@@ -104,24 +114,30 @@ style="margin-bottom:200px;font-family:roboto;">
 
 <a slot = "drop-text3" href = "sort.html" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
 
-<span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html">LIVE VIEWS</span>
+<a slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html" href = "live.html">LIVE VIEWS</a>
 
-<span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</span>
+<a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
 </fx-dropdownmenu>
 
 </div>
 
-<div class="box content1" > 
+<div class="wraper" > 
+<div class = "box content1">
 <radar-listbox></radar-listbox> 
 
-<fx-button style = "float:right;padding-right:120px;"  c = #4D148C  width = 100 height = 100 trans = 1  rad =  "50" >
+<fx-button id= "showmenu" style = "float:right;padding-right:120px;"  c = #4D148C  width = 100 height = 100 trans = 1  rad =  "50" onclick = "document.getElementById('myflights').style.display = 'block';document.getElementById('showmenu').style.display = 'none';cursor:pointer;">
 <span slot = 'button-image'><img src = 'plus-2-48.png' style="padding-top:24px;" /></span>
 </fx-button>
 
 <!--Ref for icons: https://www.iconsdb.com/white-icons/plus-2-icon.html-->
 
-<fx-rangeslider></fx-rangeslider>
+<div class="box flightsshown" style = "z-index:1000;position:relative;" > 
+<div id = "myflights" style = "display:none;float:left;position:absolute;top:-540px;">
+<radar-notesmenu></radar-notesmenu>
+</div>
+</div>
 
+</div><!--box content1-->
 </div><!--wrapper-->
 
 </body>
