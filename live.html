@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RADAR</title>
+
+ 
+
+<!--fedex web components-->   
+<script src="faar-search.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="radar-scales.js"></script>
+<script src="radar-flights.js"></script>
+<script src="radar-jobs.js"></script>
+
+<!--from faar-stationaddworkgroup.html-->
+<script src="faar-headersearch.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="faar-simplelistbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="faar-stationtable.js"></script>
+<script src="fx-utilitybutton.js"></script>
+<script src="faar-addworkgroup.js"></script>
+<script src="fx-secondarybutton.js"></script>
+<script src="faar-listbox.js"></script>
+<script src="fx-accordion-item.js"></script>
+<script src="fx-radiobutton.js"></script>
+<script src="fx-button.js"></script>
+
+<style>
+
+body {
+}
+
+.wrapper {
+  display:   grid;
+  grid-template-columns: fl fl;
+  grid-template-rows:  80px 60px 60px 400px 400px;
+  grid-gap: 5px;
+  background-color: #fff;
+  color: #444;
+  width:768px;
+  margin:auto;  //horizontal center the grid on screen
+  border:1px solid silver;
+  
+}
+	
+.box {
+  //border:1px solid silver;
+  color: black;
+  padding: 0px;
+  font-size: 150%;
+  font-family: roboto;
+  margin: 0px;
+}
+
+.header 	{
+        grid-column:1/span 2 ;
+        grid-row:1;
+    }
+	
+.menu 		{
+        grid-column:1/span 2;
+        grid-row: 2;
+    }
+	
+.viewselect {
+		grid-column:1/span 2;
+        grid-row: 3;
+	}
+	
+.gate1 	{
+        grid-column :1;
+        grid-row : 4;
+    }
+			
+.gate2 	{
+        grid-column: 2;
+        grid-row : 4;
+    }
+	
+.gate3 	{
+        grid-column :1;
+        grid-row : 5;
+    }
+			
+.gate4 	{
+        grid-column: 2;
+        grid-row : 5;
+    }
+</style>
+
+</head>
+
+<body>
+
+<p id="demo"></p>
+
+<div class = "wrapper" style = "margin-bottom:150px;">
+
+<div class="box header">
+<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 120 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup>
+</div>
+
+<div class="box menu" style = "border-bottom: solid 3px silver;">
+<fx-dropdownmenu 
+width = 768 
+height = 50 
+orientation = left 
+c = "white";                       
+size = 22
+class = "menu"
+style="margin-bottom:200px;font-family:roboto;">
+<a slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html" >PRE-SORT</a>
+
+<a slot = "drop-text3" href = "sort.html" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
+
+<a slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html">LIVE VIEWS</a>
+
+<a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
+</fx-dropdownmenu>
+</div>
+
+<div class="box viewselect"  style = "padding-top:10px;">
+<input type="radio" id="all" name="view" value="all" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
+<label for="male" style = "padding-left:10px;">All</label> 
+
+<input type="radio" id="gates" name="view" value="gates" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
+<label for="female" style = "padding-left:10px;">Gates</label> 
+
+<input type="radio" id="slide" name="view" value="slide" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
+<label for="other" style = "padding-left:10px;">Slide</label>
+
+<input type="radio" id="staging" name="view" value="staging" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
+<label for="other" style = "padding-left:10px;">Staging</label>
+
+<input type="radio" id="other" name="view" value="other" style="-webkit-transform: scale(2);transform: scale(3);margin-left:55px;">
+<label for="other" style = "padding-left:10px;">Other</label>
+</div>
+
+<div class="box gate1" style = "border:thin black solid;position:relative;">
+<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 132</div>
+
+<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
+<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
+</fx-button>
+</div>
+
+<div class="box gate2" style = "border:thin black solid;position:relative;">
+<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 261</div>
+
+<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
+<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
+</fx-button>
+</div>
+
+<div class="box gate3" style = "border:thin black solid;position:relative;">
+<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 301</div>
+
+<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
+<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
+</fx-button>
+</div>
+
+<div class="box gate4" style = "border:thin black solid;position:relative;">
+<div style = "float:left;top:0px;height:35px;width:120px;background-color:#4D148C;color:white;border-radius:0px  0px 10px  0px; ;padding-left:10px;">Gate 383</div>
+
+<fx-button id= "showsearch" style = "position:absolute;bottom:80px;right:80px;"  c = #4D148C  width = 70 height = 70 trans = 1  rad =  "50">
+<span slot = 'button-image'><img src = 'search-3-48.png' style="padding-top:10px;" /></span>
+</fx-button>
+</div>
+
+ 
+</div><!--wrapper-->
+
+</body>
+</html>
