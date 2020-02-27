@@ -546,84 +546,72 @@ center;z-index:3000;width:250px;">
 <ul style="text-decoration:none;list-style-type: none;margin-left:10px;padding:0px;background-color:rgb(60,60,60);border:none;"> 
 	
 	<!--line 1 id nd no selected-->
-	<li style="background-color:rgb(60,60,60);width:300px;color:silver;height:45px;margin-bottom:2px;border-bottom:thin solid white;"><span id="selecteditem" style="color:white;padding-left:10px;line-height:4;color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">NO ITEM SELECTED</span></li> 
+	<li style="background-color:rgb(60,60,60);width:300px;color:silver;height:45px;margin-bottom:2px;border-bottom:thin solid white;"><span id="selecteditem" style="color:white;padding-left:10px;line-height:4;color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">NO ITEM SELECTED</span></li>
+	
+ 
+
+	<!--line 3 position x and y-->
+	<li    id= "mouseindicator" class=".mouseindicator" style= "padding-top:25px;padding-bottom:40px;width: 200px;height:35px;background-color:rgb(60,60,60);color:silver;text-align:left;font-size:16px;"></li> 
+	
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;margin-bottom:2px;">
+	<span style="color:rgb(150,150,150);">Left: </span>
+	<input type="text" id="setLeft"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"><span style="color:rgb(150,150,150);padding-left:3px;">Top: </span>
+	<input type="text" id="setTop"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;margin-right:21px;">
+	</li>
 	
 	<!--line 2 height and width-->
-	 
-	
-	<li style="background-color:rgb(60,60,60);width:280px;color:silver;height:45px;margin-bottom:2px;padding-top:30px;">
+	<li style="background-color:rgb(60,60,60);width:280px;color:silver;height:45px;margin-bottom:2px;padding-top:10px;">
 	<span style="color:rgb(150,150,150); ">w: </span>
 	<input type="text" id="setWidth"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;">
 	<span style="color:rgb(150,150,150);padding-left:5px;">H: </span>
 	<input type="text" id="setHeight"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"></li><br />
 	
-	<!--line 3 position x and y-->
-	<li id= "mouseindicator" class=".mouseindicator" style="width: 200px;height:35px;background-color:rgb(60,60,60);color:silver;text-align:left;font-size:16px;"></li> 
-
 	<!--line 4 layer and transparency and color select-->
-	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;margin-bottom:2px;">
-	<span style="color:rgb(150,150,150);">Z: </span>
-	<input type="text" id="setZindex"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;">
-	
-	<span style="color:rgb(150,150,150);padding-left:3px;">o: </span>
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">
+	<span style="color:rgb(150,150,150);">Z-Index: </span>
+	<input type="text" id="setZindex"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"><span style="color:rgb(150,150,150);padding-left:3px;">Opacity: </span>
 	<input type="text" id="setOpacity"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;margin-right:21px;">
 	
-	
-	
-	
-	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;margin-bottom:2px;">
-	<span style="color:rgb(150,150,150);">Left: </span>
-	<input type="text" id="setLeft"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;">
-	
-	<span style="color:rgb(150,150,150);padding-left:3px;">Top: </span>
-	<input type="text" id="setTop"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;margin-right:21px;">
-	</li>
-	
-	<li id="demodropdown" style="background-color:rgb(60,60,60);width:280px;color:silver;margin-bottom:2px;text-align:left;">Menu 
-	<form action="">
-	<input type="radio" name="float" value="left" onclick = "radiochecked = 'left'"> Left<br>
-    <input type="radio" name="float" value="right" onclick = "radiochecked = 'right'"> Right<br>
-	</form>
-	
-     </li><br />
-	
-	<input type='text' id="full" />
-	
-	<button id="btnOK"  style="background-color:rgb(60,60,60);color:silver;;border:none;margin-left:5px;margin-right:5px;font-family:roboto;letter-spacing:1px;" onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxleft = $('#setLeft').val();fxtop = $('#setTop').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop, fxsize,fxtextcolor,fxselelement);">Ok</button><br />
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">
+	<span style="color:rgb(150,150,150);">Border-Radius: </span>
+	<input type="text" id="setradius"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"></li>
 	
 	<!--line 8 select image-->
-	<li id="demo7" style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;text-align:left;">
+	<li id="demo7" style="margin-bottom:20px;background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;text-align:left;">
 	
 	<label for="image_uploads"  style="text-decoration:none;cursor:pointer;margin-top:7px;color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">
 	
 	Select Image</label>&nbsp;&nbsp;&nbsp;&nbsp;<button  id="butOne"   onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlotBackImage(fxselelementText);"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;color:silver;font-family:roboto;letter-spacing:1px;">Ok</button>
 	
 	<input type="file" id="image_uploads" name="image_uploads"     style="font-size:10px;opacity:0;">
+
 	<input type="text" id="setTitle5"   value="Choose Background Image" style="width:270px;background-color:rgb(90,90,90);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) solid;text-align:left;display:none;">
 	</li>
 	
+	<li style = "padding-bottom:30px;"><span style = "color:silver;">Background Color</span><br /><input type='text' id="full" /></li>
 	
+	<li id="demodropdown" style="background-color:rgb(60,60,60);width:280px;color:silver;margin-bottom:2px;text-align:left;">fx-dropdownmenu
+	<form action=""  >
+	<input  type="radio" name="float" value="left" onclick = "radiochecked = 'left'"> Left&nbsp;&nbsp;&nbsp;&nbsp; 
+    <input type="radio" name="float" value="right" onclick = "radiochecked = 'right'"> Right<br>
+	</form>
+	</li><br />
 	
 	<!--line 5 the two buttons used to set descrete options on fx-accordion. Note ok panel can be use to set
 	options on other components as well-->
-	<li><span style="color:silver;">Accordion</span><br />
-	<button id="btn2"  style="background-color:rgb(60,60,60);color:silver;;border:none; margin-right:5px;font-family:roboto;letter-spacing:1px;" onclick= "fxwidth2 = $('#setWidth').val();fxheight2 = $('#setHeight').val();fxbackcolor2 = $('#setBackgroundColor').val();fxzindex2 = $('#setZindex').val();fxopacity2 = $('#setOpacity').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle2(fxwidth2,fxheight2,fxbackcolor2,fxzindex2,fxopacity2,fxselelement);">Header</button>
+	<li style="padding-bottom:30px;margin:0px;"><span style="color:silver;">fx-accordion</span><br />
+	<button id="btn2"  style="background-color:rgb(60,60,60);color:silver;;border:none; font-family:roboto;letter-spacing:1px;" onclick= "fxwidth2 = $('#setWidth').val();fxheight2 = $('#setHeight').val();fxbackcolor2 = $('#setBackgroundColor').val();fxzindex2 = $('#setZindex').val();fxopacity2 = $('#setOpacity').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle2(fxwidth2,fxheight2,fxbackcolor2,fxzindex2,fxopacity2,fxselelement);">Item</button>
+	<button id="btn1"  style="background-color:rgb(60,60,60);color:silver;;border:none;margin-left:5px;font-family:roboto;letter-spacing:1px;" onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxsize,fxtextcolor,fxselelement);">Panel</button></li>
 	
-	<button id="btn1"  style="background-color:rgb(60,60,60);color:silver;;border:none;margin-left:5px;margin-right:5px;font-family:roboto;letter-spacing:1px;" onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxsize,fxtextcolor,fxselelement);">Content</button>
-	
-	<li id="demo7">
+	<li id="demo7" style = "padding-bottom:20px;">
 	<button  id="butedit" onclick="document.getElementById('rtf').style.display ='block';document.getElementById('iconMenu').style.display = 'none';document.getElementById('tabs').style.display = 'none';"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;color:silver;font-family:roboto;letter-spacing:1px;">Rich Text Editor</button>
 	</li>
 	
-	<!--line 9 OK button for select image-->
-    <li id="demo5" style="background-color:rgb(60,60,60);width:280px;color:white;height:45px;margin-bottom:2px;text-align:left;"></li>
 	
-	<!--line 7 text area entry-->
-	<li id="demo0" style="background-color:rgb(60,60,60);width:280px;color:white;height:145px;margin-bottom:2px;text-align:left;padding-top:10px;">
 	
-	<textarea id="setTitle0"   value="Enter Text" style="width:190px;height:125px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) dotted;text-align:left;">Enter Text</textarea>
+	<li style = "padding-bottom:20px;"><button id="btnOK"  style="background-color:rgb(60,60,60);color:silver;border:2px solid silver;font-family:roboto;letter-spacing:1px;" 
 	
-	<button  id="butTitle0" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlot0(fxselelementText);joe = document.getElementById('setsize').value;"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;margin-left:5px;color:silver;font-family:roboto;letter-spacing:1px;">Ok</butto></li> 
+	onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxleft = $('#setLeft').val();fxtop = $('#setTop').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();fxradius = $('#setradius').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop, fxsize,fxtextcolor,fxradius,fxselelement);">Apply Options</button></li> 
 	
 	<!--line 10 Trash-->
 	<li id="demo8" style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);margin-bottom:2px;text-align:left;">
@@ -1495,7 +1483,7 @@ var res = str1 +  timeStamp  +  str2;
 newidBackIm = timeStamp + 'card image' ;
 
 $(droptarget).append(res +
- '<span slot="button-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="placeholder.jpg" style="height:70%;width:80%;text-align:center;position:absolute;right:3px;top:7px;" \></span><span slot="buttonpos"></span>' +
+ '<span slot="button-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="placeholder.jpg" style="height:100%;width:100%;text-align:center;" \></span><span slot="buttonpos"></span>' +
  '</fx-button>'); 
  
 $(".fxbuttonclass").draggable( {
@@ -1539,6 +1527,7 @@ drag: function() {
 }
 
 //POLYFAB DROP
+//note: this is a polymer module not one of mine
 if ($(draggable).attr('id') == "polyfab") 
 { 
 olddropbutton = droptarget;
@@ -1944,11 +1933,11 @@ $(".mdl-tabs__panel").droppable({
 }  //init
 
 
-//called by the ok button in property sheet. 
+//called by the ok button in property sheet.  THE ORDER OF ITEMS IS CRITICAL
 //This also uses the global cc which is the color selected from the picker.
 //ATTRIBUTES
-function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop,fxsize,fxcolor,fxselelement,fxfloat) { 
- 
+function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop,fxsize,fxcolor,fxradius, fxselelement,fxfloat) { 
+  
 document.getElementById(fxselelement).setAttribute("width", fxwidth);
 document.getElementById(fxselelement).setAttribute("height", fxheight);
 document.getElementById(fxselelement).setAttribute("c", cc);
@@ -1956,9 +1945,8 @@ document.getElementById(fxselelement).setAttribute("layer", fxzindex);
 document.getElementById(fxselelement).setAttribute("trans", fxopacity);
 document.getElementById(fxselelement).setAttribute("posx", fxleft);
 document.getElementById(fxselelement).setAttribute("posy", fxtop);
+document.getElementById(fxselelement).setAttribute("rad", fxradius);
 document.getElementById(fxselelement).setAttribute("orientation", radiochecked);
-
-
 }
 
 function elementStyle2(fxwidth2,fxheight2,fxbackcolor2,fxzindex2,fxopacity2,fxselelement,fxfloat2) { 
@@ -2021,12 +2009,10 @@ tracy = document.getElementById('setsize').value;
 tom.style.fontSize = tracy + 'px';
 } 
 
+//file select  (this is required for image select to work!)
+//immeddiatly invokedd function activated with the onchange event from the choose file button on the propbox.  This needs no inline call...it just happens when the image file is selected.
 
- 
-
-//file select 
-$(function(){       //activated with the onchange event from the choose file button on the propbox.  This needs
-                    //no inline call...it just happens when the image file is selected.
+$(function(){ 
 $("#image_uploads").change(function(e){ 
 hkhk = this.files[0].name;
 document.getElementById('setTitle5').value =  hkhk ;

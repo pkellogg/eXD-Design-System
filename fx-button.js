@@ -12,19 +12,19 @@ template.innerHTML = `
 	font-family:roboto;
 	font-size: 14px;
 	text-align: center;
-	line-height:30px;
+	 
 	z-index:100;
 	position:absolute;
 	}
 	
 .button {
     
-    position: absolute;
+     
     background-color: red;
     border: none;
     box-shadow: 5px 5px 10px rgb(170 170 170);
     color: #FFFFFF;
-    padding: 0px;
+     
     width: 70px;
     height:70px;
     text-align: center;
@@ -37,24 +37,22 @@ template.innerHTML = `
     outline: none; 
 }
 
-
-
 .button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
-    transition: 0s
+    transition: 1s
 }
 </style>
 
 <div class="button fxbuttonclass" style="-webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;text-align: center;border: none;box-shadow: 5px 5px 10px rgb(170 170 170);position:absolute;">
+    transition-duration: 0.4s;text-align: center;border: none;box-shadow: 5px 5px 10px rgb(170 170 170);padding:0px;margin:0px;">
 <slot name="button-image"></slot>
-<slot name="buttonpos"></slot>
+ 
 </div>`;
 
 	class FxButton extends HTMLElement {
-	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor', 'family', 'rad']; }	
+	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad']; }	
 	constructor() {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
@@ -62,8 +60,6 @@ template.innerHTML = `
 	let style = document.createElement('style'); 
 	shadowRoot.appendChild(style);
     }
-	
-	
 	
 	attributeChangedCallback(name, oldValue, newValue) {
 	updateStyleDrop(this);
@@ -84,10 +80,8 @@ function updateStyleDrop(elem) {
                           ' background-color: ' + elem.getAttribute('c') + ';' +  
 						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
 						  ' opacity: ' + elem.getAttribute('trans') + ';' +
-						  ' font-size: ' + elem.getAttribute('size') + 'px;' +  
-						  ' color: ' + elem.getAttribute('textcolor') + ';' + 
-						  ' font-family: ' + elem.getAttribute('family') + ';' +
-						  ' border-radius: ' + elem.getAttribute('rad') + '%' + ';' + '}'  
+						  ' border-radius: ' + elem.getAttribute('rad') + '%;' +
+						   '}'  
 						  
 						  
 	}
