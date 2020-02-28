@@ -1478,12 +1478,13 @@ olddropbutton = droptarget;
 var d = new Date();
 timeStamp = "gB"  + d.getTime();
 var str1 =  '<fx-button id=';
-var str2 = ' class="fxbuttonclass" onclick="myFunction(this)" style="position:absolute;left:0px;top:0px;">';
+var str2 = ' class="fxbuttonclass" onclick="myFunction(this)" style="position:absolute;left:0px;top:0px;text-align:center;">';
 var res = str1 +  timeStamp  +  str2;
-newidBackIm = timeStamp + 'card image' ;
+var newidBackIm = timeStamp + 'card image' ;
+var myCaption = timeStamp + 'my caption' ;
 
 $(droptarget).append(res +
- '<span slot="button-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="placeholder.jpg" style="height:100%;width:100%;text-align:center;" \></span><span slot="buttonpos"></span>' +
+ '<img slot="button-image" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="height:85%;width:85%;text-align:center;margin-top:5px;position:relative;" \></span><div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div><span slot="buttonpos">' +
  '</fx-button>'); 
  
 $(".fxbuttonclass").draggable( {
@@ -1705,7 +1706,7 @@ newid3 = timeStamp2 + 'secondarytext' ;
 
 $(droptarget).append(res3 +
 
-'<span  slot="card-image2"  ><img id="' + newidInsert + '" src="insertplaceholder.jpg"   style="width:320px;height:200px;"  ondblclick="myFunction(this)"/></span>' +
+'<img slot="card-image2" id="' + newidInsert + '" src="insertplaceholder.jpg"   style="width:320px;height:200px;"  ondblclick="myFunction(this)"/>' +
 
 '<span id="' + newid1 + '" slot="headline"  ondblclick="myFunction(this)">HEADLINE</span>' +
 
