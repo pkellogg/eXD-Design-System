@@ -12,19 +12,15 @@ template.innerHTML = `
 	font-family:roboto;
 	font-size: 14px;
 	text-align: center;
-	 
 	z-index:100;
 	position:absolute;
 	}
 	
 .button {
-    
-     
     background-color: red;
     border: none;
     box-shadow: 5px 5px 10px rgb(170 170 170);
     color: #FFFFFF;
-     
     width: 70px;
     height:70px;
     text-align: center;
@@ -54,17 +50,23 @@ template.innerHTML = `
 </button>`;
 
 	class FxButton extends HTMLElement {
-	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad']; }	
+	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad', 'cur', 'noimage']; }	
 	constructor() {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
 	this.shadowRoot.appendChild(template.content.cloneNode(true));
 	let style = document.createElement('style'); 
 	shadowRoot.appendChild(style);
+	 
+	
     }
 	
 	attributeChangedCallback(name, oldValue, newValue) {
-	updateStyleDrop(this);
+		if (oldValue === newValue) {
+			return;  //return stops a functionn in this instance because no change noticed
+		}
+			console.log(`The attribute ${name} has changed`);  //thus go ahead and update
+			updateStyleDrop(this);
 	}
 	
 }//extends
@@ -84,6 +86,7 @@ function updateStyleDrop(elem) {
 						  ' opacity: ' + elem.getAttribute('trans') + ';' +
 						  ' color: ' + elem.getAttribute('textcolor') + ';' +
 						  ' border-radius: ' + elem.getAttribute('rad') + '%;' +
+						  ' cursor: ' + elem.getAttribute('cur') + ';' +
 						   '}'  
 						  
 						  
