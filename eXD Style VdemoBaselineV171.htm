@@ -35,7 +35,7 @@
 <script src="wordcount.js"></script>
 <script src="fx-div.js"></script>
 <script src="fx-checkbox.js"></script>
-<script src="fx-button.js"></script>
+<script src="fx-imagebutton.js"></script>
 <script src="fx-image.js"></script>
 <script src="fx-train.js"></script>
 <script src="fx-dropdownmenu.js"></script>
@@ -1516,20 +1516,20 @@ $(".fxradiobuttonclass").draggable( {
 });
 } 
 
- //FX BUTTON DROP
+ //FX IMAGEBUTTON DROP
 if ($(draggable).attr('id') == "fedexbuttonicon") { 
 olddropbutton = droptarget;
 var d = new Date();
 timeStamp = "gB"  + d.getTime();
-var str1 =  '<fx-button id=';
+var str1 =  '<fx-imagebutton id=';
 var str2 = ' class="fxbuttonclass" onclick="myFunction(this)" style="position:absolute;left:0px;top:0px;text-align:center;">';
 var res = str1 +  timeStamp  +  str2;
 var newidBackIm = timeStamp + 'card image' ;
 var myCaption = timeStamp + 'my caption' ;
 
 $(droptarget).append(res +
- '<img slot="button-image" class = "imagebutton" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="height:100%;width:100%;padding:20px;position:relative;display:none;" \><div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div>' +
- '</fx-button>'); 
+ '<img slot="button-image" class = "imagebutton" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="height:100%;width:100%;padding:20px;position:relative;display:none;object-fit:contain;" \><div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div>' +
+ '</fx-imagebutton>'); 
  
 $(".fxbuttonclass").draggable( {
 	containment: 'parent',   
@@ -1537,8 +1537,8 @@ $(".fxbuttonclass").draggable( {
 	snap: true,
 	scroll: false,
 	drag: function() {
-        var ddd = document.querySelector('fx-button').style.left;  //update position in property box
-		var eee = document.querySelector('fx-button').style.top; 			
+        var ddd = document.querySelector('fx-imagebutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-imagebutton').style.top; 			
 		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
         }
 });
@@ -2431,17 +2431,15 @@ tgt.append(  (`<!DOCTYPE html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">` ));
 
 for (var i = 0; i < c.length; i++) {
-
 tgt.append(( `<link rel = "import" href =` +   c[i].nodeName + `.html>`));
-
 }
 
-tgt.append((`</head></body>`));
+tgt.append((`</head>`));
 
 for (var i = 0; i < c.length; i++) {
  
 	txt[i]  = {"name": c[i].nodeName ,  "left": c[i].style.left , "top": c[i].style.top, "width": c[i].getAttribute('width') , "height": c[i].getAttribute('height'), "back": c[i].getAttribute('c'), "layer": c[i].getAttribute('layer'), "opacity": c[i].getAttribute('trans'), "fontcolor": c[i].getAttribute('textcolor'), "orientation": c[i].getAttribute('orientation')};
-	
+	 
 	tgt.append(   (  '<' + txt[i].name + ' LEFT=' + txt[i].left + ' TOP= ' + txt[i].top + ' WIDTH= ' + txt[i].width + ' HEIGHT= ' + txt[i].height + ' BACK= ' + txt[i].back + ' Z-INDEX= ' + txt[i].layer + ' OPACITY= ' + txt[i].opacity + ' FONTCOLOR= ' + txt[i].fontcolor + ' ORIENTATION= ' + txt[i].orientation + '></' + txt[i].name + '>' )   );
 	} 
 tgt.append(  ('</body></html>')); 		 
@@ -2533,7 +2531,9 @@ color: var(--fedexpurple);
 <div id="stencil" style="width:858px;height:460px;padding:10px;color:black;background-color:rgb(150,150,150);margin-top:5px;overflow-y:auto;"></div> 
 
 <!--Buttons at bottom of dialog-->
-<button onclick="mapNodes()" style="position:absolute;left:450px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;">Export</button>
+<button onclick="var c = document.getElementById('ipad').childNodes;var tgt = document.getElementById('stencil');for (var i = 0; i < c.length; i++) {
+tgt.append(( `<script src=` +   c[i].nodeName + `.js></script>`));
+}var final = document.getElementById('ipad').innerHTML;tgt.append( final);" style="position:absolute;left:450px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;">Export</button>
 
 <button   style="position:absolute;left:530px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave', stufftosave);" >S1</button>
 
