@@ -35,7 +35,7 @@
 <script src="wordcount.js"></script>
 <script src="fx-div.js"></script>
 <script src="fx-checkbox.js"></script>
-<script src="fx-imagebutton.js"></script>
+<script src="fx-button.js"></script>
 <script src="fx-image.js"></script>
 <script src="fx-train.js"></script>
 <script src="fx-dropdownmenu.js"></script>
@@ -444,69 +444,57 @@ center;z-index:3000;width:250px;">
 	<div style="background-color:rgb(60,60,60);border:none;overflow:visible;">
 	<table style="margin-left:10px;">  
 				<tr>
-				
-					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
-					<span style="color:rgb(150,150,150);font-size:12px;">Image Button</span></td>
-					
 					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="textbuttonicon">assessment</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">Primary Button</span></td>d>
 					
-					
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="secondarybuttonicon">face</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Primary Secondary Button</span></td>
 					
 				</tr>
 				
 				<tr>
-				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="secondarybuttonicon">face</i><br />
-					<span style="color:rgb(150,150,150);font-size:12px;">Primary Secondary Button</span></td>
-					
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="basicsecondarybuttonicon">list</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">Secondary Button</span></td>
 					
-				
-				</tr>
-				
-				<tr>
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="utilitybuttonicon">fingerprint</i><br />
 				<span style="color:rgb(150,150,150);font-size:12px;">Utility Button</span></td>
-				
-				
-				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
-				<span style="color:rgb(150,150,150);font-size:12px;">Radio Button</span></td>
 				</tr>
 				
 				<tr>
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">Check Box</span></td>
 					
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+				<span style="color:rgb(150,150,150);font-size:12px;">Radio Button</span></td>
+				</tr>
+				
+				<tr>
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="cardnarrativeicon">dashboard</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">Narrative Card</span></td>
 					
-				
+				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+						<span style="color:rgb(150,150,150);font-size:12px;">global menu</span></td>
 				</tr>
 				
 				<tr>
-				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
-						<span style="color:rgb(150,150,150);font-size:12px;">global menu</span></td>
-						
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="countericon">gradient</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">Counter</span></td>
 					
-				
+				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="emailbadgeicon">email</i><br />
+						<span style="color:rgb(150,150,150);font-size:12px;">Email Badge</span></td>
 				</tr>
 				
 				<tr>
-				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="emailbadgeicon">email</i><br />
-						<span style="color:rgb(150,150,150);font-size:12px;">Email Badge</span></td>
-						
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="accordionicon">line_weight</i><br />
 					<span style="color:rgb(150,150,150);font-size:12px;">accordion</span></td>
 					
-				
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="divicon">watch</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">time/date</span></td>
 				</tr>
 				
 				<tr>
-				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="divicon">watch</i><br />
-					<span style="color:rgb(150,150,150);font-size:12px;">time/date</span></td>
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Float Button</span></td>
 					
 				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
 				<span style="color:rgb(150,150,150);font-size:12px;">table</span></td>
@@ -588,42 +576,12 @@ center;z-index:3000;width:250px;">
 	<span style="color:rgb(150,150,150);">Border-Radius: </span>
 	<input type="text" id="setradius"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"></li>
 	
-	<li style ="margin-bottom: 30px">
-	<span  style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">Cursor:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	
-  <select id="setcursor">
-  <option value="auto">auto</option>
-  <option value="default">default</option>
-  <option value="none">none</option>
-  <option value="help">help</option>
-  <option value="pointer">pointer</option>
-  <option value="progress">progress</option>
-  <option value="wait">wait</option>
-  <option value="cell">cell</option>
-  <option value="crosshair">crosshair</option>
-  <option value="text">text</option>
-  <option value="vertical-text">vertical-text</option>
-  <option value="copy">copy</option>
-  <option value="move">move</option>
-  <option value="no-drop">no-drop</option>
-  <option value="not-allowed">not-allowed</option>
-  <option value="grab">grab</option>
-  <option value="all-scroll">all-scroll</option>
-  <option value="col-resize">col-resize</option>
-  <option value="row-resize">row-resize</option>
-  <option value="zoom-in">zoom-in</option>
-  <option value="zoom-out">zoom-out</option>
-  </select>
-  </li>
-	
-	 
-	
 	<!--line 8 select image-->
 	<li id="demo7" style="margin-bottom:20px;background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;text-align:left;">
 	
 	<label for="image_uploads"  style="text-decoration:none;cursor:pointer;margin-top:7px;color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">
 	
-	Select Image</label>&nbsp;&nbsp;&nbsp;&nbsp;<button  id="butOne"   onclick="    $('.imagebutton').css ('display','block');var fxselelementText = document.getElementById('trashcan').innerHTML;textSlotBackImage(fxselelementText);"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;color:silver;font-family:roboto;letter-spacing:1px;">Ok</button>
+	Select Image</label>&nbsp;&nbsp;&nbsp;&nbsp;<button  id="butOne"   onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlotBackImage(fxselelementText);"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;color:silver;font-family:roboto;letter-spacing:1px;">Ok</button>
 	
 	<input type="file" id="image_uploads" name="image_uploads"     style="font-size:10px;opacity:0;">
 
@@ -653,9 +611,7 @@ center;z-index:3000;width:250px;">
 	
 	<li style = "padding-bottom:20px;"><button id="btnOK"  style="background-color:rgb(60,60,60);color:silver;border:2px solid silver;font-family:roboto;letter-spacing:1px;" 
 	
-	onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxleft = $('#setLeft').val();fxtop = $('#setTop').val();fxradius = $('#setradius').val();fxcursor = $('#setcursor').val();var fxselelement = document.getElementById('trashcan').innerHTML;
-	
-	elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop, fxradius, fxcursor, fxselelement);">Apply Options</button></li>  
+	onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxleft = $('#setLeft').val();fxtop = $('#setTop').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();fxradius = $('#setradius').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop, fxsize,fxtextcolor,fxradius,fxselelement);">Apply Options</button></li> 
 	
 	<!--line 10 Trash-->
 	<li id="demo8" style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);margin-bottom:2px;text-align:left;">
@@ -1336,18 +1292,18 @@ var res = str1 +  timeStamp  +  str2;
  
 //edit text using the rich text editor
 $(droptarget).append(res +
-'<a  id="' + newid1dd + '"  href = "javascript:void(0);" slot="drop-text1" ondblclick="myFunction(this)">item 1</a>' +
-'<a  id="' + newid2dd + '"  href = "javascript:void(0);" slot="drop-text2" ondblclick="myFunction(this)">item 2</a>' +
-'<a  id="' + newid3dd + '"  href = "javascript:void(0);" slot="drop-text3" ondblclick="myFunction(this)">item 3</a>' +
-'<a  id="' + newid4dd + '"  href = "javascript:void(0);" slot="drop-text4" ondblclick="myFunction(this)">item 4</a>' +
-'<a  id="' + newid5dd + '"  href = "javascript:void(0);" slot="drop-text5" ondblclick="myFunction(this)">item 5</a>' +
-'<a  id="' + newid6dd + '"  href = "javascript:void(0);" slot="drop-text6" ondblclick="myFunction(this)">item 6</a>' +
-'<a  id="' + newid7dd + '"  href = "javascript:void(0);" slot="drop-text7" ondblclick="myFunction(this)">item 7</a>' +
+'<a  id="' + newid1dd + '"  slot="drop-text1" ondblclick="myFunction(this);" >item 1</a>' +
+'<a  id="' + newid2dd + '"  slot="drop-text2" ondblclick="myFunction(this)">item 2</a>' +
+'<a  id="' + newid3dd + '"  slot="drop-text3" ondblclick="myFunction(this)">item 3</a>' +
+'<a  id="' + newid4dd + '"  slot="drop-text4" ondblclick="myFunction(this)">item 4</a>' +
+'<a  id="' + newid5dd + '"  slot="drop-text5" ondblclick="myFunction(this)">item 5</a>' +
+'<a  id="' + newid6dd + '"  slot="drop-text6" ondblclick="myFunction(this)">item 6</a>' +
+'<a  id="' + newid7dd + '"  slot="drop-text7" ondblclick="myFunction(this)">item 7</a>' +
 
 
-'<a  id="' + newid11dd + '" href = "javascript:void(0);" slot="drop-drop-text1" ondblclick="myFunction(this)">item 1</a>' +
-'<a  id="' + newid22dd + '" href = "javascript:void(0);" slot="drop-drop-text2" ondblclick="myFunction(this)">item 2</a>' +
-'<a  id="' + newid33dd + '" href = "javascript:void(0);" slot="drop-drop-text3" ondblclick="myFunction(this)">item 3</a>' +
+'<a  id="' + newid11dd + '" slot="drop-drop-text1" ondblclick="myFunction(this)">item 1</a>' +
+'<a  id="' + newid22dd + '" slot="drop-drop-text2" ondblclick="myFunction(this)">item 2</a>' +
+'<a  id="' + newid33dd + '" slot="drop-drop-text3" ondblclick="myFunction(this)">item 3</a>' +
 
 '</fx-dropdownmenu>');  
 
@@ -1516,20 +1472,20 @@ $(".fxradiobuttonclass").draggable( {
 });
 } 
 
- //FX IMAGEBUTTON DROP
+//FX BUTTON DROP
 if ($(draggable).attr('id') == "fedexbuttonicon") { 
 olddropbutton = droptarget;
 var d = new Date();
 timeStamp = "gB"  + d.getTime();
-var str1 =  '<fx-imagebutton id=';
+var str1 =  '<fx-button id=';
 var str2 = ' class="fxbuttonclass" onclick="myFunction(this)" style="position:absolute;left:0px;top:0px;text-align:center;">';
 var res = str1 +  timeStamp  +  str2;
 var newidBackIm = timeStamp + 'card image' ;
 var myCaption = timeStamp + 'my caption' ;
 
 $(droptarget).append(res +
- '<img slot="button-image" class = "imagebutton" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="height:80%;width:100%;padding:20px;position:relative;display:none;object-fit:contain;" \><div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div>' +
- '</fx-imagebutton>'); 
+ '<img slot="button-image" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="height:85%;width:85%;text-align:center;margin-top:5px;position:relative;" \></span><div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div><span slot="buttonpos">' +
+ '</fx-button>'); 
  
 $(".fxbuttonclass").draggable( {
 	containment: 'parent',   
@@ -1537,8 +1493,8 @@ $(".fxbuttonclass").draggable( {
 	snap: true,
 	scroll: false,
 	drag: function() {
-        var ddd = document.querySelector('fx-imagebutton').style.left;  //update position in property box
-		var eee = document.querySelector('fx-imagebutton').style.top; 			
+        var ddd = document.querySelector('fx-button').style.left;  //update position in property box
+		var eee = document.querySelector('fx-button').style.top; 			
 		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
         }
 });
@@ -1977,11 +1933,12 @@ $(".mdl-tabs__panel").droppable({
 });
 }  //init
 
+
 //called by the ok button in property sheet.  THE ORDER OF ITEMS IS CRITICAL
 //This also uses the global cc which is the color selected from the picker.
 //ATTRIBUTES
-function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop,fxradius, fxcursor, fxselelement) { 
-    
+function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop,fxsize,fxcolor,fxradius, fxselelement,fxfloat) { 
+  
 document.getElementById(fxselelement).setAttribute("width", fxwidth);
 document.getElementById(fxselelement).setAttribute("height", fxheight);
 document.getElementById(fxselelement).setAttribute("c", cc);
@@ -1990,7 +1947,6 @@ document.getElementById(fxselelement).setAttribute("trans", fxopacity);
 document.getElementById(fxselelement).setAttribute("posx", fxleft);
 document.getElementById(fxselelement).setAttribute("posy", fxtop);
 document.getElementById(fxselelement).setAttribute("rad", fxradius);
-document.getElementById(fxselelement).setAttribute("cur", fxcursor);
 document.getElementById(fxselelement).setAttribute("orientation", radiochecked);
 }
 
@@ -2169,10 +2125,8 @@ $("#"+ divId).toggle();
 //SELECTIONS
 //Called from inline script in each element with a click on the object  
 function myFunction(xx) {
- 
 yy = null;
 yy = $(xx).attr('id');
- 
 jimmy = document.getElementById(yy);
 hhh =  jimmy.innerText;
 document.getElementById("trashcan").innerHTML = $(xx).attr('id');
@@ -2433,15 +2387,17 @@ tgt.append(  (`<!DOCTYPE html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">` ));
 
 for (var i = 0; i < c.length; i++) {
+
 tgt.append(( `<link rel = "import" href =` +   c[i].nodeName + `.html>`));
+
 }
 
-tgt.append((`</head>`));
+tgt.append((`</head></body>`));
 
 for (var i = 0; i < c.length; i++) {
  
 	txt[i]  = {"name": c[i].nodeName ,  "left": c[i].style.left , "top": c[i].style.top, "width": c[i].getAttribute('width') , "height": c[i].getAttribute('height'), "back": c[i].getAttribute('c'), "layer": c[i].getAttribute('layer'), "opacity": c[i].getAttribute('trans'), "fontcolor": c[i].getAttribute('textcolor'), "orientation": c[i].getAttribute('orientation')};
-	 
+	
 	tgt.append(   (  '<' + txt[i].name + ' LEFT=' + txt[i].left + ' TOP= ' + txt[i].top + ' WIDTH= ' + txt[i].width + ' HEIGHT= ' + txt[i].height + ' BACK= ' + txt[i].back + ' Z-INDEX= ' + txt[i].layer + ' OPACITY= ' + txt[i].opacity + ' FONTCOLOR= ' + txt[i].fontcolor + ' ORIENTATION= ' + txt[i].orientation + '></' + txt[i].name + '>' )   );
 	} 
 tgt.append(  ('</body></html>')); 		 
@@ -2533,9 +2489,7 @@ color: var(--fedexpurple);
 <div id="stencil" style="width:858px;height:460px;padding:10px;color:black;background-color:rgb(150,150,150);margin-top:5px;overflow-y:auto;"></div> 
 
 <!--Buttons at bottom of dialog-->
-<button onclick="var c = document.getElementById('ipad').childNodes;var tgt = document.getElementById('stencil');for (var i = 0; i < c.length; i++) {
-tgt.append(( `<script src=` +   c[i].nodeName + `.js></script>`));
-}var final = document.getElementById('ipad').innerHTML;tgt.append( final);" style="position:absolute;left:450px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;">Export</button>
+<button onclick="mapNodes()" style="position:absolute;left:450px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;">Export</button>
 
 <button   style="position:absolute;left:530px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave', stufftosave);" >S1</button>
 
