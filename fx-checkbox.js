@@ -8,61 +8,16 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
 	
-	 .container {
-        
-         
-        position: relative;
-         
-        font-family: 'Roboto Condensed', sans-serif;
-        font-size: 22px
-        color: white;
-        margin: 10px 0;
-       
-    }
-    .container .left {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 30%;
-        color: #FFF;
-         
-        text-align: center;
-        padding: 18px 0 0 0;
-    }   
-      :host {
-        display: inline-block;
-        
-        
-        
-		 
-      }
-      :host([hidden]) {
-        display: none;
-      }
-      
-      :host([disabled]) {
-        
-         
-      }
-      :host([checked][disabled]) {
-           
-      }
 	  
-	    
-		   
-    </style>
+       
+</style>
 	
 	 
-<form   onclick="$(this).focus();" style="position:relative;fontsize:22px;">
-<input type="checkbox" class="fedexcheckbox" id="fxcheck" style=" -ms-transform: scale(2); /* IE 9 */
-    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
-    transform: scale(2);">
-<label for="fxcheck" class="container" style="font-size:22px;font-family:roboto;padding-left:10px;color:#007AB7;">fx-checkbox</label>
-</form>
-	
-	
-  `;
+ 
+
+<input type="checkbox" class="fedexcheckbox" id="fxcheck" style="-webkit-transform: scale(3);transform: scale(3);margin-left:20px;">
+
+<label for="fxcheck" class="container" style="font-size:28px;font-family:roboto;padding-left:10px;color:black;">fx-checkbox</label>`;
 
 	class HowToCheckbox extends HTMLElement {
     static get observedAttributes() {

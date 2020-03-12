@@ -33,12 +33,10 @@
     </style>
    
    
-   <form  onclick="$(this).focus();" style="position:relative;fontsize:22px;">
-<input type="radio" class="fxradiobuttonclass" id="fxradio" style=" -ms-transform: scale(2); /* IE 9 */
-    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
-    transform: scale(2);background-color:#007AB7;color:#007AB7;">
-<label for="fxradio"    style="font-size:22px;font-family:roboto;padding-left:10px;color:#007AB7;">fx-radiobutton</label>	
-</form>`;
+    
+<input type="radio" class="fxradiobuttonclass" id="fxradio" style="-webkit-transform: scale(2);transform: scale(2);background-color:#007AB7;color:#007AB7;">
+<label for="fxradio"    style="font-size:26px;font-family:roboto;padding-left:10px;color:#007AB7;">fx-radiobutton</label>	
+ `;
 
      class NewWidget extends HTMLElement {
 

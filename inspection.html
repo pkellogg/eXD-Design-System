@@ -60,7 +60,7 @@ body {
 
 <div class = "wrapper">
  
-<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 100 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
 </fx-markup></div>
   
 <div class="box menu"><fx-dropdownmenu 
@@ -75,11 +75,13 @@ link1 = "preSort.html"
 link2 = ""
 link3 = "sort.html"
 style="font-family:roboto;">
-<a slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html" >PRE-SORT  </a>
+<a slot = "drop-text1" style = "color:#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html" >PRE-SORT</a>
 
-<a slot = "drop-text3" href = "sort.html" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;">SORT</a>
-<span slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver">LIVE VIEWS</span>
-<span slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;">MY NOTES</span>
+<a slot = "drop-text3" href = "sort.html" style = "color:#4D148C;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
+
+<a slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html">LIVE VIEWS</a>
+
+<a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
 </fx-dropdownmenu></div>
 
 <div class="box content1"><radar-scales></radar-scales></div>

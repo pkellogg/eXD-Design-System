@@ -12,15 +12,19 @@ template.innerHTML = `
 	font-family:roboto;
 	font-size: 14px;
 	text-align: center;
+	 
 	z-index:100;
 	position:absolute;
 	}
 	
 .button {
+    
+     
     background-color: red;
     border: none;
     box-shadow: 5px 5px 10px rgb(170 170 170);
     color: #FFFFFF;
+     
     width: 70px;
     height:70px;
     text-align: center;
@@ -41,32 +45,24 @@ template.innerHTML = `
 }
 </style>
 
-<button class="button fxbuttonclass" style="-webkit-transition-duration: 0.4s; /* Safari */
+<div class="button fxbuttonclass" style="-webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;text-align: center;border: none;box-shadow: 5px 5px 10px rgb(170 170 170);padding:0px;margin:0px;">
-	
 <slot name="button-image"></slot>
-<slot name="button-caption"></slot>
  
-</button>`;
+</div>`;
 
 	class FxButton extends HTMLElement {
-	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad', 'cur', 'noimage']; }	
+	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad']; }	
 	constructor() {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
 	this.shadowRoot.appendChild(template.content.cloneNode(true));
 	let style = document.createElement('style'); 
 	shadowRoot.appendChild(style);
-	 
-	
     }
 	
 	attributeChangedCallback(name, oldValue, newValue) {
-		if (oldValue === newValue) {
-			return;  //return stops a functionn in this instance because no change noticed
-		}
-			console.log(`The attribute ${name} has changed`);  //thus go ahead and update
-			updateStyleDrop(this);
+	updateStyleDrop(this);
 	}
 	
 }//extends
@@ -84,9 +80,7 @@ function updateStyleDrop(elem) {
                           ' background-color: ' + elem.getAttribute('c') + ';' +  
 						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
 						  ' opacity: ' + elem.getAttribute('trans') + ';' +
-						  ' color: ' + elem.getAttribute('textcolor') + ';' +
 						  ' border-radius: ' + elem.getAttribute('rad') + '%;' +
-						  ' cursor: ' + elem.getAttribute('cur') + ';' +
 						   '}'  
 						  
 						  
