@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="date-widget.comp.js"></script>
+<script src="fx-cardnarrative.js"></script>
+<script src="fx-counter.js"></script>
+<script src="to-do-item.js"></script>
+<script src="fx-badge.js"></script>
+<script src="fx-primarybutton.js"></script>
+<script src="fx-basicsecondarybutton.js"></script>
+<script src="fx-table.js"></script>
+<script src="fx-checkbox.js"></script>
+<script src="fx-accordion.js"></script>
+<script src="fx-accordion-item.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-list-item.js"></script>
+<script src="fx-filtertable.js"></script>
+<script src="fx-imagebutton.js"></script>
+
+</head>
+<body>
+
+<fx-dropdownmenu 
+width = 1260 
+height = 71 
+orientation = left 
+textcolor = "silver" 
+c = #4D148C 
+size = 22 
+link1 = "http:\\fedex.com"  
+link2 = "http:\\sony.com" 
+link3 ="http:\\inmarsat.com"  
+link4 = "http:\\gm.com" 
+link1A = "http:\\ford.com" 
+link1B = "http:\\microsoft.com" 
+link1C = "http:\\xerox.com"  
+link2A = "http:\\chase.com" 
+link2B = "http:\\boeing.com" 
+link2C = "http:\\honda.com" 
+link7A = "http:\\adobe.com"
+style="margin-bottom:200px;font-family:roboto;">
+
+<!--1st Tier-->
+
+<span slot="drop-text1">Shipping</span>
+<span slot="drop-text2">Tracking</span>
+<span slot="drop-text3">Design & Print</span>
+<span slot="drop-text4">Locations</span>
+<span slot="drop-text5">Support</span>
+<span slot="drop-text6">Services</span>
+<span slot="drop-text7">Products</span>
+
+<!--2nd Tier-->
+<span slot="drop-drop-text1">Ford</span>
+<span slot="drop-drop-text2">Microsoft</span>
+<span slot="drop-drop-text3">Xerox</span>
+
+<span slot="drop-drop-text4">Chase</span>
+<span slot="drop-drop-text5">Boeing</span>
+<span slot="drop-drop-text6">Honda</span>
+
+<span slot="drop-drop-text9">Online</span>
+<span slot="drop-drop-text8">Custom</span>
+<span slot="drop-drop-text7">Coupons</span>
+
+<span slot="drop-drop-text10">Ground</span>
+<span slot="drop-drop-text11">Ground</span>
+<span slot="drop-drop-text12">Ground</span>
+
+<span slot="drop-drop-text13">Freight</span>
+<span slot="drop-drop-text14">Freight</span>
+<span slot="drop-drop-text15">Freight</span>
+
+<span slot="drop-drop-text16">Adobe</span>
+<span slot="drop-drop-text17">Accounts</span>
+<span slot="drop-drop-text18">Accounts</span>
+
+<span slot="drop-drop-text19">Rates</span>
+<span slot="drop-drop-text20">Rates</span>
+<span slot="drop-drop-text21">Rates</span>
+
+</fx-dropdownmenu>
+
+<fx-image><img src="777.jpg"></fx-image>
+
+<fx-table style = "position:absolute;"  
+xpos =  -1200 
+ypos = 320 
+width = 1110 
+size = 18 
+c = #593bb0 
+textcolor = "white" 
+trans = .8 
+textcolor2 = "BLACK" 
+c2 = "orange" 
+size2 = 18 
+trans2 = .7 
+dosomething = "stayhere">
+
+</fx-table>
+
+<div style="position:absolute;left:75px;top:850px;margin-bottom:300px;">
+<fx-accordionitem 
+width2 = 1100 
+width = 1100 
+size2 = 28 
+size = 18 
+c2 = white 
+c = white 
+textcolor = "black" 
+textcolor2 = "black" 
+style="font-size:48px;font-family:roboto; ">
+<span slot="header-text">FedEx Small Business</span><div slot="panel-text">FedEx has been working with small business since we started back in 1979 as a small business ourselves.  We know what it takes to grow and succeed and offer small business owners an exciting number of options and tools for all their transportation needs.</div></fx-accordionitem>
+
+<fx-accordionitem 
+width2 = 1100 
+width = 1100 
+size2 = 28 
+size = 18 
+c2 = "white" 
+c = white 
+textcolor = "black" 
+textcolor2 = "black" 
+style="font-size:48px;font-family:roboto;">
+<span slot="header-text">FedEx Overnight</span><div slot="panel-text">FedEx offers overnight package delivery worldwide inclduing non-stop daily 777 flights to mainland China.</div></fx-accordionitem>
+
+<fx-accordionitem 
+width2 = 1100 
+width = 1100 
+size2 = 28 
+size = 18 
+c2 = white 
+c = white 
+textcolor = "black" 
+textcolor2 = "black" style="font-size:48px;font-family:roboto;">
+<span slot="header-text">FedEx Non-Stop Mainland China</span><div slot="panel-text">FedEx offers overnight package delivery worldwide inclduing non-stop daily 777 flights to mainland China.</div></fx-accordionitem>
+
+<fx-accordionitem 
+width2 = 1100 
+width = 1100 
+size2 = 28 
+size = 18 
+c2 = white 
+c = white 
+textcolor = "black" 
+textcolor2 = "black" 
+style="font-size:48px;font-family:roboto;">
+<span slot="header-text">FedEx Critical</span><div slot="panel-text">FedEx offers overnight package delivery worldwide inclduing non-stop daily 777 flights to mainland China.</div></fx-accordionitem>
+</div>
+
+<div style="position:absolute;left:75px;top:1250px;margin-bottom:300px;overflow-x:hidden;overflow-y:scroll;height:180px;">
+<fx-listitem width = 500 size = 34  ><span   slot = 'list-image' style="margin-right:18px;"><img src = "division.png" style="height:40px;width:40px;" /></slot></span><span   slot = 'list-text'>list text goes here</span></fx-listitem>
+
+<fx-listitem width = 500 size = 34  c = "white" textcolor = "black"><span slot = 'list-image' style="margin-right:18px;"><img src = "markup.png" style="height:40px;width:40px;"/></slot></span><span slot = 'list-text'>list text goes here</span></fx-listitem>
+
+<fx-listitem width = 500 size = 34  c = "white" textcolor = "blue"><span slot = 'list-image' style="margin-right:18px;"><img src = "suitcase.png" style="height:40px;width:40px;"/></slot></span><span slot = 'list-text'>list text goes here</span></fx-listitem>
+
+<fx-listitem width = 500 size = 34  c = "white" textcolor = "orange"><span slot = 'list-image' style="margin-right:18px;"><img src = "person1.png" style="height:40px;width:40px;"/></slot></span><span slot = 'list-text'>list text goes here</span></fx-listitem>
+
+<fx-listitem width = 500 size = 34  c = "white" textcolor = "black"><span slot = 'list-image' style="margin-right:18px;"><img src = "Vehicle in service.png" style="height:40px;width:40px;"/></slot></span><span slot = 'list-text'>list text goes here</span></fx-listitem>
+
+<fx-listitem width = 500 size = 34  c = "white" textcolor = "b"><span slot = 'list-image' style="margin-right:18px;"><img src = "personC.png" style="height:40px;width:40px;"/></slot></span><span slot = 'list-text'>list text goes here</span></fx-listitem>
+</div>
+
+<fx-filtertable style="position:absolute;top:1500px;left:100px;" width = 900 size = 34 family = "roboto"></fx-filtertable>
+
+<fx-imagebutton style="position:absolute;top:1500px;left:1100px;" width = 370 height = 270 c = "white" rad = 5 cur = "drop" ><img slot= "button-image" src = "happy.jpg" style="height:85%;width:85%;object-fit:contain;" \><div slot = "button-caption" style ="font-size:24px;font-weight:bold;color:silver;"><span style = "color:orange;font-weight:bold;">Fed</span>Ex Small Business</div></fx-imagebutton>
+</body>
+</html>
