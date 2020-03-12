@@ -1,0 +1,192 @@
+<!--TABLE-->
+<!--Note: table is built from script in which the variable myObj holds a json array that is turned into
+an html table.  Commented script can be used to make a sql call to an external data stream that is then
+parsed into json and becomes the value for myObj. This is based on https://www.w3schools.com/js/tryit.asp?filename=tryjson_html_table-->
+<template id="tabletmp">
+<style>
+:root {
+--row-bg-color:#00cc00;
+}
+
+.bg{
+background-color:#ff0000 !important;
+}
+
+.mystyle {
+background-color:var(--row-bg-color);
+} 
+</style>
+
+<p id='demo'></p>
+
+<script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+/*xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+myObj = JSON.parse(this.responseText);
+obj = { table: "customers", limit: 20 };*/
+
+//this is the json array
+myObj = [
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+];
+    txt += "<table class='fxtableclass' style='text-align:center;font-size:12px;border-collapse:collapse;'>"
+	
+	txt += "<tr style='background-color:#9b9cca;'>" + "<th style='border-bottom:solid thin silver;'>" + "Lane Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule ID" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Trip Leg Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule Status" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Scheduled Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Actual Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "ETA" + "</th>" + "</tr>";
+    for (x in myObj) {
+       txt += "<tr class='highlightRows'>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].lane + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].schedule + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].destination + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].status + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].dispatch + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].actual + "<td style='border-bottom:solid thin silver;'>" + myObj[x].eta + "</td>" + "</td>" + "</tr>";
+    }
+    txt += "</table>"    
+    document.getElementById("demo").innerHTML = txt;
+	
+ /*}
+ };
+ xmlhttp.open("POST", "json_demo_db_post.php", true);
+ xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xmlhttp.send("x=" + dbParam);*/
+</script>
+</template>
+
+<script>
+const currentDocument = document.currentScript.ownerDocument;
+let tmpltable = currentScript.ownerDocument.querySelector('#tabletmp');
+customElements.define('fx-table', class extends HTMLElement {
+static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor' ]; }
+    
+	//constructor() {    //this code block sends table to the shadow dom
+      //super();  
+      //let shadowRoot = this.attachShadow({mode: 'open'});
+      //shadowRoot.appendChild(tmpltable.content.cloneNode(true));
+	//}
+
+//table is now in the light dom 	
+connectedCallback() {
+this.appendChild(tmpltable.content.cloneNode(true));
+var items = document.getElementsByClassName('highlightRows');
+for (var i = 0; i < items.length; i++) {
+  items[i].addEventListener('click', rowHigh);
+}
+updateStyleTable(this);  
+//document.getElementById("firstRow").addEventListener('click', lightUp); 
+}   
+
+attributeChangedCallback(name, oldValue, newValue) {
+updateStyleTable(this);
+}	
+	
+});
+
+function rowHigh() {
+var items = document.getElementsByClassName('highlightRows');
+for (var i = 0; i < items.length; i++) {
+  items[i].style.backgroundColor = "white";
+}
+//this.classList.toggle('mystyle');
+this.style.backgroundColor = "var(--row-bg-color)";
+}
+
+function updateStyleTable(elem) {
+     
+var shadow = elem.shadowRoot;
+var childNodes = shadow.childNodes;
+                                                      //var childNodes = elem.childNodes;
+for(var i = 0; i < childNodes.length; i++) {
+    if(childNodes[i].nodeName === 'STYLE') {   //building the inline element style
+      childNodes[i].textContent = '.fxtableclass {' +
+						  ' width: ' + elem.getAttribute('width') + 'px;' +     
+                          ' height: ' + elem.getAttribute('height') + 'px;' +
+                          ' background-color: ' + elem.getAttribute('c') + ';' +  
+						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' opacity: ' + elem.getAttribute('trans') + ';' +				  
+                          ' font-size: ' + elem.getAttribute('size') + 'px;' + 
+                          ' color: '  + elem.getAttribute('textcolor') + ';' + '}'     						  
+	}
+	 
+	} //for
+} //updateStyle
+</script>
+ 
+
+<script> 
+/*customElements.define('fx-table', class extends HTMLElement {   
+static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor' ]; }
+constructor() {
+super(); 
+let shadowRoot = this.attachShadow({mode: 'open'});    
+shadowRoot.innerHTML = `${tablecontent}`;              
+var style = document.createElement('style'); 
+shadowRoot.appendChild(style);
+}  
+connectedCallback() {
+updateStyleTable(this);  
+document.getElementById("firstRow").addEventListener('click', lightUp); 
+}   
+attributeChangedCallback(name, oldValue, newValue) {
+updateStyleTable(this);
+}
+_onClick(event) {
+}
+})  
+function lightUp() {
+alert("hellow there");
+}
+
+connectedCallback() {
+	  this.addEventListener('click', this._onClick); 
+	  }
+	
+	_onClick(event) {
+  
+ this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'this works';
+      
+	  console.log(event.target.getAttribute('role'));
+	 
+	   if (event.target.getAttribute('role')  == 'runs')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'runs';
+	   
+	  if (event.target.getAttribute('role')  == 'drivers')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'drivers';
+ If it was on a tab element, though, select that tab.
+
+      this._selectTab(event.target);
+    }
+  } 
+  
+$('tr').on('click', function () {
+        $(this).find('td').toggleClass('bg');
+		alert("this is a row");
+    });*/
+</script>
+<!--END TABLE-->

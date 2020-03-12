@@ -1,0 +1,2695 @@
+<html lang="en" class="mdl-js"><head><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+<title>FedEx XD Web Component IDE</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--google material  to render corrrectly in mobile-->
+   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--color picker see: https://bgrins.github.io/spectrum/#events-change  and   http://jsfiddle.net/bgrins/ctkY3/-->
+  
+<!--javascript-->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="material.js"></script>
+<!--<script src="ds-ide-Vdemo.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<!--<script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>-->
+<script src="tree.jquery.js"></script>
+
+<!--CSS-->
+<link rel="stylesheet" href="Design-System-IDE.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="material.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="jqtree.css">
+
+<!--leaderboard   Circles and Goggle Charts-->
+<script src="circles.min.js"></script> <!--this has to be external of the template-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><!--this needs to be external-->
+
+<!--color pick dialog-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+<!--web components polyfill works with ie 11-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"></script>
+</head>
+
+<body style="background-color: silver; cursor: auto;" class="ui-droppable"> <!--BEGIN BODY-->
+
+<style>
+.mdl-cell {border:thin silver solid;}
+</style>
+ 
+<!--------------------------------------LEFT TABBED LIBRARIES, PAGES AND ASSETS---------------------->
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded" style="width:1100px;height:100%;background-color:silver;position:absolute;left:100px;top:57px;z-index:2000;" data-upgraded=",MaterialTabs,MaterialRipple">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#Home" class="mdl-tabs__tab is-active">Home<span class="mdl-tabs__ripple-container mdl-js-ripple-effect" data-upgraded=",MaterialRipple"><span class="mdl-ripple is-animating" style="width: 205.987px; height: 205.987px; transform: translate(-50%, -50%) translate(44px, 20px);"></span></span></a>
+      <a href="#Leaderboard" class="mdl-tabs__tab">Leaderboard<span class="mdl-tabs__ripple-container mdl-js-ripple-effect" data-upgraded=",MaterialRipple"><span class="mdl-ripple is-animating" style="width: 324.228px; height: 324.228px; transform: translate(-50%, -50%) translate(100px, 24px);"></span></span></a>
+      <a href="#Awards" class="mdl-tabs__tab">Awards<span class="mdl-tabs__ripple-container mdl-js-ripple-effect" data-upgraded=",MaterialRipple"><span class="mdl-ripple is-animating" style="width: 239.144px; height: 239.144px; transform: translate(-50%, -50%) translate(53px, 24px);"></span></span></a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="Home">
+    <!--Row 1-->	
+<div class="content-grid mdl-grid tom paul" id="mdlGrid" style="width:600px;text-align:left;background-color:white;">
+	
+	<div id="row1-cell1" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fedex-card id="cD1540823386034" class="fxcardclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="cD1540823386034cardimage" ondblclick="myFunction(this)" src="car.jpg" style="max-height: 100%; max-width: 100%; border: none; color: rgb(77, 20, 140); font-size: 48px;"></span><span id="cD1540823386034cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(77, 20, 140); font-weight: bold; border: none;" ondblclick="myFunction(this)"> Fed<span style="color:red;">EX</span></span><br><span id="cD1540823386034cardslot2" slot="element-name2" style="position: absolute; left: 280px; top: 15px; z-index: 11; font-family: arial; font-size: 36px; font-weight: bold; color: rgb(77, 20, 140); line-height: 1.2; border: none;" ondblclick="myFunction(this)">Welcome Dennis!</span><br><span id="cD1540823386034cardslot3" slot="button-slot" style="position: absolute; color: rgb(77, 20, 140); font-family: arial; font-size: 24px; font-weight: bold; top: 70px; left: 20px; border: none;" ondblclick="myFunction(this)">Station: OLV</span><br><span id="cD1540823386034cardslot4" slot="button-slot" <span="" style="position: absolute; left: 20px; top: 220px; width: 150px; z-index: 11; font-family: arial; font-size: 18px; font-weight: bold; color: rgb(77, 20, 140); line-height: 1.2; border: none;" ondblclick="myFunction(this)">DENNIS SMITH Station Manager</span><br><span id="" slot="card-image2"><img id="cD1540823386034cardimage2" ondblclick="myFunction(this)" src="manager.jpg" style="position: absolute; left: 20px; top: 115px; z-index: 11; max-height: 35%; max-width: 35%; border: none;"></span></fedex-card></div>
+	
+	<!--Row 2-->
+	<div id="row2-cell1" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540823610774" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540823610774cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;" width=" " height="60"></span><span id="mU1540823610774cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 12px; color: rgb(77, 20, 140); font-weight: bold; border: none;" ondblclick="myFunction(this)"> Yesterday's Goals<hr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Team Performance<span style="margin-left:125px;">Actual</span><span style="margin-left:125px;">Recommended</span></span><br></fx-markup></div>
+    <!--<div id="row2-cell1"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row2-cell2" class="mdl-cell mdl-cell--8-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	<!--<div id="row2-cell3" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	 
+	<!--Row 3-->
+	<div id="row3-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1540823833156" class="fxbuttonclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="buttonspan" slot="button-image"><img id="gB1540823833156card image" ondblclick="myFunction(this)" src="1st_Stop_icon.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span></fx-button></div>
+	<div id="row3-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540823962902" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row3-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540824099554" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540824099554cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 4-->
+	<div id="row4-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1540823835973" class="fxbuttonclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="buttonspan" slot="button-image"><img id="gB1540823835973card image" ondblclick="myFunction(this)" src="Last_Stop_sign.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span></fx-button></div>
+	<div id="row4-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540823965638" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row4-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540824102440" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540824102440cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 5-->
+	<div id="row5-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1540823839163" class="fxbuttonclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="buttonspan" slot="button-image"><img id="gB1540823839163card image" ondblclick="myFunction(this)" src="first-aid_blue.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span></fx-button></div>
+	<div id="row5-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540823967606" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row5-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540824105153" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540824105153cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 6-->
+	<div id="row6-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1540823842988" class="fxbuttonclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="buttonspan" slot="button-image"><img id="gB1540823842988card image" ondblclick="myFunction(this)" src="wrench.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span></fx-button></div>
+	<div id="row6-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540824061509" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row6-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540824108122" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540824108122cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 7-->
+	<div id="row7-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1540823848285" class="fxbuttonclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="buttonspan" slot="button-image"><img id="gB1540823848285card image" ondblclick="myFunction(this)" src="road.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span></fx-button></div>
+	<div id="row7-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540823979713" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row7-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540824129913" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540824129913cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 8-->
+	<div id="row8-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row8-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row8-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+</div> 
+</div><!--HOME-->
+  
+<div class="mdl-tabs__panel" id="Leaderboard">
+    <!--Row 1-->	
+<div class="content-grid mdl-grid tom paul" id="mdlGrid" style="width:600px;background-color:white;">
+	<div id="row1-cell1B" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540822664805" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540822664805cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;" width=" " height="50"></span><span id="mU1540822664805cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 48px; color: rgb(77, 20, 140); font-weight: bold; border: none;" ondblclick="myFunction(this)">Fed<span style="color:red;">EX</span><br><span style="font-size:22px;">Station: OLV</span> </span><br></fx-markup></div>
+	 
+	<!--Row 2-->
+	<div id="row2-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821228327" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821228327cardimage" ondblclick="myFunction(this)" src="1st_Stop_icon.png" style="max-height: 100%; max-width: 100%; border: none;" width=" 65" height="60"></span></fx-image></div>
+    <div id="row2-cell2B" class="mdl-cell mdl-cell--10-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540822567923" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	
+	<!--Row 3-->
+    <!--<div id="row3-cell1B"  class="mdl-cell mdl-cell--12-col mdl-cell--hide-phone tom paul" style="background-color:transparent;height:10px;"></div>-->	
+	<!--<div id="row2-cell2" class="mdl-cell mdl-cell--8-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	<!--<div id="row2-cell3" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	 
+	<!--Row 4-->
+	<div id="row4-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821383248" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row4-cell2B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821414463" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row4-cell3B" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821485317" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	
+	<!--Row 5-->
+	<div id="row5-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821553030" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821553030cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(255, 153, 0); font-weight: bold; border: none;" ondblclick="myFunction(this)">+79</span><br></fx-markup></div>
+	<div id="row5-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821838328" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821838328cardimage" ondblclick="myFunction(this)" src="man-glasses-purple-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row5-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821979343" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row5-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822093722" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822093722cardimage" ondblclick="myFunction(this)" src="at-risk-only-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+
+		<!--Row 6-->
+	<div id="row6-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821678102" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821678102cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(255, 153, 0); font-weight: bold; border: none;" ondblclick="myFunction(this)">+60</span><br></fx-markup></div>
+	<div id="row6-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821841385" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821841385cardimage" ondblclick="myFunction(this)" src="girl-yellow-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row6-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821982399" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row6-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822097321" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822097321cardimage" ondblclick="myFunction(this)" src="at-risk-only-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+ 
+ 	<!--Row 7-->
+	<div id="row7-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821698327" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821698327cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)">+13.2</span><br></fx-markup></div>
+	<div id="row7-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821844358" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821844358cardimage" ondblclick="myFunction(this)" src="man-lt-blue-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row7-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821985223" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row7-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822100227" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822100227cardimage" ondblclick="myFunction(this)" src="improving-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+  
+  	<!--Row 8-->
+	<div id="row8-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821738766" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821738766cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)">+10.8</span><br></fx-markup></div>
+	<div id="row8-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821847575" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821847575cardimage" ondblclick="myFunction(this)" src="man-lime-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row8-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821988302" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row8-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822103092" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822103092cardimage" ondblclick="myFunction(this)" src="improving-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+  
+  	<!--Row 8-->
+	<div id="row9-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821762462" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821762462cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(106, 168, 79); font-weight: bold; border: none;" ondblclick="myFunction(this)">+3.6</span><br></fx-markup></div>
+	<div id="row9-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821855087" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821855087cardimage" ondblclick="myFunction(this)" src="girl-orange-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row9-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821991422" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row9-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822107942" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822107942cardimage" ondblclick="myFunction(this)" src="on-track-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+  
+  	<!--Row 10-->
+	<div id="row10-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540821796349" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><span id="mU1540821796349cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 28px; color: rgb(106, 168, 79); font-weight: bold; border: none;" ondblclick="myFunction(this)">+3.4</span><br></fx-markup></div>
+	<div id="row10-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540821858539" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540821858539cardimage" ondblclick="myFunction(this)" src="man-glasses-purple-circles.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+    <div id="row10-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540821994702" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <div id="row10-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1540822111964" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1540822111964cardimage" ondblclick="myFunction(this)" src="on-track-banner.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+  	
+	<!--Row 11-->
+	<div id="row11-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row11-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+    <div id="row11-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+    <div id="row11-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+ 	
+	<!--Row 12-->
+	<div id="row12-cell1B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row12-cell2B" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+    <div id="row12-cell3B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+    <div id="row12-cell4B" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+
+</div> 
+</div><!--LEADERBOARD-->
+
+
+<!--AWARDS--> 
+<div class="mdl-tabs__panel" id="Awards">
+    <!--Row 1-->	
+<div class="content-grid mdl-grid tom paul" id="mdlGrid" style="width:600px;background-color:white;">
+	<div id="row1-cell1C" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540586006287" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540586006287cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;" width="" height="200"></span><span id="mU1540586006287cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(77, 20, 140); font-weight: bold; border: none;" ondblclick="myFunction(this)">Fed<span style="color:rgb(255,102,0);">Ex</span><br><span style="font-size:22px;">Station: OLV</span><br><span style="font-size:16px;">Tim Jackson<br>018</span><br><img style="height:40px;width:45px;" src="1st_Stop_icon.png"><span style="font-size:16px;">Performance Check-Ins: 1st Stop - 04/06/18</span> </span><br></fx-markup></div>
+	
+	<!--Row 2-->
+	<div id="row2-cell1C" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-train id="tR1540586117107" class="fxtrainclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative; left: -12px; top: -1px;"><span slot="train-text1">1</span><span slot="train-text2">2</span><span slot="train-text3">3</span><span slot="train-text4">4</span></fx-train></div>
+    <!--<div id="row2-cell1"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row2-cell2" class="mdl-cell mdl-cell--8-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	<!--<div id="row2-cell3" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	 
+	<!--Row 3-->
+	<div id="row3-cell1C" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540588897229" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row3-cell2C" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540588964484" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row3-cell3C" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1540589055222" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row3-cell4C" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+
+	<!--Row 4-->
+	<div id="row4-cell1C" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540586494550" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586514798" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586548045" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540586548045cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;"></span><span id="mU1540586548045cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)"><div style="margin-left:20px;text-align:center;color:white;height:200px;width:200px;background-color:rgb(77,20,140);"><i class="material-icons md-36 md-light ui-draggable ui-draggable-handle" id="accordianicon" style="margin-top:30px;">assignment</i><br><br>1<br><br><span style="font-size:26px;">TALK</span></div></span><br></fx-markup></div>
+	<div id="row4-cell2C" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540586213043" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586529421" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586590422" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540586590422cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;"></span><span id="mU1540586590422cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)"> <div style="margin-left:20px;text-align:center;color:white;height:200px;width:200px;background-color:#9b9cca;"><i class="material-icons md-36 md-light" id="accordianicon" style="margin-top:30px;">assignment</i><br><br>2<br><br><span style="font-size:26px;">ACTION PLAN</span></div></span><br></fx-markup></div>
+	
+	<!--Row 5-->
+	<div id="row5-cell1C" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540586264172" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586465048" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586610085" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="mU1540586610085cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;"></span><span id="mU1540586610085cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)"> <div style="margin-left:20px;text-align:center;color:white;height:200px;width:200px;background-color:#c8c9e5;"><i class="material-icons md-36 md-light" id="accordianicon" style="margin-top:30px;">assignment</i><br><br>3<br><br><span style="font-size:26px;">COACHING RECORDS</span></div></span><br></fx-markup></div>
+	<div id="row5-cell2C" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-markup id="mU1540586479829" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup><fx-markup id="mU1540586633898" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative; left: -1px; top: 0px;"><span id="" slot="card-image"><img id="mU1540586633898cardimage" ondblclick="myFunction(this)" src="home.png" style="max-height: 100%; max-width: 100%; border: none;"></span><span id="mU1540586633898cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(230, 145, 56); font-weight: bold; border: none;" ondblclick="myFunction(this)"> <div style="margin-left:20px;text-align:center;color:white;height:200px;width:200px;background-color:#e4a86a;"><i class="material-icons md-36 md-light" id="accordianicon" style="margin-top:30px;">assignment</i><br><br>4<br><br><span style="font-size:26px;">COACHING COMMENTS</span></div></span><br></fx-markup></div>
+	
+	<!--Row 6-->
+	<!--<div id="row6-cell1C"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row6-cell2C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row6-cell3C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	
+	<!--Row 7-->
+	<!--<div id="row7-cell1C"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row7-cell2C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row7-cell3C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>--> 
+	
+	<!--Row 8-->
+	<!--<div id="row8-cell1C"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row8-cell2C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row8-cell3C" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>--> 
+</div> 
+</div><!--AWARDS-->
+</div><!--end mdl tab control-->
+
+
+<!----------------------------------------------------COMPONENTS--------------->
+ <!--NOTE: the style for the component must be included in the template for the component and the componenet
+itself must have a matching class-->
+
+<!--FORMATTED CARD (CARS)-->
+<template id="fedexcard">
+<div class="fxcardclass" style="position:relative;">
+<slot name="card-image"></slot>
+<slot name="element-name"></slot>
+<slot name="element-name2"></slot> 
+<slot name="button-slot"></slot>
+<slot name="element-name3"></slot>
+<slot name="element-name4"></slot>
+<slot name="card-image2"></slot>
+</div>
+</template>
+
+<script>
+customElements.define('fedex-card', class extends HTMLElement {   
+static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor']; }
+constructor() {
+      super(); 
+	  let shadowRoot = this.attachShadow({mode: 'open'});  
+	  shadowRoot.appendChild(fedexcard.content.cloneNode(true));
+	  var style = document.createElement('style'); 
+      shadowRoot.appendChild(style);
+} //constructor
+connectedCallback() {
+updateStyleCard(this);  //updateStyle shared script in .js file
+}   
+attributeChangedCallback(name, oldValue, newValue) {
+updateStyleCard(this);
+}
+})
+
+function updateStyleCard(elem) {   
+  var shadow = elem.shadowRoot;
+  var childNodes = shadow.childNodes;
+  for(var i = 0; i < childNodes.length; i++) {
+    if(childNodes[i].nodeName === 'STYLE') {   //building the inline element style
+      childNodes[i].textContent = '.fxcardclass {' +
+						  ' width: ' + elem.getAttribute('width') + 'px;' +     
+                          ' height: ' + elem.getAttribute('height') + 'px;' +
+                          ' background-color: ' + elem.getAttribute('c') + ';' +  
+						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' opacity: ' + elem.getAttribute('trans') + ';' + '}'
+	}
+  }
+}//updateStyle
+</script>
+<!--END CARD-->
+
+<!--IMAGE-->
+<template id="fxImage">
+<div class="fximageclass" style="position:relative;">
+<slot name="card-image"></slot>
+</div>
+</template>
+<script>
+let tmplImage = document.querySelector('#fxImage');
+customElements.define('fx-image', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmplImage.content.cloneNode(true));
+	}
+});
+</script>
+
+<!--DIV-->
+<template id="fedexdiv">
+<style>
+.fxdivclass {
+	
+	width:100%;
+	font-family:roboto;
+	background-color:white;
+	position:relative;
+	border:none;
+	}
+</style>
+<div class="fxdivclass" contenteditable="true" onclick="$(this).focus();" style="position:relative;font-size:14px;color:blue;background-color:white;"></div>
+</template>
+
+<script>
+let tmpldiv = document.querySelector('#fedexdiv');
+customElements.define('fx-div', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmpldiv.content.cloneNode(true));
+	}
+});
+</script>
+<!--END DIV-->
+
+<!--HTML MARKUP-->
+<template id="fedexmarkup">
+<div class="fxmarkupclass" style="position:relative;">
+<slot name="card-image"></slot>
+<slot name="element-name"></slot>
+<!--<slot name="element-name2"></slot> 
+<slot name="button-slot"></slot>
+<slot name="element-name3"></slot>
+<slot name="element-name4"></slot>
+<slot name="card-image2"></slot>-->
+</div>
+</template>
+
+<script>
+customElements.define('fx-markup', class extends HTMLElement {   
+static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor']; }
+constructor() {
+      super(); 
+	  let shadowRoot = this.attachShadow({mode: 'open'});  
+	  shadowRoot.appendChild(fedexmarkup.content.cloneNode(true));
+	  var style = document.createElement('style'); 
+      shadowRoot.appendChild(style);
+} //constructor
+connectedCallback() {
+updateStyleCard(this);  //updateStyle shared script in .js file
+}   
+attributeChangedCallback(name, oldValue, newValue) {
+updateStyleCard(this);
+}
+})
+
+function updateStyleCard(elem) {   
+  var shadow = elem.shadowRoot;
+  var childNodes = shadow.childNodes;
+  for(var i = 0; i < childNodes.length; i++) {
+    if(childNodes[i].nodeName === 'STYLE') {   //building the inline element style
+      childNodes[i].textContent = '.fxmarkupclass {' +
+						  ' width: ' + elem.getAttribute('width') + 'px;' +     
+                          ' height: ' + elem.getAttribute('height') + 'px;' +
+                          ' background-color: ' + elem.getAttribute('c') + ';' +  
+						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' opacity: ' + elem.getAttribute('trans') + ';' + '}'
+	}
+  }
+}//updateStyle
+</script>
+<!--END CARD-->
+
+<!--FLOAT BUTTON WITH ANIMATION-->
+<template id="fedexbutton">
+<style>
+.fxbuttonclass {
+	background-color:var(--fedexpurple);
+	color: var(--fedexwhite);
+	height:30px;
+	width:100px;
+	box-shadow: 0px 5px 5px #888888;
+	font-family:roboto;
+	font-size: 14px;
+	text-align: center;
+	line-height:30px;
+	z-index:100;
+	}
+	
+.button {
+    
+    position: relative;
+    background-color: white;
+    border: none;
+    box-shadow: 5px 5px 10px rgb(170 170 170);
+    color: #FFFFFF;
+    padding: 0px;
+    width: 50px;
+    height:50px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none; 
+}
+
+.button:after {
+    content: "";
+    background: gray;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -10px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+</style>
+
+<div class="button" style="position:relative;">
+<slot name="button-image"></slot>
+</div>
+</template>
+
+<script>
+let tmplbutton = document.querySelector('#fedexbutton');
+customElements.define('fx-button', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmplbutton.content.cloneNode(true));
+	}
+});
+</script>
+<!--END BUTTON-->
+
+<!--TRAIN-->
+<template id="fedextrain">
+<style>
+.fxtrainclass {
+	width:390px;
+	height:10px;
+	position:relative;
+	top:  25px;
+	background-color:var(--fedexpurple);
+	color: var(--fedexwhite);
+	}
+	
+.train{
+	position:relative;
+	top:-10px;
+	left:5px;
+	margin-left:80px;
+	width: 40px;
+    height:40px;
+	display:inline-block;
+	color: var(--fedexwhite);
+	text-align:center;
+	line-height:38px;
+	font-weight:bold;
+    font-size:12px;
+    background-color:var(--fedexpurple);
+    border: none;
+	padding: 0px;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+	z-index:100;
+    }
+	
+.inactive{
+	background-color:silver;
+	}
+</style>
+<hr class="fxtrainclass">
+<div class="train" style="margin-left:80px;"><slot name="train-text1">?</slot></div>
+<div class="train inactive"><slot name="train-text2">?</slot></div>
+<div class="train inactive"><slot name="train-text3">?</slot></div>
+<div class="train inactive"><slot name="train-text4">?</slot></div>
+ 
+</template>
+
+<script>
+let tmpltrain = document.querySelector('#fedextrain');
+customElements.define('fx-train', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmpltrain.content.cloneNode(true));
+	}
+});
+</script>
+<!--END TRAIN-->
+
+<!--TABLE-->
+<!--this is the template literal for the expression used in the constructor for table element-->
+<script>
+tablecontent //variable that holds table content and used in template literal  
+</script>
+
+<script>
+customElements.define('fx-table', class extends HTMLElement {   
+static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'size', 'textcolor' ]; }
+constructor() {
+      super(); 
+let shadowRoot = this.attachShadow({mode: 'open'});    
+shadowRoot.innerHTML = `${tablecontent}`;              
+	                                                             //this.innerHTML = `${tablecontent}`; //light
+	  var style = document.createElement('style'); 
+      shadowRoot.appendChild(style);
+} //constructor
+
+connectedCallback() {
+updateStyleTable(this);   
+}   
+attributeChangedCallback(name, oldValue, newValue) {updateStyleTable(this);}
+})
+
+function updateStyleTable(elem) {    
+var shadow = elem.shadowRoot;
+var childNodes = shadow.childNodes;
+                                                      //var childNodes = elem.childNodes;
+for(var i = 0; i < childNodes.length; i++) {
+    if(childNodes[i].nodeName === 'STYLE') {   //building the inline element style
+      childNodes[i].textContent = '.fxtableclass {' +
+						  ' width: ' + elem.getAttribute('width') + 'px;' +     
+                          ' height: ' + elem.getAttribute('height') + 'px;' +
+                          ' background-color: ' + elem.getAttribute('c') + ';' +  
+						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
+						  ' opacity: ' + elem.getAttribute('trans') + ';' +				  
+                          ' font-size: ' + elem.getAttribute('size') + 'px;' + 
+                          ' color: '  + elem.getAttribute('textcolor') + ';' + '}'     						  
+	}
+	 
+	} //for
+} //updateStyle
+</script>
+<!--END TABLE-->
+
+<!--CHECKBOX-->
+<template id="fedexcheckbox">
+<style>
+.fxcheckboxclass	{
+height:75px;
+width:300px;
+position:relative;
+z-index:250;
+font-size:14px;
+font-family:roboto;
+	}
+</style>
+<form class="fxcheckboxclass" onclick="$(this).focus();" style="position:relative;">
+<input type="checkbox" class="fedexcheckbox" id="yes">
+<label for="yes">Checkbox</label>
+</form>
+</template>
+
+<script>
+let tmplcheckbox = document.querySelector('#fedexcheckbox');
+customElements.define('fx-checkbox', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmplcheckbox.content.cloneNode(true));
+	}
+});
+</script>
+<!--CHECKBOX-->
+
+<!--RADIO BUTTON-->
+<template id="fedexradiobutton">
+<style>
+.fxradiobuttonclass{
+height:75px;
+width:300px;
+position:relative;
+z-index:250;
+font-size:14px;
+font-family:roboto;
+	}
+</style>
+<form class="fxradiobuttonclass" onclick="$(this).focus();" style="position:relative;">
+<input type="radio" class="fedexRadio" id="rad" name="Enter Here" value="Enter Here" checked="">Radio Button<br>
+</form> 
+</template>
+
+<script>
+let tmplradiobutton = document.querySelector('#fedexradiobutton');
+customElements.define('fx-radiobutton', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmplradiobutton.content.cloneNode(true));
+	}
+});
+</script>
+<!--END RADIO BUTTON-->
+
+<!------------------------------------------HOWTO-TAB----------------------->
+<!-----------------from: https://googlechromelabs.github.io/howto-components/howto-tabs/#demo>------------>
+<!--Style sheet for the tab contgrol-->
+<style>
+  howto-tab {
+    border: rgb(77,20,140);
+    padding: 15px;
+	color:white;
+	height:20px;
+	line-height: 20%;
+	background-color: rgb(77,20,140);
+  }
+  howto-panel {
+    padding: 20px;
+    background-color: white;
+  }
+  howto-tab[selected] {
+    background-color: red;
+	border:none;
+	
+howto-tabs:not(:defined), howto-tab:not(:defined), howto-panel:not(:defined) {
+    display: block;
+  }
+  </style>
+
+<script>
+//see header for the tab style sheet
+(function() {
+
+  const KEYCODE = {
+    DOWN: 40,
+    LEFT: 37,
+    RIGHT: 39,
+    UP: 38,
+    HOME: 36,
+    END: 35,
+  };
+
+  const template = document.createElement('template');
+  template.innerHTML = `
+    <style>
+      :host {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      ::slotted(howto-panel) {
+        flex-basis: 100%;
+      }
+    </style>
+    <slot name="tab"></slot>
+    <slot name="panel"></slot>
+  `;
+
+  //CONTAINER hosting tab and panel custom elements
+  
+  class HowtoTabs extends HTMLElement {
+    constructor() {
+      super();
+
+      this._onSlotChange = this._onSlotChange.bind(this);
+
+      this.attachShadow({mode: 'open'});
+
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+      this._tabSlot = this.shadowRoot.querySelector('slot[name=tab]');
+      this._panelSlot = this.shadowRoot.querySelector('slot[name=panel]');
+
+      this._tabSlot.addEventListener('slotchange', this._onSlotChange);
+      this._panelSlot.addEventListener('slotchange', this._onSlotChange);
+    }
+
+    connectedCallback() {
+
+      this.addEventListener('keydown', this._onKeyDown);
+      this.addEventListener('click', this._onClick);
+
+      if (!this.hasAttribute('role'))
+        this.setAttribute('role', 'tablist');
+
+      Promise.all([
+        customElements.whenDefined('howto-tab'),
+        customElements.whenDefined('howto-panel'),
+      ])
+        .then(_ => this._linkPanels());
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('keydown', this._onKeyDown);
+      this.removeEventListener('click', this._onClick);
+    }
+
+    _onSlotChange() {
+      this._linkPanels();
+    }
+
+
+    _linkPanels() {
+      const tabs = this._allTabs();
+
+      tabs.forEach(tab => {
+        const panel = tab.nextElementSibling;
+        if (panel.tagName.toLowerCase() !== 'howto-panel') {
+          console.error(`Tab #${tab.id} is not a` +
+            `sibling of a <howto-panel>`);
+          return;
+        }
+
+        tab.setAttribute('aria-controls', panel.id);
+        panel.setAttribute('aria-labelledby', tab.id);
+      });
+
+      const selectedTab =
+        tabs.find(tab => tab.selected) || tabs[0];
+
+      this._selectTab(selectedTab);
+    }
+
+
+    _allPanels() {
+      return Array.from(this.querySelectorAll('howto-panel'));
+    }
+
+    _allTabs() {
+      return Array.from(this.querySelectorAll('howto-tab'));
+    }
+
+    _panelForTab(tab) {
+      const panelId = tab.getAttribute('aria-controls');
+      return this.querySelector(`#${panelId}`);
+    }
+
+    _prevTab() {
+      const tabs = this._allTabs();
+
+      let newIdx =
+        tabs.findIndex(tab => tab.selected) - 1;
+
+      return tabs[(newIdx + tabs.length) % tabs.length];
+    }
+
+    _firstTab() {
+      const tabs = this._allTabs();
+      return tabs[0];
+    }
+
+    _lastTab() {
+      const tabs = this._allTabs();
+      return tabs[tabs.length - 1];
+    }
+
+    _nextTab() {
+      const tabs = this._allTabs();
+      let newIdx = tabs.findIndex(tab => tab.selected) + 1;
+      return tabs[newIdx % tabs.length];
+    }
+
+    reset() {
+      const tabs = this._allTabs();
+      const panels = this._allPanels();
+
+      tabs.forEach(tab => tab.selected = false);
+      panels.forEach(panel => panel.hidden = true);
+    }
+
+    _selectTab(newTab) {
+
+      this.reset();
+
+      const newPanel = this._panelForTab(newTab);
+
+      if (!newPanel)
+        throw new Error(`No panel with id ${newPanelId}`);
+      newTab.selected = true;
+      newPanel.hidden = false;
+      newTab.focus();
+    }
+
+    _onKeyDown(event) {
+
+      if (event.target.getAttribute('role') !== 'tab')
+        return;
+
+      if (event.altKey)
+        return;
+
+      let newTab;
+      switch (event.keyCode) {
+        case KEYCODE.LEFT:
+        case KEYCODE.UP:
+          newTab = this._prevTab();
+          break;
+
+        case KEYCODE.RIGHT:
+        case KEYCODE.DOWN:
+          newTab = this._nextTab();
+          break;
+
+        case KEYCODE.HOME:
+          newTab = this._firstTab();
+          break;
+
+        case KEYCODE.END:
+          newTab = this._lastTab();
+          break;
+
+        default:
+          return;
+      }
+
+      event.preventDefault();
+
+      this._selectTab(newTab);
+    }
+
+    _onClick(event) {
+
+      if (event.target.getAttribute('role') !== 'tab')
+        return;
+
+      this._selectTab(event.target);
+    }
+  }    //end hotto-tabs class definition
+  
+customElements.define('howto-tabs', HowtoTabs);   //create hotto-tabs custom element
+
+  let howtoTabCounter = 0;
+
+ // TAB
+class HowtoTab extends HTMLElement {
+    static get observedAttributes() {
+      return ['selected'];
+    }
+
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+
+      this.setAttribute('role', 'tab');
+      if (!this.id)
+        this.id = `howto-tab-generated-${howtoTabCounter++}`;
+
+      this.setAttribute('aria-selected', 'false');
+      this.setAttribute('tabindex', -1);
+      this._upgradeProperty('selected');
+    }
+
+    _upgradeProperty(prop) {
+      if (this.hasOwnProperty(prop)) {
+        let value = this[prop];
+        delete this[prop];
+        this[prop] = value;
+      }
+    }
+
+    attributeChangedCallback() {
+      const value = this.hasAttribute('selected');
+      this.setAttribute('aria-selected', value);
+      this.setAttribute('tabindex', value ? 0 : -1);
+    }
+
+    set selected(value) {
+      value = Boolean(value);
+      if (value)
+        this.setAttribute('selected', '');
+      else
+        this.removeAttribute('selected');
+    }
+
+    get selected() {
+      return this.hasAttribute('selected');
+    }
+  }
+  
+  customElements.define('howto-tab', HowtoTab);
+
+  let howtoPanelCounter = 0;
+
+// PANEL
+  class HowtoPanel extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.setAttribute('role', 'tabpanel');
+      if (!this.id)
+        this.id = `howto-panel-generated-${howtoPanelCounter++}`;
+    }
+  }
+  customElements.define('howto-panel', HowtoPanel);
+})();
+ 
+
+//FEDEX PARAGRAPH COMPONENT 
+ if ($(draggable).attr('id') == "paragraphicon") { 
+ 
+var d = new Date();
+timeStamp = "PR"  + d.getTime();
+var str1 =  '<fedex-paragraph id=';
+var str2 = ' class="fxparagraphclass" contenteditable="true" ondblclick="myFunction(this)">';  //space before class important
+var res = str1 +  timeStamp  + str2;
+
+olddropbutton = droptarget;
+$(droptarget).append(res + '</fedex-paragraph>');
+ 
+  $(".fxparagraphclass").draggable( {
+	  containment: "window",   
+	  cursor: 'move'  
+  });
+}  
+if ($(draggable).attr('id') == "fxparagraphid" && olddropbutton != droptarget) { 
+
+var d = new Date();
+timeStamp = "PR"  + d.getTime();
+var str1 =  '<fedex-paragraph id=';
+var str2 = ' class="fxparagraphclass" contenteditable="true" ondblclick="myFunction(this)">';
+var res = str1 +  timeStamp  + str2;
+$(ui.draggable).remove();
+$(droptarget).append(res + '</fedex-paragraph>');
+ 
+ 
+ $(".fxparagraphclass").draggable( {
+	 containment: "window",   
+	 cursor: 'move'  
+ });
+olddropbutton = droptarget;
+} 
+</script>
+
+<!--DROP DOWN MENU-->
+<template id="fedexdropdownmenu">
+<style>
+.fedexDropMenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(77,20,140);
+	width:80%;
+	max-width:100%;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+	
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+<ul class="fedexDropMenu"><li><a href="#home">Home</a></li><li><a href="#news">News</a></li><li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Dropdown</a><div class="dropdown-content"><a href="#">Link 1</a><a href="#">Link 2</a><a href="#">Link 3</a></div></li></ul>
+</template>
+
+<script>
+let tmpldropdownmenu = document.querySelector('#fedexdropdownmenu');
+customElements.define('fedex-dropdownmenu', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmpldropdownmenu.content.cloneNode(true));
+	}
+});
+</script>
+<!--END DROP DOWN MENU-->
+ 
+<!--LEADERBOARD-->
+<!--sized to fit into 480px cell phone column-->
+<template id="fedexleaderboard">
+<div id="leaderboarddiv" style="width:560px;font-family:roboto;border: none;margin-bottom:50px;">
+ 
+<div id="canvas" style="width:560px;">
+<button class="accordion" style="width:560px;"><span style="color:red;font-size:22px;font-weight:bold;padding-top:20px;padding-left:20px;">+79</span><img src="man-glasses-purple-circles.png" style="height:80px;width:70px;margin-left:20px;padding-top:20px;"><span style="font-size:16px;margin-left:20px;color:slateblue;padding-top:20px;">Tim Jackson<br><span style="color:slateblue;padding-left:160px;">018</span><img src="at-risk-only-banner.png" style="height:40px;width:150px;position:relative;top:-20px;right:-200px;"></span></button>
+<div class="panel">
+<div id="chart_div"></div>
+</div>
+
+<button class="accordion" style="width:560px;"><span style="color:red;font-size:22px;font-weight:bold;padding-top:20px;padding-left:20px;">+60</span><img src="girl-yellow-circles.png" style="height:90px;width:70px;margin-left:20px;padding-top:20px;"><span style="font-size:16px;margin-left:20px;color:slateblue;padding-top:20px;">Mary Brown<br><span style="color:slateblue;padding-left:160px;">389</span><img src="at-risk-only-banner.png" style="height:40px;width:150px;position:relative;top:-20px;right:-200px;"></span></button>
+<div class="panel">
+<div id="chart_div2"></div> 
+</div>
+
+<button class="accordion" style="width:560px;"><span style="color:yellow;font-size:22px;font-weight:bold;padding-top:20px;padding-left:20px;">+13.2</span><img src="man-lt-blue-circles.png" style="height:90px;width:70px;margin-left:20px;padding-top:20px;"><span style="font-size:16px;margin-left:20px;color:slateblue;padding-top:20px;">Bill Peterson<br><span style="color:slateblue;padding-left:160px;">149</span><img src="improving-banner.png" style="height:40px;width:150px;position:relative;top:-20px;right:-200px;"></span></button>
+<div class="panel">
+<div id="chart_div3"></div>   
+</div>
+
+<button class="accordion" style="width:560px;"><span style="color:yellow;font-size:22px;font-weight:bold;padding-top:20px;padding-left:20px;">+10.8</span><img src="man-lime-circles.png" style="height:90px;width:70px;margin-left:20px;padding-top:20px;"><span style="font-size:16px;margin-left:20px;color:slateblue;padding-top:20px;">James Johnson<br><span style="color:slateblue;padding-left:160px;">177</span><img src="improving-banner.png" style="height:40px;width:150px;position:relative;top:-20px;right:-200px;"></span></button>
+<div class="panel">
+<div id="chart_div4"></div>  
+</div>
+
+<button class="accordion" style="width:560px;"><span style="color:green;font-size:22px;font-weight:bold;padding-top:20px;padding-left:20px;">+3.6</span><img src="girl-orange-circles.png" style="height:90px;width:70px;margin-left:20px;padding-top:20px;"><span style="font-size:16px;margin-left:20px;color:slateblue;padding-top:20px;">Stacy Smith<br><span style="color:slateblue;padding-left:160px;">145</span><img src="on-track-banner.png" style="height:40px;width:150px;position:relative;top:-20px;right:-200px;"></span></button>
+<div class="panel">
+<div id="chart_div5"></div> 
+</div>
+<button id="add_button" style="background-color:white;border:none;float:right;">+</button>
+<button id="substract_button" style="background-color:white;border:none;float:right;">-</button>	
+</div><!--canvas-->
+
+<style>
+		#canvas .circle {
+			display: inline-block;
+			margin-left:15px;
+			margin-top:8px;
+			margin-bottom:8px;
+		}
+		.circles-decimals {
+			font-size: .4em;
+		}
+</style>
+		
+<style>
+.accordion {
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    padding: 0px;
+    width: 300px;
+    border: thin solid rgb(230,230,230);
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: white;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+<script src="circles.min.js"></script><!--this has to be external of template-->
+
+ 
+<script>
+//Circular Chart
+		//@ http://jsfromhell.com/array/shuffle [v1.0]
+		function shuffle(o){ //v1.0
+			for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+			return o;
+		}
+		var colors = [
+			['#D3B6C6', '#4B253A'], ['#FCE6A4', '#EFB917'], ['#BEE3F7', '#45AEEA'], ['#F8F9B6', '#D2D558'], ['#F4BCBF', '#D43A43']
+		], circles = [];
+		for (var i = 1; i <= 5; i++) {
+			var child = document.getElementById('circles-' + i),
+				percentage = 31.42 + (i * 9.84);
+			circles.push(Circles.create({
+				id:         child.id,
+				value:		percentage,
+				radius:     30,
+				width:      6,
+				colors:     colors[i - 1]
+			}));
+		}
+		document.getElementById('add_button').onclick = function()
+		{
+		    for(var i = 0, l = circles.length; i < l; i++)
+				circles[i].update(circles[i]._value + 10, 250);
+		};
+		document.getElementById('substract_button').onclick = function()
+		{
+			for(var i = 0, l = circles.length; i < l; i++)
+				circles[i].update(circles[i]._value - 10, 250);
+		};
+		document.getElementById('add_width_button').onclick = function()
+		{
+			for(var i = 0, l = circles.length; i < l; i++)
+				circles[i].updateWidth(circles[i]._strokeWidth + 10);
+		};
+		document.getElementById('substract_width_button').onclick = function()
+		{
+			for(var i = 0, l = circles.length; i < l; i++)
+				circles[i].updateWidth(circles[i]._strokeWidth - 10);
+		};
+		document.getElementById('colors_button').onclick = function()
+		{
+			colors = shuffle(colors);
+			for(var i = 0, l = circles.length; i < l; i++)
+				circles[i].updateColors(colors[i]);
+		};
+		
+</script>
+
+<script>		 
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+ 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Route', 'Vol', { role: 'style' }],
+        ['Seg 1', 450, 'silver'],
+        ['Seg 2', 589, 'teal'],
+        ['Seg 3', 450, 'tan'],
+        ['Seg 4', 1235, 'blue'],
+        ['Seg 5', 900, 'salmon']
+      ]);
+
+      var options = {
+        title: 'Segment Performance',
+		 legend:'none',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        },
+		colors: ['#e0440e', 'blue', '#ec8f6e', '#f3b49f', '#f6c7b6']
+		};
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+	  chart.draw(data, options);
+	 }
+</script>
+
+
+<script>	 
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Route', 'Vol', { role: 'style' }],
+        ['Seg 1', 450, 'silver'],
+        ['Seg 2', 589, 'teal'],
+        ['Seg 3', 450, 'tan'],
+        ['Seg 4', 1235, 'blue'],
+        ['Seg 5', 900, 'salmon']
+      ]);
+
+      var options = {
+        title: 'Segment Performance',
+		 legend:'none',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        },
+		colors: ['#e0440e', 'blue', '#ec8f6e', '#f3b49f', '#f6c7b6']
+		};
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div2'));
+	  chart.draw(data, options);
+	 }
+</script>
+
+<script>	 
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Route', 'Vol', { role: 'style' }],
+        ['Seg 1', 450, 'silver'],
+        ['Seg 2', 589, 'teal'],
+        ['Seg 3', 450, 'tan'],
+        ['Seg 4', 1235, 'blue'],
+        ['Seg 5', 900, 'salmon']
+      ]);
+
+      var options = {
+        title: 'Segment Performance',
+		 legend:'none',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        },
+		colors: ['#e0440e', 'blue', '#ec8f6e', '#f3b49f', '#f6c7b6']
+		};
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div3'));
+	  chart.draw(data, options);
+	 }
+</script>
+
+<script>	 
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Route', 'Vol', { role: 'style' }],
+        ['Seg 1', 450, 'silver'],
+        ['Seg 2', 589, 'teal'],
+        ['Seg 3', 450, 'tan'],
+        ['Seg 4', 1235, 'blue'],
+        ['Seg 5', 900, 'salmon']
+      ]);
+
+      var options = {
+        title: 'Segment Performance',
+		 legend:'none',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        },
+		colors: ['#e0440e', 'blue', '#ec8f6e', '#f3b49f', '#f6c7b6']
+		};
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div4'));
+	  chart.draw(data, options);
+	 }
+</script>
+
+<script>	 
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Route', 'Vol', { role: 'style' }],
+        ['Seg 1', 450, 'silver'],
+        ['Seg 2', 589, 'teal'],
+        ['Seg 3', 450, 'tan'],
+        ['Seg 4', 1235, 'blue'],
+        ['Seg 5', 900, 'salmon']
+      ]);
+
+      var options = {
+        title: 'Segment Performance',
+		 legend:'none',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        },
+		colors: ['#e0440e', 'blue', '#ec8f6e', '#f3b49f', '#f6c7b6']
+		};
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div5'));
+	  chart.draw(data, options);
+	 }
+</script>
+</div></template>
+
+<script>
+customElements.define('fedex-leaderboard', class extends HTMLElement {
+connectedCallback() {
+this.appendChild(fedexleaderboard.content.cloneNode(true));  //this works
+}
+});
+</script>
+<!--END LEADERBOARD-->
+
+<!--END COMPONENTS-->
+
+
+<!-------------------------------------------BEGIN DROP OPERATIONS PER COMPONENT-------------------------------> 
+<script>
+
+//BEGIN DROP FUNCTION 
+
+var olddroptarget;
+
+function handleDropEvent( event, ui ) {
+var draggable = ui.draggable;  //object being dragged used for all the elements
+
+realname = ($(draggable).attr('id'));
+var res = realname.charAt(0);
+
+
+//These following elements use a switch case control structure
+switch (res) {                       //CARD (NEW) 
+    case "c": 
+
+d = new Date();
+timeStamp2 = "cD"  + d.getTime();   //important the time stamp must be a lower case c
+str1 =  '<fedex-card id=';
+str2 =' class="fxcardclass" onclick="myFunction(this)">';
+res3 = str1 +  timeStamp2 + str2;
+
+
+//yy = this.attr('id');
+ 
+
+$(ui.draggable).remove();
+
+//alert(gggg);
+//alert(yy);
+ 
+newidBack = timeStamp2 + 'cardimage' ;
+newidInsert = timeStamp2 + 'cardimage2';
+newid1 = timeStamp2 + 'cardslot1' ;
+newid2 = timeStamp2 + 'cardslot2' ;
+newid3 = timeStamp2 + 'cardslot3' ;
+newid4 = timeStamp2 + 'cardslot4' ;
+ 
+$(droptarget).append(res3 +
+'<span id="" slot="card-image"><img id="' + newidBack + '" ondblclick="myFunction(this)" src="backplaceholder.jpg" style="max-height: 100%; max-width: 100%;" /></span>' +
+
+'<span id="' + newid1 + '" slot="element-name"  style="position:absolute;left:20px;top:15px;z-index:10;font-family:arial;font-size:55px;color:rgb(77,20,140);font-weight:bold;" ondblclick="myFunction(this)">Text<span id="cardslot1A" style="color:rgb(255,102,0);" ondblclick="myFunction(this)">Text</span></span><br />' +
+
+'<span id="' + newid2 + '" slot="element-name2"  style="position:absolute;left:280px;top:15px;z-index:11;font-family:arial;font-size:36px;font-weight:bold;color:rgb(77,20,140);line-height:1.2;" ondblclick="myFunction(this)">Text<br />Text</span><br />' +
+'<span id="' + newid3 + '" slot="button-slot" style="position:absolute;color:rgb(77,20,140);font-family:arial;font-size:24px;font-weight:bold;top:70px;left:20px;" ondblclick="myFunction(this)">Text</span><br />' +
+'<span id="' + newid4 + '" slot="button-slot" <span style="position:absolute;left:20px;top:220px;width:150px;z-index:11;font-family:arial;font-size:18px;font-weight:bold;color:rgb(77,20,140);line-height:1.2;" ondblclick="myFunction(this)">Text<br />Text</span><br />' +
+'<span id= "" slot="card-image2"><img id="' + newidInsert + '" ondblclick="myFunction(this)" src="insertplaceholder.jpg" style="position:absolute;left:20px;top:115px;z-index:11;max-height:35%; max-width:35%;" /></span>' +
+'</fedex-card>');
+ 
+$(".fxcardclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  ,
+	drag: function(){
+  
+            var offset = $(this).offset();
+            var xPos = offset.left; 
+            var yPos = offset.top;
+			
+            $('#setLeft').val(xPos);
+            $('#setTop').val(yPos);
+        }	
+});
+
+//alert(gggg + yy);
+
+ 
+
+
+$('#iconMenu').remove();     //using template literals
+ 
+$('body').append(`<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" 
+style="position:absolute;left:0px;top:56px;background-color:rgb(100,100,100);text-align:
+center;z-index:3000;width:280px;height:350px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:#e8c866;">Libraries</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:#e8c866;">Pages</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:#e8c866;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;">
+<table style="margin-left:15px;">
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="cardicon">picture_in_picture</i><br />
+<span style="color:silver;font-size:12px;">card</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="imageicon">image</i><br />
+<span style="color:silver;font-size:12px;">image</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="divicon">keyboard</i><br />
+<span style="color:silver;font-size:12px;">div</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+<span style="color:silver;font-size:12px;">button</span></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
+<span style="color:silver;font-size:12px;">table</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
+<span style="color:silver;font-size:12px;">checkbox</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+<span style="color:silver;font-size:12px;">radio</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="accordianicon">assignment</i><br />
+<span style="color:silver;font-size:12px;">tab</span></td>
+<td style="padding:0px;"></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+<span style="color:silver;font-size:12px;">drop menu</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="leaderboardicon">face</i><br />
+<span style="color:silver;font-size:12px;">leaders</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="markupicon">bubble_chart</i><br />
+<span style="color:silver;font-size:12px;">markup</span></td>
+</tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="trainicon">linear_scale</i><br />
+<span style="color:silver;font-size:12px;">train</span></td>
+</tr>
+</table> 
+<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p> 
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+</div> 
+`)
+
+//var as = document.getElementById('setDropZone').value;
+ 
+//yy is the id of the element being moved
+//alert(as + yy);
+//as.appendChild(yy.cloneNode(true));
+
+ 
+  //alert(itm);
+//var cln = itm.cloneNode(true);
+//document.getElementById(as).appendChild(cln); // as is the destination row and cell entered into the property box input
+  //alert(itm + as);
+//$(itm).remove(); //need to remove to prevent dupes because the clone has the same id as the element cloned
+//itm.draggable( {
+//containment: "window",   
+//cursor: 'move'  
+//});
+
+init();
+break; 
+
+
+//HTML MARKUP ELEMENT
+case "m": 
+
+d = new Date();
+timeStamp2 = "mU"  + d.getTime();   //important the time stamp must be a lower case c
+str1 =  '<fx-markup id=';
+str2 =' class="fxmarkupclass" onclick="myFunction(this)">';
+res3 = str1 +  timeStamp2 + str2;
+$(ui.draggable).remove();
+ 
+newidBack = timeStamp2 + 'cardimage' ;
+//newidInsert = timeStamp2 + 'cardimage2';
+newid1 = timeStamp2 + 'cardslot1' ;
+//newid2 = timeStamp2 + 'cardslot2' ;
+//newid3 = timeStamp2 + 'cardslot3' ;
+//newid4 = timeStamp2 + 'cardslot4' ;
+ 
+$(droptarget).append(res3 +
+'<span id="" slot="card-image"><img id="' + newidBack + '" ondblclick="myFunction(this)" src="backplaceholder.jpg" style="max-height: 100%; max-width: 100%;" /></span>' +
+'<span id="' + newid1 + '" slot="element-name"  style="position:absolute;left:20px;top:15px;z-index:10;font-family:arial;font-size:55px;color:rgb(77,20,140);font-weight:bold;" ondblclick="myFunction(this)">Text<span id="cardslot1A" style="color:rgb(255,102,0);" ondblclick="myFunction(this)">Text</span></span><br />' +
+//'<span id="' + newid2 + '" slot="element-name2"  style="position:absolute;left:280px;top:15px;z-index:11;font-family:arial;font-size:36px;font-weight:bold;color:rgb(77,20,140);line-height:1.2;" ondblclick="myFunction(this)">Text<br />Text</span><br />' +
+//'<span id="' + newid3 + '" slot="button-slot" style="position:absolute;color:rgb(77,20,140);font-family:arial;font-size:24px;font-weight:bold;top:70px;left:20px;" ondblclick="myFunction(this)">Text</span><br />' +
+//'<span id="' + newid4 + '" slot="button-slot" <span style="position:absolute;left:20px;top:220px;width:150px;z-index:11;font-family:arial;font-size:18px;font-weight:bold;color:rgb(77,20,140);line-height:1.2;" ondblclick="myFunction(this)">Text<br />Text</span><br />' +
+//'<span id= "" slot="card-image2"><img id="' + newidInsert + '" ondblclick="myFunction(this)" src="insertplaceholder.jpg" style="position:absolute;left:20px;top:115px;z-index:11;max-height:35%; max-width:35%;" /></span>' +
+'</fedex-card>');
+ 
+$(".fxmarkupclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  ,
+	drag: function(){
+  
+            var offset = $(this).offset();
+            var xPos = offset.left; 
+            var yPos = offset.top;
+			
+            $('#setLeft').val(xPos);
+            $('#setTop').val(yPos);
+        }	
+});
+$('#iconMenu').remove();     //using template literals
+ 
+$('body').append(`<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" 
+style="position:absolute;left:0px;top:56px;background-color:rgb(100,100,100);text-align:
+center;z-index:3000;width:280px;height:350px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:#e8c866;">Libraries</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:#e8c866;">Pages</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:#e8c866;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;">
+<table style="margin-left:15px;">
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="cardicon">picture_in_picture</i><br />
+<span style="color:silver;font-size:12px;">card</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="imageicon">image</i><br />
+<span style="color:silver;font-size:12px;">image</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="divicon">keyboard</i><br />
+<span style="color:silver;font-size:12px;">div</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+<span style="color:silver;font-size:12px;">button</span></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
+<span style="color:silver;font-size:12px;">table</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
+<span style="color:silver;font-size:12px;">checkbox</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+<span style="color:silver;font-size:12px;">radio</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="accordianicon">assignment</i><br />
+<span style="color:silver;font-size:12px;">tab</span></td>
+<td style="padding:0px;"></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+<span style="color:silver;font-size:12px;">drop menu</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="leaderboardicon">face</i><br />
+<span style="color:silver;font-size:12px;">leaders</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="markupicon">bubble_chart</i><br />
+<span style="color:silver;font-size:12px;">markup</span></td>
+</tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="trainicon">linear_scale</i><br />
+<span style="color:silver;font-size:12px;">train</span></td>
+</tr>
+</table> 
+<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p> 
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+</div> 
+`)
+ init();
+break; 
+
+case "i": 
+d = new Date();
+timeStamp3 = "iM"  + d.getTime();  //important the time stamp must be a lower case i
+str1 =  '<fx-image id=';
+str2 =' class="fximageclass">';
+res = str1 +  timeStamp3  + str2; 
+$(ui.draggable).remove();
+newidBackIm = timeStamp3 + 'cardimage' ;
+ 
+$(droptarget).append(res +
+'<span id="" slot="card-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="recomendationbox.png" style="max-height: 100%; max-width: 100%;" /></span>' +
+'</fx-image>');
+
+$(".fximageclass").draggable( {
+containment: "window",   
+cursor: 'move'  
+});
+$('#iconMenu').remove();     //using template literals
+ 
+$('body').append(`<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" 
+style="position:absolute;left:0px;top:56px;background-color:rgb(100,100,100);text-align:
+center;z-index:3000;width:280px;height:350px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:#e8c866;">Libraries</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:#e8c866;">Pages</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:#e8c866;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;">
+<table style="margin-left:15px;">
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="cardicon">picture_in_picture</i><br />
+<span style="color:silver;font-size:12px;">card</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="imageicon">image</i><br />
+<span style="color:silver;font-size:12px;">image</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="divicon">keyboard</i><br />
+<span style="color:silver;font-size:12px;">div</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+<span style="color:silver;font-size:12px;">button</span></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
+<span style="color:silver;font-size:12px;">table</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
+<span style="color:silver;font-size:12px;">checkbox</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+<span style="color:silver;font-size:12px;">radio</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="accordianicon">assignment</i><br />
+<span style="color:silver;font-size:12px;">tab</span></td>
+<td style="padding:0px;"></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+<span style="color:silver;font-size:12px;">drop menu</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="leaderboardicon">face</i><br />
+<span style="color:silver;font-size:12px;">leaders</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="markupicon">bubble_chart</i><br />
+<span style="color:silver;font-size:12px;">markup</span></td>
+</tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="trainicon">linear_scale</i><br />
+<span style="color:silver;font-size:12px;">train</span></td>
+</tr>
+</table> 
+<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p> 
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+</div>`)
+init();
+break; 
+
+case  "d": 
+var d = new Date();
+timeStamp = "dV"  + d.getTime();
+var str1 =  '<fx-div id=';
+var str2 = ' class="fxdivclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(ui.draggable).remove();
+
+$(droptarget).append(res +  
+'<div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div>' +  //the space before class is important
+'</fx-div>');
+
+$(".fxdivclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+$('#iconMenu').remove();
+$('body').append(`<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" 
+style="position:absolute;left:0px;top:56px;background-color:rgb(100,100,100);text-align:
+center;z-index:3000;width:280px;height:350px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:#e8c866;">Libraries</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:#e8c866;">Pages</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:#e8c866;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;">
+<table style="margin-left:15px;">
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="cardicon">picture_in_picture</i><br />
+<span style="color:silver;font-size:12px;">card</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="imageicon">image</i><br />
+<span style="color:silver;font-size:12px;">image</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="divicon">keyboard</i><br />
+<span style="color:silver;font-size:12px;">div</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+<span style="color:silver;font-size:12px;">button</span></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
+<span style="color:silver;font-size:12px;">table</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
+<span style="color:silver;font-size:12px;">checkbox</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+<span style="color:silver;font-size:12px;">radio</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="accordianicon">assignment</i><br />
+<span style="color:silver;font-size:12px;">tab</span></td>
+<td style="padding:0px;"></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+<span style="color:silver;font-size:12px;">drop menu</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="leaderboardicon">face</i><br />
+<span style="color:silver;font-size:12px;">leaders</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="markupicon">bubble_chart</i><br />
+<span style="color:silver;font-size:12px;">markup</span></td>
+</tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="trainicon">linear_scale</i><br />
+<span style="color:silver;font-size:12px;">train</span></td>
+</tr>
+</table> 
+<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p> 
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+</div>`)
+init();
+break; 
+}  //switch
+
+<!--end component drops using switch statement-->
+
+
+
+//FEDEX TRAIN
+if ($(draggable).attr('id') == "trainicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "tR"  + d.getTime();
+var str1 =  '<fx-train id=';
+var str2 = ' class="fxtrainclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+//$(ui.draggable).remove();
+newidBackIm = timeStamp + 'train image' ;
+
+$(droptarget).append(res +
+ '<span   slot="train-text1">1</span>' +
+ '<span   slot="train-text2">2</span>' +
+ '<span   slot="train-text3">3</span>' +
+ '<span   slot="train-text4">4</span>' +
+'</fx-train>'); 
+ 
+$(".fxtrainclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+} 
+
+if($(draggable).attr('id') == timeStamp && olddropbutton != droptarget) //you need to include timeStamp to prevent problems
+{ 
+ 
+var d = new Date();
+timeStamp = "tR"  + d.getTime();
+var str1 =  '<fx-train id=';
+var str2 = ' class="fxtrainclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(ui.draggable).remove();
+newidBackIm = timeStamp + 'train image' ;
+
+ $(droptarget).append(res +
+ '<span   slot="train-text1"> </span>' +
+ '<span   slot="train-text2"> </span>' +
+ '<span   slot="train-text3"> </span>' +
+ '<span   slot="train-text4"> </span>' +
+'</fx-train>'); 
+ 
+$(".fxtrainclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+
+//FEDEX TABLE COMPONENT 
+if ($(draggable).attr('id') == "tableicon") { 
+olddropbutton = droptarget;
+$(droptarget).append('<fx-table id="fxtableid" class="fxtableclass" contenteditable="true" ondblclick="myFunction(fxtableid)"></fx-table>');
+//$(".fxtableclass").resizable();
+
+ $(".fxtableclass")
+    .draggable()
+    .click(function(){
+        if ( $(this).is('.ui-draggable-dragging') ) {
+            return;
+        }
+        $(this).draggable( "option", "disabled", true );
+        $(this).attr('contenteditable','true');
+    })
+    .blur(function(){
+        $(this).draggable( 'option', 'disabled', false);
+        $(this).attr('contenteditable','false');
+    });
+}  
+if ($(draggable).attr('id') == "fxtableid" && olddropbutton != droptarget) 
+{ 
+$(ui.draggable).remove();
+$(droptarget).append('<fx-table id="fxtableid" class="fxtableclass" ondblclick="myFunction(fxtableid)"></fx-table>');
+ 
+$(".fxtableclass").resizable();
+$(".fxtableclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+
+//FEDEX CHECKBOX COMPONENT 
+if ($(draggable).attr('id') == "checkboxicon") { 
+olddropbutton = droptarget;
+$(droptarget).append('<fedex-checkbox id="fxcheckboxid" class="fxcheckboxclass" ondblclick="myFunction(fxcheckboxid)"></fedex-checkbox>');
+ 
+ 
+$(".fxcheckboxclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+ 
+}  
+if ($(draggable).attr('id') == "fxcheckboxid" && olddropbutton != droptarget) 
+{ 
+$(ui.draggable).remove();
+$(droptarget).append('<fedex-checkbox id="fxcheckboxid" class="fxcheckboxclass" ondblclick="myFunction(fxcheckboxid)"></fedex-checkbox>');
+ 
+ 
+$(".fxcheckboxclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+
+//FEDEX RADIO BUTTON COMPONENT 
+if ($(draggable).attr('id') == "radioicon") { 
+olddropbutton = droptarget;
+$(droptarget).append('<fedex-radiobutton id="fxradiobuttonid" class="fxradiobuttonclass" ondblclick="myFunction(fxradiobuttonid)"></fedex-radiobutton>');
+$(".fxradiobuttonclass").resizable();
+$(".fxradiobuttonclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+ 
+} 
+if ($(draggable).attr('id') == "fxradiobuttonid" && olddropbutton != droptarget) 
+{ 
+$(ui.draggable).remove();
+$(droptarget).append('<fedex-radiobutton id="fxradiobuttonid" class="fxradiobuttonclass" ondblclick="myFunction(fxradiobuttonid)"></fedex-radiobutton>');
+ 
+$(".fxradiobuttonclass").resizable();
+$(".fxradiobuttonclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+
+//FEDEX TAB CONTROL
+if ($(draggable).attr('id') == "accordianicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "aA"  + d.getTime();
+var str1 =  '<howto-tabs id=';
+var str2 = ' class= "fxhowtotabsclass"';   
+var str3 = ' ondblclick="myFunction(this)">';
+var res = str1 + timeStamp  + str2 + str3;
+
+$(droptarget).append(res +                     
+ '<howto-tab role="heading" slot="tab">Tab 1</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 1</howto-panel>' +
+  '<howto-tab role="heading" slot="tab">Tab 2</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 2</howto-panel>' +
+  '<howto-tab role="heading" slot="tab">Tab 3</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 3</howto-panel>' +
+  '</howto-tabs>'); 
+$(".fxhowtotabsclass").resizable();
+$(".fxhowtotabsclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+} 
+
+if($(draggable).attr('id') == timeStamp && olddropbutton != droptarget) //you need to include timeStamp to prevent problems
+{ 
+$(ui.draggable).remove();
+var d = new Date();
+timeStamp = "aA"  + d.getTime();
+var str1 =  '<howto-tabs id=';
+var str2 = ' class= "fxhowtotabsclass"';   
+var str3 = ' ondblclick="myFunction(this)">';
+var res = str1 + timeStamp  + str2 + str3;
+
+$(droptarget).append(res +                     
+ '<howto-tab role="heading" slot="tab">Tab 1</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 1</howto-panel>' +
+  '<howto-tab role="heading" slot="tab">Tab 2</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 2</howto-panel>' +
+  '<howto-tab role="heading" slot="tab">Tab 3</howto-tab>' +
+  '<howto-panel role="region" slot="panel">Content 3</howto-panel>' +
+  '</howto-tabs>'); 
+$(".fxhowtotabsclass").resizable();
+$(".fxhowtotabsclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+
+//FEDEX BUTTON
+if ($(draggable).attr('id') == "fedexbuttonicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "gB"  + d.getTime();
+var str1 =  '<fx-button id=';
+var str2 = ' class="fxbuttonclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+//$(ui.draggable).remove();
+newidBackIm = timeStamp + 'card image' ;
+
+$(droptarget).append(res +
+ '<span id="buttonspan" slot="button-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="placeholder.jpg" style="height:70%;width:80%;text-align:center;position:absolute;right:3px;top:7px;" \></span>' +
+ '</fx-button>'); 
+ 
+$(".fxbuttonclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+} 
+
+if($(draggable).attr('id') == timeStamp && olddropbutton != droptarget) //you need to include timeStamp to prevent problems
+{ 
+$(ui.draggable).remove();
+var d = new Date();
+timeStamp = "gB"  + d.getTime();
+var str1 =  '<fx-button id=';
+var str2 = ' class="fxbuttonclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+//$(ui.draggable).remove();
+newidBackIm = timeStamp + 'card image' ;
+
+ $(droptarget).append(res +
+ '<span id="buttonspan" slot="button-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="placeholder.jpg" style="height:70%;width:80%;text-align:center;position:absolute;right:3px;top:7px;" \></span>' +
+ '</fx-button>'); 
+ 
+ 
+$(".fxbuttonclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+ 
+
+
+//FEDEX BOX MENU COMPONENT 
+//Does  not read the Bootstrap CSS link because its encapsulated.  Use a custom element instead. 
+
+
+//FEDEX LEADERBOARD 
+ 
+if ($(draggable).attr('id') == "leaderboardicon") { 
+olddropbutton = droptarget;
+$(droptarget).append('<fedex-leaderboard id="fxleaderboardid" class="fxleaderboardclass"   ondblclick="myFunction(fxleaderboardid)"  ></fedex-leaderboard>');
+$(".fxleaderboardclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+ 
+}  
+if ($(draggable).attr('id') == "fxleaderboardid" && olddropbutton != droptarget) 
+{ 
+$(ui.draggable).remove();
+$(droptarget).append('<fedex-leaderboard id="fxleaderboardid" ondblclick="myFunction(fxleaderboardid)" class="fxleaderboardclass"></fedex-leaderboard>');
+ 
+ 
+$(".fxleaderboardclass").draggable( {
+	containment: "window",   
+	cursor: 'move'  
+});
+olddropbutton = droptarget;
+} 
+}  
+
+//HELPERS 
+function cardHelper( event)  {  return '<i class="material-icons md-36" id="cardicon">picture_in_picture</i><BR>';}
+function imageHelper( event ) {return '<i class="material-icons md-36" id="imageicon">image</i><BR>';}
+function divHelper( event)  {  return '<i class="material-icons md-36" id="divicon">keyboard</i><BR>';}
+function fedexButtonHelper( event)  {  return '<i class="material-icons md-36 md-light" id="fedexbuttonicon">check_circle</i><BR>';}
+
+function headerHelper( event ) {  return '<i class="material-icons md-36" id="headericon">title</i>';}
+function buttonHelper( event ) {  return '<i class="material-icons md-36" id="switchicon">input</i><BR>';}
+function mdlSwitchHelper( event ) {  return '<i class="material-icons md-36" id="buttonicon">blur_circular</i><BR>';}
+function mdlSliderHelper( event)  {  return '<div id="slidericon" style="width:100px;height:30px;background-color:purple;color:white;text-align:center;z-index:300;">Slider</div>';}
+function paragraphHelper( event)  {  return '<i class="material-icons md-36" id="divicon">format_align_left</i><BR>';}
+function checkboxHelper( event)  {  return '<i class="material-icons md-36" id="checkboxicon">check_box</i><BR>';}
+function radioHelper( event)  {  return '<i class="material-icons md-36" id="radioicon">radio_button_checked</i><BR>';}
+function tableHelper( event)  {  return '<i class="material-icons md-36" id="tableicon">border_all</i><BR>';}
+function dropMenuHelper( event)  {  return '<i class="material-icons md-36" id="dropmenuicon">menu</i><BR>';}
+function navlistHelper( event)  {  return '<i class="material-icons md-36" id="navlisticon">chrome_reader_mode</i><BR>';}
+function leaderboardHelper( event)  {  return '<i class="material-icons md-36" id="leaderboardicon">face</i><BR>';}
+function listcardHelper( event)  {  return '<i class="material-icons md-36" id="listcardicon">list</i><BR>';}
+function symcurlocHelper( event)  {  return '<i class="material-icons md-36" id="symcurlocicon">collections</i><BR>';}
+function tabHelper( event)  {  return '<i class="material-icons md-36" id="tabicon">assignment</i><BR>';}
+function accordianHelper( event)  {  return '<i class="material-icons md-36" id="accordianicon">assignment</i><BR>';}
+function markupHelper( event)  {  return '<i class="material-icons md-36" id="markupicon">bubble_chart</i><BR>';}
+function trainHelper( event)  {  return '<i class="material-icons md-36" id="trainicon">linear_scale</i><BR>';}
+
+</script>
+
+<!--HEADER & MAIN MENU BAR-->
+<div style="background-color:rgb(77,20,140);height:57px;">
+<i class="material-icons md-36 fedexorange" onclick="toggleDisplay('iconMenu');" style="position:absolute;top:18px;left:8px;">view_headline</i> 
+<i class="material-icons md-36 fedexorange" onclick="toggleDisplay('tabs');" style="position:absolute;top:18px;right:25px;">view_headline</i> 
+<i class="material-icons md-24 fedexorange" onclick="hideGrid();" id="hidegrid" style="position:absolute;top:25px;right:110px;">grid_off</i>
+<i class="material-icons md-24 fedexorange" onclick="showGrid();" id="showgrid" style="position:absolute;top:25px;right:80px;">grid_on</i>
+
+
+<span style="color:white;font-family:arial;font-size:32px;font-weight:bold;padding-left:130px;line-height:2.0;">Fed<span style="color:rgb(255,102,0);font-family:arial;font-size:32px;font-weight:bold;line-height:1.8;">Ex</span></span>
+<span style="color:rgb(153,153,153);font-family:arial;font-size:20px;font-weight:normal;padding-left:20px;line-height:2.0;">Enterprise XD</span>
+
+<!--Slider switch-->
+<label class="switch" style="position:absolute;top:28px;right:150px;">
+  <input type="checkbox" checked="" id="gridCheck" onclick="grid();">
+  <span class="slider round"></span>
+</label>
+
+</div> 
+
+
+
+<!--Link to the tree view control:  http://mbraak.github.io/jqTree/#general-->
+<!-----------------------------------------------ICON MENU----------------------------------->
+<!--icon menu-->
+
+<!-----------------------------------------RIGHT PROPERTY SHEET----------------------------->     
+<div id="tabs" style="margin: 0px; padding: 0px; position: absolute; right: 260px; top: 19px; z-index: 2000;" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+<div id="tabs1A" style="margin:0px;padding:0px;">
+<div style="background-color:rgb(90,90,90);position:absolute;top:38px;margin:0px;"> 
+<ul style="text-decoration:none;list-style-type: none;margin:0px;padding:0px;background-color:rgb(140,140,140);" role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header"> 
+	<li style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;"><span id="selecteditem" style="color:white;padding-left:10px;line-height:3;color:#e8c866;font-family:Roboto;font-size:12px;letter-spacing:1px;"><span style="color:white;">ID:</span> iM1540824129913cardimage</span></li> 
+	<li style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;padding-top:5px;"><span style="color:white;padding-left:10px;">W: </span><input type="text" id="setWidth" value="" style="width:30px;background-color:rgb(70,70,70);color:white;text-align:center;border: thin silver solid;"><span style="color:white;padding-left:5px;">H: </span><input type="text" id="setHeight" value="" style="width:30px;background-color:rgb(70,70,70);color:white;text-align:center;border: thin silver solid;padding-left:10px;margin-right:0px;">
+	</li><li style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;padding-top:5px;"><span style="color:white;padding-left:10px;margin-right:0px;">Z: </span><input type="text" id="setZindex" value="" style="width:30px;background-color:rgb(70,70,70);color:white;text-align:center;border:thin silver solid;"><span style="color:white;padding-left:5px;">O: </span><input type="text" id="setOpacity" value="" style="width:30px;background-color:rgb(70,70,70);color:white;text-align:center;border: thin silver solid;margin-right:25px;"><input type="text" id="full" style="display: none;"><div class="sp-replacer sp-light full-spectrum"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(238, 204, 204);"></div></div><div class="sp-dd">?</div></div><button id="btn1" style="background-color:rgb(70,70,70);color:#e8c866;;border:none;margin-left:5px;margin-right:10px;font-family:roboto;letter-spacing:1px;" onclick="fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxsize,fxtextcolor,fxselelement);">ok</button></li>
+    <li id="demo1a" style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;padding-top:5px;"><span style="color:white;padding-left:10px;">Text Size: </span><input type="text" id="setsize" value="" style="width:30px;background-color:rgb(70,70,70);color:white;text-align:center;border: thin silver solid;"><span style="color:white;padding-left:10px;">C: </span><input type="text" id="fulltext" style="display: none;"><div class="sp-replacer sp-light full-spectrum"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(77, 20, 140);"></div></div><div class="sp-dd">?</div></div></li>
+	
+<!--Enter Text--><li id="demo0" style="background-color:rgb(120,120,120);width:330px;color:white;height:135px;margin-bottom:2px;text-align:left;padding-left:10px;padding-top:5px;"><textarea id="setTitle0" value="Enter Text" style="padding-left:5px;width:210px;height:125px;background-color:rgb(70,70,70);color:silver;text-align:center;border: thin silver solid;text-align:left;"></textarea><button id="butTitle0" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlot0(fxselelementText);joe = document.getElementById('setsize').value;" style="background-color:rgb(70,70,70);color:white;border:none;margin-left:5px;color:#e8c866;font-family:roboto;letter-spacing:1px;">ok</button></li> 
+	
+	<li id="demo7" style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;text-align:left;padding-left:10px;padding-top:5px;"><label for="image_uploads" style="text-decoration:underline;cursor:pointer;margin-left:0px;color:#e8c866;font-family:Roboto;font-size:12px;letter-spacing:1px;">CHOOSE IMAGE</label><input type="file" id="image_uploads" name="image_uploads" style="font-size:10px;opacity:0;"></li>
+    <li id="demo5" style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;text-align:left;padding-left:10px;padding-top:5px;"><input type="text" id="setTitle5" value="Choose Background Image" style="padding-left:5px;width:270px;background-color:rgb(70,70,70);color:silver;text-align:center;border: thin silver solid;text-align:left;display:none;"><button id="butOne" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlotBackImage(fxselelementText);" style="background-color:rgb(70,70,70);color:white;border:none;margin-left:5px;color:#e8c866;font-family:roboto;letter-spacing:1px;">ok</button></li> 
+	<li id="demo9" style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;text-align:left;padding-left:10px;padding-top:5px;"><input type="text" id="setDropZone" value="Enter Drop Zone" style="padding-left:5px;width:160px;background-color:rgb(70,70,70);color:silver;text-align:center;border: thin silver solid;text-align:left;"><button onclick="gggg = document.getElementById('setDropZone').value;buildNodes(yy,gggg)">ok</button></li><!--user has to select the element and that sets yy-->
+
+	<li id="demo8" style="background-color:rgb(120,120,120);width:330px;color:white;height:35px;margin-bottom:2px;text-align:left;padding-left:10px;padding-top:5px;"><i class="material-icons md-18 md-light" id="deleteicon" style="padding-top:6px;line-height:.4;" onclick="$( '#' + yy ).remove();document.getElementById('trashcan').innerHTML = 'No Object Selected';document.getElementById('selecteditem').innerHTML = 'No Object Selected' ">delete</i><div id="trashcan" style="font-size:12px;font-family:roboto;letter-spacing:0px;padding-left:10px;display:inline;line-height:1.6;color:#e8c866;">iM1540824129913cardimage</div></li> 
+	</ul> 
+</div>
+</div><!--template ends here-->
+</div><!--property sheet-->
+<!--</div>--> 
+
+<!-------------------------------------------------SCRIPTS---------------------------------->
+<script>
+
+function hideGrid() {
+
+var arrows = document.getElementsByClassName("mdl-cell");
+    for(var i = 0; i < arrows.length; i++){
+			 arrows[i].style.border = "none";
+             }
+}
+
+function showGrid() {
+
+var arrows = document.getElementsByClassName("mdl-cell");
+    for(var i = 0; i < arrows.length; i++){
+			 arrows[i].style.border = "thin solid silver";
+             }
+}
+
+
+
+<!--image select and edit-->
+function textSlotBackImage(fxselelementText) //id of the selected element
+{
+popo1 = $('#setTitle5').val();    //setTitle5 is a hidden field next to the ok button with name of selected image
+document.getElementById(fxselelementText).src =  popo1 
+} 
+
+<!--text select and edit--> 
+function textSlot0(fxselelement)   
+{
+tom = document.getElementById(fxselelement);
+tom.innerHTML = $('#setTitle0').val();
+tom.style.color = vv;
+tracy = document.getElementById('setsize').value;
+tom.style.fontSize = tracy + 'px';
+ 
+} 
+<!--file select-->
+$(function(){       //activated with the onchange event from the choose file button on the propbox.  This needs
+                    //no inline call...it just happens when the image file is selected.
+$("#image_uploads").change(function(e){ 
+hkhk = this.files[0].name;
+document.getElementById('setTitle5').value =  hkhk ;
+popo1 = $('#setTitle5').val();
+document.getElementById(fxselelement).src =  popo1 
+});
+})
+
+//color picker script can't be external because its a component 
+//https://bgrins.github.io/spectrum/
+$("#full").spectrum({
+    color: "#ECC",
+    showInput: true,
+    className: "full-spectrum",
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: true,
+    maxSelectionSize: 10,
+    preferredFormat: "hex",
+    localStorageKey: "spectrum.demo",
+    move: function (color) {
+        
+    },
+    show: function () {
+    
+    },
+    beforeShow: function () {
+    
+    },
+    hide: function () {
+    
+    },
+    
+	change: function(color) {     //change is a jquery function.  
+    cc = color.toHexString(); //all we do is use to color picker to set a global variable for elementStyle()
+	},
+    
+	palette: [
+        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+    ]
+});
+
+//text color
+
+    $("#fulltext").spectrum({
+    color: "#ECC",
+    showInput: true,
+    className: "full-spectrum",
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: true,
+    maxSelectionSize: 10,
+    preferredFormat: "hex",
+    localStorageKey: "spectrum.demo",
+    move: function (color) {
+        
+    },
+    show: function () {
+    
+    },
+    beforeShow: function () {
+    
+    },
+    hide: function () {
+    
+    },
+    
+	change: function(color) {     //change is a jquery function.  
+    vv = color.toHexString(); 
+	//all we do is use to color picker to set a global variable for elementStyle()
+	},
+    
+	palette: [
+        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+    ]
+});
+</script><div class="sp-container sp-hidden sp-light sp-palette-buttons-disabled full-spectrum"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"><span title="#000000" data-color="rgb(0, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(0, 0, 0);"></span></span><span title="#434343" data-color="rgb(67, 67, 67)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(67, 67, 67);"></span></span><span title="#666666" data-color="rgb(102, 102, 102)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(102, 102, 102);"></span></span><span title="#cccccc" data-color="rgb(204, 204, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(204, 204, 204);"></span></span><span title="#d9d9d9" data-color="rgb(217, 217, 217)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 217, 217);"></span></span><span title="#ffffff" data-color="rgb(255, 255, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 255, 255);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-1"><span title="#980000" data-color="rgb(152, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(152, 0, 0);"></span></span><span title="#ff0000" data-color="rgb(255, 0, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 0, 0);"></span></span><span title="#ff9900" data-color="rgb(255, 153, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 153, 0);"></span></span><span title="#ffff00" data-color="rgb(255, 255, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 255, 0);"></span></span><span title="#00ff00" data-color="rgb(0, 255, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 255, 0);"></span></span><span title="#00ffff" data-color="rgb(0, 255, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 255, 255);"></span></span><span title="#4a86e8" data-color="rgb(74, 134, 232)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(74, 134, 232);"></span></span><span title="#0000ff" data-color="rgb(0, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 0, 255);"></span></span><span title="#9900ff" data-color="rgb(153, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(153, 0, 255);"></span></span><span title="#ff00ff" data-color="rgb(255, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 0, 255);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-2"><span title="#e6b8af" data-color="rgb(230, 184, 175)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(230, 184, 175);"></span></span><span title="#f4cccc" data-color="rgb(244, 204, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(244, 204, 204);"></span></span><span title="#fce5cd" data-color="rgb(252, 229, 205)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(252, 229, 205);"></span></span><span title="#fff2cc" data-color="rgb(255, 242, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 242, 204);"></span></span><span title="#d9ead3" data-color="rgb(217, 234, 211)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 234, 211);"></span></span><span title="#d0e0e3" data-color="rgb(208, 224, 227)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(208, 224, 227);"></span></span><span title="#c9daf8" data-color="rgb(201, 218, 248)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(201, 218, 248);"></span></span><span title="#cfe2f3" data-color="rgb(207, 226, 243)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(207, 226, 243);"></span></span><span title="#d9d2e9" data-color="rgb(217, 210, 233)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 210, 233);"></span></span><span title="#ead1dc" data-color="rgb(234, 209, 220)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(234, 209, 220);"></span></span><span title="#dd7e6b" data-color="rgb(221, 126, 107)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(221, 126, 107);"></span></span><span title="#ea9999" data-color="rgb(234, 153, 153)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(234, 153, 153);"></span></span><span title="#f9cb9c" data-color="rgb(249, 203, 156)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(249, 203, 156);"></span></span><span title="#ffe599" data-color="rgb(255, 229, 153)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 229, 153);"></span></span><span title="#b6d7a8" data-color="rgb(182, 215, 168)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(182, 215, 168);"></span></span><span title="#a2c4c9" data-color="rgb(162, 196, 201)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(162, 196, 201);"></span></span><span title="#a4c2f4" data-color="rgb(164, 194, 244)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(164, 194, 244);"></span></span><span title="#9fc5e8" data-color="rgb(159, 197, 232)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(159, 197, 232);"></span></span><span title="#b4a7d6" data-color="rgb(180, 167, 214)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(180, 167, 214);"></span></span><span title="#d5a6bd" data-color="rgb(213, 166, 189)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(213, 166, 189);"></span></span><span title="#cc4125" data-color="rgb(204, 65, 37)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(204, 65, 37);"></span></span><span title="#e06666" data-color="rgb(224, 102, 102)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(224, 102, 102);"></span></span><span title="#f6b26b" data-color="rgb(246, 178, 107)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(246, 178, 107);"></span></span><span title="#ffd966" data-color="rgb(255, 217, 102)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 217, 102);"></span></span><span title="#93c47d" data-color="rgb(147, 196, 125)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(147, 196, 125);"></span></span><span title="#76a5af" data-color="rgb(118, 165, 175)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(118, 165, 175);"></span></span><span title="#6d9eeb" data-color="rgb(109, 158, 235)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(109, 158, 235);"></span></span><span title="#6fa8dc" data-color="rgb(111, 168, 220)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(111, 168, 220);"></span></span><span title="#8e7cc3" data-color="rgb(142, 124, 195)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(142, 124, 195);"></span></span><span title="#c27ba0" data-color="rgb(194, 123, 160)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(194, 123, 160);"></span></span><span title="#a61c00" data-color="rgb(166, 28, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(166, 28, 0);"></span></span><span title="#cc0000" data-color="rgb(204, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(204, 0, 0);"></span></span><span title="#e69138" data-color="rgb(230, 145, 56)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(230, 145, 56);"></span></span><span title="#f1c232" data-color="rgb(241, 194, 50)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(241, 194, 50);"></span></span><span title="#6aa84f" data-color="rgb(106, 168, 79)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(106, 168, 79);"></span></span><span title="#45818e" data-color="rgb(69, 129, 142)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(69, 129, 142);"></span></span><span title="#3c78d8" data-color="rgb(60, 120, 216)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(60, 120, 216);"></span></span><span title="#3d85c6" data-color="rgb(61, 133, 198)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(61, 133, 198);"></span></span><span title="#674ea7" data-color="rgb(103, 78, 167)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(103, 78, 167);"></span></span><span title="#a64d79" data-color="rgb(166, 77, 121)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(166, 77, 121);"></span></span><span title="#5b0f00" data-color="rgb(91, 15, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(91, 15, 0);"></span></span><span title="#660000" data-color="rgb(102, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(102, 0, 0);"></span></span><span title="#783f04" data-color="rgb(120, 63, 4)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(120, 63, 4);"></span></span><span title="#7f6000" data-color="rgb(127, 96, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(127, 96, 0);"></span></span><span title="#274e13" data-color="rgb(39, 78, 19)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(39, 78, 19);"></span></span><span title="#0c343d" data-color="rgb(12, 52, 61)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(12, 52, 61);"></span></span><span title="#1c4587" data-color="rgb(28, 69, 135)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(28, 69, 135);"></span></span><span title="#073763" data-color="rgb(7, 55, 99)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(7, 55, 99);"></span></span><span title="#20124d" data-color="rgb(32, 18, 77)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(32, 18, 77);"></span></span><span title="#4c1130" data-color="rgb(76, 17, 48)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(76, 17, 48);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-selection"><span title="#616292" data-color="rgb(97, 98, 146)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(97, 98, 146);"></span></span><span title="#4d148c" data-color="rgb(77, 20, 140)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(77, 20, 140);"></span></span><span title="#ff6600" data-color="rgb(255, 102, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 102, 0);"></span></span><span title="#dddf53" data-color="rgb(221, 223, 83)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(221, 223, 83);"></span></span><span title="#d5d5f0" data-color="rgb(213, 213, 240)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(213, 213, 240);"></span></span><span title="#6d6dae" data-color="rgb(109, 109, 174)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(109, 109, 174);"></span></span><span title="#823eb0" data-color="rgb(130, 62, 176)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(130, 62, 176);"></span></span><span title="#6262bf" data-color="rgb(98, 98, 191)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(98, 98, 191);"></span></span><span title="#7777c1" data-color="rgb(119, 119, 193)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(119, 119, 193);"></span></span><span title="#eecccc" data-color="rgb(238, 204, 204)" class="sp-thumb-el sp-thumb-light sp-thumb-active"><span class="sp-thumb-inner" style="background-color:rgb(238, 204, 204);"></span></span></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner"><div class="sp-alpha-handle" style="left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"><div class="sp-cf sp-palette-row-initial"><span data-color="" style="background-color:transparent;" class="sp-clear-display" title="No Color Selected"></span><span title="#eecccc" data-color="rgb(238, 204, 204)" class="sp-thumb-el sp-thumb-light sp-thumb-active"><span class="sp-thumb-inner" style="background-color:rgb(238, 204, 204);"></span></span></div></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">cancel</a><button type="button" class="sp-choose">choose</button></div></div></div><div class="sp-container sp-light sp-palette-buttons-disabled full-spectrum sp-hidden" style="position: absolute; top: 209.001px; left: 1068.01px;"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"><span title="#000000" data-color="rgb(0, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(0, 0, 0);"></span></span><span title="#434343" data-color="rgb(67, 67, 67)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(67, 67, 67);"></span></span><span title="#666666" data-color="rgb(102, 102, 102)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(102, 102, 102);"></span></span><span title="#cccccc" data-color="rgb(204, 204, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(204, 204, 204);"></span></span><span title="#d9d9d9" data-color="rgb(217, 217, 217)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 217, 217);"></span></span><span title="#ffffff" data-color="rgb(255, 255, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 255, 255);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-1"><span title="#980000" data-color="rgb(152, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(152, 0, 0);"></span></span><span title="#ff0000" data-color="rgb(255, 0, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 0, 0);"></span></span><span title="#ff9900" data-color="rgb(255, 153, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 153, 0);"></span></span><span title="#ffff00" data-color="rgb(255, 255, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 255, 0);"></span></span><span title="#00ff00" data-color="rgb(0, 255, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 255, 0);"></span></span><span title="#00ffff" data-color="rgb(0, 255, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 255, 255);"></span></span><span title="#4a86e8" data-color="rgb(74, 134, 232)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(74, 134, 232);"></span></span><span title="#0000ff" data-color="rgb(0, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(0, 0, 255);"></span></span><span title="#9900ff" data-color="rgb(153, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(153, 0, 255);"></span></span><span title="#ff00ff" data-color="rgb(255, 0, 255)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 0, 255);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-2"><span title="#e6b8af" data-color="rgb(230, 184, 175)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(230, 184, 175);"></span></span><span title="#f4cccc" data-color="rgb(244, 204, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(244, 204, 204);"></span></span><span title="#fce5cd" data-color="rgb(252, 229, 205)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(252, 229, 205);"></span></span><span title="#fff2cc" data-color="rgb(255, 242, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 242, 204);"></span></span><span title="#d9ead3" data-color="rgb(217, 234, 211)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 234, 211);"></span></span><span title="#d0e0e3" data-color="rgb(208, 224, 227)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(208, 224, 227);"></span></span><span title="#c9daf8" data-color="rgb(201, 218, 248)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(201, 218, 248);"></span></span><span title="#cfe2f3" data-color="rgb(207, 226, 243)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(207, 226, 243);"></span></span><span title="#d9d2e9" data-color="rgb(217, 210, 233)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(217, 210, 233);"></span></span><span title="#ead1dc" data-color="rgb(234, 209, 220)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(234, 209, 220);"></span></span><span title="#dd7e6b" data-color="rgb(221, 126, 107)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(221, 126, 107);"></span></span><span title="#ea9999" data-color="rgb(234, 153, 153)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(234, 153, 153);"></span></span><span title="#f9cb9c" data-color="rgb(249, 203, 156)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(249, 203, 156);"></span></span><span title="#ffe599" data-color="rgb(255, 229, 153)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 229, 153);"></span></span><span title="#b6d7a8" data-color="rgb(182, 215, 168)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(182, 215, 168);"></span></span><span title="#a2c4c9" data-color="rgb(162, 196, 201)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(162, 196, 201);"></span></span><span title="#a4c2f4" data-color="rgb(164, 194, 244)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(164, 194, 244);"></span></span><span title="#9fc5e8" data-color="rgb(159, 197, 232)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(159, 197, 232);"></span></span><span title="#b4a7d6" data-color="rgb(180, 167, 214)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(180, 167, 214);"></span></span><span title="#d5a6bd" data-color="rgb(213, 166, 189)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(213, 166, 189);"></span></span><span title="#cc4125" data-color="rgb(204, 65, 37)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(204, 65, 37);"></span></span><span title="#e06666" data-color="rgb(224, 102, 102)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(224, 102, 102);"></span></span><span title="#f6b26b" data-color="rgb(246, 178, 107)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(246, 178, 107);"></span></span><span title="#ffd966" data-color="rgb(255, 217, 102)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 217, 102);"></span></span><span title="#93c47d" data-color="rgb(147, 196, 125)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(147, 196, 125);"></span></span><span title="#76a5af" data-color="rgb(118, 165, 175)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(118, 165, 175);"></span></span><span title="#6d9eeb" data-color="rgb(109, 158, 235)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(109, 158, 235);"></span></span><span title="#6fa8dc" data-color="rgb(111, 168, 220)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(111, 168, 220);"></span></span><span title="#8e7cc3" data-color="rgb(142, 124, 195)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(142, 124, 195);"></span></span><span title="#c27ba0" data-color="rgb(194, 123, 160)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(194, 123, 160);"></span></span><span title="#a61c00" data-color="rgb(166, 28, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(166, 28, 0);"></span></span><span title="#cc0000" data-color="rgb(204, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(204, 0, 0);"></span></span><span title="#e69138" data-color="rgb(230, 145, 56)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(230, 145, 56);"></span></span><span title="#f1c232" data-color="rgb(241, 194, 50)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(241, 194, 50);"></span></span><span title="#6aa84f" data-color="rgb(106, 168, 79)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(106, 168, 79);"></span></span><span title="#45818e" data-color="rgb(69, 129, 142)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(69, 129, 142);"></span></span><span title="#3c78d8" data-color="rgb(60, 120, 216)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(60, 120, 216);"></span></span><span title="#3d85c6" data-color="rgb(61, 133, 198)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(61, 133, 198);"></span></span><span title="#674ea7" data-color="rgb(103, 78, 167)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(103, 78, 167);"></span></span><span title="#a64d79" data-color="rgb(166, 77, 121)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(166, 77, 121);"></span></span><span title="#5b0f00" data-color="rgb(91, 15, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(91, 15, 0);"></span></span><span title="#660000" data-color="rgb(102, 0, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(102, 0, 0);"></span></span><span title="#783f04" data-color="rgb(120, 63, 4)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(120, 63, 4);"></span></span><span title="#7f6000" data-color="rgb(127, 96, 0)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(127, 96, 0);"></span></span><span title="#274e13" data-color="rgb(39, 78, 19)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(39, 78, 19);"></span></span><span title="#0c343d" data-color="rgb(12, 52, 61)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(12, 52, 61);"></span></span><span title="#1c4587" data-color="rgb(28, 69, 135)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(28, 69, 135);"></span></span><span title="#073763" data-color="rgb(7, 55, 99)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(7, 55, 99);"></span></span><span title="#20124d" data-color="rgb(32, 18, 77)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(32, 18, 77);"></span></span><span title="#4c1130" data-color="rgb(76, 17, 48)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(76, 17, 48);"></span></span></div><div class="sp-cf sp-palette-row sp-palette-row-selection"><span title="#eecccc" data-color="rgb(238, 204, 204)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(238, 204, 204);"></span></span><span title="#9b9cca" data-color="rgb(155, 156, 202)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(155, 156, 202);"></span></span><span title="#616292" data-color="rgb(97, 98, 146)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(97, 98, 146);"></span></span><span title="#4d148c" data-color="rgb(77, 20, 140)" class="sp-thumb-el sp-thumb-dark sp-thumb-active"><span class="sp-thumb-inner" style="background-color:rgb(77, 20, 140);"></span></span><span title="#ff6600" data-color="rgb(255, 102, 0)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(255, 102, 0);"></span></span><span title="#dddf53" data-color="rgb(221, 223, 83)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(221, 223, 83);"></span></span><span title="#d5d5f0" data-color="rgb(213, 213, 240)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(213, 213, 240);"></span></span><span title="#6d6dae" data-color="rgb(109, 109, 174)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(109, 109, 174);"></span></span><span title="#823eb0" data-color="rgb(130, 62, 176)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(130, 62, 176);"></span></span><span title="#6262bf" data-color="rgb(98, 98, 191)" class="sp-thumb-el sp-thumb-light"><span class="sp-thumb-inner" style="background-color:rgb(98, 98, 191);"></span></span></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(121, 0, 255);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="top: 56.1502px; left: 111.236px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="top: 98.1305px;"></div></div></div><div class="sp-alpha" style=""><div class="sp-alpha-inner"><div class="sp-alpha-handle" style="left: 169px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"><div class="sp-cf sp-palette-row-initial"><span title="#6aa84f" data-color="rgb(106, 168, 79)" class="sp-thumb-el sp-thumb-dark"><span class="sp-thumb-inner" style="background-color:rgb(106, 168, 79);"></span></span><span title="#4d148c" data-color="rgb(77, 20, 140)" class="sp-thumb-el sp-thumb-dark sp-thumb-active"><span class="sp-thumb-inner" style="background-color:rgb(77, 20, 140);"></span></span></div></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">cancel</a><button type="button" class="sp-choose">choose</button></div></div></div>
+
+<!-------------------------------------------utility scripts that use to be in the .js file----------->
+<script>
+//UTILITY SCRIPTS FOR DESIGN SYSTEM IDE
+//3-27-2018 
+//PRK 
+//called by the ok button in property sheet.  This also uses the global cc which is the color selected from the picker
+
+//ATTRIBUTES
+function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxsize,fxcolor,fxselelement) { 
+//alert("pat");
+ 
+document.getElementById(fxselelement).setAttribute("width", fxwidth);
+document.getElementById(fxselelement).setAttribute("height", fxheight);
+document.getElementById(fxselelement).setAttribute("c", cc);
+document.getElementById(fxselelement).setAttribute("layer", fxzindex);
+document.getElementById(fxselelement).setAttribute("trans", fxopacity);
+document.getElementById(fxselelement).setAttribute("size", fxsize);   
+document.getElementById(fxselelement).setAttribute("textcolor", vv);
+
+}
+
+//TABS	
+$( function() {
+    $( "#tabs" ).tabs();
+  } );
+
+//SELECTIONS
+//Called from inline script in each element with a click on the object  
+function myFunction(xx) {
+ 
+document.getElementById("trashcan").innerHTML = $(xx).attr('id');
+document.getElementById("selecteditem").innerHTML = "<span style='color:white;'>ID:</span>" + " " + $(xx).attr('id');
+yy = null;
+yy = $(xx).attr('id');
+console.log(yy);
+jimmy = document.getElementById(yy);
+if(yy.length > 15)
+{
+	if(jimmy.style.border === 'none'){
+        jimmy.style.border = "dotted thick red";
+		} else {
+			jimmy.style.border = "none";  
+	    }
+}
+hhh =  jimmy.innerText;
+ 
+//ddd = document.getElementById(setTitle0);
+ 
+//hhh = ddd.innerHTML;
+//console.log(hhh);
+//alert(/[A-Z]/.test(str));
+
+uu = document.getElementById('trashcan').innerText;
+//document.getElementById(yy).style.border = 'medium dotted green';
+}
+
+//called from clicking the ok button in the size property sheet
+//yy = selected item coming from myFunction
+function setsize(pp , kk){
+//$("#fxheaderid").width(tt);
+//alert("setsize");
+$( '#' + yy ).width(pp);
+$( '#' + yy ).height(kk);
+oo =  yy;
+ 
+//document.getElementById("fxheaderid").style.border = "none";
+document.getElementById(oo).style.border = "none";
+ 
+}
+ 
+(function( $ ) {
+    'use strict';
+})( jQuery );     //protects the jquery shorthand selector $ namespace from other who use it 
+
+var droptarget  //declares a global variable.  It must be declared outside a function to be global 
+var mdlGrid
+
+function buildGrid(){
+//$("body").append('<DIV class="content-grid mdl-grid" id="mdlGrid"><div id="stuff8" class="mdl-cell mdl-cell--12-col tom paul"></div><div id="stuff9" class="mdl-cell mdl-cell--6-col tom paul" ></div><div id="stuff10" class="mdl-cell mdl-cell--6-col tom paul"></div><div id="stuff"  class="mdl-cell mdl-cell--5-col tom paul" ></div><div id="stuff2" class="mdl-cell mdl-cell--4-col tom paul"></div><div id="stuff3" class="mdl-cell mdl-cell--3-col tom paul"></div><div id="stuff4" class="mdl-cell mdl-cell--5-col tom paul"></div><div id="stuff5" class="mdl-cell mdl-cell--2-col tom paul"></div><div id="stuff6" class="mdl-cell mdl-cell--2-col tom paul"></div><div id="stuff7" class="mdl-cell mdl-cell--3-col tom paul"></div>');
+location.reload();
+} 
+
+function grid(){
+if($('#gridCheck').prop('checked'))
+{
+buildGrid();
+}
+else
+{
+mdlGrid = $('#mdlGrid').remove();
+}
+}
+
+function toggleDisplay(divId) {
+//alert(divId);
+$("#"+ divId).toggle();
+}
+
+//jQUERY MENU
+$( function() {
+
+    $( "#menu" ).menu();
+
+  } );
+  
+var timeout    = 500;
+var closetimer = 0;
+var ddmenuitem = 0;
+
+function jsddm_open()
+{  jsddm_canceltimer();
+   jsddm_close();
+   ddmenuitem = $(this).find('ul').css('visibility', 'visible');}
+
+function jsddm_close()
+{  if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+function jsddm_timer()
+{  closetimer = window.setTimeout(jsddm_close, timeout);}
+
+function jsddm_canceltimer()
+{  if(closetimer)
+   {  window.clearTimeout(closetimer);
+      closetimer = null;}}
+
+$(document).ready(function()
+{  $('#jsddm > li').bind('mouseover', jsddm_open)
+   $('#jsddm > li').bind('mouseout',  jsddm_timer)});
+
+document.onclick = jsddm_close;
+
+$( init );
+
+function init() {
+	 
+$('#cardicon').draggable( {
+ cursor: 'move',
+ helper:cardHelper
+  }) 
+
+$('#imageicon').draggable( {
+ cursor: 'move',
+ helper:imageHelper
+  })
+  
+$('#divicon').draggable( {
+ cursor: 'move',
+ helper:divHelper
+  })
+  
+$('#fedexbuttonicon').draggable( {
+ cursor: 'move',
+ helper:fedexButtonHelper
+  })
+  
+$('#headericon').draggable( {
+ cursor: 'move',
+ helper:headerHelper
+  })  
+  
+$('#buttonicon').draggable( {
+ cursor: 'move',
+ helper:buttonHelper
+  })
+  
+$('#switchicon').draggable( {
+ cursor: 'move',
+ helper:mdlSwitchHelper
+  })
+  
+  $('#slidericon').draggable( {
+ cursor: 'move',
+ helper:mdlSliderHelper
+  })
+  
+$('#paragraphicon').draggable( {
+ cursor: 'move',
+ helper:paragraphHelper
+  })
+  
+$('#checkboxicon').draggable( {
+ cursor: 'move',
+ helper:checkboxHelper
+  })
+  
+  $('#radioicon').draggable( {
+ cursor: 'move',
+ helper:radioHelper
+  })
+  
+  $('#tableicon').draggable( {
+ cursor: 'move',
+ helper:tableHelper
+  })
+  
+   $('#dropmenuicon').draggable( {
+ cursor: 'move',
+ helper:dropMenuHelper
+  })
+  
+  $('#navlisticon').draggable( {
+	cursor: 'move',
+	helper:navlistHelper
+	})
+  
+$('#leaderboardicon').draggable( {
+	cursor: 'move',
+	helper:leaderboardHelper
+	})
+	
+$('#listcardicon').draggable( {
+	cursor: 'move',
+	helper:listcardHelper
+	})
+	
+$('#symcurlocicon').draggable( {
+	cursor: 'move',
+	helper: symcurlocHelper
+	})
+	
+	$('#accordianicon').draggable( {
+	cursor: 'move',
+	helper: tabHelper
+	})
+	
+	$('#markupicon').draggable( {
+	cursor: 'move',
+	helper: markupHelper
+	})
+	
+	$('#trainicon').draggable( {
+	cursor: 'move',
+	helper: trainHelper
+	})
+	
+//GET ID OF DROP TARGET AND HIGHLIGHT DROPTARGET BORDER IN RED 
+ $(function() {
+$("body").droppable({
+     over: function(event, ui) {
+     $('#display').html( 'body' );
+     droptarget =  document.getElementById('display').innerHTML;
+	 }
+});
+}); 
+
+//OVER 
+$(function() {
+
+$(".mdl-cell").droppable({
+     over: function(event, ui) {
+	 $('#display').html( this.id ).prepend("#");
+     droptarget =  document.getElementById('display').innerHTML;
+	 nn = this.id;
+	 //alert(nn);
+	  document.getElementById(nn).style.border = "thin red solid";    
+	  }
+});
+});
+
+//OUT 
+$(function() {
+$(".mdl-cell").droppable({
+     out: function(event, ui) {
+	 nn = this.id;
+	 document.getElementById(nn).style.border = "thin gray solid";
+	  
+	  
+	 }
+});
+});  
+$('body').droppable({drop: handleDropEvent});
+}  //init
+</script>
+
+<script>
+//This is the script that works the tree control in the left tabbed libraries, etc. box
+$(function() {
+$('#tree1').tree({
+        data: data,
+		autoOpen: true, 
+		dragAndDrop: true
+		
+    });
+	});
+	
+	var data = [
+    {
+        name: 'fx-home-cars',
+        children: [
+            { name: 'fx-hero' },
+            { name: 'fx-listview-barchart' }
+        ]
+    },
+    {
+        name: 'fx-leaderboard-cars',
+        children: [
+            { name: 'fx-listview-donutchart' }
+        ]
+    },
+	{
+        name: 'fx-awards-cars',
+        children: [
+            { name: 'fx-listview-symbols' }
+        ]
+    }
+];
+ 
+$(function() {                            
+    $('#assets').tree({
+        data: data2,
+		autoOpen: true,
+		dragAndDrop: true
+    });
+});
+
+var data2 = [
+    {
+        name: 'icons',
+        children: [
+            { name: 'Last_Stop_icon.png' },
+            { name: 'Meet Point.png' }
+        ]
+    },
+    {
+        name: 'symbols',
+        children: [
+            { name: 'End_Break_22px.svg' }
+        ]
+    },
+	{
+        name: 'images',
+        children: [
+            { name: 'car.jpg' },
+			{ name: 'pilot.jpg' }
+			
+        ]
+    },
+	{
+        name: 'interactions',
+        children: [
+            { name: 'fx-drop-transfer-cars' }
+        ]
+    }
+];
+</script>
+
+<script>
+function buildNodes(vvvv, as) {  //sent from the button in property sheet vvvv is element and as is drop target
+ 
+var itm = document.getElementById(vvvv); //vvvv is the id of the element being moved.
+  //alert(itm);
+var cln = itm.cloneNode(true);
+document.getElementById(as).appendChild(cln); // as is the destination row and cell entered into the property box input
+  //alert(itm + as);
+$(itm).remove(); //need to remove to prevent dupes because the clone has the same id as the element cloned
+itm.draggable( {
+containment: "window",   
+cursor: 'move'  
+});
+}
+</script>
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<fx-markup id="mU1540586302161" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative; left: 0px; top: 132px;"><span id="" slot="card-image"></span><br></fx-markup> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<fx-markup id="mU1540822187899" class="fxmarkupclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"></span><br></fx-markup> 
+ 
+ 
+ 
+ 
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" style="position: absolute; left: 0px; top: 56px; background-color: rgb(100, 100, 100); text-align: center; z-index: 3000; width: 280px; height: 350px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:#e8c866;">Libraries</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:#e8c866;">Pages</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:#e8c866;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;">
+<table style="margin-left:15px;">
+<tbody><tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="cardicon">picture_in_picture</i><br>
+<span style="color:silver;font-size:12px;">card</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="imageicon">image</i><br>
+<span style="color:silver;font-size:12px;">image</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="divicon">keyboard</i><br>
+<span style="color:silver;font-size:12px;">div</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="fedexbuttonicon">check_circle</i><br>
+<span style="color:silver;font-size:12px;">button</span></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="tableicon">border_all</i><br>
+<span style="color:silver;font-size:12px;">table</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="checkboxicon">check_box</i><br>
+<span style="color:silver;font-size:12px;">checkbox</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="radioicon">radio_button_checked</i><br>
+<span style="color:silver;font-size:12px;">radio</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light" id="accordianicon">assignment</i><br>
+<span style="color:silver;font-size:12px;">tab</span></td>
+<td style="padding:0px;"></td>
+</tr>
+
+<tr>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="dropmenuicon">menu</i><br>
+<span style="color:silver;font-size:12px;">drop menu</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="leaderboardicon">face</i><br>
+<span style="color:silver;font-size:12px;">leaders</span></td>
+<td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="markupicon">bubble_chart</i><br>
+<span style="color:silver;font-size:12px;">markup</span></td>
+</tr>
+<tr><td style="padding:0px;"><i class="material-icons md-18 md-light ui-draggable ui-draggable-handle" id="trainicon">linear_scale</i><br>
+<span style="color:silver;font-size:12px;">train</span></td>
+</tr>
+</tbody></table> 
+<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p> 
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;"></div>
+</div>
+</div></body></html>

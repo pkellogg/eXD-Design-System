@@ -1,0 +1,34 @@
+<html>
+<head>
+    <template id="atcq">
+        <p class="response"></p>
+        <script type="text/javascript">
+            (function () {
+                var p = confirm('You on point Tip?');
+                var responeEl = document.querySelector('#atcq-root')
+                    .shadowRoot
+                    .querySelector('.response');
+
+                if (p) {
+                    responeEl.innerHTML = 'All the time Phife';
+                } else {
+                    responeEl.innerHTML = 'Check the rhyme y\'all';
+                }
+            })();
+        </script>
+    </template>
+	
+	<script>
+	// create a shadow root
+var root = document.querySelector('#atcq-root').attachShadow({mode: 'open'});
+// get a reference to the template node
+var template = document.querySelector('#atcq');
+// append the cloned content to the shadow root
+root.appendChild(template.content);
+</script>
+	
+</head>
+<body>
+    <div id="atcq-root"></div>
+</body>
+</html>

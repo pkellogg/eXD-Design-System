@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="date-widget.comp.js"></script>
+<script src="fx-cardnarrative.js"></script>
+<script src="fx-counter.js"></script>
+<script src="to-do-item.js"></script>
+<script src="fx-badge.js"></script>
+<script src="fx-primarybutton.js"></script>
+<script src="fx-basicsecondarybutton.js"></script>
+<script src="fx-table.js"></script>
+<script src="fx-checkbox.js"></script>
+<script src="fx-accordion.js"></script>
+<script src="fx-accordion-item.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+</head>
+<body>
+
+<fx-cardnarrative style="position:absolute;top:30px;left:50px;"><div slot= "card-image2"><image  style="width:320px;height:200px;" src="packages.jpg" /></div><span slot="headline">MY HEADLINE</span><span slot="narrative">Hi this is pat with the narrative contnet</span><span slot="caption">EXPLORE</span></fx-cardnarrative>
+
+<fx-cardnarrative style="position:absolute;top:30px;left:400px;"><div slot= "card-image2"><image  style="width:320px;height:200px;" src="happy.jpg" /></div><span slot="headline">FEDEX RETAIL</span><span slot="narrative">This is the retail narrative</span><span slot="caption">HOME</span></fx-cardnarrative>
+
+<fx-cardnarrative style = "position:absolute;top:30px;left:800px;"></fx-cardnarrative> <br />
+
+<!--<fx-checkbox></fx-checkbox>-->
+<span id="feedback" style = "position:absolute;left:28px;top:500px;font-family:roboto;font-size:28px;font-weight:bold;">Feedback</span>
+ 
+<fx-table style = "position:absolute;"  xpos =  20  ypos = 520 width = 1100 size = 18 c = #593bb0 textcolor = "white" trans = .8 textcolor2 = "BLACK" c2 = "orange" size2 = 18 trans2 = .7 dosomething = "stayhere"></fx-table> 
+
+<fx-primarybutton caption = "LOGIN" style = "position:absolute;left:885px;top:970px;margin-bottom: 50px;"></fx-primarybutton>
+
+<div style="position:absolute;left:50px;top:1100px;margin-bottom:300px;">
+<fx-accordionitem width2 = 1000 width = 1000 size2 = 38 size = 30 c2 = #6aa84f c = #f1c232 textcolor = "black" textcolor2 = "white" style="font-size:48px;font-family:roboto; "><span slot="header-text">FedEx Small Business</span><div slot="panel-text">FedEx has been working with small business since we started back in 1979 as a small business ourselves.  We know what it takes to grow and succeed and offer small business owners an exciting number of options and tools for all their transportation needs.</div></fx-accordionitem>
+
+<fx-accordionitem width2 = 1000 width = 1000 size2 = 38 size = 30 c2 = "orange" c = "salmon" textcolor = "black" textcolor2 = "green" style="font-size:48px;font-family:roboto;"><span slot="header-text">FedEx Overnight</span><div slot="panel-text">FedEx offers overnight package delivery worldwide inclduing non-stop daily 777 flights to mainland China.</div></fx-accordionitem>
+
+<fx-accordionitem width2 = 1000 width = 1000 size2 = 38 size = 30 c2 = #6aa84f c = #f1c232 textcolor = "black" textcolor2 = "white" style="font-size:48px;font-family:roboto;"></fx-accordionitem>
+
+<fx-accordionitem width2 = 1000 width = 1000 size2 = 38 size = 30 c2 = #6aa84f c = #f1c232 textcolor = "black" textcolor2 = "white" style="font-size:48px;font-family:roboto;"></fx-accordionitem>
+</div>
+
+<div style="position:absolute;left:50px;top:1850px;margin-bottom:300px;">
+<fx-accordionitem width2 = 500 width = 500 size2 = 28 size = 18 c2 = "white" c = "white" textcolor = "black" textcolor2 = "black" style="font-size:48px;font-family:roboto;"></fx-accordionitem>
+
+<fx-accordionitem width2 = 500 width = 500 size2 = 28 size = 18 c2 = "white" c = "white" textcolor = "black" textcolor2 = "black" style="font-size:48px;font-family:roboto;"></fx-accordionitem>
+</div>
+
+
+
+<fx-dropdownmenu width = 1000 height = 74 orientation = left textcolor = "silver" c = "teal" size = 22 link1 = "http:\\fedex.com"  link2 = "http:\\sony.com" link3 ="http:\\inmarsat.com"  link4 = "http:\\gm.com" link1A = "http:\\ford.com" link1B = "http:\\microsoft.com" link1C = "http:\\xerox.com"  link2A = "http:\\chase.com" link2B = "http:\\boeing.com" link2C = "http:\\honda.com" link7A = "http:\\adobe.com" style="position:absolute;left:50px;top:2050px;margin-bottom:200px;font-family:roboto;">
+
+<!--1st Tier-->
+<span slot="drop-text1">Shipping</span>
+<span slot="drop-text2">Tracking</span>
+<span slot="drop-text3">Design & Print</span>
+<span slot="drop-text4">Locations</span>
+<span slot="drop-text5">Support</span>
+<span slot="drop-text6">Services</span>
+<span slot="drop-text7">Products</span>
+
+<!--2nd Tier-->
+<span slot="drop-drop-text1">Ford</span>
+<span slot="drop-drop-text2">Microsoft</span>
+<span slot="drop-drop-text3">Xerox</span>
+
+<span slot="drop-drop-text4">Chase</span>
+<span slot="drop-drop-text5">Boeing</span>
+<span slot="drop-drop-text6">Honda</span>
+
+<span slot="drop-drop-text9">Online</span>
+<span slot="drop-drop-text8">Custom</span>
+<span slot="drop-drop-text7">Coupons</span>
+
+<span slot="drop-drop-text10">Ground</span>
+<span slot="drop-drop-text11">Ground</span>
+<span slot="drop-drop-text12">Ground</span>
+
+<span slot="drop-drop-text13">Freight</span>
+<span slot="drop-drop-text14">Freight</span>
+<span slot="drop-drop-text15">Freight</span>
+
+<span slot="drop-drop-text16">Accounts</span>
+<span slot="drop-drop-text17">Accounts</span>
+<span slot="drop-drop-text18">Accounts</span>
+
+<span slot="drop-drop-text19">Adobe</span>
+<span slot="drop-drop-text20">Rates</span>
+<span slot="drop-drop-text21">Rates</span>
+
+</fx-dropdownmenu>
+
+
+
+
+</body>
+</html>

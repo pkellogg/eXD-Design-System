@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FedEx XD Web Component IDE</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--google material  to render corrrectly in mobile-->
+   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--color picker see: https://bgrins.github.io/spectrum/#events-change  and   http://jsfiddle.net/bgrins/ctkY3/-->
+  
+<!--javascript-->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="material.js"></script>
+<!--<script src="ds-ide-Vdemo.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<!--<script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>-->
+<script src="tree.jquery.js"></script>
+
+<!--CSS-->
+<link rel="stylesheet" href="Design-System-IDE.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<link rel="stylesheet" href="material.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="jqtree.css">
+
+<!--leaderboard   Circles and Goggle Charts-->
+<script src="circles.min.js"></script> <!--this has to be external of the template-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><!--this needs to be external-->
+
+<!--color pick dialog-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+<!--web components polyfill works with ie 11-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"></script>
+</head>
+
+<body style="background-color:silver;"> <!--BEGIN BODY-->
+
+<style>
+.mdl-cell {border:thin silver solid;}
+</style>
+
+
+
+
+
+<div class="mdl-tabs__panel is-active" id="Home">
+    <!--Row 1-->	
+<div class="content-grid mdl-grid tom paul" id="mdlGrid" style="width:600px;text-align:left;background-color:white;">
+	
+	<div id="row1-cell1" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fedex-card id="cD1539788312344" class="fxcardclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><span id="" slot="card-image"><img id="cD1539788312344cardimage" ondblclick="myFunction(this)" src="car.jpg" style="max-height: 100%; max-width: 100%; border: none;"></span><span id="cD1539788312344cardslot1" slot="element-name" style="position: absolute; left: 20px; top: 15px; z-index: 10; font-family: arial; font-size: 55px; color: rgb(77, 20, 140); font-weight: bold; border: none;" ondblclick="myFunction(this)">Fed<span style="color:red;">Ex</span>
+</span><br><span id="cD1539788312344cardslot2" slot="element-name2" style="position: absolute; left: 280px; top: 15px; z-index: 11; font-family: arial; font-size: 36px; font-weight: bold; color: rgb(77, 20, 140); line-height: 1.2; border: none;" ondblclick="myFunction(this)">Welcome Dennis!
+</span><br><span id="cD1539788312344cardslot3" slot="button-slot" style="position: absolute; color: rgb(77, 20, 140); font-family: arial; font-size: 24px; font-weight: bold; top: 70px; left: 20px; border: none;" ondblclick="myFunction(this)">Station: OLV
+
+</span><br><span id="cD1539788312344cardslot4" slot="button-slot" <span="" style="position: absolute; left: 20px; top: 220px; width: 150px; z-index: 11; font-family: arial; font-size: 18px; font-weight: bold; color: rgb(77, 20, 140); line-height: 1.2; border: none;" ondblclick="myFunction(this)">DENNIS SMITH Station Manager
+
+</span><br><span id="" slot="card-image2"><img id="cD1539788312344cardimage2" ondblclick="myFunction(this)" src="personB.png" style="position: absolute; left: 20px; top: 115px; z-index: 11; max-height: 35%; max-width: 35%; border: none;"></span></fedex-card></div>
+	
+	<!--Row 2-->
+	<div id="row2-cell1" class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788436474" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+    <!--<div id="row2-cell1"  class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>
+	<div id="row2-cell2" class="mdl-cell mdl-cell--8-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	<!--<div id="row2-cell3" class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone tom paul" style="background-color:transparent;"></div>-->
+	 
+	<!--Row 3-->
+	<div id="row3-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1539788524452" class="fxbuttonclass ui-resizable ui-draggable ui-draggable-handle" onclick="myFunction(this)"><span id="buttonspan" slot="button-image"><img id="gB1539788524452card image" ondblclick="myFunction(this)" src="1st_Stop_pulsing.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></fx-button></div>
+	<div id="row3-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788559747" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row3-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1539788867909" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1539788867909cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 4-->
+	<div id="row4-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1539788527469" class="fxbuttonclass ui-resizable ui-draggable ui-draggable-handle" onclick="myFunction(this)"><span id="buttonspan" slot="button-image"><img id="gB1539788527469card image" ondblclick="myFunction(this)" src="Last_Stop_sign.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></fx-button></div>
+	<div id="row4-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788562411" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row4-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1539788577914" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1539788577914cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 5-->
+	<div id="row5-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1539788530315" class="fxbuttonclass ui-resizable ui-draggable ui-draggable-handle" onclick="myFunction(this)"><span id="buttonspan" slot="button-image"><img id="gB1539788530315card image" ondblclick="myFunction(this)" src="first-aid_blue.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></fx-button></div>
+	<div id="row5-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788565035" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row5-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1539788925368" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1539788925368cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 6-->
+	<div id="row6-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1539788541333" class="fxbuttonclass ui-resizable ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="left: 1px; top: 0px;"><span id="buttonspan" slot="button-image"><img id="gB1539788541333card image" ondblclick="myFunction(this)" src="wrench.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></fx-button></div>
+	<div id="row6-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788567700" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row6-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1539788584622" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1539788584622cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 7-->
+	<div id="row7-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-button id="gB1539788548470" class="fxbuttonclass ui-resizable ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="left: 2px; top: 0px;"><span id="buttonspan" slot="button-image"><img id="gB1539788548470card image" ondblclick="myFunction(this)" src="road.png" style="height: 70%; width: 80%; text-align: center; position: absolute; right: 3px; top: 7px; border: none;"></span><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></fx-button></div>
+	<div id="row7-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-div id="dV1539788570571" class="fxdivclass ui-draggable ui-draggable-handle" onclick="myFunction(this)" style="position: relative;"><div contenteditable="true" onclick="$(this).focus();" ondblclick="myFunction(this)" style="position:relative;font-size:14px;"></div></fx-div></div>
+	<div id="row7-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"><fx-image id="iM1539788589437" class="fximageclass ui-draggable ui-draggable-handle" style="position: relative;"><span id="" slot="card-image"><img id="iM1539788589437cardimage" ondblclick="myFunction(this)" src="graph.png" style="max-height: 100%; max-width: 100%; border: none;"></span></fx-image></div>
+	
+	<!--Row 8-->
+	<div id="row8-cell1" class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row8-cell2" class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+	<div id="row8-cell3" class="mdl-cell mdl-cell--7-col mdl-cell--hide-phone tom paul ui-droppable" style="background-color: transparent; border: none;"></div>
+</div> 
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FedEx Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="utf-8">
+<!--CSS-->
+<link rel="stylesheet" href="Design-System-IDE.css"/>
+<link rel="stylesheet" href="material.css"/>
+<!--ES6 Vanilla Web Components-->
+<script src="fx-accordion.js"></script>
+<script src="date-widget.comp.js"></script>
+<script src="fx-image.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-card.js"></script>
+<script src="fx-primarybutton.js"></script>
+<script src="fx-basicsecondarybutton.js"></script>
+<script src="fx-cardnarrative.js"></script>
+
+</head>
+<body>
+<fx-cardnarrative>
+<image slot = "card-image2" src="packages.jpg" style="width:300px;height:220px;" />
+<h4 slot="headline">The Last Mile</h4>
+<p slot="narrative">Fed<span style="color:orange">Ex</span> goes the extra mile to deliver your package that 'last mile, on-time and always overnight.</p>  
+</fx-cardnarrative><br />
+
+<fx-cardnarrative style=" position:absolute;top:0px;left:400px;">
+<image slot = "card-image2" src="pottery.jpeg" style="width:300px;height:220px;" />
+<h4 slot="headline">Fed<span style="color:orange">Ex</span> Small Business</h4>
+<p slot="narrative">Fed<span style="color:orange">Ex</span> brings big business tools and know how for start-ups and small business with world-wide on-time over night performance.</p>  
+</fx-cardnarrative><br />
+
+<fx-cardnarrative style=" position:absolute;top:0px;left:800px;"></fx-cardnarrative>
+
+<date-widget theme = "green" style= "position:relative;left:500px; top:530px;"></date-widget>
+
+<fx-accordion style="position:relative;left:100px;top:410px;">
+<span style ="font-weight:bold;" slot = "section-text1">Fed<span style="color:orange">Ex</span> Boeing 777 Cargo Fleet</span>
+<p slot = "accordion-text1">We now offer non-stop service to mainland China with our fleet of Boeing 777 Cargo jets.</p>
+
+<span style ="font-weight:bold;" slot = "section-text2">Fed<span style="color:orange">Ex</span> Ground</span>
+<p slot = "accordion-text2">We have the largest fleet of vehicles to expediate the 'last mile' to your doorstep.</p>
+
+<span style ="font-weight:bold;" slot = "section-text3">Fed<span style="color:orange">Ex</span> Priority Over-Night</span>
+<p slot = "accordion-text3">Fed<span style="color:orange">Ex</span> invented over-night guranteed delivery and we do it better than anyonoe else in the shipping industry.</p>
+</fx-accordion>
+
+<fx-primarybutton style="position:relative;left:530px;top:350px;">
+<span slot = "primary-text">LEARN MORE</span>
+</fx-primarybutton>
+
+<fx-primarybutton style="position:relative;left:280px;top:420px;">
+<!--<span slot = "primary-text">LEARN MORE</span>-->
+</fx-primarybutton>  
+
+</body>
+</html>

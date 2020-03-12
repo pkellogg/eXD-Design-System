@@ -1,0 +1,149 @@
+<!--Tab component for Greg-->
+<template id="fx-tab-template">
+<style>
+
+:root {
+--spacing-unit:  250px;
+}
+
+.tab_flex-container {
+  display: flex;
+  background-color: #660099;
+}
+
+#panel_flex-container {
+//width: calc(3 * var(--spacing-unit)); 
+width:100%;
+height:30px;
+background-color:white;
+border: thin silver solid;
+color:black;
+font-size:26px;
+font-family:roboto;
+}
+
+.div_hover {
+  background-color: #660099;
+  margin: 0px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 26px;
+   //width: var(--spacing-unit); 
+  width:33.33%;
+  font-family:roboto;
+  color:white;
+  font-weight:normal;
+  text-align:center;
+  border-top: #660099 solid 5px;
+  border-bottom: #660099 solid 5px;
+  }
+  
+  .div2_hover {
+  background-color: white;
+  margin: 0px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 26px;
+  //width: calc(1.5 * var(--spacing-unit)); 
+  width: 50%;
+  font-family:roboto;
+  color:blue;
+  font-weight:normal;
+  text-align:center;
+  //border-top: #660099 solid 5px;
+  //border-bottom: #660099 solid 5px;
+  
+  }
+  
+ .div_hover:hover {
+   /*background-color:silver;
+   opacity: 0.6;*/
+   cursor:pointer;
+   color:white;
+   font-weight:bold;
+   border-top: #660099 solid 5px;
+   border-bottom: #00cc00 solid 5px;
+   }
+   
+   .div2_hover:hover {
+   /*background-color:silver;
+   opacity: 0.6;*/
+   cursor:pointer;
+   color:blue;
+   font-weight:bold;
+   //border-top: #660099 solid 5px;
+  // border-bottom: #00cc00 solid 5px;
+  border-right: solid blue thin;
+  border-left: solid blue thin;
+  border-bottom: solid blue thin;
+  border-right: solid blue thin;
+   }
+</style>
+
+<div class="tab_flex-container">
+  <div class="div_hover"   onclick = "addContent('runs')" id="runs" role = "runs">Runs</div>
+  <div class="div_hover" onclick = "addContent('drivers')" role = "drivers";>Drivers</div>
+  <div class="div_hover" onclick = "addContent('notes')" role = "notes";>Notes</div>
+</div>
+
+<div class="tab_flex-container" id="jojo">
+  <div class="div2_hover" onclick= "addContent('runs')";>Unassigned</div>
+  <div class="div2_hover" onclick= "addContent('drivers')";>Assigned</div>
+</div>
+<div id="panel_flex-container">
+<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>
+</div>
+</template>
+
+<script>
+let tmpltab = document.currentScript.ownerDocument.querySelector('#fx-tab-template');
+ 
+customElements.define('fx-tab', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmpltab.content.cloneNode(true));
+	  //shadowRoot.querySelector("#panel_flex-container").innerHTML= 'this works';
+	  }
+}); 
+
+function addContent(aa) {
+ 
+ if (aa ==  'runs')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+  //yyyp = hhhh.querySelector("#panel_flex-container");
+  //console.log(yyyp);
+  //console.log(this.getRootNode().host);
+  
+ if (aa ==  'drivers')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+  
+ if (aa ==  'notes')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+ 
+}
+</script>
+
+<script>
+//this code works directly with the shadow root
+/* connectedCallback() {
+	  this.addEventListener('click', this._onClick); 
+	  }
+	
+	_onClick(event) {
+  
+ this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'this works';
+      
+	  //console.log(event.target.getAttribute('role'));
+	 
+	   if (event.target.getAttribute('role')  == 'runs')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'runs';
+	   
+	  if (event.target.getAttribute('role')  == 'drivers')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'drivers';
+ If it was on a tab element, though, select that tab.
+
+      //this._selectTab(event.target);
+    }
+  }*/
+</script>

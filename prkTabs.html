@@ -1,0 +1,186 @@
+<html>
+<head>
+<style>
+
++
+--spacing-unit:  250px;
+}
+
+.tab_flex-container {
+  display: flex;
+  background-color: #660099;
+}
+
+#panel_flex-container {
+width: calc(3 * var(--spacing-unit)); 
+height:400px;
+background-color:white;
+border: thin silver solid;
+}
+
+.div_hover {
+  background-color: #660099;
+  margin: 0px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 16px;
+   width: var(--spacing-unit); 
+   
+  font-family:roboto;
+  color:white;
+  font-weight:normal;
+  text-align:center;
+  border-top: #660099 solid 5px;
+  border-bottom: #660099 solid 5px;
+  }
+  
+  .div2_hover {
+  background-color: white;
+  margin: 0px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 16px;
+  width: calc(1.5 * var(--spacing-unit)); 
+  font-family:roboto;
+  color:blue;
+  font-weight:normal;
+  text-align:center;
+  //border-top: #660099 solid 5px;
+  //border-bottom: #660099 solid 5px;
+  
+  }
+  
+ .div_hover:hover {
+   /*background-color:silver;
+   opacity: 0.6;*/
+   cursor:pointer;
+   color:white;
+   font-weight:bold;
+   border-top: #660099 solid 5px;
+   border-bottom: #00cc00 solid 5px;
+   }
+   
+   .div2_hover:hover {
+   /*background-color:silver;
+   opacity: 0.6;*/
+   cursor:pointer;
+   color:blue;
+   font-weight:bold;
+   //border-top: #660099 solid 5px;
+  // border-bottom: #00cc00 solid 5px;
+  border-right: solid blue thin;
+  border-left: solid blue thin;
+  border-bottom: solid blue thin;
+  border-right: solid blue thin;
+   }
+</style>
+
+<script>
+function addContent(aa) {
+ 
+ if (aa ==  'runs')
+   document.getElementById('panel_flex-container').innerHTML = `This is Runs`;
+   
+   if (aa ==  'drivers')
+   document.getElementById('panel_flex-container').innerHTML = `This is Drivers`;
+   
+   if (aa ==  'notes')
+   document.getElementById('panel_flex-container').innerHTML = `This is Notes`;
+}
+</script>
+
+</head>
+
+<body>
+<div class="tab_flex-container">
+  <div class="div_hover" onclick= "addContent('runs')";>Runs</div>
+  <div class="div_hover" onclick= "addContent('drivers')";>Drivers</div>
+  <div class="div_hover" onclick= "addContent('notes')";>Notes</div>
+</div>
+
+<div class="tab_flex-container">
+  <div class="div2_hover" onclick= "addContent('runs')";>Unassigned</div>
+  <div class="div2_hover" onclick= "addContent('drivers')";>Assigned</div>
+   
+</div>
+
+<div id="panel_flex-container"></div>
+
+<!--  -->
+
+</body>
+</html>
+
+
+<!--define and create custom element-->
+<script>
+class FxTab extends HTMLElement {
+  constructor() {
+     
+    super();
+
+    // Setup a click listener on <user-card>
+    this.addEventListener('click', e => {
+      this.toggleTab();
+    });
+  }
+
+  toggleTab() {
+    console.log("Element was clicked!");
+  }
+}
+customElements.define('fx-tab', FxTab);
+
+// Called when element is inserted in DOM
+connectedCallback() {
+  const shadowRoot = this.attachShadow({mode: 'open'});
+
+  // Select the template and clone it. Finally attach the cloned node to the shadowDOM's root.
+  // Current document needs to be defined to get DOM access to imported HTML
+  const template = currentDocument.querySelector('#fx-tab-template');
+  const instance = template.content.cloneNode(true);
+  shadowRoot.appendChild(instance);
+
+  // Extract the attribute user-id from our element. 
+  // Note that we are going to specify our cards like: 
+  // <user-card user-id="1"></user-card>
+  const userId = this.getAttribute('user-id');
+
+  // Fetch the data for that user Id from the API and call the render method with this data
+  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .then((response) => response.text())
+      .then((responseText) => {
+          this.render(JSON.parse(responseText));
+      })
+      .catch((error) => {
+          console.error(error);
+      });
+}
+
+111111
+render(userData) {
+  // Fill the respective areas of the card using DOM manipulation APIs
+  // All of our components elements reside under shadow dom. So we created a this.shadowRoot property
+  // We use this property to call selectors so that the DOM is searched only under this subtree
+  this.shadowRoot.querySelector('.card__full-name').innerHTML = userData.name;
+  this.shadowRoot.querySelector('.card__user-name').innerHTML = userData.username;
+  this.shadowRoot.querySelector('.card__website').innerHTML = userData.website;
+  this.shadowRoot.querySelector('.card__address').innerHTML = `<h4>Address</h4>
+    ${userData.address.suite}, <br />
+    ${userData.address.street},<br />
+    ${userData.address.city},<br />
+    Zipcode: ${userData.address.zipcode}`
+}
+
+toggleCard() {
+  let elem = this.shadowRoot.querySelector('.card__hidden-content');
+  let btn = this.shadowRoot.querySelector('.card__details-btn');
+  btn.innerHTML = elem.style.display == 'none' ? 'Less Details' : 'More Details';
+  elem.style.display = elem.style.display == 'none' ? 'block' : 'none';
+}
+
+</script>
+
+
+
+

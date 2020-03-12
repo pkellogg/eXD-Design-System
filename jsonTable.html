@@ -1,0 +1,71 @@
+<html>
+<head>
+<script>
+
+var defaultData = [
+  { country: 'China',         population: 1379510000 },
+  { country: 'India',         population: 1330780000 },
+  { country: 'United States', population:  324788000 },
+  { country: 'Indonesia',     population:  260581000 },
+  { country: 'Brazil',        population:  206855000 },
+];
+
+
+ /* The function */
+
+function json2table(json, classes) {
+  var cols = Object.keys(json[0]);
+  
+  var headerRow = '';
+  var bodyRows = '';
+  
+  classes = classes || '';
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  cols.map(function(col) {
+    headerRow += '<th>' + capitalizeFirstLetter(col) + '</th>';
+  });
+
+  json.map(function(row) {
+    bodyRows += '<tr>';
+
+    cols.map(function(colName) {
+      bodyRows += '<td>' + row[colName] + '</td>';
+    })
+
+    bodyRows += '</tr>';
+  });
+
+  return '<table class="' +
+         classes +
+         '"><thead><tr>' +
+         headerRow +
+         '</tr></thead><tbody>' +
+         bodyRows +
+         '</tbody></table>';
+}
+$('#tom').innerHTML =  "hi pat";
+
+ document.getElementById("demo").innerHTML = "Paragraph changed!";
+ //json2table(defaultData, 'table');
+</script>
+</head>
+
+<body>
+
+ 
+
+<p id="demo" onclick="myFunction()">Click me to change my HTML content (innerHTML).</p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed!";
+}
+</script>
+
+
+</body>
+</html>

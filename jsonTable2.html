@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Long Haul</h2>
+
+<p id="demo"></p>
+
+<script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+
+
+//obj = { table: "customers", limit: 20 };
+myObj = [
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+];
+
+
+//xmlhttp = new XMLHttpRequest();
+//xmlhttp.onreadystatechange = function() {
+  //if (this.readyState == 4 && this.status == 200) {
+    //myObj = JSON.parse(this.responseText);
+    
+	
+	txt += "<table class='fxtableclass' style='text-align:center;font-size:12px;border-collapse:collapse;'>"
+	
+	txt += "<tr>" + "<th style='border-bottom:solid thin silver;'>" + "Lane Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule ID" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Trip Leg Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule Status" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Scheduled Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Actual Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "ETA" + "</th>" + "</tr>";
+    for (x in myObj) {
+       txt += "<tr class='highlightRows'>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].lane + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].schedule + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].destination + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].status + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].dispatch + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].actual + "<td style='border-bottom:solid thin silver;'>" + myObj[x].eta + "</td>" + "</td>" + "</tr>";
+    }
+    txt += "</table>"    
+    document.getElementById("demo").innerHTML = txt;
+	
+//}
+//};
+//xmlhttp.open("POST", "json_demo_db_post.php", true);
+//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//xmlhttp.send("x=" + dbParam);
+</script>
+
+</body>
+</html>

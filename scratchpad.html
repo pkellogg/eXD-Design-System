@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>ScratchPad test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<head>
+ 
+<body>
+
+<script>
+
+/*class FancyButton extends HTMLButtonElement {
+constructor() {
+    super(); 
+    this.addEventListener('click', e => myVar());
+  }
+}
+customElements.define('fancy-button', FancyButton, {extends: 'button'});
+ 
+const myVar =() => {alert('this is the function')}
+
+function createCounter() {
+   let counter = 0
+   const myFunction = function() {counter = counter + 1;return counter};
+   return myFunction
+  }
+ const increment = createCounter()
+ const c1 = increment()
+ const c2 = increment()
+ const c3 = increment()
+ console.log('example increment', c1, c2, c3)*/
+ 
+//var x = function (a, b) {return a * b;alert(return);}; 
+//var z = alert(x(4, 3));
+ 
+//( function () {var x = "Hello!!";alert(x);} )();  
+ 
+const x =  function (a,b) {var y = a * b;alert(y);}  // function expression assigned to a unnamed constant
+x(5,5);  //invoking the function assigned to constant x
+
+</script>
+<!--invokes the annonymous function--> 
+<button is="fancy-button" onclick="x(5,5);">Fancy button!</button>
+
+<div id="functional" style="height:50px;width:500px;background-color:tan;"></div>
+
+
+</body>
+</html>

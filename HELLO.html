@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<head> 
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+<link rel="import" href="BUTTON.html"> 
+<link rel="import" href="FEDEX-TEXTAREA.html"> 
+<link rel="import" href="FEDEX-PARAGRAPH.html"> 
+<link rel="import" href="FEDEX-DROPDOWNMENU.html"> 
+<link rel="import" href=".html"> 
+<link rel="import" href=".html"> 
+<link rel="import" href=".html"> 
+<link rel="import" href=".html"> 
+<link rel="import" href=".html"> 
+<link rel="import" href=".html"> 
+
+<link rel="stylesheet" href="Design-System-IDE.css"/> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js">  
+
+<!--TEXTAREA-->
+<template id="fedextextarea">
+<style>
+.fxtextareaclass {
+	height:50%;
+	width:90%;
+	font-size:18px;
+	font-family:roboto;
+	background-color:white;
+	position:relative;
+	}
+</style>
+<textarea  onclick="$(this).focus();" style="background-color:red;position:absolute;left:10px;top:10px;height:150px;width:200px;">textarea</textarea>
+</template>
+
+<script>
+let tmpltextarea = document.querySelector('#fedextextarea');
+customElements.define('fedex-textarea', class extends HTMLElement {
+    constructor() {
+      super();  
+      let shadowRoot = this.attachShadow({mode: 'open'});
+      shadowRoot.appendChild(tmpltextarea.content.cloneNode(true));
+	}
+});
+</script> 
+<!--END TEXTAREA-->
+
+
+<template id="newcomponent"> 
+<style> 
+.new_component_class { 
+position:absolute; 
+left:100px; 
+top:130px; 
+height:800; 
+width:1000;
+background-color:tan; 
+}
+</style> 
+ 
+<fedex-textarea style="position:absolute;left:100px;top:130px;height:800;width:1000;background-color:tan;"></fedex-textarea> 
+  
+</template> 
+
+<script> let tmpl= document.querySelector('#newcomponent'); customElements.define('test-two', class extends HTMLElement { constructor() { super(); let shadowRoot = this.attachShadow({mode: 'open'}); shadowRoot.appendChild(tmpl.content.cloneNode(true)); } });
+</script> 
+</head>
+
+<body>
+this is pat
+<test-two></test-two>
+</body> 
+
+</html>

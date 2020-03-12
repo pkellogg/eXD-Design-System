@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+var tom = "this is tom"  //global scope
+
+//function pat (){        //declarative function in global scope
+//console.log(tom);
+//}
+
+var joe = function(){                        //anonymous function in global
+console.log ('this is unamed function');
+}
+
+var lolo = function(){                       //same anonymous function but different variable name
+console.log ('this is unamed function');
+}
+
+var priv = function(){         //anonymous global function trying to invoke a local variable in global                         //declartive function
+console.log (jim);                          //uncaught referenceError
+} 
+
+function logan(){
+var jim = "this is jim";
+console.log(jim);
+}
+
+function jane(){
+console.log(bogus);
+}
+
+ 
+</script>
+</head>
+
+<body>
+
+
+<button onclick = "jane+3+
+();">press here</button>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Access a JSON object using dot notation:</p>
+
+<p id="demo"></p>
+
+<script>
+var myObj, myJSON, text, obj;
+
+// Storing data:
+myObj = { name: "John", age: 31, city: "New York" };  //this is text string
+myJSON = JSON.stringify(myObj);  //turn string into json object
+localStorage.setItem("testJSON", myJSON);
+
+// Retrieving data:
+text = localStorage.getItem("testJSON");
+obj = JSON.parse(text);
+document.getElementById("demo").innerHTML = obj.name;
+</script>
+
+<script>
+/*var myObj, x;
+myObj = {"name":"John", "age":30, "car":null};
+x = myObj.name;
+document.getElementById("demo").innerHTML = x;*/
+</script>
+
+<script>
+/*var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { table: "customers", limit: 20 };
+
+dbParam = JSON.stringify(obj);
+
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  
+  if (this.readyState == 4 && this.status == 200) {
+  
+    myObj = JSON.parse(this.responseText);
+    txt += "<table border='1'>"
+    for (x in myObj) {
+      txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+    }
+    txt += "</table>"    
+    document.getElementById("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);*/
+</script>
+
+<table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">Name</th>
+<th title="Field #2">Price</th>
+<th title="Field #3">Location</th>
+</tr></thead>
+<tbody><tr>
+<td>Cheese</td>
+<td align="right">2.5</td>
+<td>Refrigerated foods</td>
+</tr>
+<tr>
+<td>Crisps</td>
+<td align="right">3</td>
+<td>the Snack isle</td>
+</tr>
+<tr>
+<td>Pizza</td>
+<td align="right">4</td>
+<td>Refrigerated foods</td>
+</tr>
+<tr>
+<td>Chocolate</td>
+<td align="right">1.5</td>
+<td>the Snack isle</td>
+</tr>
+<tr>
+<td>Self-raising flour</td>
+<td align="right">1.5</td>
+<td>Home baking</td>
+</tr>
+<tr>
+<td>Ground almonds</td>
+<td align="right">3</td>
+<td>Home baking</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

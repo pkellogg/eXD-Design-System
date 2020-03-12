@@ -1,0 +1,48 @@
+<script>
+//fx-cardnarrative
+
+//variables
+let icon = cardnarrativeicon;
+let customElement = fx-cardnarrative;
+let uniqueId =  getTime();
+let customElementClass = fxcardnarrativeclass
+let customElementStyle = "position:absolute;left:0px;top:0px;"
+
+
+
+
+ if ($(draggable).attr('id') == "cardnarrativeicon") { 
+olddropbutton = droptarget;
+d = new Date();
+timeStamp2 = "cN"  + d.getTime();   //important the time stamp must be a lower case c
+str1 =  '<fx-cardnarrative id=';
+str2 =' class="fxcardnarrativeclass" onclick="myFunction(this)"  style="position:absolute;left:0px;top:0px;">';
+res3 = str1 +  timeStamp2 + str2; 
+newidInsert = timeStamp2 + 'cardimage2';
+newid1 = timeStamp2 + 'headline' ;
+newid2 = timeStamp2 + 'narrative' ;
+
+
+$(droptarget).append(res3 +
+
+'<span  slot="card-image2"  ><img id="' + newidInsert + '" src="insertplaceholder.jpg"   style="width:320px;height:200px;"  ondblclick="myFunction(this)"/></span>' +
+
+'<span id="' + newid1 + '" slot="headline"   style="position:absolute;left:20px;top:230px;font-size:22px;font-family:roboto;font-weight:bold;" ondblclick="myFunction(this)">HEADLINE</span>' +
+
+'<span id="' + newid2 + '" slot="narrative"     style="position:absolute;left:20px;top:280px;font-size:18px;font-family:roboto;" ondblclick="myFunction(this)">NARRATIVE</span>' +
+
+'</fx-cardnarrative>');
+}
+
+$(".fxcardnarrativeclass").draggable( {
+	containment: 'parent',   
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-cardnarrative').style.left;  //update position in property box
+		var eee = document.querySelector('fx-cardnarrative').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+</script>
