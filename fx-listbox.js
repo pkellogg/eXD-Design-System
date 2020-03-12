@@ -17,8 +17,6 @@ template.innerHTML = `
 	}
 </style>
 
- 
-
 <p id="demo">This is demo</p>` 
 	 
 var obj, dbParam, xmlhttp, myObj, x, txt = "";
@@ -32,20 +30,20 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
- {pic: " 'manager.jpg' " , lastname: "Calabrese,", firstname: "Christopher" , city: "Cambridge", state: "MA", startdate: "Aug 2017"},
+ {pic: " 'personC.png' " , lastname: "Calabrese,", firstname: "Christopher" , city: "Cambridge", state: "MA", startdate: "Aug 2017"},
  
- {pic: " 'manager.jpg' ", lastname: "Calabrese", firstname: "Micheal" , city: "Jamaica,", state: "NY", startdate: "Nov 2009"},
+ {pic: " 'personD.png' ", lastname: "Calabrese", firstname: "Micheal" , city: "Jamaica,", state: "NY", startdate: "Nov 2009"},
  
- {pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.", startdate:"Phong"},
+ {pic: " 'location.png' ", lastname: "Cambridge", firstname: "MA (#2837)" , city: "Managed by:", state: "Tran.Phong"},
  
- {pic: " 'manager.jpg' ", lastname: "Castalano", firstname: "Jose" , city: "Indianapolis,", state: "IN", startdate: "May 2011"}
+ {pic: " 'person1.png' ", lastname: "Castalano", firstname: "Jose" , city: "Indianapolis,", state: "IN", startdate: "May 2011"}
  ];
 
 var txt = "";
-txt += "<UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:800px;border: 3px #4D148C solid;border-radius: 5px;'><li style='text-decoration: none;border:none;cursor:pointer;'><input type='search' name='q' style = 'height:50px;width:800px;background-color:white;border-bottom:1px #4D148C solid;border-top:none;border-left:none;border-right:none;padding-left:10px;font-size:18px;font-family:roboto;'></input><img src='magnify.png' style='position:absolute;right: 0px;top: 0px;height:48px;'/></li>"
+txt += "<UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:400px;border: 3px #4D148C solid;border-radius: 5px;'><li style='text-decoration: none;border:none;cursor:pointer;'><input type='search' name='q' style = 'height:50px;width:400px;background-color:white;border-bottom:1px #4D148C solid;border-top:none;border-left:none;border-right:none;'></input><img src='magnify.png' style='position:absolute;right:10px;top:10px;'/></li>"
 	
 	 for (x in myObj) {
-       txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;margin-bottom:30px;margin-top:20px;cursor:pointer;margin-left:30px;'>" + "<image src=" + myObj[x].pic + "style = 'height:70px;width:60px;' />"  + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" + "<span style = 'margin-left:5px;font-weight:bold;'>" +myObj[x].firstname + "</span>"  + "</br>" + "<span >" + myObj[x].city + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].startdate + "</span>" + "</span>" + "</li>" ;
+       txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;margin-bottom:30px;margin-top:20px;cursor:pointer;margin-left:30px;'>" + "<image src=" + myObj[x].pic + "style = 'height:70px;width:70px;' />"  + "<span style = 'position:absolute;top:20px;margin-left:20px;'>" + "<span style = 'font-weight:bold;'>" + myObj[x].lastname + "</span>" + "<span style = 'margin-left:5px;font-weight:bold;'>" +myObj[x].firstname + "</span>"  + "</br>" + "<span >" + myObj[x].city + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].state + "</span>" + "<span style = 'margin-left:5px;'>" +  myObj[x].startdate + "</span>" + "</span>" + "</li>" ;
     }
    
     txt += "</UL>" 
@@ -66,10 +64,8 @@ class Fxlistbox extends HTMLElement {
 		var items = this.shadowRoot.querySelectorAll('.highlightrows');
 			for (var i = 0; i < items.length; i++) {
 				 items[i].addEventListener('click', function() {
-					 
 					//alert("Hello World!"); 
-					 //this .innerhtml = "hi pat";
-					 window.location.assign("01-EmployeeDetails.html")
+					 this .innerhtml = "hi pat";
                      this .shadowRoot.classList.toggle('highlightrowsblue');
 				});	 					
 			};

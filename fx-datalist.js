@@ -1,8 +1,6 @@
 (function() {
 	
 const template = document.createElement('template');
-
-
 template.innerHTML = `
 
 <style>
@@ -41,39 +39,52 @@ obj = { table: "customers", limit: 20 };*/
 
 //this is the json array
 	 
-myObj = [{Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"},
-  
-  {Location: "JFK", Time: "Wednesday - December 5th, 2019 <br /> From 3:30am to 5:00pm" , Manager: "Fitch, Leah", Email: "leah.fitch@fedex.com", Phone: "(917) 234-5376"}];
+myObj = [
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"},
+ 
+ {lane: "00371NASH", schedule: "389-061" , destination: "00371NASH", status: "APR", dispatch: "06: 00 Sept 26", actual: "TBA", eta: "14:19 Sept 26"}];
 
 var txt = "";
 txt += "<table class='fxtableclass' style='text-align:center;border-collapse:collapse;font-family:roboto;margin-bottom:40px;position:absolute;'>"
 	
-	txt += "<tr style='background-color:#4D148C;color:silver;height:50px;'>" + "<th>" + "Location" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Time period" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Location manager" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Email" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Phone #" + "</th>" + "</th>" + "</tr>";
+	txt += "<tr style='background-color:#9b9cca;'>" + "<th style='border-bottom:solid thin silver;'>" + "Lane Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule ID" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Trip Leg Destination" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Schedule Status" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Scheduled Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "Actual Dispatch Time" + "</th>" + "<th style='border-bottom:solid thin silver;'>" + "ETA" + "</th>" + "</tr>";
 	
 	for (x in myObj) {
-       txt += "<tr class='highlightRows' style='border-bottom:solid 1px silver;height:80px;'>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;'>" + myObj[x].Location + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Time + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Manager + "</td>" + 
-	   "<td  style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;'>" + myObj[x].Email + "</td>" + 
-	   "<td style = 'border-left: solid 3px #4D148C;border-right: solid 3px #4D148C;border-bottom:solid thin silver;' >" + myObj[x].Phone + "</td>"  + 
-	    "</tr>";}
+       txt += "<tr class='highlightRows'>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].lane + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].schedule + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].destination + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].status + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].dispatch + "</td>" + "<td style='border-bottom:solid thin silver;'>" + myObj[x].actual + "<td style='border-bottom:solid thin silver;'>" + myObj[x].eta + "</td>" + "</td>" + "</tr>";
+    }
    
     txt += "</table>" 
  
-class FxTable extends HTMLElement {
+class fxdatalist extends HTMLElement {
 	
 	constructor() {
     super();
@@ -154,7 +165,7 @@ class FxTable extends HTMLElement {
 		}  
 	}  
 	
-	window.customElements.define('fx-table', FxTable);  //new standard
+	window.customElements.define('fx-datalist', fxdatalist);  //new standard
 	//document.registerElement('fx-table', FxTable);  //old standard
 })(); //IIFE
 

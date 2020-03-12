@@ -4,40 +4,39 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
  
-
-.fxsecondarybutton {
-  width: 244px;
-  height:60px;
+ .fxbasicsecondarybutton {
+  width: 210px;
+  height:50px;
   background-color: white;
-  border: #FF6200 solid 2px;
-  color: #FF6200;
+  border: #007AB7 solid 2px;
+  color: #007AB7;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom:3px;
   text-align: center;
-  font-size: 19px;
+  font-size: 16px;
   font-family: roboto;
   font-weight: bold;
   letter-spacing: 1.0px;
   cursor: pointer;
   zIndex:100;
-
+  border-radius:35px;
+   
 }
 
-
 .fxhover {
-   
   -ms-transform: scale(2,3); /* IE 9 */
   -webkit-transform: scale(2,3); /* Safari prior 9.0 */
   transform: scale(1.02,1.02); /* Standard syntax */
 }
 </style>
 
-<button class="fxsecondarybutton">
-<span><slot name="primary-text2"></slot></span> 
+<button class="fxbasicsecondarybutton" ondblclick="myFunction(this)">
+<slot name="secondarytext">EXPLORE</slot> 
 </button>
 `;
 
-	class secondarybutton extends HTMLElement {
+	class basicsecondarybutton extends HTMLElement {
 		
 	constructor() {
     super();
@@ -47,31 +46,31 @@ template.innerHTML = `
 	//let style = document.createElement('style'); 
 	//shadowRoot.appendChild(style);
 	
-	var selButton2 =  shadowRoot.querySelector('.fxsecondarybutton');
-	 selButton2.addEventListener("mouseover", expand);
-	 selButton2.addEventListener("mouseout", defaultstate);	 
+	var selButton3 =  shadowRoot.querySelector('.fxbasicsecondarybutton');
+	 selButton3.addEventListener("mouseover", expand);
+	 selButton3.addEventListener("mouseout", defaultstate);	 
 	
 	function expand(){
-	 selButton2.classList.add("fxhover")
+	 selButton3.classList.add("fxhover")
 	}
 	
 	function defaultstate(){
-	selButton2.classList.remove("fxhover")
+	selButton3.classList.remove("fxhover")
 	}
 	
     }//constructor
 	
 	
 	connectedCallback() {
-	updateStyleSecondaryButton(this);   
+	updateStyleBasicSecondaryButton(this);   
 	}   
 	
 	attributeChangedCallback(name, oldValue, newValue) {
-	updateStyleSecondaryButton(this);
+	updateStyleBasicSecondaryButton(this);
 	}
 	}//extends
 	
 	
 
-	window.customElements.define('fx-secondarybutton', secondarybutton);
+	window.customElements.define('fx-basicsecondarybutton', basicsecondarybutton);
 })();
