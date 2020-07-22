@@ -53,28 +53,10 @@
 <script src="fx-badge.js"></script>
 <script src="to-do-item.js"></script>
 <script src="fx-modal.js"></script>
-
-<style>
-<!--svg bar chart for greg-->
- 
-h1 {
-  width: 100%;
-}
-
-.ui-accordion .ui-accordion-header {
-height:30px;
-line-height:2px;
-background-color:rgb(60,60,60);
-border:none;
-color: white;
-}
-</style>
 </head>
 
 <!--BEGIN BODY-->
 <body style="background-color:rgb(60,60,60);" onload="initOptions();"> 
-
-
 
 <!--HEADER & MAIN MENU BAR-->
 <div style="background-color:rgb(77,20,140);height:57px;">
@@ -302,21 +284,7 @@ pageContent: [Objstufftosave]
 }
 </script>
 
-<!---------------------------------------------------------------CANVAS-------------------------------------------------->
-<style>
-		h3 {  //this overrides the default stylel settings in the rich text editor
-			font-size: 18px
-			margin-right: 10px;
-			margin-left: 20px;
-			margin-top; 20px;
-			margin-bottom: 10px;
-			color:slateblue;
-			}
-						
-		.content {
-			border:solid thin silver;
-			}
-	</style> 
+
 	
 	<!--When cells are combined into an area, drag from left outside the canvas	into the top first cell....otherwide it will not drop-->
 
@@ -331,7 +299,7 @@ style="width:1200px;height:100%;background-color:;top:57px;z-index:2000;margin:0
 	</div>
   
     <div class="mdl-tabs__panel" id="desktop">
-		<div style = "display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(8,1fr);width:1200px;height:1400px;background-color:white;margin:0 auto;">
+		<div id = "desktopcontent" style = "display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(8,1fr);width:1200px;height:1400px;background-color:white;margin:0 auto;">
 				<div id = "content1" 	class = "content" style = "grid-column:1/span 6;grid-row:1/span 1;"></div>
 				<div id = "content2" 	class = "content" style = "grid-column:2;grid-row:1;"></div>
 				<div id = "content3" 	class = "content" style = "grid-column:3;grid-row:1;"></div>
@@ -392,7 +360,7 @@ style="width:1200px;height:100%;background-color:;top:57px;z-index:2000;margin:0
 	 
 
 	<div class="mdl-tabs__panel" id="tablet" style = "color:black;" >
-		<div style = "display:grid;grid-template-columns: repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:768px;height:1024px;background-color:white;margin:0 auto;">
+		<div id = "tabletcontent" style = "display:grid;grid-template-columns: repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:768px;height:1024px;background-color:white;margin:0 auto;">
 				<div id = "content1t" 	class = "content" style = "grid-column:1/span 3 ;grid-row:1/span 3;"></div>
 				<div id = "content2t" 	class = "content" style = "grid-column:2;grid-row:1 ; "></div>
 				<div id = "content3t" 	class = "content" style = "grid-column:3;grid-row:1 ; "></div>
@@ -428,7 +396,7 @@ style="width:1200px;height:100%;background-color:;top:57px;z-index:2000;margin:0
 	</div>
   
 	<div class="mdl-tabs__panel" id="mobile">
-		<div style = "display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:360px;height:640px;background-color:white;margin:0 auto;">
+		<div id = "mobilecontent" style = "display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:360px;height:640px;background-color:white;margin:0 auto;">
 				<div id = "content1m" 	class = "content" style = "grid-column:1/span 3 ;grid-row:1/span 3;"></div>
 				<div id = "content2m" 	class = "content" style = "grid-column:2;grid-row:1 ; "></div>
 				<div id = "content3m" 	class = "content" style = "grid-column:3;grid-row:1 ; "></div>
@@ -3064,7 +3032,7 @@ tgt.append(  (`<!DOCTYPE html>
 <script src="fx-modal.js"><\/SCRIPT>
 
 <style>
-<!--svg bar chart for greg-->
+ 
  
 h1 {
   width: 100%;
@@ -3077,7 +3045,43 @@ background-color:rgb(60,60,60);
 border:none;
 color: white;
 }
+
+ 
+@media screen and (max-width: 779px)  
+{
+ #desktopcontent {
+	display:none;
+}
+
+#tabletcontent {
+	display:none;
+}
+
+#mobilecontent {
+	display:block;
+}
+
+}  
+
+@media screen and (min-width: 780px)   
+{
+
+#desktopcontent {
+	display:block;
+}
+
+#tabletcontent {
+	display:none;
+}
+
+#mobilecontent {
+	display:none;
+}
+
+}
 </style>
+
+ 
 </head>` ));
 tgt.append(canvasText);   //needed
 tgt.append( `</body>` ); 
