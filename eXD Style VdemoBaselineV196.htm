@@ -1,0 +1,3525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FedEx Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="material.js"></script>
+<script src="tree.jquery.js"></script>
+<script src="jquery.film_roll.js"></script>
+<script src="circles.min.js"></script>  
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"></script>
+<!--CSS-->
+<link rel="stylesheet" href="Design-System-IDE.css"/>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<link rel="stylesheet" href="material.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="jqtree.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+<!--ES6 Vanilla Web Components-->
+<script src="fx-accordion.js"></script>
+<script src="date-widget.comp.js"></script>
+<script src="fx-radiobutton.js"></script>
+<script src="fx-markup.js"></script>
+ 
+<script src="basic.js"></script>
+<script src="wordcount.js"></script>
+<script src="fx-div.js"></script>
+<script src="fx-checkbox.js"></script>
+<script src="fx-imagebutton.js"></script>
+<script src="fx-image.js"></script>
+<script src="fx-train.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-card.js"></script>
+<script src="fx-table.js"></script>
+<script src="fx-combo.js"></script>
+
+ 
+<script src="fx-primarybutton.js"></script>
+<script src="fx-secondarybutton.js"></script>
+<script src="fx-basicsecondarybutton.js"></script>
+<script src="fx-utilitybutton.js"></script>
+<script src="fx-cardnarrative.js"></script>
+<script src="fx-counter.js"></script>
+<script src="fx-badge.js"></script>
+<script src="to-do-item.js"></script>
+<script src="fx-modal.js"></script>
+</head>
+
+<!--BEGIN BODY-->
+<body style="background-color:rgb(60,60,60);" onload="initOptions();"> 
+
+<!--HEADER & MAIN MENU BAR-->
+<div style="background-color:rgb(77,20,140);height:57px;">
+	
+	<i  class="material-icons md-36 fedexorange" onclick = "toggleDisplay('iconMenu');" style="position:absolute;top:18px;left:8px;">view_headline</i> 
+	
+	<i class="material-icons md-36 fedexorange" onclick = "toggleDisplay('tabs');" style="position:absolute;top:18px;right:25px;">view_headline</i>
+
+	<i class="material-icons md-36 fedexorange" onclick = "hideGrid();" style="position:absolute;top:18px;right:75px;">view_headline</i> 
+
+    <i class="material-icons md-36 fedexorange" onclick = "showGrid();" style="position:absolute;top:18px;right:125px;">view_headline</i> 
+	 
+	<span style="color:white;font-family:arial;font-size:32px;font-weight:bold;padding-left:130px;line-height:2.0;">Fed<span style="color:rgb(255,102,0);font-family:arial;font-size:32px;font-weight:bold;line-height:1.8;">Ex</span></span>
+	<!--<span style="color:rgb(153,153,153);font-family:arial;font-size:20px;font-weight:normal;padding-left:20px;line-height:2.0;">Enterprise XD</span>-->
+</div> 
+
+<!--style for the canvas screen carosel-->
+<style>
+* {box-sizing: border-box}
+//body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  //top: 50%;
+  width: auto;
+  //padding: 16px;
+  //margin-top: -22px;
+  //color: white;
+  font-weight: bold;
+  //font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  //right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+
+<script>
+
+//Globals
+var tabletpages = [];    
+i = 0;  
+var month = [];  //defines the initial array values used by buildOptions
+var month2 = [];
+
+ 
+
+function initOptions() { 
+month2 = JSON.parse(localStorage.getItem("projectNames")) ;
+for (var i=0; i < month2 .length;++i){  //interate the full length of month2 and add values to the select box pname
+addOption(pname, month2[i], month2[i]);
+}
+}
+
+//called by new project button
+function newProj() {
+projectNameValue =  newpname.value ;
+month.push(newpname.value);
+buildOptions();
+}
+
+//buildOptions is called by newProj()
+function buildOptions() {
+localStorage.setItem("projectNames", JSON.stringify(month)); //1st stores the stringified array month 
+month2 = JSON.parse(localStorage.getItem("projectNames")) ;  //2nd parses the stringified array and holds it in month2
+for (var i=0; i < month2 .length;++i){  //interate the full length of month2 and add values to the select box pname
+addOption(pname, month2 [i], month2 [i]);
+}
+} 
+ 
+//addOptions is called by initOptions to add in the content for the pname select box
+function addOption(selectbox,text,value ) {
+var optn = document.createElement("OPTION");
+optn.text = text;
+optn.value = value;
+selectbox.options.add(optn);
+}
+
+/*Note: must stringify the array for local storage...see       https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm*/
+
+//save button
+function newtablet(){
+var stufftosave = document.getElementById('ipad').innerHTML;
+tabletpages.push(stufftosave); //push is what adds the value (page content) as an array
+localStorage.setItem(pname.value, JSON.stringify(tabletpages));
+retrievedData = localStorage.getItem(pname.value);
+retrievedData2 = JSON.parse(retrievedData);
+document.getElementById('xLength').innerHTML =  retrievedData2.length ;  //xLength is the page counter next to SAVE
+}
+
+function nextItem() {
+retrievedData = localStorage.getItem(pname.value);
+retrievedData2 = JSON.parse(retrievedData);
+i = i + 1;  
+i = i % retrievedData2.length;  
+const arr = retrievedData2;
+for (const [index, element] of arr.entries()) {
+}
+return retrievedData2[i];  
+}
+
+
+function prevItem() {
+retrievedData = localStorage.getItem(pname.value);
+retrievedData2 = JSON.parse(retrievedData);
+if (i === 0) { // i would become 0
+        i = retrievedData2.length;  
+    }
+i = i - 1; 
+return retrievedData2[i]; // give us back the item of where we are now
+}
+
+window.addEventListener('load', function () {
+ 
+//next button >
+document.getElementById('next_button').addEventListener(
+    'click',  
+    function (e) {  
+		document.getElementById('ipad').innerHTML = '';
+		$('#ipad').append(nextItem()); 
+		 
+		}
+    );
+	
+//previous button <
+document.getElementById('prev_button').addEventListener(
+    'click',  
+    function (e) {  
+		 
+document.getElementById('ipad').innerHTML = '';
+		$('#ipad').append(prevItem()); 
+        }
+    );
+    
+});   //addEventListener
+
+function createObj(){
+var Objstufftosave = document.getElementById('ipad').innerHTML; 
+project = {
+pageName: [pname.value],
+pageContent: [Objstufftosave]  
+}
+ alert(project.pageName);
+ alert(project.pageContent);
+}
+</script>
+
+
+	
+	<!--When cells are combined into an area, drag from left outside the canvas	into the top first cell....otherwide it will not drop-->
+
+	  
+<!-----------------------------------------------------------CANVAS-------------------------------------------------->
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="canvasMenu" 
+style="width:1200px;height:100%;background-color:;top:57px;z-index:2000;margin:0 auto;">
+	<div class="mdl-tabs__tab-bar">
+      <a href="#desktop" class="mdl-tabs__tab is-active" style="color:silver;">Desktop (1200 x 1400)</a>
+	  <a href="#tablet" class="mdl-tabs__tab" 	style="color:silver;">Tablet (768x1024)</a>
+	  <a href="#mobile" class="mdl-tabs__tab" style="color:silver;">Mobile (360x640px)</a>
+	</div>
+  
+    <div class="mdl-tabs__panel" id="desktop">
+		<div id = "desktopcontent" style = 
+		"display:grid;
+		 grid-template-columns:repeat(6,1fr);
+		 grid-template-rows:repeat(8,1fr);
+		 width:1200px;
+		 height:1400px;
+		 background-color:white;
+		 margin:0 auto;">
+				<div id = "content1" 	class = "content" style = "grid-column:1/span 6;grid-row:1/span 2;"></div>
+				<div id = "content2" 	class = "content" style = "grid-column:2;grid-row:1;"></div>
+				<div id = "content3" 	class = "content" style = "grid-column:3;grid-row:1;"></div>
+				<div id = "content4" 	class = "content" style = "grid-column:4;grid-row:1;"></div>
+				<div id = "content5" 	class = "content" style = "grid-column:5;grid-row:1;"></div>
+				<div id = "content6" 	class = "content" style = "grid-column:6;grid-row:1;"></div>
+			
+				<div id = "content7" 	class = "content" style = "grid-column:1;grid-row:2;"></div>
+				<div id = "content8" 	class = "content" style = "grid-column:2;grid-row:2;"></div>
+				<div id = "content9" 	class = "content" style = "grid-column:3;grid-row:2;"></div>
+				<div id = "content10" 	class = "content" style = "grid-column:4;grid-row:2;"></div>
+				<div id = "content11" 	class = "content" style = "grid-column:5;grid-row:2;"></div>
+				<div id = "content12" 	class = "content" style = "grid-column:6;grid-row:2;"></div>
+			
+				<div id = "content13" 	class = "content" style = "grid-column:1;grid-row:3;"></div>
+				<div id = "content14" 	class = "content" style = "grid-column:2;grid-row:3;"></div>
+				<div id = "content15" 	class = "content" style = "grid-column:3/span 2;grid-row:3/span 3;"></div>
+				<div id = "content16" 	class = "content" style = "grid-column:4;grid-row:3;"></div>
+				<div id = "content17" 	class = "content" style = "grid-column:5;grid-row:3;"></div>
+				<div id = "content18" 	class = "content" style = "grid-column:6;grid-row:3;"></div>
+			
+				<div id = "content19" 	class = "content" style = "grid-column:1;grid-row:4;"></div>
+				<div id = "content20" 	class = "content" style = "grid-column:2;grid-row:4;"></div>
+				<div id = "content21" 	class = "content" style = "grid-column:3;grid-row:4;"></div>
+				<div id = "content22" 	class = "content" style = "grid-column:4;grid-row:4;"></div>
+				<div id = "content23" 	class = "content" style = "grid-column:5;grid-row:4;"></div>
+				<div id = "content24" 	class = "content" style = "grid-column:6;grid-row:4;"></div>
+			
+				<div id = "content25" 	class = "content" style = "grid-column:1/span 2;grid-row:5/span 2;"></div>
+				<div id = "content26" 	class = "content" style = "grid-column:2;grid-row:5;"></div>
+				<div id = "content27" 	class = "content" style = "grid-column:3;grid-row:5;"></div>
+				<div id = "content28" 	class = "content" style = "grid-column:4;grid-row:5;"></div>
+				<div id = "content29" 	class = "content" style = "grid-column:5;grid-row:5;"></div>
+				<div id = "content30" 	class = "content" style = "grid-column:6;grid-row:5;"></div>
+			
+				<div id = "content31" 	class = "content" style = "grid-column:1;grid-row:6;"></div>
+				<div id = "content32" 	class = "content" style = "grid-column:2;grid-row:6;"></div>
+				<div id = "content33" 	class = "content" style = "grid-column:3;grid-row:6;"></div>
+				<div id = "content34" 	class = "content" style = "grid-column:4;grid-row:6;"></div>
+				<div id = "content35" 	class = "content" style = "grid-column:5;grid-row:6;"></div>
+				<div id = "content36" 	class = "content" style = "grid-column:6;grid-row:6;"></div>
+			
+				<div id = "content37" 	class = "content" style = "grid-column:1;grid-row:7;"></div>
+				<div id = "content38" 	class = "content" style = "grid-column:2;grid-row:7;"></div>
+				<div id = "content39" 	class = "content" style = "grid-column:3;grid-row:7;"></div>
+				<div id = "content40" 	class = "content" style = "grid-column:4;grid-row:7;"></div>
+				<div id = "content41" 	class = "content" style = "grid-column:5;grid-row:7;"></div>
+				<div id = "content42" 	class = "content" style = "grid-column:6;grid-row:7;"></div>
+			
+				<div id = "content43" 	class = "content" style = "grid-column:1;grid-row:8;"></div>
+				<div id = "content44" 	class = "content" style = "grid-column:2;grid-row:8;"></div>
+				<div id = "content45" 	class = "content" style = "grid-column:3;grid-row:8;"></div>
+				<div id = "content46" 	class = "content" style = "grid-column:4;grid-row:8;"></div>
+				<div id = "content47" 	class = "content" style = "grid-column:5;grid-row:8;"></div>
+				<div id = "content48" 	class = "content" style = "grid-column:6;grid-row:8;"></div>
+		</div>
+	</div> 
+	 
+
+	<div class="mdl-tabs__panel" id="tablet" style = "color:black;" >
+		<div id = "tabletcontent" style = "display:grid;grid-template-columns: repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:768px;height:1024px;background-color:white;margin:0 auto;">
+				<div id = "content1t" 	class = "content" style = "grid-column:1/span 3 ;grid-row:1/span 3;"></div>
+				<div id = "content2t" 	class = "content" style = "grid-column:2;grid-row:1 ; "></div>
+				<div id = "content3t" 	class = "content" style = "grid-column:3;grid-row:1 ; "></div>
+			
+				<div id = "content4t" 	class = "content" style = "grid-column:1;grid-row:2;  "></div>
+				<div id = "content5t" 	class = "content" style = "grid-column:2;grid-row:2; "></div>
+				<div id = "content6t" 	class = "content" style = "grid-column:3;grid-row:2; "></div>
+			
+				<div id = "content7t" 	class = "content" style = "grid-column:1;grid-row:3 ; "></div>
+				<div id = "content8t" 	class = "content" style = "grid-column:2;grid-row:3; "></div>
+				<div id = "content9t" 	class = "content" style = "grid-column:3;grid-row:3; "></div>
+			
+				<div id = "content10t" 	class = "content" style = "grid-column:1/span 3;grid-row:4; "></div>
+				<div id = "content11t"   class = "content" style = "grid-column:2;grid-row:4; "></div>
+				<div id = "content12t"   class = "content" style = "grid-column:3;grid-row:4; "></div>
+			
+				<div id = "content13t" 	class = "content" style = "grid-column:1/span 3;grid-row:5;"></div>
+				<div id = "content14t"   class = "content" style = "grid-column:2;grid-row:5; "></div>
+				<div id = "content15t"   class = "content" style = "grid-column:3;grid-row:5; "></div>
+			
+				<div id = "content16t" 	class = "content" style = "grid-column:1;grid-row:6/span 3; "></div>
+				<div id = "content17t"   class = "content" style = "grid-column:2/span 2;grid-row:6/span 3;"></div>
+				<div id = "content18t"   class = "content" style = "grid-column:3;grid-row:6; "></div>
+			
+				<div id = "content19t" 	class = "content" style = "grid-column:1;grid-row:7; "></div>
+				<div id = "content20t"   class = "content" style = "grid-column:2;grid-row:7; "></div>
+				<div id = "content21t"   class = "content" style = "grid-column:3;grid-row:7; "></div>
+			
+				<div id = "content22t" 	class = "content" style = "grid-column:1;grid-row:8; "></div>
+				<div id = "content23t"   class = "content" style = "grid-column:2;grid-row:8; "></div>
+				<div id = "content24t"   class = "content" style = "grid-column:3;grid-row:8; "></div>
+		</div>
+	</div>
+  
+	<div class="mdl-tabs__panel" id="mobile">
+		<div id = "mobilecontent" style = "display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:360px;height:640px;background-color:white;margin:0 auto;">
+				<div id = "content1m" 	class = "content" style = "grid-column:1/span 3 ;grid-row:1/span 3;"></div>
+				<div id = "content2m" 	class = "content" style = "grid-column:2;grid-row:1 ; "></div>
+				<div id = "content3m" 	class = "content" style = "grid-column:3;grid-row:1 ; "></div>
+			
+				<div id = "content4m" 	class = "content" style = "grid-column:1;grid-row:2;  "></div>
+				<div id = "content5m" 	class = "content" style = "grid-column:2;grid-row:2; "></div>
+				<div id = "content6m" 	class = "content" style = "grid-column:3;grid-row:2; "></div>
+			
+				<div id = "content7m" 	class = "content" style = "grid-column:1;grid-row:3 ; "></div>
+				<div id = "content8m" 	class = "content" style = "grid-column:2;grid-row:3; "></div>
+				<div id = "content9m" 	class = "content" style = "grid-column:3;grid-row:3; "></div>
+			
+				<div id = "content10m" 	class = "content" style = "grid-column:1/span 3;grid-row:4; "></div>
+				<div id = "content11m"   class = "content" style = "grid-column:2;grid-row:4; "></div>
+				<div id = "content12m"   class = "content" style = "grid-column:3;grid-row:4; "></div>
+			
+				<div id = "content13m" 	class = "content" style = "grid-column:1/span 3;grid-row:5;"></div>
+				<div id = "content14m"   class = "content" style = "grid-column:2;grid-row:5; "></div>
+				<div id = "content15m"   class = "content" style = "grid-column:3;grid-row:5; "></div>
+			
+				<div id = "content16m" 	class = "content" style = "grid-column:1;grid-row:6/span 3; "></div>
+				<div id = "content17m"   class = "content" style = "grid-column:2/span 2;grid-row:6/span 3;"></div>
+				<div id = "content18m"   class = "content" style = "grid-column:3;grid-row:6; "></div>
+			
+				<div id = "content19m" 	class = "content" style = "grid-column:1;grid-row:7; "></div>
+				<div id = "content20m"   class = "content" style = "grid-column:2;grid-row:7; "></div>
+				<div id = "content21m"   class = "content" style = "grid-column:3;grid-row:7; "></div>
+			
+				<div id = "content22m" 	class = "content" style = "grid-column:1;grid-row:8; "></div>
+				<div id = "content23m"   class = "content" style = "grid-column:2;grid-row:8; "></div>
+				<div id = "content24m"   class = "content" style = "grid-column:3;grid-row:8; "></div>
+		</div>
+	</div>
+</div> 
+	 
+ 
+ 
+<!--COMPONENT MENU-->
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="iconMenu" 
+style="position:absolute;left:0px;top:57px;background-color:rgb(60,60,60);text-align:
+center;z-index:3000;width:250px;">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#libraries-panel" class="mdl-tabs__tab is-active" style="color:silver;font-size:10px;">Components</a>
+      <a href="#pages-panel" class="mdl-tabs__tab" style="color:silver;font-size:10px;">Projects</a>
+      <a href="#assets-panel" class="mdl-tabs__tab" style="color:silver;font-size:10px;">Assets</a>
+  </div>
+
+<div class="mdl-tabs__panel is-active" id="libraries-panel" style="padding-top:10px;background-color:rgb(60,60,60);">
+
+
+
+<div id="accordion">
+
+<!------------------------------STANDARD COMPONETS------------------->
+	<h2 style="text-align:left;background-color: rgb(60,60,60);color: rgb(150,150,150);">Standard</h2>
+		<div style="background-color:rgb(60,60,60);border:none;overflow:visible;">
+			<table style="margin-left:0px;">
+				<tr>
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="cardicon">picture_in_picture</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">card</span></td>
+					
+					<td style="ppadding-right:10px;"><i class="material-icons md-18 md-light" id="imageicon">image</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">image</span></td>
+				</tr>
+
+				<tr>
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="markupicon">http</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">html</span></td>
+						
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="trainicon">linear_scale</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">train</span></td>
+						
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="polyfab">explore</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">polyFAB</span></td>
+				</tr>
+				
+				<tr>
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="polyslider">all_inbox</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">combo</span></td>
+						
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba4">autorenew</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba4</span></td>
+					
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba5">build</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba5</span></td>
+				</tr>
+				
+				<tr>
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tba6">fingerprint</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba6</span></td>
+						
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tba7">extension</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba7</span></td>
+						
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba8">date_range</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba8</span></td>
+					
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba9">dashboard</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba9</span></td>
+				</tr>
+				<tr>
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tba10">eco</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba10</span></td>
+						
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="tba11">euro_symbol</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba11</span></td>
+						
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba12">dns</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba12</span></td>
+					
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tba13">list</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tba13</span></td>
+				</tr>
+					 
+				</table> 
+ 		 <p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p><br />
+		</div>
+		
+<!----------------------------------FEDEX COMPONENTS----------------------->
+		
+	<h2 style="text-align:left;background-color: rgb(60,60,60);color: rgb(150,150,150);"><span style="color:white;">Fed</span><span style="color:orange;">EX</span></h2>
+	<div style="background-color:rgb(60,60,60);border:none;overflow:visible;">
+	<table style="margin-left:10px;">  
+				<tr>
+				
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="fedexbuttonicon">check_circle</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Image Button</span></td>
+					
+					<td style="padding:0px;"><i class="material-icons md-18 md-light" id="textbuttonicon">assessment</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Primary Button</span></td>d>
+					
+					
+					
+				</tr>
+				
+				<tr>
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="secondarybuttonicon">face</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Primary Secondary Button</span></td>
+					
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="basicsecondarybuttonicon">list</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Secondary Button</span></td>
+					
+				
+				</tr>
+				
+				<tr>
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="utilitybuttonicon">fingerprint</i><br />
+				<span style="color:rgb(150,150,150);font-size:12px;">Utility Button</span></td>
+				
+				
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="radioicon">radio_button_checked</i><br />
+				<span style="color:rgb(150,150,150);font-size:12px;">Radio Button</span></td>
+				</tr>
+				
+				<tr>
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="checkboxicon">check_box</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Check Box</span></td>
+					
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="cardnarrativeicon">dashboard</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Narrative Card</span></td>
+					
+				
+				</tr>
+				
+				<tr>
+				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="dropmenuicon">menu</i><br />
+						<span style="color:rgb(150,150,150);font-size:12px;">global menu</span></td>
+						
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="countericon">gradient</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">Counter</span></td>
+					
+				
+				</tr>
+				
+				<tr>
+				<td style="padding:0px;"><i class="material-icons md-18 md-light" id="emailbadgeicon">email</i><br />
+						<span style="color:rgb(150,150,150);font-size:12px;">Email Badge</span></td>
+						
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="accordionicon">line_weight</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">accordion</span></td>
+					
+				
+				</tr>
+				
+				<tr>
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="divicon">watch</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">time/date</span></td>
+					
+				<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="tableicon">border_all</i><br />
+				<span style="color:rgb(150,150,150);font-size:12px;">table</span></td>
+				</tr>
+				
+			</table> 
+			<p id="display" style="color:#e8c866;font-size:14px;text-align:left;padding-left:15px;">drop target</p><br />
+	</div>	
+	
+<!---------------------------------LINE HAUL COMPONENTS----------------------------->
+  
+	<h2 style="text-align:left;background-color: rgb(60,60,60);color: rgb(150,150,150);">Line Haul</h2>
+		<div style="background-color:rgb(60,60,60);border:none;overflow:visible;">
+			<table style="margin-left:10px;">  
+				<tr>
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="gregicon">tab</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">tab</span></td>
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="leaderboardicon">face</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">lead</span></td>
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="lhtrailericon">local_shipping</i><br />
+					<span style="color:rgb(150,150,150);font-size:12px;">trailers</span></td>
+					<td style="padding-right:10px;"><i class="material-icons md-18 md-light" id="modalicon">pages</i><br />
+					<span style="color:silver;font-size:12px;">modal</span></td>
+				</tr>
+			</table> 
+		<!--<p id="display" style="color:silver;font-size:14px;text-align:left;padding-left:15px;">drop target</p><br />-->
+		</div>
+  
+	<h2 style="text-align:left;background-color: rgb(60,60,60);color: rgb(150,150,150);" >Virtual Check Ride</h2>
+		<div style="background-color:rgb(60,60,60);border:none;overflow:visible;"></div>
+  
+	
+</div>
+</div>
+  
+<div class="mdl-tabs__panel" id="pages-panel">
+<div id="tree1" style="text-align:left;padding-left:20px;padding-top:15px;background-color: rgb(60,60,60);"></div>
+</div>
+  
+<div class="mdl-tabs__panel" id="assets-panel">
+<div id="assets" style="text-align:left;padding-left:20px;padding-top:15px;background-color: rgb(60,60,60);"></div>
+</div>
+</div> 
+
+ 
+
+<!--RIGHT PROPERTY SHEET-->     
+<div   id="tabs" style="margin:0px;padding:0px;position:absolute;right:255px;top:12px;z-index:2000;border:none;">
+<div id="tabs1A" style="margin-left:10px;padding-left:10px;">
+<div style="background-color:rgb(60,60,60);position:absolute;top:38px;margin:10px;"> 
+
+<ul style="text-decoration:none;list-style-type: none;margin-left:10px;padding:0px;background-color:rgb(60,60,60);border:none;"> 
+	
+	<!--line 1 id nd no selected-->
+	<li  ><span id="selecteditem" style="color:white;padding-left:10px;line-height:4;color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">NO ITEM SELECTED</span></li>
+	
+	<li style = "margin-bottom:10px;"><div style=" background-color:transparent;border:none;color:silver;cursor:pointer;font-size:16px;"><button style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;" onclick= "newProj();">New</button> 
+	<input id="newpname" style="background-color:transparent;border:thin solid silver ;color:silver;cursor:pointer;font-size:16px;width:130px;margin-left:7px;"></input></div></li>
+
+	<li><div style="background-color:transparent;border:none;color:silver;cursor:pointer;font-size:16px;">Select<select id="pname" style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;width:150px;"></select></div></li>
+	
+	<!--line 3 position x and y-->
+	<li id= "mouseindicator" class=".mouseindicator" style= "margin-top:10px;margin-bottom:10px;padding-top:5px;padding-left:20px;width: 192px;height:35px;background-color:rgb(60,60,60);color:#e8c866;text-align:left;font-size:16px;border:thin silver solid;"></li> 
+	
+	<li style = "padding-bottom:20px;"><button id="btnOK"  style="background-color:rgb(60,60,60);color:#e8c866;font-family:roboto;letter-spacing:1px;" onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxleft = $('#setLeft').val();fxtop = $('#setTop').val();fxradius = $('#setradius').val();fxcursor = $('#setcursor').val();var fxselelement = document.getElementById('trashcan').innerHTML;
+	elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop, fxradius, fxcursor, fxselelement);">Apply Options</button></li>  
+	
+	<!--line 10 Trash-->
+	<li id="demo8" style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);margin-bottom:2px;text-align:left;">
+	<i class="material-icons md-18 md-light" id="deleteicon" style=";color:#e8c866;" onclick = "$( '#' + yy ).remove();document.getElementById('trashcan').innerHTML = 'No Object Selected';document.getElementById('selecteditem').innerHTML = 'No Object Selected' ">delete</i>
+	<div id="trashcan" style="font-size:12px;font-family:roboto;letter-spacing:0px;display:inline;color:silver;"></div>
+	</li> 
+	
+	<li style ="margin-bottom: 10px">
+	<span  style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;">Canvas:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<select id="setcanvas" style = "background-color:rgb(60,60,60);color:white;">
+			<option value="mobile">mobile</option>
+			<option value="tablet">tablet</option>
+			<option value="desktop">desktop</option>
+		</select>
+	</li>
+	
+	<!--EXPORT SAVE AS--C:\Users\3658645\Desktop\FedEx Design System (Latest)>-->
+	<li><label for="input-fileName" style = "color:silver;">Export File</label></li>
+	<li><input type="text" class="form-control" id="input-fileName" value=""   style = "width:190px;background-color:rgb(60,60,60);color:white;"><input type="button" id="dwn-btn" value="Save File" style = "color:#e8c866;background-color:transparent;display:inline;margin-top:10px;margin-bottom:10px;"/></li>
+
+<li id="demo7" style = "padding-bottom:10px;">
+	<button  id="butedit" onclick="document.getElementById('rtf').style.display ='block';document.getElementById('iconMenu').style.display = 'none';document.getElementById('tabs').style.display = 'none';"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;">Rich Text Editor</button>
+	</li>	
+	 
+	<li style = "padding-bottom:10px;padding-top:10px;"><span style = "color:silver;">Background Color</span><br /><input type='text' id="full" /></li>
+	
+	<!--line 8 select image-->
+	<li id="demo7" style="margin-bottom:20px;background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;text-align:left;"><label for="image_uploads"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-right:5px;">Select Image</label><br /> 
+	
+	<button id="butOne" onclick="$('.imagebutton').css ('display','block');var fxselelementText = document.getElementById('trashcan').innerHTML;textSlotBackImage(fxselelementText);"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;">OK</button>
+	<input type="file" id="image_uploads" name="image_uploads"     style="font-size:10px;opacity:0;">
+	<input type="text" id="setTitle5"   value="Choose Background Image" style="width:270px;background-color:rgb(90,90,90);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) solid;text-align:left;display:none;">
+	</li><br />
+	
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:35px;margin-bottom:2px;margin-top:10px;">
+	<span style="color:rgb(150,150,150);">Left: </span>
+	<input type="text" id="setLeft"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"><span style="color:rgb(150,150,150);padding-left:3px;">Top: </span>
+	<input type="text" id="setTop"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;margin-right:21px;">
+	</li>
+	
+	<!--line 2 height and width-->
+	<li style="background-color:rgb(60,60,60);width:280px;color:silver;height:45px;margin-bottom:2px;padding-top:10px;">
+	<span style="color:rgb(150,150,150); ">w: </span>
+	<input type="text" id="setWidth"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;">
+	<span style="color:rgb(150,150,150);padding-left:5px;">H: </span>
+	<input type="text" id="setHeight"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"></li><br />
+	
+	<!--line 4 layer and transparency and color select-->
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">
+	<span style="color:rgb(150,150,150);">Layer: </span>
+	<input type="text" id="setZindex"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"><span style="color:rgb(150,150,150);padding-left:3px;">Trans: </span>
+	<input type="text" id="setOpacity"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;margin-right:21px;">
+	
+	<li style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">
+	<span style="color:rgb(150,150,150);">Border-Radius: </span>
+	<input type="text" id="setradius"   value="" style="width:40px;height:20px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border:none;border-bottom:thin silver solid;"></li>
+	
+	<li style ="margin-bottom: 30px">
+	<span  style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;margin-bottom:2px;margin-bottom:30px;">Cursor:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	
+		<select id="setcursor" style = "background-color:rgb(60,60,60);color:white;">
+			<option value="auto">auto</option>
+			<option value="default">default</option>
+			<option value="none">none</option>
+			<option value="help">help</option>
+			<option value="pointer">pointer</option>
+			<option value="progress">progress</option>
+			<option value="wait">wait</option>
+			<option value="cell">cell</option>
+			<option value="crosshair">crosshair</option>
+			<option value="text">text</option>
+			<option value="vertical-text">vertical-text</option>
+			<option value="copy">copy</option>
+			<option value="move">move</option>
+			<option value="no-drop">no-drop</option>
+			<option value="not-allowed">not-allowed</option>
+			<option value="grab">grab</option>
+			<option value="all-scroll">all-scroll</option>
+			<option value="col-resize">col-resize</option>
+			<option value="row-resize">row-resize</option>
+			<option value="zoom-in">zoom-in</option>
+			<option value="zoom-out">zoom-out</option>
+		</select>
+  </li>
+  
+  <!--Use with fx-markup component (http icon) Select the cardslot1 (default text is "text") and enterany HTML code. Configure porperty options for the component
+  for font-family use a single quote for a font family name with more than one word.-->
+	<li id="demo0" style="background-color:rgb(60,60,60);width:280px;color:white;height:145px;margin-bottom:2px;text-align:left;padding-top:10px;"><textarea id="setTitle0"   value="Enter Text" style="width:190px;height:125px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) dotted;text-align:left;">enter text</textarea><button  id="butTitle0" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlot0(fxselelementText);joe = document.getElementById('setsize').value;"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;margin-left:5px;color:#e8c866;font-family:roboto;letter-spacing:1px;">ok</butto></li> 
+	
+	<li id="demodropdown" style="background-color:rgb(60,60,60);width:280px;color:silver;margin-bottom:2px;text-align:left;">Dropdown Menu
+	<form action=""  >
+	<input  type="radio" name="float" value="left" onclick = "radiochecked = 'left'"> Left&nbsp;&nbsp;&nbsp;&nbsp; 
+    <input type="radio" name="float" value="right" onclick = "radiochecked = 'right'"> Right<br>
+	</form>
+	</li> 
+	
+	<!--line 5 the two buttons used to set descrete options on fx-accordion. Note ok panel can be use to set
+	options on other components as well-->
+	<li style="padding-bottom:10px;margin:0px;"><span style="color:silver;">Accordion</span><br />
+	<button id="btn2"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-right:5px;" onclick= "fxwidth2 = $('#setWidth').val();fxheight2 = $('#setHeight').val();fxbackcolor2 = $('#setBackgroundColor').val();fxzindex2 = $('#setZindex').val();fxopacity2 = $('#setOpacity').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle2(fxwidth2,fxheight2,fxbackcolor2,fxzindex2,fxopacity2,fxselelement);">Item</button>
+	<button id="btn1"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;" onclick= "fxwidth = $('#setWidth').val();fxheight = $('#setHeight').val();fxbackcolor = $('#setBackgroundColor').val();fxzindex = $('#setZindex').val();fxopacity = $('#setOpacity').val();fxsize = $('#setsize').val();fxtextcolor = $('#settextcolor').val();var fxselelement = document.getElementById('trashcan').innerHTML;elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxsize,fxtextcolor,fxselelement);">Panel</button></li>
+	
+	<li><span style = "color:silver;font-family:Roboto;font-size:12px;letter-spacing:1px;">Local Storage</span></li>
+	
+	<li><button   style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-right:5px;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave',stufftosave);">S1</button>
+	
+	<button style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave2', stufftosave);" >S2</button>
+	
+	<button   style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-right:5px;" onclick= "$('#ipad').append(localStorage.getItem('pagesave'));" >R1 </button>
+	
+	<button   style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;" onclick= "$('#ipad').append(localStorage.getItem('pagesave2'));" >R2 </button> 
+
+	<li><button   style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-top:5px;" onclick= "document.getElementById('ipad').innerHTML = '';" >X P</button>
+	
+	<button   style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;cursor:pointer;margin-top:5px;" onclick= "localStorage.removeItem('pagesave');localStorage.removeItem('pagesave2')" >X S</button></li>
+</ul>
+<script>
+ 
+</script> 
+</div>
+</div> 
+</div> 
+
+<!--TEMPLATES-->
+<!--FX-MODAL TEMPLATE-->  <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2-->
+<template id="fxmodal">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 500px;
+  top: 300px;
+  width: 500px; /* Full width */
+  height: 300px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+ 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+#closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#message {
+background-color:white;
+width:500px;
+height:250px;
+border:thin solid silver;
+position:fixed;
+left:450px;
+top:300px;
+z-index:100;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+font-size:18px;
+padding:20px;
+display: none;
+-webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+#messageTextArea {
+width:450px;
+height:130px;
+font-size:18px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+#messageHeader {
+font-size:22px;
+font-weight:bold;
+color: var(--fedexpurple);
+ 
+}
+</style>
+
+<div id="message"> 
+ <span id="messageHeader">Message for Driver</span><button id="closeButton" style="float:right;border:none;font-size:26px;font-weight:bold;background-color:transparent;" onclick="document.getElementById('message').style.display='none'">X</button>
+<form>
+<textarea id="messageTextArea"></textarea>
+</form>
+
+<button style="width:217px;height:35px;border:solid thin var(--fedexpurple);font-size:16px;color:var(--fedexpurple);background-color:transparent;">Close</button>&nbsp&nbsp<button id="myBtn" style="width:217px;height:35px;background-color:#00cc00;font-size:16px;color:white;" onclick="document.getElementById('message').style.display='block'">Send Message</button>
+</div>
+</template>
+
+<!--FX-TAB TEMPLATE-->
+<template id="fx-tab-template">
+
+<style>
+	:root {
+	--spacing-unit:  250px;
+	}
+
+	.tab_flex-container {
+	display: flex;
+	background-color: #660099;
+	}
+
+	#panel_flex-container {
+	//width: calc(3 * var(--spacing-unit)); 
+	width:100%;
+	height:30px;
+	background-color:white;
+	border: thin silver solid;
+	color:black;
+	font-size:26px;
+	font-family:roboto;
+	}
+
+	.div_hover {
+	background-color: #660099;
+	margin: 0px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size: 26px;
+   //width: var(--spacing-unit); 
+	width:33.33%;
+	font-family:roboto;
+	color:white;
+	font-weight:normal;
+	text-align:center;
+	border-top: #660099 solid 5px;
+	border-bottom: #660099 solid 5px;
+	}
+  
+	.div2_hover {
+	background-color: white;
+	margin: 0px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size: 26px;
+	//width: calc(1.5 * var(--spacing-unit)); 
+	width: 50%;
+	font-family:roboto;
+	color:blue;
+	font-weight:normal;
+	text-align:center;
+	}
+  
+ .div_hover:hover {
+	/*background-color:silver;
+	opacity: 0.6;*/
+	cursor:pointer;
+	color:white;
+	font-weight:bold;
+	border-top: #660099 solid 5px;
+	border-bottom: #00cc00 solid 5px;
+	}
+   
+   .div2_hover:hover {
+	opacity: 0.6;*/
+	cursor:pointer;
+	color:blue;
+	font-weight:bold;
+	border-right: solid blue thin;
+	border-left: solid blue thin;
+	border-bottom: solid blue thin;
+	border-right: solid blue thin;
+	}
+</style>
+
+<div class="tab_flex-container">
+  <div class="div_hover"   onclick = "addContent('runs')" id="runs" role = "runs">Runs</div>
+  <div class="div_hover" onclick = "addContent('drivers')" role = "drivers";>Drivers</div>
+  <div class="div_hover" onclick = "addContent('notes')" role = "notes";>Notes</div>
+</div>
+
+<div class="tab_flex-container" id="jojo">
+  <div class="div2_hover" onclick= "addContent('runs')";>Unassigned</div>
+  <div class="div2_hover" onclick= "addContent('drivers')";>Assigned</div>
+</div>
+
+<div id="panel_flex-container">
+	<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>
+</div>
+</template>
+
+<!--FX-LHLEADERS TEMPLATE-->
+<template id="longhaulleaders">
+<style>
+:root {
+--row-bg-color:#00cc00;
+}
+</style>
+
+<div style="position:absolute;">
+<div class="leaders" style="background-color:white;width:310px;padding-bottom:10px;"><img src="smith.png" style="height:80px;width:70px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Clayton Smith</span> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Power #  138000</span><br />
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Vendor:  JJ Trucking</span><br /> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;color:green;">Rating:  95%</span>
+</div>
+
+<div class="leaders" style="background-color:white;width:310px;padding-bottom:10px;"><img src="claxton.png" style="height:80px;width:70px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Joe Claxton</span> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Power #  142157</span><br />
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Vendor:  # 1 Company</span><br /> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;color:green;">Rating:  93%</span>
+</div>
+
+<div class="leaders" style="background-color:white;width:310px;margin-top:10px;padding-bottom:10px;"><img src="jason.png" style="height:80px;width:70px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Jason Rivera</span> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Power #  137856</span><br />
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Vendor:  Tennesee Trucking</span><br /> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;color:green;">Rating:  91%</span>
+</div>
+
+<div class="leaders" style="background-color:white;width:310px;margin-bottom:100px;margin-top:10px;padding-bottom:10px;"><img src="tony.png" style="height:80px;width:70px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Tony Stanton</span> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Power #  148435</span><br />
+<span style="font-size:16px;margin-left:100px;color:slateblue;">Vendor:  H&H</span><br /> 
+<span style="font-size:16px;margin-left:100px;color:slateblue;color:green;">Rating:  90%</span>
+</div>
+
+</div>
+</template>
+
+<!--FX-LHTRAILERS TEMPLATE-->
+<template id="lhtrailers">
+<div id="lhtrailersdiv" style="width:200px;font-family:roboto;border: none;margin-bottom:50px;">
+ 
+<div id="canvas" style="width:200px;">
+
+<span style="color:slateblue;font-size:16px;">Selected Trailer(s)</span><br /><br />
+ 
+ <input type="text"   value="Enter Trailer #" style="width:340px;margin-left:20px;color:slateblue;">
+ <img src="magnify.png" style="position:absolute;top:40px;left:370px;" />  
+ 
+
+<div class="trailerHigh" style="background-color:white;width:400px;margin-top:10px;padding-bottom:10px;"><img src="trailer.png" style="height:100px;width:160px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Trailer # :810153</span> 
+<span style="font-size:16px;margin-left:194px;color:slateblue;">Location:  OLIV Hub Yard</span><br />
+</div>
+
+<div class="trailerHigh" style="background-color:white;width:400px;margin-top:10px;padding-bottom:10px;"><img src="trailer.png" style="height:100px;width:160px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Trailer # :838842</span> 
+<span style="font-size:16px;margin-left:194px;color:slateblue;">Location:  OLIV Hub Yard</span><br />
+</div>
+
+<div class="trailerHigh" style="background-color:white;width:400px;margin-top:10px;padding-bottom:10px;"><img src="trailer.png" style="height:100px;width:160px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Trailer # :815636</span> 
+<span style="font-size:16px;margin-left:194px;color:slateblue;">Location:  OLIV Hub Yard</span><br />
+</div>
+
+<div class="trailerHigh" style="background-color:white;width:400px;margin-top:10px;padding-bottom:10px;"><img src="trailer.png" style="height:100px;width:160px;padding-top:20px;margin-left:20px;"></img>
+<span style="font-size:16px;font-weight:bold;margin-left:10px;color:slateblue;">Trailer # :825794</span> 
+<span style="font-size:16px;margin-left:194px;color:slateblue;">Location:  OLIV Hub Yard</span><br />
+</div>
+ 
+</div><!--canvas-->
+
+<style>
+		#canvas .circle {
+			display: inline-block;
+			margin-left:15px;
+			margin-top:8px;
+			margin-bottom:8px;
+		}
+		.circles-decimals {
+			font-size: .4em;
+		}
+</style>
+		
+<style>
+.accordion {
+    background-color: tan;
+    color: #444;
+    cursor: pointer;
+    padding: 0px;
+    width: 300px;
+    border: thin solid rgb(230,230,230);
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: white;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+</template>
+
+
+<!--DEFINE CUSTOM ELEMENTS-->
+<script>
+
+//FX-MODAL DEFINE
+customElements.define('fx-modal', class extends HTMLElement 
+	{
+		connectedCallback() {
+			let tmplmodal = document.querySelector('#fxmodal');  //block scope to connectedCallback()
+			this.appendChild(tmplmodal.content.cloneNode(true));
+			}   //nested function
+
+		attributeChangedCallback(name, oldValue, newValue) {}  //nested function
+	});
+
+//FX-TAB DEFINE
+customElements.define('fx-tab', class extends HTMLElement {
+    constructor() {
+      super();																									
+      let shadowRoot = this.attachShadow({mode: 'open'});
+	  let tmplTab = document.querySelector('#fx-tab-template');
+      shadowRoot.appendChild(tmplTab.content.cloneNode(true));
+	 }
+}); 
+
+function addContent(aa) {
+ 
+ if (aa ==  'runs')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+  //yyyp = hhhh.querySelector("#panel_flex-container");
+  //console.log(yyyp);
+  //console.log(this.getRootNode().host);
+  
+ if (aa ==  'drivers')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+  
+ if (aa ==  'notes')
+  document.getElementsByTagName('fx-tab')[0].innerHTML = '<span><slot><span style="float:left;margin-left:10px;font-size:16px;">Filter</span><span style="float:right;margin-right:10px;font-size:16px;">Sort by: Scheduled Dispatch Time(1st - last)</span></sp </slot></span>';
+ 
+}
+
+//this code works directly with the shadow root
+/* connectedCallback() {
+	  this.addEventListener('click', this._onClick); 
+	  }
+	
+	_onClick(event) {
+  
+ this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'this works';
+      
+	  //console.log(event.target. ('role'));
+	 
+	   if (event.target.getAttribute('role')  == 'runs')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'runs';
+	   
+	  if (event.target.getAttribute('role')  == 'drivers')
+       this.shadowRoot.querySelector("#panel_flex-container").innerHTML= 'drivers';
+ If it was on a tab element, though, select that tab.
+
+      //this._selectTab(event.target);
+    }
+  }*/
+  
+ //FX-LHTRAILERS DEFINE 
+customElements.define('fx-lhtrailers', class extends HTMLElement {
+	connectedCallback() {
+		this.appendChild(lhtrailers.content.cloneNode(true)); 
+		var items = document.getElementsByClassName('trailerHigh');
+		for (var i = 0; i < items.length; i++) {
+			items[i].addEventListener('click', trailerHighlight);
+		}
+	} 
+});
+
+function trailerHighlight() {
+	var items = document.getElementsByClassName('trailerHigh');
+		for (var i = 0; i < items.length; i++) {
+			items[i].style.border = "none";
+				this.style.border = "1px solid #00cc00";
+				}
+	}
+//FOR SHADOW DOM
+//constructor() {
+      //super();  
+      //let shadowRoot = this.attachShadow({mode: 'open'});
+      //shadowRoot.appendChild(lhtrailers.content.cloneNode(true));
+	//}	
+	
+ //FX-LONGHAULLEADERS DEFINE 
+ customElements.define('fx-longhaulleaders', class extends HTMLElement {
+    //constructor() {
+      //super();  
+      //let shadowRoot = this.attachShadow({mode: 'open'});
+      //shadowRoot.appendChild(longhaulleaders.content.cloneNode(true));
+	//}
+connectedCallback() {
+ this.appendChild(longhaulleaders.content.cloneNode(true)); 
+ var items = document.getElementsByClassName('leaders');
+for (var i = 0; i < items.length; i++) {
+  items[i].addEventListener('click', leaderHigh);
+}
+} 
+});
+
+function leaderHigh() {
+var items = document.getElementsByClassName('leaders');
+for (var i = 0; i < items.length; i++) {
+  items[i].style.border = "none";
+}
+this.style.border = "1px solid #00cc00";
+}	
+ 
+</script>
+
+<!--DROP--> 
+<script>
+//DROP FUNCTION 
+//called by drag and drop block as in body..handleDropEvent 
+function handleDropEvent( event, ui ) { //this function encloses all the drop if statements here
+	var draggable = ui.draggable;  //object being dragged used for all the elements
+
+
+//FX-Modal note: cannot use datetimne for a uniuqe id...must use a static id for the modal script to work
+
+//FX-MODAL DROP
+if ($(draggable).attr('id') == "modalicon") { 
+olddropbutton = droptarget;
+timeStamp = 'xyModal';
+var str1 =  '<fx-modal id=';
+var str2 = ' class="fxmodalclass"  >';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-modal>'); 
+ 
+$(".fxmodalclass").draggable( {
+	 
+	cursor: 'crosshair',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-modal').style.left;  //update position in property box
+		var eee = document.querySelector('fx-modal').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+}
+
+if( $(draggable).attr('id').includes("xyModal") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxmodalclass").draggable( {
+});
+} 
+
+
+//FX-CARD DROP (note that you need to add class both here AND in the temmplate)
+if ($(draggable).attr('id') == "cardicon") { 
+olddropbutton = droptarget;
+d = new Date();
+timeStamp2 = "cD"  + d.getTime();   //important the time stamp must be a lower case c
+str1 =  '<fx-card id=';
+str2 =' class="fxcardclass" onclick="myFunction(this)" style="width:320px;height:450px;">';
+res3 = str1 +  timeStamp2 + str2; 
+ 
+newidBack = timeStamp2 + 'cardimage' ;
+newidInsert = timeStamp2 + 'cardimage2';
+newid1 = timeStamp2 + 'cardslot1' ;
+newid2 = timeStamp2 + 'cardslot2' ;
+newid3 = timeStamp2 + 'cardslot3' ;
+newid4 = timeStamp2 + 'cardslot4' ;
+ 
+$(droptarget).append(res3 +
+'<span id="' + newid1 + '" slot="element-name" class="fxcardclass" style="z-index:2;margin-left:10px;margin-right:10px;" ondblclick="myFunction(this)">cardslot1</span>' +
+
+'<span id="' + newid2 + '" slot="element-name2" class="fxcardclass" style="z-index:2;margin-left:10px;margin-right:10px;" ondblclick="myFunction(this)">cardslot2</span>' +
+
+'<span id="' + newid3 + '" slot="button-slot" class="fxcardclass"  style="z-index:2;" ondblclick="myFunction(this)">cardslot3</span>' +
+
+'<span id="' + newid4 + '" slot="button-slot" class="fxcardclass" style="z-index:2;" ondblclick="myFunction(this)">cardslot4</span>' +
+
+'<span id= "" slot="card-image2" class="fxcardclass"><img id="' + newidInsert + '" ondblclick="myFunction(this)" src="insertplaceholder.jpg" style="z-index:1;height:100%;width:100%;" /></span>' +
+
+'</fx-card>');
+}
+
+$(".fxcardclass").draggable( {
+	 
+	cursor: 'move',  
+	snap: false,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-card').style.left;  //update position in property box
+		var eee = document.querySelector('fx-card').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+
+if    (   $(draggable).attr('id').includes("cD") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxcardclass").draggable( {
+});
+}
+
+//FX-MARKUP DROP  
+if ($(draggable).attr('id') == "markupicon") { 
+olddropbutton = droptarget;
+d = new Date();
+timeStamp2 = "mU"  + d.getTime();    
+str1 =  '<fx-markup id=';
+str2 =' class="fxmarkupclass" onclick="myFunction(this)" >';
+res3 = str1 +  timeStamp2 + str2;
+newidBack = timeStamp2 + 'cardimage' ; //note: i generate unique ids for both the component and elements insidde the component
+newid1 = timeStamp2 + 'cardslot1' ;
+ 
+$(droptarget).append(res3 +
+'<div id="' + newid1 + '" slot="element-name"    style = "font-size:32px;" ondblclick="myFunction(this)">Text</div><br />' +
+'</fx-markup>');
+ 
+$(".fxmarkupclass").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-markup').style.left;  //update position in property box
+		var eee = document.querySelector('fx-markup').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("mU") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxmarkupclass").draggable( {
+});
+} 
+ 
+//FX-LHTRAILERS DROP
+if ($(draggable).attr('id') == "lhtrailericon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "fLH"  + d.getTime();
+var str1 =  '<fx-lhtrailers id=';
+var str2 = ' class="fxtrailerclass"  onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-lhtrailers>'); 
+ 
+$(".fxtrailerclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-lhtrailers').style.left;  //update position in property box
+		var eee = document.querySelector('fx-lhtrailers').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("fLH") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxtrailerclass").draggable( {
+});
+}
+
+//FX-IMAGE DROP
+if ($(draggable).attr('id') == "imageicon") { 
+olddropbutton = droptarget;
+ d = new Date();
+timeStamp3 = "iM"  + d.getTime();  
+str1 =  '<fx-image id=';
+str2 =' class="fximageclass" onclick="myFunction(this)" >';
+res = str1 +  timeStamp3  + str2; 
+newidBackIm = timeStamp3 + 'cardimage' ;
+//$(ui.draggable).remove();
+ 
+$(droptarget).append(res +
+'<span id="" slot="card-image"><img id="' + newidBackIm + '" ondblclick="myFunction(this)" src="imageDownload.png" style="max-height: 100%; max-width: 100%;" /></span>' +
+'</fx-image>'); 
+
+$(".fximageclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-image').style.left;  //update position in property box
+		var eee = document.querySelector('fx-image').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("iM") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxbasicsecondarybutton").draggable( {
+});
+}
+
+//FX-DATEWIDGET DROP  *theme choices are red, blue, green and gold
+if ($(draggable).attr('id') == "divicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "dV"  + d.getTime();
+var str1 =  '<date-widget id=';
+var str2 = ' class="fxdivclass"     theme="blue" onclick="myFunction(this)"   ></date-widget>';
+var res = str1 +  timeStamp  +  str2; 
+$(droptarget).append(res);
+$(".fxdivclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('date-widget').style.left;  //update position in property box
+		var eee = document.querySelector('date-widget').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("dV") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxdivclass").draggable( {
+});
+}
+
+//FX-PARAGRAPH DROP
+if ($(draggable).attr('id') == "paragraphicon") { 
+olddropbutton =  droptarget;
+var d = new Date();
+timeStamp = "PR"  + d.getTime();
+var str1 =  '<fx-paragraph id=';
+var str2 = ' class="fxparagraphclass" contenteditable="true" ondblclick="myFunction(this)" >';  //space before class important
+var res = str1 +  timeStamp  + str2;
+olddropbutton = droptarget;
+$(droptarget).append(res + '</fx-paragraph>');
+
+$(".fxparagraphclass").draggable(  
+	  {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-paragraph').style.left;  //update position in property box
+		var eee = document.querySelector('fx-paragraph').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+	
+}
+  );
+}  
+
+if    (   $(draggable).attr('id').includes("PR") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxparagraphclass").draggable( {
+});
+}
+
+//FX-TAB DROP
+if ($(draggable).attr('id') == "gregicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "gI"  + d.getTime();
+var str1 =  '<fx-tab id=';
+var str2 = ' class="fxtabclass" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-tab>'); 
+$(".fxtabclass").draggable( 
+	{
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+drag: function() {
+        var ddd = document.querySelector('fx-tab').style.left;  //update position in property box
+		var eee = document.querySelector('fx-tab').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+}
+);
+ }
+ 
+if    (   $(draggable).attr('id').includes("gI") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxtabclass").draggable( {
+});
+}
+
+//FX-DROPDOWNMENU DROP
+if ($(draggable).attr('id') == "dropmenuicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "fD"  + d.getTime();
+var str1 =  '<fx-dropdownmenu id=';
+var str2 = ' class="fxdropdownmenuclass"  firsttieritems = "three" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+ newid1dd = timeStamp  + 'drop-text1' ;
+ newid2dd = timeStamp  + 'drop-text2' ;
+ newid3dd = timeStamp  + 'drop-text3' ;
+ newid4dd = timeStamp  + 'drop-text4' ;
+ newid5dd = timeStamp  + 'drop-text5' ;
+ newid6dd = timeStamp  + 'drop-text6' ;
+ newid7dd = timeStamp  + 'drop-text7' ;
+ //second level
+ newid11dd = timeStamp  + 'drop-drop-text1' ;
+ newid22dd = timeStamp  + 'drop-drop-text2' ;
+ newid33dd = timeStamp  + 'drop-drop-text3' ;
+ 
+//edit text using the rich text editor
+$(droptarget).append(res +
+'<a  id="' + newid1dd + '"  href = "javascript:void(0);" slot="drop-text1" ondblclick="myFunction(this)">item 1</a>' +
+'<a  id="' + newid2dd + '"  href = "javascript:void(0);" slot="drop-text2" ondblclick="myFunction(this)">item 2</a>' +
+'<a  id="' + newid3dd + '"  href = "javascript:void(0);" slot="drop-text3" ondblclick="myFunction(this)">item 3</a>' +
+'<a  id="' + newid4dd + '"  href = "javascript:void(0);" slot="drop-text4" ondblclick="myFunction(this)">item 4</a>' +
+'<a  id="' + newid5dd + '"  href = "javascript:void(0);" slot="drop-text5" ondblclick="myFunction(this)">item 5</a>' +
+'<a  id="' + newid6dd + '"  href = "javascript:void(0);" slot="drop-text6" ondblclick="myFunction(this)">item 6</a>' +
+'<a  id="' + newid7dd + '"  href = "javascript:void(0);" slot="drop-text7" ondblclick="myFunction(this)">item 7</a>' +
+
+
+'<a  id="' + newid11dd + '" href = "javascript:void(0);" slot="drop-drop-text1" ondblclick="myFunction(this)">item 1</a>' +
+'<a  id="' + newid22dd + '" href = "javascript:void(0);" slot="drop-drop-text2" ondblclick="myFunction(this)">item 2</a>' +
+'<a  id="' + newid33dd + '" href = "javascript:void(0);" slot="drop-drop-text3" ondblclick="myFunction(this)">item 3</a>' +
+
+'</fx-dropdownmenu>');  
+
+     
+$(".fxdropdownmenuclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-dropdownmenu').style.left;  //update position in property box
+		var eee = document.querySelector('fx-dropdownmenu').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+	});
+}
+
+if ( $(draggable).attr('id').includes("fD") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxdropdownmenuclass").draggable( {
+});
+}   
+
+//FX-TRAIN DROP
+if ($(draggable).attr('id') == "trainicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "tR"  + d.getTime();
+ 
+var str1 =  '<fx-train id=';
+var str2 = ' class="fxtrainclass" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+
+newid19  = timeStamp  + 'train-text1' ;
+newid10 = timeStamp  + 'train-text2' ;
+newid11 = timeStamp  + 'train-text3' ;
+newid12 = timeStamp  + 'train-text4' ;
+
+$(droptarget).append(res +
+
+ '<span><div id="' + newid19 + '" slot = "train-text1" ondblclick="myFunction(this)" class = "train" style="margin-left:200px;" >1</div></span>'  +
+
+'</fx-train>');  
+
+$(".fxtrainclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+    drag: function() {
+        var ddd = document.querySelector('fx-train').style.left;  //update position in property box
+		var eee = document.querySelector('fx-train').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+} 
+
+if    (   $(draggable).attr('id').includes("tR") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxtrainclass").draggable( {
+});
+}
+//FX-accordion DROP
+if ($(draggable).attr('id') == "accordionicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "aR"  + d.getTime();
+var str1 =  '<fx-accordion id=';
+var str2 = ' class="fxaccordionclass" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+
+//for 3 levels
+newid9  = timeStamp  + 'section-text1' ;
+newid10 = timeStamp  + 'accordion-text1' ;
+newid11 = timeStamp  + 'section-text2' ;
+newid12 = timeStamp  + 'accordion-text2' ;
+newid13 = timeStamp  + 'section-text3' ;
+newid14 = timeStamp  + 'accordion-text3' ;
+ 
+//edit text using the rich text editor
+$(droptarget).append(res +
+
+'<span id="' + newid9 + '" slot="section-text 1" class="fxcardclass"   style="font-size:18px;font-family:roboto;font-weight:normal;color:black;" ondblclick="myFunction(this)">section-text 1</span>' +
+
+'<span id="' + newid10 + '" slot="accordion-text 1" class="fxcardclass" style="font-size:18px;font-family:roboto;font-weight:normal;color:black;"  ondblclick="myFunction(this)">accordion-text 1</span>' +
+
+'<span id="' + newid11 + '" slot="section-text 2" class="fxcardclass" style="font-size:18px;font-family:roboto;font-weight:normal;color:black;"  ondblclick="myFunction(this)">section-text 2</span>' +
+
+'<span id="' + newid12 + '" slot="accordion-text 2" class="fxcardclass" style="font-size:18px;font-family:roboto;font-weight:normal;color:black;"  ondblclick="myFunction(this)">accordion-text 2</span>' +
+
+'<span id="' + newid13 + '" slot="section-text 3" class="fxcardclass"  style="font-size:18px;font-family:roboto;font-weight:normal;color:black;" ondblclick="myFunction(this)">section-text 3</span>' +
+
+'<span id="' + newid14 + '" slot="accordion-text 3" class="fxcardclass" style="font-size:18px;font-family:roboto;font-weight:normal;color:black;"  ondblclick="myFunction(this)">accordion-text 3</span>' +
+
+'</fx-accoridan>'); 
+ 
+$(".fxaccordionclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+    drag: function() {
+        var ddd = document.querySelector('fx-accordion').style.left;  //update position in property box
+		var eee = document.querySelector('fx-accordion').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+} 
+if ( $(draggable).attr('id').includes("aR") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxaccordionclass").draggable( {
+});
+} 
+
+//FX-TABLE DROP 
+if ($(draggable).attr('id') == "tableicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "tT"  + d.getTime();
+var str1 =  '<fx-table id=';
+var str2 = ' class="fxtableclass"    onclick="myFunction(this)"  >';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-table>'); 
+$(".fxtableclass").draggable({
+    containment: 'window',   
+	cursor: 'move',  
+	scroll: false,
+ 	drag: function() {
+        var ddd = document.querySelector('fx-table').style.left;  //update position in property box
+		var eee = document.querySelector('fx-table').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+	});
+} 
+
+if ( $(draggable).attr('id').includes("tT") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxtableclass").draggable( {
+});
+}   
+
+//FX-CHECKBOX DROP
+if ($(draggable).attr('id') == "checkboxicon") { 
+ 
+var d = new Date();
+timeStamp = "fC"  + d.getTime();
+var str1 =  '<fx-checkbox class="fxcheckboxclass" id=';
+var str2 = '    onclick="myFunction(this)">' 
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-checkbox>'); 
+                                                  //whereAmINow = this.parentNode.id;
+                                                  //alert(whereAmINow);	
+$(".fxcheckboxclass").draggable( {
+	
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('.fxcheckboxclass').style.left;  //update position in property box
+		var eee = document.querySelector('.fxcheckboxclass').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+		
+		  
+        }
+});
+//alert(droptarget)
+} 
+ 
+//console.log(droptarget); 
+
+if ( $(draggable).attr('id').includes("fC") ) { 
+old = droptarget;
+console.log(old);
+//console.log(droptarget);
+ 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+ 
+//document.getElementById(originalobject).style.position = "relative";
+
+$(".fxcheckboxclass").draggable( {
+});
+mynew = droptarget;
+console.log(mynew);
+} 
+
+//FX-RADIOBUTTON DROP
+if ($(draggable).attr('id') == "radioicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "fR"  + d.getTime();
+var str1 =  '<fx-radiobutton id=';
+var str2 = ' class="fxradiobuttonclass"  theme="gold" onclick="myFunction(this)" style="position:relative;left:0px;top:0px;">';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-radiobutton>'); 
+$(".fxradiobuttonclass").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('.fxradiobuttonclass').style.left;  //update position in property box
+		var eee = document.querySelector('.fxradiobuttonclass').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+} 
+
+if (   $(draggable).attr('id').includes("fR") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxradiobuttonclass").draggable( {
+});
+}
+
+//FX IMAGEBUTTON DROP
+if ($(draggable).attr('id') == "fedexbuttonicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "gB"  + d.getTime();
+var str1 =  '<fx-imagebutton id=';
+var str2 = ' class="fxbuttonclass" onclick="myFunction(this)" style="text-align:center;">';
+var res = str1 +  timeStamp  +  str2;
+var newidBackIm = timeStamp + 'card image' ;
+var myCaption = timeStamp + 'my caption' ;
+
+$(droptarget).append(res +
+ '<img slot="button-image" class = "imagebutton" id="' + newidBackIm + '" ondblclick="myFunction(this)"   style="position:relative;width:100%;height:100%;object-fit:contain;" \>' +
+ '</fx-imagebutton>');
+//<div slot = "button-caption" id="' + myCaption + '" ondblclick="myFunction(this)" style = "position:absolute;bottom:5px;z-index:100;">caption</div>
+ 
+ $(".fxbuttonclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-imagebutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-imagebutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+}
+
+if    (   $(draggable).attr('id').includes("gB") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxbuttonclass").draggable( {
+});
+} 
+
+//FEDEX BOX MENU COMPONENT 
+//Does  not read the Bootstrap CSS link because its encapsulated.  Use a custom element instead. 
+
+//FX-LONGHAULLEADERS DROP
+if ($(draggable).attr('id') == "leaderboardicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "fL"  + d.getTime();
+var str1 =  '<fx-longhaulleaders id=';
+var str2 = ' class="fxleaderboardclass"  onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-longhaulleaders>'); 
+
+$(".fxleaderboardclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+drag: function() {
+        var ddd = document.querySelector('fx-longhaulleaders').style.left;  //update position in property box
+		var eee = document.querySelector('fx-longhaulleaders').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+}
+
+if    (   $(draggable).attr('id').includes("fL") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxleaderboardclass").draggable( {
+});
+}
+
+//POLYFAB DROP
+//note: this is a polymer module not one of mine
+/*if ($(draggable).attr('id') == "polyfab") 
+{ 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "pf"  + d.getTime();
+var str1 =  '<paper-fab id='; 
+var str2 = ' class="polyfabclass"  onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</paper-fab');  
+  
+$(".polyfabclass").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+    drag: function() {
+        var ddd = document.querySelector('paper-fab').style.left;  //update position in property box
+		var eee = document.querySelector('paper-fab').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+} */
+
+//Combo
+if ($(draggable).attr('id') == "polyslider") 
+{ 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "pc"  + d.getTime();
+var str1 =  '<fx-combo id='; 
+var str2 = ' class="fxcomboclass"  width="350" height="300" c="slateblue" textcolor="black" trans="1" onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+$(droptarget).append(res +
+'</fx-combo');  
+  
+$(".fxcomboclass").draggable( {
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+    drag: function() {
+        var ddd = document.querySelector('fx-combo').style.left;  //update position in property box
+		var eee = document.querySelector('fx-combo').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }	
+});
+}
+
+if (   $(draggable).attr('id').includes("pc") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxcomboclass").draggable( {
+});
+}
+
+
+//fx-primarybutton
+ if ($(draggable).attr('id') == "textbuttonicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "pB"  + d.getTime();
+var str1 =  '<fx-primarybutton id=';
+var str2 = ' class="fxprimarybutton " onclick="myFunction(this)" caption= "fx-primarybutton">';
+var res = str1 +  timeStamp  +  str2;
+newid1 = timeStamp + 'caption1' ;
+
+
+$(droptarget).append(res +
+'<span id="' + newid1 + '" slot="caption1" class="fxprimarybutton" style="z-index:2;margin-left:10px;margin-right:10px;" ondblclick="myFunction(this)">Enter Caption</span>' +
+'</fx-primarybutton>'); 
+ 
+$(".fxprimarybutton").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-primarybutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-primarybutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("pB") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxprimarybutton").draggable( {
+});
+}
+
+//fx-secondarybutton
+ if ($(draggable).attr('id') == "secondarybuttonicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "sB"  + d.getTime();
+var str1 =  '<fx-secondarybutton id=';
+var str2 = ' class="fxsecondarybutton" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+newidBackIm = timeStamp + 'caption' ;
+
+$(droptarget).append(res +
+ '<div id="' + newidBackIm + '" slot="caption" ondblclick="myFunction(this)" style="padding-top:10px;">Enter Caption</div>' +
+ '</fx-secondarybutton>'); 
+ 
+$(".fxsecondarybutton").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-secondarybutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-secondarybutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("sB") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxbasicsecondarybutton").draggable( {
+});
+}
+
+//fx-basicsecondarybutton...this is the oval button
+ if    (  $(draggable).attr('id').includes("basicsecondarybuttonicon")   ) { 
+//alert("icon");
+olddropbutton = droptarget;
+var d = new Date();
+var timeStamp = "bB"  + d.getTime();
+var str1 =  '<fx-basicsecondarybutton id=';
+var str2 = ' class="fxbasicsecondarybutton"  onclick="myFunction(this)"  >';
+var res = str1 +  timeStamp  +  str2;
+newidBackIm = timeStamp + 'secondarytext' ;
+
+$(droptarget).append(res +
+ '<div id="' + newidBackIm + '" slot="secondarytext" ondblclick="myFunction(this)" style="padding-top:10px;">ROBOTO BOLD 14px</div>' +
+ '</fx-basicsecondarybutton>'); 
+ 
+$(".fxbasicsecondarybutton").draggable( {
+cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-basicsecondarybutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-basicsecondarybutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+}
+
+if    (   $(draggable).attr('id').includes("bB") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxbasicsecondarybutton").draggable( {
+});
+}
+
+//fx-utilitybutton
+ if ($(draggable).attr('id') == "utilitybuttonicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "uB"  + d.getTime();
+var str1 =  '<fx-utilitybutton id=';
+var str2 = ' class="fxutilitybutton" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+newidBackIm = timeStamp + 'card image' ;
+
+$(droptarget).append(res +
+ '<span slot="primary-text">SELECT FILES</span>' +
+ '</fx-utilitybutton>'); 
+ 
+$(".fxutilitybutton").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-utilitybutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-utilitybutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+} 
+
+if    (   $(draggable).attr('id').includes("uB") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxutilitybutton").draggable( {
+});
+}
+
+
+//fx-cardnarrative
+ if ($(draggable).attr('id') == "cardnarrativeicon") { 
+olddropbutton = droptarget;
+d = new Date();
+timeStamp2 = "cN"  + d.getTime();    
+str1 =  '<fx-cardnarrative id=';
+str2 =' class="fxcardnarrativeclass" onclick="myFunction(this)">';
+res3 = str1 +  timeStamp2 + str2; 
+newidInsert = timeStamp2 + 'cardimage2';
+newid1 = timeStamp2 + 'headline' ;
+newid2 = timeStamp2 + 'narrative' ;
+newid3 = timeStamp2 + 'secondarytext' ;
+
+
+$(droptarget).append(res3 +
+
+'<img slot="card-image2" id="' + newidInsert + '" src="insertplaceholder.jpg"   style="width:100%;margin:0px;"  ondblclick="myFunction(this)"/>' +
+
+'<div id="' + newid1 + '" slot="headline"  ondblclick="myFunction(this)">HEADLINE</div>' +
+
+'<div   id="' + newid2 + '" slot="narrative"  ondblclick="myFunction(this)">narrative</div>' +
+
+'<div id="' + newid3 + '" ondblclick="myFunction(this)" slot="caption">CAPTION</div>' +
+
+'</fx-cardnarrative>');
+}
+
+$(".fxcardnarrativeclass").draggable( {
+	 
+	cursor: 'move',  
+	snap: false,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-cardnarrative').style.left;  //update position in property box
+		var eee = document.querySelector('fx-cardnarrative').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+
+if    (   $(draggable).attr('id').includes("cN") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxcardnarrativeclass").draggable( {
+});
+}
+
+
+
+//fx-counter drop
+if ($(draggable).attr('id') == "countericon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "cD"  + d.getTime();
+var str1 =  '<fx-counter id=';
+var str2 = ' class="fxcounter" onclick="myFunction(this)" >';
+var res = str1 +  timeStamp  +  str2;
+ 
+$(droptarget).append(res +
+'</fx-basicsecondarybutton>'); 
+ 
+$(".fxcounter").draggable( {
+	 
+	cursor: 'move',  
+	snap: false,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-counter').style.left;  //update position in property box
+		var eee = document.querySelector('fx-counter').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+}
+
+if    (   $(draggable).attr('id').includes("cD") ) { 
+var originalobject = $(draggable).attr('id');
+ooo = document.getElementById(originalobject);
+$(droptarget).append( ooo );
+document.getElementById(originalobject).style.top = "0px";
+document.getElementById(originalobject).style.left = "0px";
+$(".fxcounter").draggable( {
+});
+}
+
+//fx-badge drop
+if ($(draggable).attr('id') == "emailbadgeicon") { 
+olddropbutton = droptarget;
+var d = new Date();
+timeStamp = "bI"  + d.getTime();
+var str1 =  '<badge-input id=';
+var str2 = '   onclick="myFunction(this)">';
+var res = str1 +  timeStamp  +  str2;
+ 
+
+$(droptarget).append(res +
+'</badge-input>'); 
+//making a text input draggable kills the ability to get focus.  It has to do with rerendering.  For //nowyou must use positioning rather than dragging. 
+/*$(".badgeinput").draggable( {
+	 
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('badge-input').style.left;  //update position in property box
+		var eee = document.querySelector('badge-input').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});*/
+}  
+
+}  //end handleDropEvent
+
+</script>
+
+<!--UTILITY SCRIPTS FORMALLY EXTERNAL JS FILE-->
+<script>
+$( init );  //important
+
+function init() {
+	 
+$('#cardicon').draggable( {
+ cursor: 'move',
+ helper:cardHelper
+  }) 
+
+$('#imageicon').draggable( {
+ cursor: 'move',
+ helper:imageHelper
+  })
+  
+$('#divicon').draggable( {
+ cursor: 'move',
+ helper:divHelper
+  })
+  
+$('#fedexbuttonicon').draggable( {
+ cursor: 'move',
+ helper:fedexButtonHelper
+  })
+  
+$('#tableicon').draggable( {
+ cursor: 'move',
+ helper:tableHelper
+  })  
+  
+$('#checkboxicon').draggable( {
+ cursor: 'move',
+ helper:checkboxHelper
+  })
+  
+  $('#radioicon').draggable( {
+ cursor: 'move',
+ helper:radioHelper
+  })  
+ 
+$('#dropmenuicon').draggable( {
+ cursor: 'move',
+ helper:dropMenuHelper
+  }) 
+
+$('#markupicon').draggable( {
+	cursor: 'move',
+	helper: markupHelper
+	})
+	
+	$('#trainicon').draggable( {
+	cursor: 'move',
+	helper: trainHelper
+	})
+	
+	$('#accordionicon').draggable( {
+	cursor: 'move',
+	helper: accordionHelper
+	})
+	
+	$('#gregicon').draggable( {
+	cursor: 'move',
+	helper: gregHelper
+	})  
+  
+  $('#leaderboardicon').draggable( {
+	cursor: 'move',
+	helper:leaderboardHelper
+	}) 
+
+$('#lhtrailericon').draggable( {
+	cursor: 'move',
+	helper: lhtrailer
+	})
+	
+	$('#modalicon').draggable( {
+	cursor: 'move',
+	helper: modalHelper
+	})
+	
+	$('#polyfab').draggable( {
+	cursor: 'move',
+	helper: polyFabHelper
+	})
+	
+	$('#polyslider').draggable( {
+	cursor: 'move',
+	helper: polySliderHelper
+	})
+	
+	$('#textbuttonicon').draggable( {
+	cursor: 'move',
+	helper: textbuttonHelper
+	})
+	
+	$('#secondarybuttonicon').draggable( {
+	cursor: 'move',
+	helper: secondarybuttonHelper
+	})
+	
+	$('#basicsecondarybuttonicon').draggable( {
+	cursor: 'move',
+	helper: basicsecondarybuttonHelper
+	})
+	
+	
+	$('#utilitybuttonicon').draggable( {
+	cursor: 'move',
+	helper: utilitybuttonHelper
+	})
+	
+	$('#cardnarrativeicon').draggable( {
+	cursor: 'move',
+	helper: cardnarrativeHelper
+	})
+	
+	$('#countericon').draggable( {
+	cursor: 'move',
+	helper: counterHelper
+	})
+	
+	$('#emailbadgeicon').draggable( {
+	cursor: 'move',
+	helper: emailbadgeHelper
+	})
+	
+	 
+
+//COMPONENT MENU accordion 
+$( function() {
+    $( "#accordion" ).accordion();
+  } );
+  
+  
+ //GET ID OF DROP TARGET AND HIGHLIGHT DROPTARGET BORDER IN RED 
+/*$(function() {
+$("body").droppable({
+     over: function(event, ui) {
+     $('#display').html( 'body' );
+     droptarget =  document.getElementById('display').innerHTML;
+	 }
+});
+});*/ 
+
+//OVER 
+		//each cell has the common class .content...this is what you need to reference to get the id of each individual cell...NOT the class of the containe
+		// NOT THIS: mdl-tabs__panel
+$(function() {
+$(".content").droppable({
+		over: function(event, ui) {
+		$('#display').html( this.id ).prepend("#");
+		droptarget =  document.getElementById('display').innerHTML;
+		nn = this.id;
+		 document.getElementById(nn).style.border = "10px #e8c866 solid";
+		}
+	});
+});
+
+//OUT 
+$(function() {
+$(".content").droppable({
+		out: function(event, ui) {
+		nn = this.id;
+		 document.getElementById(nn).style.border = "thin gray solid";
+		}
+	});
+});  
+$('body').droppable({drop: handleDropEvent});
+}  //init 
+
+/*$(function() {
+$(".fxbasicsecondarybutton").draggable( {
+	  
+	cursor: 'move',  
+	snap: true,
+	scroll: false,
+	drag: function() {
+        var ddd = document.querySelector('fx-basicsecondarybutton').style.left;  //update position in property box
+		var eee = document.querySelector('fx-basicsecondarybutton').style.top; 			
+		$('#mouseindicator').text('x:' + ' ' +  ' ' + ddd  +  ' ' +  'y:'  + ' '  + ' ' + eee);
+        }
+});
+}*/
+  
+
+ 
+//DRAG AND DROP
+/*$('.mdl-tabs__panel').droppable({drop: handleDropEvent});
+ 
+$(function() {
+//.mdl-tabs__panel is the canvas for standard, ipad and android
+$(".mdl-tabs__panel").droppable({
+     over: function(event, ui) {
+	 $('#display').html( this.id ).prepend("#");
+     droptarget =  document.getElementById('display').innerHTML;  //this line determines where object is dropped..critical
+	 nn = this.id; //global
+	 }
+});
+});
+} */ //init
+
+//called by the ok button in property sheet.  THE ORDER OF ITEMS IS CRITICAL
+//This also uses the global cc which is the color selected from the picker.
+//ATTRIBUTES
+function elementStyle(fxwidth,fxheight,fxbackcolor,fxzindex,fxopacity,fxleft,fxtop,fxradius, fxcursor, fxselelement) { 
+newtop = $('#setTop').val();
+newleft = $('#setLeft').val();
+
+var newposition = document.getElementById(fxselelement);
+newposition.style.top = newtop + "px";
+newposition.style.left = newleft + "px";  
+
+
+  
+
+//alert(x.offsetTop + x.offsetLeft); 
+//alert(document.getElementById(fxselelement).position());  
+  
+document.getElementById(fxselelement).setAttribute("width", fxwidth);
+document.getElementById(fxselelement).setAttribute("height", fxheight);
+document.getElementById(fxselelement).setAttribute("c", cc);
+document.getElementById(fxselelement).setAttribute("layer", fxzindex);
+document.getElementById(fxselelement).setAttribute("trans", fxopacity);
+document.getElementById(fxselelement).setAttribute("posx", fxleft);
+document.getElementById(fxselelement).setAttribute("posy", fxtop);
+document.getElementById(fxselelement).setAttribute("rad", fxradius);
+document.getElementById(fxselelement).setAttribute("cur", fxcursor);
+document.getElementById(fxselelement).setAttribute("orientation", radiochecked);
+ 
+
+}
+
+function elementStyle2(fxwidth2,fxheight2,fxbackcolor2,fxzindex2,fxopacity2,fxselelement,fxfloat2) { 
+document.getElementById(fxselelement).setAttribute("width2", fxwidth2);
+document.getElementById(fxselelement).setAttribute("height2", fxheight2);
+document.getElementById(fxselelement).setAttribute("c2", cc);
+document.getElementById(fxselelement).setAttribute("layer2", fxzindex2);
+document.getElementById(fxselelement).setAttribute("trans2", fxopacity2);
+document.getElementById(fxselelement).setAttribute("orientation2", radiochecked2);
+}
+
+//HELPERS 
+function cardHelper( event)  {  return '<i class="material-icons md-36" id="cardicon">picture_in_picture</i><BR>';}
+function gregHelper( event)  {  return '<i class="material-icons md-36" id="gregicon">tab</i><BR>';}
+function imageHelper( event ) {return '<i class="material-icons md-36" id="imageicon">image</i><BR>';}
+function divHelper( event)  {  return '<i class="material-icons md-36" id="divicon">watch</i><BR>';}
+function fedexButtonHelper( event)  {  return '<i class="material-icons md-36 md-light" id="fedexbuttonicon">check_circle</i><BR>';}
+function tableHelper( event)  {  return '<i class="material-icons md-36" id="tableicon">border_all</i><BR>';}
+function checkboxHelper( event)  {  return '<i class="material-icons md-36" id="checkboxicon">check_box</i><BR>';}
+function radioHelper( event)  {  return '<i class="material-icons md-36" id="radioicon">radio_button_checked</i><BR>';}
+function dropMenuHelper( event)  {  return '<i class="material-icons md-36" id="dropmenuicon">menu</i><BR>';}
+function markupHelper( event)  {  return '<i class="material-icons md-36" id="markupicon">http</i><BR>';}
+function trainHelper( event)  {  return '<i class="material-icons md-36" id="trainicon">linear_scale</i><BR>';}
+function accordionHelper( event) {  return '<i class="material-icons md-36" id="accordionicon">line_weight</i><BR>';}
+function lhtrailer( event)  {  return '<i class="material-icons md-36" id="lhtrailericon">local_shipping</i><BR>';}
+function modalHelper( event)  {  return '<i class="material-icons md-36" id="modalicon">pages</i><BR>';}
+function leaderboardHelper( event)  {  return '<i class="material-icons md-36" id="leaderboardicon">face</i><BR>';}
+function polyFabHelper( event)  {  return '<i class="material-icons md-36" id="polyfabicon">explore</i><BR>';}
+function polySliderHelper( event)  {  return '<i class="material-icons md-36" id="polyslidericon">all_inbox</i><BR>';}
+function textbuttonHelper( event)  {  return '<i class="material-icons md-36" id="textbuttonicon">all_inbox</i><BR>';}
+function secondarybuttonHelper( event)  {  return '<i class="material-icons md-36" id="secondarybuttonicon">face</i><BR>';}
+function basicsecondarybuttonHelper( event)  {  return '<i class="material-icons md-36" id="basicsecondarybuttonicon">face</i><BR>';}
+function utilitybuttonHelper( event)  {  return '<i class="material-icons md-36" id="utilitybuttonicon">face</i><BR>';}
+function cardnarrativeHelper( event)  {  return '<i class="material-icons md-36" id="cardnarrativeicon">desktop</i><BR>';} 
+function counterHelper( event)  {  return '<i class="material-icons md-36" id="countericon">gradient</i><BR>';} 
+function emailbadgeHelper( event)  {  return '<i class="material-icons md-36" id="emailbadgeicon">email</i><BR>';}         
+                   
+                    
+ 
+
+(function($) {'use strict';})(jQuery);     //protects the jquery shorthand selector  
+
+var droptarget,olddroptarget,yy,jimmy,hhh,uu //global variables 
+ 
+//image select and edit 
+function textSlotBackImage(fxselelementText) //id of the selected element
+{
+popo1 = $('#setTitle5').val();    //setTitle5 is a hidden field next to the ok button with name of selected image
+document.getElementById(fxselelementText).src =  popo1;
+} 
+
+//text select and edit 
+function textSlot0(fxselelement)   
+{
+ 
+tom = document.getElementById(fxselelement); //this is the unique id for the actual slot
+tom.innerHTML = $('#setTitle0').val(); //the text entered into the textarea box
+tom.style.color = vv;
+tracy = document.getElementById('setsize').value;
+tom.style.fontSize = tracy + 'px';
+} 
+
+//file select  (this is required for image select to work!)
+//immeddiatly invokedd function activated with the onchange event from the choose file button on the propbox.  This needs no inline call...it just happens when the image file is selected.
+
+$(function(){ 
+$("#image_uploads").change(function(e){ 
+hkhk = this.files[0].name;
+document.getElementById('setTitle5').value =  hkhk ;
+popo1 = $('#setTitle5').val();
+document.getElementById(fxselelement).src =  popo1;
+});
+})
+
+//color picker
+$("#full").spectrum({
+    color: "#ECC",
+    showInput: true,
+    className: "full-spectrum",
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: true,
+    maxSelectionSize: 10,
+    preferredFormat: "hex",
+    localStorageKey: "spectrum.demo",
+    move: function (color) {
+        
+    },
+    show: function () {
+    
+    },
+    beforeShow: function () {
+    
+    },
+    hide: function () {
+    
+    },
+    
+	change: function(color) {     //change is a jquery function.  
+    cc = color.toHexString(); //all we do is use to color picker to set a global variable for elementStyle()
+	//alert(cc);
+	},
+    
+	palette: [
+        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+    ]
+});
+
+//text color
+	$("#fulltext").spectrum({
+    color: "#ECC",
+    showInput: true,
+    className: "full-spectrum",
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: true,
+    maxSelectionSize: 10,
+    preferredFormat: "hex",
+    localStorageKey: "spectrum.demo",
+    move: function (color) {
+        
+    },
+    show: function () {
+    
+    },
+    beforeShow: function () {
+    
+    },
+    hide: function () {
+    
+    },
+    
+	change: function(color) {     //change is a jquery function.  
+    vv = color.toHexString(); 
+	 
+	//all we do is use to color picker to set a global variable for elementStyle()
+	},
+    
+	palette: [
+        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+    ]
+});
+
+//open and close component and prop menus
+function toggleDisplay(divId) {
+//alert(divId);
+$("#"+ divId).toggle();
+}
+
+function hideGrid() {
+var targetContent = document.getElementsByClassName("content") ;
+var i;
+		for (i = 0; i < targetContent.length; i++) {
+			targetContent[i].style.border = "none";
+			}
+}
+
+function showGrid() {
+var targetContent = document.getElementsByClassName("content") ;
+var i;
+		for (i = 0; i < targetContent.length; i++) {
+			targetContent[i].style.border = "solid thin silver";
+			}
+}
+
+
+
+//SELECTIONS
+//Called from inline script in each element with a click on the object  
+function myFunction(xx) {
+ 
+yy = null;
+yy = $(xx).attr('id');
+ 
+jimmy = document.getElementById(yy);
+hhh =  jimmy.innerText;
+document.getElementById("trashcan").innerHTML = $(xx).attr('id');
+document.getElementById("selecteditem").innerHTML = "<span style='color:white;'>ID:</span>" + " " + $(xx).attr('id');
+uu = document.getElementById('trashcan').innerText; //same as yy
+} 
+
+//projects menu  DEFINE THE MENU STRUCTURE
+//views menu
+$(function() {                  
+$('#tree1').tree({
+        data: data,
+		autoOpen: true, 
+		dragAndDrop: true
+		
+    });
+	});
+	
+	var data = [
+	
+	{
+        name: 'Output',
+        children: [
+            { name: 'HTML' }
+             
+        ]
+    },
+	
+	
+	{
+        name: 'Long Haul Screens',
+			children: 	[
+							{ name: 'home' },
+							{ name: 'unassigned' },
+							{ name: 'assigned' }
+						]		
+							 
+					 
+    },
+	
+    {
+        name: 'Virtual Check Ride Screens',
+			children: 	[
+							{ name: 'home'},
+							{ name: 'leaaderboard'},
+							{ name: 'awards'}
+						]
+    }
+	 
+];
+
+//assets menu   DEFINE THE MENU STRUCTURE
+$(function() {                               
+    $('#assets').tree({
+        data: data2,
+		autoOpen: true,
+		dragAndDrop: true
+    });
+});
+
+var data2 = [
+    {
+        name: 'icons',
+        children: [
+            { name: 'Last_Stop_icon.png' },
+            { name: 'Meet Point.png' }
+        ]
+    },
+    {
+        name: 'symbols',
+        children: [
+            { name: 'End_Break_22px.svg' }
+        ]
+    },
+	{
+        name: 'images',
+        children: [
+            { name: 'car.jpg' },
+			{ name: 'pilot.jpg' }
+			
+        ]
+    },
+	{
+        name: 'interactions',
+        children: [
+            { name: 'fx-drop-transfer-cars' }
+        ]
+    },
+	{
+        name: 'scripts',
+        children: [
+            { name: 'long-haul-r1-c1' },
+			{ name: 'long-haul-r1-c2' },
+			{ name: 'long-haul-r3-c3' },
+			{ name: 'long-haul-home-r1-c1'}
+        ]
+    },
+	{
+        name: 'applications',
+        children: [
+            { name: 'new component editor' },
+			 
+        ]
+    }
+];
+
+//this is the code for any given specific item selected
+
+//PROJECTS    MENU ACTIONS
+$('#tree1').on(
+    'tree.select',
+    function(event) {
+        if (event.node) {
+            // node was selected
+            var node = event.node;
+			//alert(node.name);
+			  
+			 
+             
+			 
+			 switch (node.name) {
+				case 'HTML':
+				 
+					document.getElementById('htmlout').style.display='block'; 
+					document.getElementById("iconMenu").style.display = "none";
+					document.getElementById("tabs").style.display = "none";
+				break;
+				
+				//screen1
+				
+				case 'save1':
+				    stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave', stufftosave);
+				break;
+				
+				case 'open1':
+				    $('#ipad').append(localStorage.getItem('pagesave'));
+				break;
+				
+				case 'close1':
+				    document.getElementById('ipad').innerHTML = '';
+				break;
+				
+				case 'delete1':
+				    localStorage.removeItem('pagesave');
+				break;
+				
+				 //screen2
+				
+				case 'save2':
+				    stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave2', stufftosave);
+				break;
+				
+				case 'open2':
+				    $('#ipad').append(localStorage.getItem('pagesave2'));
+				break;
+				
+				case 'close2':
+				    document.getElementById('ipad').innerHTML = '';
+				break;
+				
+				case 'delete2':
+				    localStorage.removeItem('pagesave2');
+				break;
+				
+				}  //switch
+			 
+			 }
+			 }
+			 )
+
+//ASSETS    MENU ACTIONS
+$('#assets').on(
+    'tree.select',
+    function(event) {
+        if (event.node) {
+            // node was selected
+            var node = event.node;
+			 
+             //alert(node.name);
+			 
+			 switch (node.name) {
+			 case 'long-haul-r1-c1':
+			 document.getElementById('setTitle0').innerHTML = `<span style="color:white;font-size:40px;font-weight:bold;">Fed</span><svg height="30" width="50">
+  <text x="-5" y="30" fill=#823eb0 stroke=white font-size=30pt>Ex
+<br />
+
+<svg height="30" width="130">
+  <text x="68" y="12" fill=#823eb0 stroke=white font-size=10pt stroke-width="0.15">Ground</text>
+</svg>
+
+<div style="border-left: 1px solid white;height: 45px;position:absolute;left:140px;top:0px;"></div>
+
+<span style="position:absolute;left:160px;top: 10px;font-size:30px;color:silver;font-weight:bold;">LINEHAUL</span>
+<br />
+<span style="font-size:14px;color:silver;">MONDAY, SEPT 24&nbsp;&nbsp;&nbsp;&nbsp;6:15 am</span>
+
+<svg width='100%' height='65px' viewBox='0 0 1132 65'>
+  <g class='bars'>
+    <rect class='bg' fill='#9b9cca' width='95%' height='65'></rect>
+    <rect class='data' fill='white' width='60%' height='65'></rect>
+  </g>
+ 
+  <g text-anchor='middle'>
+    <text text-anchor='start' fill='#6d6dae' x='10' y='50 
+ ' font-size=25pt>60% Runs Assigned</text>
+<text text-anchor='end' fill='white' x='93%' y='50' font-size=25pt>48/80</text>
+ </g>
+  <g>
+    <text class='result' y='60px' x='69%'>60%</text>
+  </g>
+</svg>`; 
+break;
+
+	case 'long-haul-r1-c2':
+			document.getElementById('setTitle0').innerHTML = `<button style="width:140px;height:35px;border:solid thin green;font-size:16px;color:green;">View</button>&nbsp&nbsp<button style="width:140px;height:35px;background-color:#823eb0;font-size:16px;color:white;">Map View</button>&nbsp&nbsp&nbsp&nbsp<img src="chair.png" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="grouped.png" /><br /><br />
+<span style-"font-size:20px;">Run</span>
+</br>
+<span style="font-size:20px;">00389 OLIV    00371 NASH</span>`;
+	break;
+
+	case 'long-haul-r3-c3':	
+			document.getElementById('setTitle0').innerHTML = `<button style="width:140px;height:35px;border:solid thin blue;font-size:16px;color:white;">Cancel</button>&nbsp&nbsp<button id="myBtn" style="width:140px;height:35px;background-color:#823eb0;font-size:16px;color:white;" onclick="document.getElementById('message').style.display='block'">Save Changes</button>`;
+break;
+
+case 'long-haul-home-r1-c1':
+document.getElementById('setTitle0').innerHTML = `<div style="width:280px;height:40px;background-color:#823eb0;color:white;position:absolute;left:470px;top:100px;z-index:200;font-size:24px;font-family:roboto thin;text-align:center;line-height:40px;">Good Morning Brad!</div><span style="width:500px;color:#823eb0;z-index:200;font-size:24px;font-family:roboto thin;text-align:center;position:absolute;left:360px;top:150px;">What do you want to start today?</span>`
+ 
+	break;	
+	
+case 'new component editor':
+	window.open("file:///C:/Users/3658645/Desktop/Fedex%20IDE%20New/component%20wizardV11%20-%20backup.htm", "_self");  
+    //openModal();
+	
+        } //end switch
+      } //end if
+    } //end function
+); //end on
+</script>
+
+
+<!--Build the run time html document activated by the Export button in html modal-->
+<script>
+/*function mapNodes() { 
+  
+    c_name = document.getElementById("component_name").value;  //text fields in the html modal...nothint to do with style
+	c_width = document.getElementById("component_width").value;
+	c_height = document.getElementById("component_height").value; 
+	var c = document.getElementById("ipad").childNodes;  //each element is a childNode
+	var txt = [];
+	var tgt = document.getElementById("text-val");
+ 
+tgt.append(  (`<!DOCTYPE html> 
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link rel="stylesheet" href="Design-System-IDE.css"/>
+<link rel="stylesheet" href="material.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">` ));
+
+for (var i = 0; i < c.length; i++) {
+tgt.append(( `<link rel = "import" href =` +   c[i].nodeName + `.html>`));
+}
+
+tgt.append((`</head>`));
+
+for (var i = 0; i < c.length; i++) {
+ 
+	txt[i]  = {"name": c[i].nodeName ,  "left": c[i].style.left , "top": c[i].style.top, "width": c[i].getAttribute('width') , "height": c[i].getAttribute('height'), "back": c[i].getAttribute('c'), "layer": c[i].getAttribute('layer'), "opacity": c[i].getAttribute('trans'), "fontcolor": c[i].getAttribute('textcolor'), "orientation": c[i].getAttribute('orientation')};
+	 
+	tgt.append(   (  '<' + txt[i].name + ' LEFT=' + txt[i].left + ' TOP= ' + txt[i].top + ' WIDTH= ' + txt[i].width + ' HEIGHT= ' + txt[i].height + ' BACK= ' + txt[i].back + ' Z-INDEX= ' + txt[i].layer + ' OPACITY= ' + txt[i].opacity + ' FONTCOLOR= ' + txt[i].fontcolor + ' ORIENTATION= ' + txt[i].orientation + '></' + txt[i].name + '>' )   );
+	} 
+tgt.append(  ('</body></html>')); 		 
+}*/
+</script>
+ 
+
+<!--MODAL FOR HTML OUTPUT-->
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 4000; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 500px;
+  top: 300px;
+  width: 500px; /* Full width */
+  height: 300px; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+ 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+#closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#htmlout {
+color:black;
+background-color:white;
+width:900px;
+height:580px;
+border:thin solid silver;
+position:fixed;
+left:200px;
+top:200px;
+z-index:100;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+font-size:18px;
+padding:20px;
+display: none;
+-webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+#messageTextArea {
+width:450px;
+height:130px;
+font-size:18px;
+margin-top:10px;
+margin-bottom:10px;
+color:black;
+z-index:4000;
+}
+
+#messageHeader {
+font-size:22px;
+font-weight:bold;
+color: var(--fedexpurple);
+}
+</style>
+
+
+<!--All you are doing here is copying the contents of the canvas...in this instance ipadContainer.  You don't need to iterate the childnodes...that was a version some time ago before I discovered all I had to do was copy the text..not the nodes-->
+<script>
+
+/*Note: go to Chrome settings > advanced to select the default download directory or select the option to display the folder select dialog every time it downloads*/
+// Start file download.
+ document.getElementById("dwn-btn").addEventListener("click", function(){
+      //Generate download of hello.txt file with some content
+	doExport();
+    var text = document.getElementById("text-val").value;
+	document.getElementById('text-val').innerHTML = '';  //this clears the text to eliminate dupes
+    var filename = $("#input-fileName").val();
+	var saveAs = true;
+    download(filename, text);
+ }, false);
+
+function doExport()	{
+ 
+//var c = document.getElementById('ipadContainer').childNodes; no longer needed!
+//alert($('#setcanvas').val());
+//var canvasText = document.getElementById($('#desktop').innerHTML;   //needed dont' eliminate this is the key stuff...components inside the grid
+var desk = document.getElementById('desktopcontent').innerHTML; 
+var desktopid = `<div id = "desktop">`;
+var resultdesktop = desktopid.concat(desk);
+var ending = `</div>`;
+var resultfinaldesktop = resultdesktop.concat(ending);
+//alert(resultfinal);
+ 
+
+var tab = document.getElementById('tabletcontent').innerHTML;
+var tabletid = `<div id = "tablet">`;
+var resulttablet = tabletid.concat(tab);
+var resultfinaltablet = resulttablet.concat(ending);
+
+var mob = document.getElementById('mobilecontent').innerHTML;
+var mobileid = `<div id = "mobile">`;
+var resultmobile = mobileid.concat(mob);
+var resultfinalmobile = resultmobile.concat(ending);
+
+var canvasText = resultfinaldesktop  + resultfinaltablet  + resultfinalmobile ;
+
+var tgt = document.getElementById('text-val');
+//all we do here is add the header items to the stuff in final (the grid contents of the canvas)
+tgt.append(  (`<!DOCTYPE html>
+<html lang="en">
+<body>
+<head>
+<title>FedEx Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"><\/SCRIPT>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"><\/SCRIPT>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"><\/SCRIPT>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"><\/SCRIPT>
+<script src="material.js"><\/SCRIPT>
+<script src="tree.jquery.js"><\/SCRIPT>
+<script src="jquery.film_roll.js"><\/SCRIPT>
+<script src="circles.min.js"><\/SCRIPT>  
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"><\/SCRIPT>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"><\/SCRIPT>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"><\/SCRIPT>
+<!--CSS-->
+<link rel="stylesheet" href="Design-System-IDE.css"/>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<link rel="stylesheet" href="material.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="jqtree.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+<!--ES6 Vanilla Web Components-->
+<script src="fx-accordion.js"><\/SCRIPT>
+<script src="date-widget.comp.js"><\/SCRIPT>
+<script src="fx-radiobutton.js"><\/SCRIPT>
+<script src="fx-markup.js"><\/SCRIPT>
+ 
+<script src="basic.js"><\/SCRIPT>
+<script src="wordcount.js"><\/SCRIPT>
+<script src="fx-div.js"><\/SCRIPT>
+<script src="fx-checkbox.js"><\/SCRIPT>
+<script src="fx-imagebutton.js"><\/SCRIPT>
+<script src="fx-image.js"><\/SCRIPT>
+<script src="fx-train.js"><\/SCRIPT>
+<script src="fx-dropdownmenu.js"><\/SCRIPT>
+<script src="fx-card.js"><\/SCRIPT>
+<script src="fx-table.js"><\/SCRIPT>
+<script src="fx-combo.js"><\/SCRIPT>
+ 
+<script src="fx-primarybutton.js"><\/SCRIPT>
+<script src="fx-secondarybutton.js"><\/SCRIPT>
+<script src="fx-basicsecondarybutton.js"><\/SCRIPT>
+<script src="fx-utilitybutton.js"><\/SCRIPT>
+<script src="fx-cardnarrative.js"><\/SCRIPT>
+<script src="fx-counter.js"><\/SCRIPT>
+<script src="fx-badge.js"><\/SCRIPT>
+<script src="to-do-item.js"><\/SCRIPT>
+<script src="fx-modal.js"><\/SCRIPT>
+
+<style>
+h1 {
+  width: 100%;
+}
+
+.ui-accordion .ui-accordion-header {
+height:30px;
+line-height:2px;
+background-color:rgb(60,60,60);
+border:none;
+color: white;
+}
+
+ 
+#desktop  {
+	display:none;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(8,1fr);width:1200px;height:1400px;background-color:white;margin:0 auto;
+	}
+
+#mobile  {
+	display:none;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:360px;height:640px;background-color:white;margin:0 auto;
+	}
+	
+#tablet  {
+	display:none;grid-template-columns: repeat(3,1fr);grid-template-rows:repeat(8,1fr);width:768px;height:1024px;background-color:white;margin:0 auto;
+	}
+
+@media screen and   (min-width: 400px) {
+	 #mobile  { display: grid; }
+}
+
+@media screen and   (min-width: 400px) {
+	#tablet  { display: none; }
+}
+
+@media screen and   (min-width: 400px) {
+	 #desktop  { display: none; }
+}
+
+
+
+@media screen and   (min-width: 700px) {
+	 #mobile  { display: none; }
+}
+
+@media screen and   (min-width: 700px) {
+	#tablet  { display: grid; }
+}
+
+@media screen and   (min-width: 700px) {
+	 #desktop  { display: none; }
+}
+
+
+
+
+@media screen and   (min-width: 950px) {
+	 #mobile  { display: none; }
+}
+
+@media screen and   (min-width: 950px) {
+	#tablet  { display: none; }
+}
+
+@media screen and   (min-width: 950px) {
+	 #desktop  { display: grid; }
+}
+</style>
+
+ 
+</head>` ));
+tgt.append(canvasText);   //needed
+tgt.append( `</body>` ); 
+}
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+</script>
+
+<div id="htmlout" style="background-color: rgb(80,80,80);border:none;"> 
+ <span id="messageHeader" style="color:silver;font-face:roboto;font-weight:normal;">html</span>
+ 
+ <button id="closeButton" style="float:right;border:none;font-size:26px;font-weight:bold;background-color:transparent;color:rgb(140,140,140);" onclick="document.getElementById('text-val').innerHTML = '';document.getElementById('htmlout').style.display='none'; 
+  document.getElementById('iconMenu').style.display = 'block';document.getElementById('tabs').style.display = 'block';">X</button>
+ 
+<textarea id="text-val" style="width:858px;height:460px;padding:10px;color:black;background-color:rgb(150,150,150);margin-top:5px;overflow-y:auto;"></textarea> 
+<!--<textarea id="text-val" rows="4">This is the content of my file</textarea>-->
+
+
+<!--Buttons at bottom of dialog-->
+<button onclick= "doExport();"
+style="position:absolute;left:450px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;">Export</button>
+
+
+<script src="fx-radiobutton.js"></script>
+
+<button   style="position:absolute;left:530px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave', stufftosave);" >S1</button>
+
+<button   style="position:absolute;left:560px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "stufftosave = document.getElementById('ipad').innerHTML;localStorage.setItem('pagesave2', stufftosave);" >S2</button>
+
+ <button   style="position:absolute;left:600px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "$('#ipad').append(localStorage.getItem('pagesave'));" >R1 </button>
+
+<button   style="position:absolute;left:640px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "$('#ipad').append(localStorage.getItem('pagesave2'));" >R2 </button>
+
+<button   style="position:absolute;left:690px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "document.getElementById('ipadContainer').innerHTML = '';" >X Page</button>
+
+<button   style="position:absolute;left:780px;top:530px;background-color:transparent;border:none;color:silver;cursor:pointer;" onclick= "localStorage.removeItem('pagesave');localStorage.removeItem('pagesave2')" >X Storage</button>
+
+<!--onclick= "stufftosave = document.getElementById('stencil').innerText;localStorage.setItem('pagesave', stufftosave);alert(localStorage.getItem('pagesave'));"-->
+
+<!--https://stackoverflow.com/questions/36384414/how-to-save-dragdrop-to-localstorage-->
+
+<form style="position:absolute;top:530px;left200px;">
+  <input type="text" name="c_name" value="name" id="component_name" onfocus="this.value=''" style="color:rgb(60,60,60);padding-left:5px;background-color:rgb(150,150,150);border:none; "> 
+  <input type="text" name="c_width" value="width" id="component_width" onfocus="this.value=''" style="color:rgb(60,60,60);width:70px;padding-left:5px;background-color:rgb(150,150,150);border:none;"> 
+  <input type="text" name="c_height" value="height" id="component_height" onfocus="this.value=''" style="color:rgb(60,60,60);width:70px;padding-left:5px;background-color:rgb(150,150,150);border:none;">
+</form>
+</div>
+
+ 
+
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+  //$('#iconMenu').toggle();
+  document.getElementById("iconMenu").style.display = "none";
+  document.getElementById("tabs").style.display = "none";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+  document.getElementById("iconMenu").style.display = "block";
+  document.getElementById("tabs").style.display = "block";
+}
+</script>
+
+<style>
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  opacity:0.5;
+   
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+ 
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right:  125px;
+  font-size: 155px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<!--RTF This is the Rich Text Editor and has nothing to do with the export function-->
+
+<!--RTF MODAL-->
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 4000; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 500px;
+  top: 300px;
+  width: 500px; /* Full width */
+  height: 300px; /* Full height */
+  overflow-y: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+ 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-500px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-500px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+#closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#rtf {
+color:black;
+background-color:white;
+width:900px;
+height:280px;
+border:thin solid silver;
+position:fixed;
+left:200px;
+bottom: 10px;
+z-index:100;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+font-size:18px;
+padding:20px;
+display: block;
+-webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+#messageTextArea {
+width:450px;
+height:130px;
+font-size:18px;
+margin-top:10px;
+margin-bottom:10px;
+color:black;
+z-index:4000;
+}
+
+#messageHeader {
+font-size:22px;
+font-weight:bold;
+color: var(--fedexpurple);
+}
+</style>
+
+<!--RTF-->
+<script type="text/javascript">
+
+var oDoc, sDefTxt;
+
+function initDoc() {
+  oDoc = document.getElementById("textBox");
+  sDefTxt = oDoc.innerHTML;
+  if (document.compForm.switchMode.checked) { setDocMode(true); }
+}
+
+function formatDoc(sCmd, sValue) {
+  if (validateMode()) { document.execCommand(sCmd, false, sValue); oDoc.focus(); }
+}
+
+function validateMode() {
+  if (!document.compForm.switchMode.checked) { return true ; }
+  alert("Uncheck \"Show HTML\".");
+  oDoc.focus();
+  return false;
+}
+
+function setDocMode(bToSource) {
+  var oContent;
+  if (bToSource) {
+    oContent = document.createTextNode(oDoc.innerHTML);
+    oDoc.innerHTML = "";
+    var oPre = document.createElement("pre");
+    oDoc.contentEditable = false;
+    oPre.id = "sourceText";
+    oPre.contentEditable = true;
+    oPre.appendChild(oContent);
+    oDoc.appendChild(oPre);
+    document.execCommand("defaultParagraphSeparator", false, "div");
+  } else {
+    if (document.all) {
+      oDoc.innerHTML = oDoc.innerText;
+	    
+    } else {
+      oContent = document.createRange();
+      oContent.selectNodeContents(oDoc.firstChild);
+      oDoc.innerHTML = oContent.toString();
+	  //alert(oDoc);
+    }
+    oDoc.contentEditable = true;
+  }
+  oDoc.focus();
+   
+}
+
+function printDoc() {
+  if (!validateMode()) { return; }
+  var oPrntWin = window.open("","_blank","width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+  oPrntWin.document.open();
+  oPrntWin.document.write("<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" + oDoc.innerHTML + "<\/body><\/html>");
+  oPrntWin.document.close();
+}
+</script>
+
+<style type="text/css">
+.intLink { cursor: pointer;}
+img.intLink { border: 0;width:30px;height:30px; }
+
+#toolBar1 select { font-size:10px; }
+#textBox {
+  width: 820px;
+  height: 100px;
+  border: 1px silver solid;
+  padding: 12px;
+ overflow-x: hidden;
+ overflow-y: auto;
+ margin-left:8px;
+}
+#textBox #sourceText {
+  padding: 0;
+  margin: 0;
+  min-width: 498px;
+  min-height: 200px;
+}
+#editMode label { cursor: pointer; }
+</style>
+
+ 
+
+
+<div id="rtf" style="background-color: rgb(80,80,80);border:none;display:none;"> 
+<span id="messageHeader" style="color:silver;font-face:roboto;font-weight:normal;font-size:18px;">Rich Text Editor</span>
+<button id="closeButton" style="float:right;border:none;font-size:26px;font-weight:bold;background-color:transparent;color:rgb(140,140,140);" onclick="document.getElementById('rtf').style.display='none'; document.getElementById('iconMenu').style.display = 'block';document.getElementById('tabs').style.display = 'block';">X</button>
+
+<div id="stencilrtf" style="width:858px;height:190px;padding:10px;color:black;background-color:rgb(150,150,150);margin-top:5px;">
+<body onload="initDoc();">
+<form name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
+<input type="hidden" name="myDoc">
+<div id="toolBar1" >
+<select style="font-size:16px;background-color:rgb(80,80,80);color:silver;" onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
+<option selected>- formatting -</option>
+<option value="h1">Title 1 &lt;h1&gt;</option>
+<option value="h2">Title 2 &lt;h2&gt;</option>
+<option value="h3">Title 3 &lt;h3&gt;</option>
+<option value="h4">Title 4 &lt;h4&gt;</option>
+<option value="h5">Title 5 &lt;h5&gt;</option>
+<option value="h6">Subtitle &lt;h6&gt;</option>
+<option value="p">Paragraph &lt;p&gt;</option>
+<option value="pre">Preformatted &lt;pre&gt;</option>
+</select>
+<select style="font-size:16px;background-color:rgb(80,80,80);color:silver;" onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+<option class="heading" selected>- font -</option>
+<option>Arial</option>
+<option>Arial Black</option>
+<option>Courier New</option>
+<option>Times New Roman</option>
+<option>Roboto</option>
+</select>
+<select style="font-size:16px;background-color:rgb(80,80,80);color:silver;" onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+<option class="heading" selected>- size -</option>
+<option value="1">Very small</option>
+<option value="2">A bit small</option>
+<option value="3">Normal</option>
+<option value="4">Medium-large</option>
+<option value="5">Big</option>
+<option value="6">Very big</option>
+<option value="7">Maximum</option>
+</select>
+<select style="font-size:16px;background-color:rgb(80,80,80);color:silver;" onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+<option class="heading" selected>- color -</option>
+<option value=#4D148C>FX Purple</option>
+<option value=#FF6200>FX Orange</option>
+<option value=#999999>FX Light Gray</option>
+<option value=#666666>FX Dark Gray</option>
+<option value="#007AB7">FX Digital Navigaation Blue</option>
+<option value="#009900">FX Digital Notification Green</option>
+<option value="#F7B118">FX Digital Notification Yellow</option>
+<option value="#E8002E">FX Digital Notification Red</option>
+<option value="white">White</option>
+<option value="#000000">FX Black</option>
+
+</select>
+<select style="font-size:16px;background-color:rgb(80,80,80);color:silver;" onchange="formatDoc('backcolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+<option class="heading" selected>- background -</option>
+<option value="red">Red</option>
+<option value="green">Green</option>
+<option value="black">Black</option>
+<option value="white">White</option>
+</select>
+</div>
+<div id="toolBar2">
+<img class="intLink" title="Clean" onclick="if(validateMode()&&confirm('Are you sure?')){oDoc.innerHTML=sDefTxt};" src="data:image/gif;base64,R0lGODlhFgAWAIQbAD04KTRLYzFRjlldZl9vj1dusY14WYODhpWIbbSVFY6O7IOXw5qbms+wUbCztca0ccS4kdDQjdTLtMrL1O3YitHa7OPcsd/f4PfvrvDv8Pv5xv///////////////////yH5BAEKAB8ALAAAAAAWABYAAAV84CeOZGmeaKqubMteyzK547QoBcFWTm/jgsHq4rhMLoxFIehQQSAWR+Z4IAyaJ0kEgtFoLIzLwRE4oCQWrxoTOTAIhMCZ0tVgMBQKZHAYyFEWEV14eQ8IflhnEHmFDQkAiSkQCI2PDC4QBg+OAJc0ewadNCOgo6anqKkoIQA7" />
+<img class="intLink" title="Print" onclick="printDoc();" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oEBxcZFmGboiwAAAAIdEVYdENvbW1lbnQA9syWvwAAAuFJREFUOMvtlUtsjFEUx//n3nn0YdpBh1abRpt4LFqtqkc3jRKkNEIsiIRIBBEhJJpKlIVo4m1RRMKKjQiRMJRUqUdKPT71qpIpiRKPaqdF55tv5vvusZjQTjOlseUkd3Xu/3dPzusC/22wtu2wRn+jG5So/OCDh8ycMJDflehMlkJkVK7KUYN+ufzA/RttH76zaVocDptRxzQtNi3mRWuPc+6cKtlXZ/sddP2uu9uXlmYXZ6Qm8v4Tz8lhF1H+zDQXt7S8oLMXtbF4e8QaFHjj3kbP2MzkktHpiTjp9VH6iHiA+whtAsX5brpwueMGdONdf/2A4M7ukDs1JW662+XkqTkeUoqjKtOjm2h53YFL15pSJ04Zc94wdtibr26fXlC2mzRvBccEbz2kiRFD414tKMlEZbVGT33+qCoHgha81SWYsew0r1uzfNylmtpx80pngQQ91LwVk2JGvGnfvZG6YcYRAT16GFtW5kKKfo1EQLtfh5Q2etT0BIWF+aitq4fDbk+ImYo1OxvGF03waFJQvBCkvDffRyEtxQiFFYgAZTHS0zwAGD7fG5TNnYNTp8/FzvGwJOfmgG7GOx0SAKKgQgDMgKBI0NJGMEImpGDk5+WACEwEd0ywblhGUZ4Hw5OdUekRBLT7DTgdEgxACsIznx8zpmWh7k4rkpJcuHDxCul6MDsmmBXDlWCH2+XozSgBnzsNCEE4euYV4pwCpsWYPW0UHDYBKSWu1NYjENDReqtKjwn2+zvtTc1vMSTB/mvev/WEYSlASsLimcOhOBJxw+N3aP/SjefNL5GePZmpu4kG7OPr1+tOfPyUu3BecWYKcwQcDFmwFKAUo90fhKDInBCAmvqnyMgqUEagQwCoHBDc1rjv9pIlD8IbVkz6qYViIBQGTJPx4k0XpIgEZoRN1Da0cij4VfR0ta3WvBXH/rjdCufv6R2zPgPH/e4pxSBCpeatqPrjNiso203/5s/zA171Mv8+w1LOAAAAAElFTkSuQmCC">
+<img class="intLink" title="Undo" onclick="formatDoc('undo');" src="data:image/gif;base64,R0lGODlhFgAWAOMKADljwliE33mOrpGjuYKl8aezxqPD+7/I19DV3NHa7P///////////////////////yH5BAEKAA8ALAAAAAAWABYAAARR8MlJq7046807TkaYeJJBnES4EeUJvIGapWYAC0CsocQ7SDlWJkAkCA6ToMYWIARGQF3mRQVIEjkkSVLIbSfEwhdRIH4fh/DZMICe3/C4nBQBADs=" />
+<img class="intLink" title="Redo" onclick="formatDoc('redo');" src="data:image/gif;base64,R0lGODlhFgAWAMIHAB1ChDljwl9vj1iE34Kl8aPD+7/I1////yH5BAEKAAcALAAAAAAWABYAAANKeLrc/jDKSesyphi7SiEgsVXZEATDICqBVJjpqWZt9NaEDNbQK1wCQsxlYnxMAImhyDoFAElJasRRvAZVRqqQXUy7Cgx4TC6bswkAOw==" />
+<img class="intLink" title="Remove formatting" onclick="formatDoc('removeFormat')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAAd0SU1FB9oECQMCKPI8CIIAAAAIdEVYdENvbW1lbnQA9syWvwAAAuhJREFUOMtjYBgFxAB501ZWBvVaL2nHnlmk6mXCJbF69zU+Hz/9fB5O1lx+bg45qhl8/fYr5it3XrP/YWTUvvvk3VeqGXz70TvbJy8+Wv39+2/Hz19/mGwjZzuTYjALuoBv9jImaXHeyD3H7kU8fPj2ICML8z92dlbtMzdeiG3fco7J08foH1kurkm3E9iw54YvKwuTuom+LPt/BgbWf3//sf37/1/c02cCG1lB8f//f95DZx74MTMzshhoSm6szrQ/a6Ir/Z2RkfEjBxuLYFpDiDi6Af///2ckaHBp7+7wmavP5n76+P2ClrLIYl8H9W36auJCbCxM4szMTJac7Kza////R3H1w2cfWAgafPbqs5g7D95++/P1B4+ECK8tAwMDw/1H7159+/7r7ZcvPz4fOHbzEwMDwx8GBgaGnNatfHZx8zqrJ+4VJBh5CQEGOySEua/v3n7hXmqI8WUGBgYGL3vVG7fuPK3i5GD9/fja7ZsMDAzMG/Ze52mZeSj4yu1XEq/ff7W5dvfVAS1lsXc4Db7z8C3r8p7Qjf///2dnZGxlqJuyr3rPqQd/Hhyu7oSpYWScylDQsd3kzvnH738wMDzj5GBN1VIWW4c3KDon7VOvm7S3paB9u5qsU5/x5KUnlY+eexQbkLNsErK61+++VnAJcfkyMTIwffj0QwZbJDKjcETs1Y8evyd48toz8y/ffzv//vPP4veffxpX77z6l5JewHPu8MqTDAwMDLzyrjb/mZm0JcT5Lj+89+Ybm6zz95oMh7s4XbygN3Sluq4Mj5K8iKMgP4f0////fv77//8nLy+7MCcXmyYDAwODS9jM9tcvPypd35pne3ljdjvj26+H2dhYpuENikgfvQeXNmSl3tqepxXsqhXPyc666s+fv1fMdKR3TK72zpix8nTc7bdfhfkEeVbC9KhbK/9iYWHiErbu6MWbY/7//8/4//9/pgOnH6jGVazvFDRtq2VgiBIZrUTIBgCk+ivHvuEKwAAAAABJRU5ErkJggg==">
+<img class="intLink" title="Bold" onclick="formatDoc('bold');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" />
+<img class="intLink" title="Italic" onclick="formatDoc('italic');" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" />
+<img class="intLink" title="Underline" onclick="formatDoc('underline');" src="data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7" />
+<img class="intLink" title="Left align" onclick="formatDoc('justifyleft');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIghI+py+0Po5y02ouz3jL4D4JMGELkGYxo+qzl4nKyXAAAOw==" />
+<img class="intLink" title="Center align" onclick="formatDoc('justifycenter');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIfhI+py+0Po5y02ouz3jL4D4JOGI7kaZ5Bqn4sycVbAQA7" />
+<img class="intLink" title="Right align" onclick="formatDoc('justifyright');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIghI+py+0Po5y02ouz3jL4D4JQGDLkGYxouqzl43JyVgAAOw==" />
+<img class="intLink" title="Numbered list" onclick="formatDoc('insertorderedlist');" src="data:image/gif;base64,R0lGODlhFgAWAMIGAAAAADljwliE35GjuaezxtHa7P///////yH5BAEAAAcALAAAAAAWABYAAAM2eLrc/jDKSespwjoRFvggCBUBoTFBeq6QIAysQnRHaEOzyaZ07Lu9lUBnC0UGQU1K52s6n5oEADs=" />
+<img class="intLink" title="Dotted list" onclick="formatDoc('insertunorderedlist');" src="data:image/gif;base64,R0lGODlhFgAWAMIGAAAAAB1ChF9vj1iE33mOrqezxv///////yH5BAEAAAcALAAAAAAWABYAAAMyeLrc/jDKSesppNhGRlBAKIZRERBbqm6YtnbfMY7lud64UwiuKnigGQliQuWOyKQykgAAOw==" />
+<img class="intLink" title="Quote" onclick="formatDoc('formatblock','blockquote');" src="data:image/gif;base64,R0lGODlhFgAWAIQXAC1NqjFRjkBgmT9nqUJnsk9xrFJ7u2R9qmKBt1iGzHmOrm6Sz4OXw3Odz4Cl2ZSnw6KxyqO306K63bG70bTB0rDI3bvI4P///////////////////////////////////yH5BAEKAB8ALAAAAAAWABYAAAVP4CeOZGmeaKqubEs2CekkErvEI1zZuOgYFlakECEZFi0GgTGKEBATFmJAVXweVOoKEQgABB9IQDCmrLpjETrQQlhHjINrTq/b7/i8fp8PAQA7" />
+<img class="intLink" title="Delete indentation" onclick="formatDoc('outdent');" src="data:image/gif;base64,R0lGODlhFgAWAMIHAAAAADljwliE35GjuaezxtDV3NHa7P///yH5BAEAAAcALAAAAAAWABYAAAM2eLrc/jDKCQG9F2i7u8agQgyK1z2EIBil+TWqEMxhMczsYVJ3e4ahk+sFnAgtxSQDqWw6n5cEADs=" />
+<img class="intLink" title="Add indentation" onclick="formatDoc('indent');" src="data:image/gif;base64,R0lGODlhFgAWAOMIAAAAADljwl9vj1iE35GjuaezxtDV3NHa7P///////////////////////////////yH5BAEAAAgALAAAAAAWABYAAAQ7EMlJq704650B/x8gemMpgugwHJNZXodKsO5oqUOgo5KhBwWESyMQsCRDHu9VOyk5TM9zSpFSr9gsJwIAOw==" />
+<img class="intLink" title="Hyperlink" onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}" src="data:image/gif;base64,R0lGODlhFgAWAOMKAB1ChDRLY19vj3mOrpGjuaezxrCztb/I19Ha7Pv8/f///////////////////////yH5BAEKAA8ALAAAAAAWABYAAARY8MlJq7046827/2BYIQVhHg9pEgVGIklyDEUBy/RlE4FQF4dCj2AQXAiJQDCWQCAEBwIioEMQBgSAFhDAGghGi9XgHAhMNoSZgJkJei33UESv2+/4vD4TAQA7" />
+<img class="intLink" title="Cut" onclick="formatDoc('cut');" src="data:image/gif;base64,R0lGODlhFgAWAIQSAB1ChBFNsRJTySJYwjljwkxwl19vj1dusYODhl6MnHmOrpqbmpGjuaezxrCztcDCxL/I18rL1P///////////////////////////////////////////////////////yH5BAEAAB8ALAAAAAAWABYAAAVu4CeOZGmeaKqubDs6TNnEbGNApNG0kbGMi5trwcA9GArXh+FAfBAw5UexUDAQESkRsfhJPwaH4YsEGAAJGisRGAQY7UCC9ZAXBB+74LGCRxIEHwAHdWooDgGJcwpxDisQBQRjIgkDCVlfmZqbmiEAOw==" />
+<img class="intLink" title="Copy" onclick="formatDoc('copy');" src="data:image/gif;base64,R0lGODlhFgAWAIQcAB1ChBFNsTRLYyJYwjljwl9vj1iE31iGzF6MnHWX9HOdz5GjuYCl2YKl8ZOt4qezxqK63aK/9KPD+7DI3b/I17LM/MrL1MLY9NHa7OPs++bx/Pv8/f///////////////yH5BAEAAB8ALAAAAAAWABYAAAWG4CeOZGmeaKqubOum1SQ/kPVOW749BeVSus2CgrCxHptLBbOQxCSNCCaF1GUqwQbBd0JGJAyGJJiobE+LnCaDcXAaEoxhQACgNw0FQx9kP+wmaRgYFBQNeAoGihCAJQsCkJAKOhgXEw8BLQYciooHf5o7EA+kC40qBKkAAAGrpy+wsbKzIiEAOw==" />
+<img class="intLink" title="Paste" onclick="formatDoc('paste');" src="data:image/gif;base64,R0lGODlhFgAWAIQUAD04KTRLY2tXQF9vj414WZWIbXmOrpqbmpGjudClFaezxsa0cb/I1+3YitHa7PrkIPHvbuPs+/fvrvv8/f///////////////////////////////////////////////yH5BAEAAB8ALAAAAAAWABYAAAWN4CeOZGmeaKqubGsusPvBSyFJjVDs6nJLB0khR4AkBCmfsCGBQAoCwjF5gwquVykSFbwZE+AwIBV0GhFog2EwIDchjwRiQo9E2Fx4XD5R+B0DDAEnBXBhBhN2DgwDAQFjJYVhCQYRfgoIDGiQJAWTCQMRiwwMfgicnVcAAAMOaK+bLAOrtLUyt7i5uiUhADs=" />
+</div>
+<div id="textBox" contenteditable="true"><p>Enter Text</p></div>
+<p id="editMode"><input type="checkbox" name="switchMode" id="switchBox" onchange="setDocMode(this.checked);" /> <label for="switchBox">Show HTML</label></p>
+<!--<p><input type="submit" value="Send" /></p>-->
+</form>
+
+</div><!--stencilrtf-->
+<button onclick="whattosave = getElementById('textBox').innerHTML;
+wheretosave = document.getElementById('trashcan').innerHTML;
+document.getElementById(wheretosave).innerHTML = whattosave;" 
+style="background-color:transparent;color:rgb(150,150,150);border:none;margin-left:5px;color:silver;font-family:roboto;letter-spacing:1px;margin-top:15px;">Save</button>
+
+
+<script>
+function rtfAction() {
+ 
+ origin = getElementById('textBox').innerHTML;
+//alert(origin);
+
+ destination = document.getElementById('trashcan').innerHTML;
+ 
+}
+
+
+</script> 
+
+</body>
+</html>
+
+
+
+
