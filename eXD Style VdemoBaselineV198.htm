@@ -685,21 +685,50 @@ center;z-index:3000;width:250px;">
 	<div id="trashcan" style="font-size:12px;font-family:roboto;letter-spacing:0px;display:inline;color:silver;"></div>
 	</li> 
 	
-	<li style ="margin-bottom: 10px">
+	<!--<li style ="margin-bottom: 10px">
 	<span  style="background-color:rgb(60,60,60);width:280px;color:rgb(150,150,150);height:25px;">Canvas:&nbsp;&nbsp;&nbsp;&nbsp;</span>
 		<select id="setcanvas" style = "background-color:rgb(60,60,60);color:white;">
 			<option value="mobile">mobile</option>
 			<option value="tablet">tablet</option>
 			<option value="desktop">desktop</option>
 		</select>
-	</li>
+	</li>-->
+	
+	<!--Use with fx-markup component (http icon) Select the cardslot1 (default text is "text") and enterany HTML code. Configure porperty options for the component
+  for font-family use a single quote for a font family name with more than one word.-->
+	<li id="demoScript" style="display:none;background-color:rgb(60,60,60);position:absolute;right: 305px;width:600px;height:500px;color:white;margin-bottom:2px;text-align:left;padding-top:10px;">
+	
+	<textarea id="setTitle0"   value="Enter Text" style="width:600px;height:500px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) dotted;text-align:left;">enter text</textarea>
+	
+	<button  id="butTitle0" style = "position:absolute;left:570px;top:520px;" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlot0(fxselelementText);joe = document.getElementById('setsize').value;"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;margin-left:5px;color:#e8c866;font-family:roboto;letter-spacing:1px;">ok</butto>
+	
+	</li> 
 	
 	<!--EXPORT SAVE AS--C:\Users\3658645\Desktop\FedEx Design System (Latest)>-->
 	<li><label for="input-fileName" style = "color:silver;">Export File</label></li>
 	<li><input type="text" class="form-control" id="input-fileName" value=""   style = "width:190px;background-color:rgb(60,60,60);color:white;"><input type="button" id="dwn-btn" value="Save File" style = "color:#e8c866;background-color:transparent;display:inline;margin-top:10px;margin-bottom:10px;"/></li>
 
-<li id="demo7" style = "padding-bottom:10px;">
-	<button  id="butedit" onclick="document.getElementById('rtf').style.display ='block';document.getElementById('iconMenu').style.display = 'none';document.getElementById('tabs').style.display = 'none';"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;">Rich Text Editor</button>
+<li id="demo" style = "padding-bottom:10px;">
+	<button  id="butEnterScript" onclick="document.getElementById('rtf').style.display ='block';document.getElementById('iconMenu').style.display = 'none';document.getElementById('tabs').style.display = 'none';"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);color:silver;font-family:roboto;letter-spacing:1px;">Rich Text Editor</button>
+	</li>	
+	
+	<script>
+	function editScript() {
+		var checkBox = document.getElementById("myCheck");
+			if (checkBox.checked == true)
+				{
+				document.getElementById("demoScript").style.display = "block";
+				} 
+				else 
+				{
+				document.getElementById("demoScript").style.display = "none";
+				}
+		}
+</script>
+	
+	<li id="demo7" style = "padding-bottom:10px;">
+	<label for="myCheck" style = "font-size:16px;color:silver;">Edit Script:</label> 
+    <input type="checkbox" id="myCheck" onclick="editScript()" style = "width:25px;height:25px;background-color:silver;">
 	</li>	
 	 
 	<li style = "padding-bottom:10px;padding-top:10px;"><span style = "color:silver;">Background Color</span><br /><input type='text' id="full" /></li>
@@ -763,9 +792,7 @@ center;z-index:3000;width:250px;">
 		</select>
   </li>
   
-  <!--Use with fx-markup component (http icon) Select the cardslot1 (default text is "text") and enterany HTML code. Configure porperty options for the component
-  for font-family use a single quote for a font family name with more than one word.-->
-	<li id="demo0" style="background-color:rgb(60,60,60);width:280px;color:white;height:145px;margin-bottom:2px;text-align:left;padding-top:10px;"><textarea id="setTitle0"   value="Enter Text" style="width:190px;height:125px;background-color:rgb(60,60,60);color:rgb(150,150,150);text-align:center;border: thin rgb(150,150,150) dotted;text-align:left;">enter text</textarea><button  id="butTitle0" onclick="var fxselelementText = document.getElementById('trashcan').innerHTML;textSlot0(fxselelementText);joe = document.getElementById('setsize').value;"  style="background-color:rgb(60,60,60);color:rgb(150,150,150);border:none;margin-left:5px;color:#e8c866;font-family:roboto;letter-spacing:1px;">ok</butto></li> 
+  
 	
 	<li id="demodropdown" style="background-color:rgb(60,60,60);width:280px;color:silver;margin-bottom:2px;text-align:left;">Dropdown Menu
 	<form action=""  >
@@ -1326,7 +1353,7 @@ newidBack = timeStamp2 + 'cardimage' ; //note: i generate unique ids for both th
 newid1 = timeStamp2 + 'cardslot1' ;
  
 $(droptarget).append(res3 +
-'<div id="' + newid1 + '" slot="element-name"    style = "font-size:32px;" ondblclick="myFunction(this)">Text</div><br />' +
+'<div id="' + newid1 + '" slot="element-name"      ondblclick="myFunction(this)">Text</div><br />' +
 '</fx-markup>');
  
 $(".fxmarkupclass").draggable( {
